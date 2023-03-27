@@ -24,7 +24,7 @@ public class HLP extends Mod{
                 dialog.show();
             });
         });
-        
+        */
     }
 
     @Override
