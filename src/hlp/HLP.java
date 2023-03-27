@@ -6,13 +6,13 @@ import arc.util.Log;
 import arc.util.Time;
 import mindustry.game.EventType;
 import mindustry.mod.*;
-import galaxia.content.*;
 import mindustry.ui.dialogs.BaseDialog;
 
 public class HLP extends Mod{
 
     public HLP(){
         Log.info("Loaded ExampleJavaMod constructor.");
+        /*
         Events.on(EventType.ClientLoadEvent.class, e -> {
             Time.runTask(10f, () -> {
 
@@ -24,6 +24,7 @@ public class HLP extends Mod{
                 dialog.show();
             });
         });
+        
     }
 
     @Override
