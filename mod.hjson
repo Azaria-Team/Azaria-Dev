@@ -1,0 +1,8 @@
+displayName: "Project HLP"
+name: "hlp"
+author: "HLP Team"
+main: "hlpHLP"
+description: "A Mindustry Java mod."
+version: 1.0
+minGameVersion: 141
+java: true
