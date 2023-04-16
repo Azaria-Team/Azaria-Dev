@@ -4,9 +4,11 @@ import arc.Core;
 import arc.Events;
 import arc.util.Log;
 import arc.util.Time;
+import hlp.utils.ManyPlanetSystems;
 import mindustry.game.EventType;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.BaseDialog;
+import hlp.content.*;
 
 public class HLP extends Mod{
 
@@ -26,8 +28,20 @@ public class HLP extends Mod{
         });
         */
     }
+    @Override
+    public void init() {
+        super.init();
+        ManyPlanetSystems.init();
+    }
 
     @Override
     public void loadContent(){
+        HLPItems.load();
+        HLPLiquids.load();
+        HLPStatusEffects.load();
+        HLPBullets.load();
+        HLPBlocks.load();
+        HLPUnits.load();
+        HLPPlanets.load();
     }
 }
