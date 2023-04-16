@@ -1,5 +1,5 @@
 package hlp;
-
+//test comment XD сус амогус!
 import arc.Core;
 import arc.Events;
 import arc.util.Log;
