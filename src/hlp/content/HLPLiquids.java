@@ -5,7 +5,6 @@ import mindustry.type.Liquid;
 
 public class HLPLiquids {
     public static Liquid
-
     pinkie;
 
     public static void load() {
