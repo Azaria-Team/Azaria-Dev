@@ -129,7 +129,6 @@ public class HLPBlocks{
         //ores
         fors = new ModOverlayFloor("fors-ore"){{
             attributes.set(HLPAttribute.forsattr, 1f);
-            size = 2;
             variants = 2;
         }};
         //endregion environment
@@ -141,7 +140,6 @@ public class HLPBlocks{
             outputItem = new ItemStack(HLPItems.fors, 2);
             craftTime = 90;
             displayEfficiency = false;
-
         }};
         //endregion drills
         //region distribution
@@ -156,7 +154,7 @@ public class HLPBlocks{
             unitType = HLPUnits.gyurza;
             health = 2000;
             itemCapacity = 2600;
-            size = 4;
+            size = 3;
             thrusterLength = 34/4f;
             armor = 2f;
             alwaysUnlocked = true;

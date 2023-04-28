@@ -23,6 +23,7 @@ public class HLPUnits {
             aiController = BuilderAI::new;
             isEnemy = false;
 
+
             targetPriority = -1;
             lowAltitude = true;
             flying = true;
