@@ -1,11 +1,20 @@
 package hlp.content;
 
+import hlp.world.blocks.environment.ModOverlayFloor;
+import mindustry.content.Items;
+import mindustry.content.UnitTypes;
+import mindustry.type.Category;
+import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.Floor;
 import mindustry.world.blocks.environment.OverlayFloor;
 import mindustry.world.blocks.environment.Prop;
 import mindustry.world.blocks.environment.StaticWall;
+import mindustry.world.blocks.production.AttributeCrafter;
+import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.meta.Attribute;
+
+import static mindustry.type.ItemStack.with;
 
 public class HLPBlocks{
     public static Block
@@ -21,9 +30,17 @@ public class HLPBlocks{
     ancientSus, serridBoulder,
 
     //ores
-    fors;
+    fors,
+
+    //drills
+    forsDrill,
+    //distribution
+
+    //core
+    coreLegion;
 
     public static void load() {
+        //region environment
         fir = new Floor("fir") {{
             variants = 4;
         }};
@@ -98,7 +115,7 @@ public class HLPBlocks{
            isLiquid = true;
         }};
 
-        //prop
+        //region prop
         ancientSus = new Prop("ancient-sus"){{
             breakable = false;
         }};
@@ -107,10 +124,49 @@ public class HLPBlocks{
             variants = 2;
             serridDust.asFloor().decoration = this;
         }};
+        //endregion prop
 
         //ores
-        fors = new OverlayFloor("fors"){{
-            attributes.set(HLPAttribute.fors, 1f);
+        fors = new ModOverlayFloor("fors-ore"){{
+            attributes.set(HLPAttribute.forsattr, 1f);
+            size = 2;
+            variants = 2;
         }};
+        //endregion environment
+        //region drills
+        forsDrill = new AttributeCrafter("fors-block"){{
+            attribute = HLPAttribute.forsattr;
+            displayEfficiencyScale = 1f / 4f;
+            minEfficiency = 4f - 0.0001f;
+            outputItem = new ItemStack(HLPItems.fors, 2);
+            craftTime = 90;
+            displayEfficiency = false;
+
+        }};
+        //endregion drills
+        //region distribution
+        //endregion distribution
+        //regionproduction
+        //endregion production
+        //region core
+        coreLegion = new CoreBlock("core-legion"){{
+            requirements(Category.effect, with(Items.graphite, 1400, Items.silicon, 1200));
+
+            isFirstTier = true;
+            unitType = HLPUnits.gyurza;
+            health = 2000;
+            itemCapacity = 2600;
+            size = 4;
+            thrusterLength = 34/4f;
+            armor = 2f;
+            alwaysUnlocked = true;
+            incinerateNonBuildable = true;
+            buildCostMultiplier = 0.7f;
+
+
+            unitCapModifier = 12;
+            researchCostMultiplier = 0.07f;
+        }};
+        //endregion core
     }
 }

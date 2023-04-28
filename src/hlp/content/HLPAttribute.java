@@ -1,9 +1,12 @@
 package hlp.content;
 
+import mindustry.world.blocks.Attributes;
 import mindustry.world.meta.Attribute;
+
+import static mindustry.world.meta.Attribute.add;
 
 public class HLPAttribute {
     public static Attribute
-            none = Attribute.add("none"),
-            fors = Attribute.add("fors");
+            none = add("none"),
+            forsattr = add("fors-attr");
 }
