@@ -76,6 +76,7 @@ public class HLPPlanets {
             alwaysUnlocked = true;
             landCloudColor = Pal.spore.cpy().a(0.5f);
             hiddenItems.addAll(Items.erekirItems).removeAll(Items.serpuloItems);
+            hiddenItems.addAll(Items.serpuloItems).removeAll(Items.erekirItems);
         }};
     }
 }
