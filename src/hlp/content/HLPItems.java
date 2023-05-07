@@ -10,19 +10,17 @@ public class HLPItems {
     fors, craside, khylid, ferbium;
     public static void load() {
         fors = new Item("fors", Color.valueOf("f3b2c1")) {{
-        hardness = 1;
         cost = 0.75f;
         }};
 
         craside = new Item("craside", Color.valueOf("d9fa96")) {{
-            hardness = 1; //test numbers
             cost = 0.6f;
         }};
 
         khylid = new Item("khylid", Color.valueOf("87d7bf")) {{
             cost = 30f;
         }};
-        ferbium = new Item("ferbium", Color.valueOf("")) {{
+        ferbium = new Item("ferbium", Color.valueOf("87d7bf")) {{
             cost = 30f;
         }};
     }
