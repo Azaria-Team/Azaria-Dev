@@ -32,7 +32,7 @@ public class HLPBlocks{
     ancientSus, serridBoulder,
 
     //ores
-    forsOre,
+    forsOre1, forsOre2,
 
     //drills
     forsDrill,
@@ -129,9 +129,11 @@ public class HLPBlocks{
         //endregion prop
 
         //ores
-        forsOre = new ModOverlayFloor("fors-ore"){{
+        forsOre1 = new ModOverlayFloor("fors-ore1"){{
             attributes.set(HLPAttribute.forsattr, 1f);
-            variants = 2;
+        }};
+        forsOre2 = new ModOverlayFloor("fors-ore2"){{
+            attributes.set(HLPAttribute.forsattr, 1f);
         }};
         //endregion environment
         //region drills
@@ -148,6 +150,7 @@ public class HLPBlocks{
             ambientSoundVolume = 0.06f;
             consumePower(0.5f);
             displayEfficiency = false;
+            size = 3;
         }};
         //endregion drills
         //region distribution
