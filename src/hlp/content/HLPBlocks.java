@@ -3,6 +3,7 @@ package hlp.content;
 import hlp.world.blocks.environment.ModOverlayFloor;
 import mindustry.content.Items;
 import mindustry.content.UnitTypes;
+import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
@@ -13,6 +14,7 @@ import mindustry.world.blocks.environment.StaticWall;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.meta.Attribute;
+import mindustry.world.meta.BlockGroup;
 
 import static mindustry.type.ItemStack.with;
 
@@ -30,7 +32,7 @@ public class HLPBlocks{
     ancientSus, serridBoulder,
 
     //ores
-    fors,
+    forsOre,
 
     //drills
     forsDrill,
@@ -127,18 +129,24 @@ public class HLPBlocks{
         //endregion prop
 
         //ores
-        fors = new ModOverlayFloor("fors-ore"){{
+        forsOre = new ModOverlayFloor("fors-ore"){{
             attributes.set(HLPAttribute.forsattr, 1f);
             variants = 2;
         }};
         //endregion environment
         //region drills
         forsDrill = new AttributeCrafter("fors-block"){{
+            requirements(Category.production, with(HLPItems.fors, 20));
             attribute = HLPAttribute.forsattr;
-            displayEfficiencyScale = 1f / 4f;
-            minEfficiency = 4f - 0.0001f;
+            group = BlockGroup.liquids;
+            minEfficiency = 9f - 0.0001f;
+            baseEfficiency = 0f;
+            boostScale = 1f / 9f;
             outputItem = new ItemStack(HLPItems.fors, 2);
             craftTime = 90;
+            ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
+            consumePower(0.5f);
             displayEfficiency = false;
         }};
         //endregion drills
@@ -151,13 +159,12 @@ public class HLPBlocks{
             requirements(Category.effect, with(Items.graphite, 1400, Items.silicon, 1200));
 
             isFirstTier = true;
-            unitType = HLPUnits.gyurza;
+            unitType = UnitTypes.alpha;
             health = 2000;
             itemCapacity = 2600;
             size = 3;
             armor = 2f;
             alwaysUnlocked = true;
-            buildCostMultiplier = 0.7f;
 
             unitCapModifier = 12;
         }};
