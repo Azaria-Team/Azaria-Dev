@@ -41,7 +41,7 @@ public class HLPUnits {
             hitSize = 9f;
             faceTarget = false;
 
-            constructor = UnitEntity::;
+            constructor = UnitEntity::create;
 
             weapons.add(
             new Weapon(){{
