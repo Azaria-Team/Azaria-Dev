@@ -22,6 +22,7 @@ public class HLPUnits {
         gyurza = new UnitType("gyurza") {{
             aiController = BuilderAI::new;
             isEnemy = false;
+            envDisabled = 0;
 
 
             targetPriority = -1;
@@ -40,7 +41,7 @@ public class HLPUnits {
             hitSize = 9f;
             faceTarget = false;
 
-            constructor = UnitEntity::create;
+            constructor = UnitEntity::;
 
             weapons.add(
             new Weapon(){{
