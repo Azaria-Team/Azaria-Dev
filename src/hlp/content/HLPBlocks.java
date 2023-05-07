@@ -159,9 +159,7 @@ public class HLPBlocks{
             alwaysUnlocked = true;
             buildCostMultiplier = 0.7f;
 
-
             unitCapModifier = 12;
-            researchCostMultiplier = 0.07f;
         }};
         //endregion core
     }
