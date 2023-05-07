@@ -155,10 +155,8 @@ public class HLPBlocks{
             health = 2000;
             itemCapacity = 2600;
             size = 3;
-            thrusterLength = 34/4f;
             armor = 2f;
             alwaysUnlocked = true;
-            incinerateNonBuildable = true;
             buildCostMultiplier = 0.7f;
 
 
