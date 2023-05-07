@@ -44,7 +44,7 @@ public class HLPUnits {
             constructor = UnitEntity::create;
 
             weapons.add(
-            new Weapon(){{
+            new Weapon("none"){{
                 x = y = 0f;
                 mirror = false;
                 reload = 30f;
