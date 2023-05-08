@@ -164,7 +164,7 @@ public class HLPBlocks{
             requirements(Category.effect, with(Items.graphite, 1400, Items.silicon, 1200));
 
             isFirstTier = true;
-            unitType = UnitTypes.alpha;
+            unitType = HLPUnits.gyurza;
             health = 2000;
             itemCapacity = 2600;
             size = 3;
