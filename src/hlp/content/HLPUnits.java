@@ -20,12 +20,11 @@ public class HLPUnits {
     public static void load() {
         //core
         gyurza = new UnitType("gyurza") {{
+            constructor = UnitEntity::create;
+
             aiController = BuilderAI::new;
             isEnemy = false;
-            envDisabled = 0;
 
-
-            targetPriority = -1;
             lowAltitude = true;
             flying = true;
             mineSpeed = 8f;
@@ -39,16 +38,13 @@ public class HLPUnits {
             health = 230f;
             engineOffset = 6f;
             hitSize = 9f;
-            faceTarget = false;
-
-            constructor = UnitEntity::create;
+            alwaysUnlocked = true;
 
             weapons.add(
-            new Weapon("none"){{
+            new Weapon(){{
                 x = y = 0f;
                 mirror = false;
-                reload = 30f;
-                minShootVelocity = 0.01f;
+                reload = 20f;
 
                 soundPitchMin = 1f;
                 shootSound = Sounds.flame;
