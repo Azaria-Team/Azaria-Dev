@@ -42,5 +42,6 @@ public class HLP extends Mod{
         HLPBlocks.load();
         HLPUnits.load();
         HLPPlanets.load();
+        HLPTechTree.load();
     }
 }

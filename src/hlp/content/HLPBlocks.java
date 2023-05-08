@@ -140,16 +140,16 @@ public class HLPBlocks{
             requirements(Category.production, with(HLPItems.fors, 20));
             attribute = HLPAttribute.forsattr;
             group = BlockGroup.liquids;
-            minEfficiency = 9f - 0.0001f;
+            minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
-            boostScale = 1f / 9f;
+            boostScale = 1f / 4f;
             outputItem = new ItemStack(HLPItems.fors, 2);
             craftTime = 90;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             consumePower(0.5f);
             displayEfficiency = false;
-            size = 3;
+            size = 2;
         }};
         //endregion drills
         //region distribution
