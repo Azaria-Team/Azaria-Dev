@@ -130,9 +130,11 @@ public class HLPBlocks{
 
         //ores
         forsOre1 = new ModOverlayFloor("fors-ore1"){{
+            parent = blendGroup = fir;
             attributes.set(HLPAttribute.forsattr, 1f);
         }};
         forsOre2 = new ModOverlayFloor("fors-ore2"){{
+            parent = blendGroup = forenite;
             attributes.set(HLPAttribute.forsattr, 1f);
         }};
         //endregion environment
