@@ -32,7 +32,7 @@ public class HLPBlocks{
     ancientSus, serridBoulder,
 
     //ores
-    forsOre1,
+    forsOre1, khylidOre1,
 
     //drills
     forsDrill,
@@ -133,6 +133,11 @@ public class HLPBlocks{
             parent = blendGroup = fir;
             variants = 2;
             attributes.set(HLPAttribute.forsattr, 1f);
+        }};
+        khylidOre1 = new ModOverlayFloor(("khylid-ore")) {{
+           parent = blendGroup = mainLiquid;
+           variants = 2;
+           attributes.set(HLPAttribute.khylidattr, 1f);
         }};
         //endregion environment
         //region drills

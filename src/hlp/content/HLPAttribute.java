@@ -8,5 +8,6 @@ import static mindustry.world.meta.Attribute.add;
 public class HLPAttribute {
     public static Attribute
             none = add("none"),
-            forsattr = add("fors-attr");
+            forsattr = add("fors-attr"),
+            khylidattr = add("khylid-attr");
 }
