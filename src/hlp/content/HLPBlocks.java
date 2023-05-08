@@ -32,7 +32,7 @@ public class HLPBlocks{
     ancientSus, serridBoulder,
 
     //ores
-    forsOre1, forsOre2,
+    forsOre1,
 
     //drills
     forsDrill,
@@ -129,12 +129,9 @@ public class HLPBlocks{
         //endregion prop
 
         //ores
-        forsOre1 = new ModOverlayFloor("fors-ore1"){{
+        forsOre1 = new ModOverlayFloor("fors-ore"){{
             parent = blendGroup = fir;
-            attributes.set(HLPAttribute.forsattr, 1f);
-        }};
-        forsOre2 = new ModOverlayFloor("fors-ore2"){{
-            parent = blendGroup = forenite;
+            variants = 2;
             attributes.set(HLPAttribute.forsattr, 1f);
         }};
         //endregion environment
