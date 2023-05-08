@@ -41,7 +41,7 @@ public class HLPUnits {
             engineOffset = 6f;
             hitSize = 9f;
             alwaysUnlocked = true;
-            outlineColor = Pal.darkOutline; //YA XZ POCHEMU ONO NE HOCHET DELAT AureliaOutline
+            outlineColor = Pal.darkOutline; //YA XZ POCHEMU ONO NE RABOTAET
 
             weapons.add(
             new Weapon(){{
