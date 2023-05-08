@@ -39,8 +39,9 @@ public class HLP extends Mod{
         HLPLiquids.load();
         HLPStatusEffects.load();
         HLPBullets.load();
-        HLPBlocks.load();
         HLPUnits.load();
+        HLPBlocks.load();
         HLPPlanets.load();
+        HLPTechTree.load();
     }
 }
