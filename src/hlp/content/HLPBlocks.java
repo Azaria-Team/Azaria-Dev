@@ -130,7 +130,7 @@ public class HLPBlocks{
 
         //ores
         forsOre1 = new ModOverlayFloor("fors-ore"){{
-            parent = blendGroup = fir;
+            parent = blendGroup = forsite;
             variants = 2;
             attributes.set(HLPAttribute.forsattr, 1f);
         }};

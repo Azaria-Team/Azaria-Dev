@@ -11,11 +11,13 @@ import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 
+
 import static mindustry.Vars.tilesize;
 
 public class HLPUnits {
     public static UnitType
-            gyurza;
+            //aurelia core units
+            gyurza; /*veresk, vortex;*/
 
     public static void load() {
         //core
@@ -39,6 +41,7 @@ public class HLPUnits {
             engineOffset = 6f;
             hitSize = 9f;
             alwaysUnlocked = true;
+            outlineColor = Pal.darkOutline; //YA XZ POCHEMU ONO NE HOCHET DELAT AureliaOutline
 
             weapons.add(
             new Weapon(){{
