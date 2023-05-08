@@ -1,6 +1,7 @@
 package hlp.content;
 
 import arc.graphics.Color;
+import hlp.graphics.HPLPal;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
@@ -41,7 +42,7 @@ public class HLPUnits {
             engineOffset = 6f;
             hitSize = 9f;
             alwaysUnlocked = true;
-            outlineColor = Pal.darkOutline; //YA XZ POCHEMU ONO NE RABOTAET
+            outlineColor = HPLPal.aureliaOutline;
 
             weapons.add(
             new Weapon(){{
