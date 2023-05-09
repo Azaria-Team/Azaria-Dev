@@ -19,101 +19,99 @@ import static mindustry.type.ItemStack.with;
 public class HLPBlocks{
     public static Block
     //environment
-
-    fir, firWall, forenite, foreniteWall, forsite, forsiteWall, infernoCrystal, infernoCrystalWall,
-
-    seaSerrid, seaSerridWall, serridDust, serridDustWall, spaceRock, spaceRockWall, uberraschung, uberraschungWall,
-    //liquids and each other...
-    mainLiquid, pinkieFloor,
+    seaSerrid, seaSerridWall, crabStone, crabStoneWall, mainlFloor, mainlDeepFloor, whiteChips, whiteChipsWall,
+    fir, firWall, forenite, foreniteWall, forsite, forsiteWall,
+    spaceRock, spaceRockWall, terra, terraWall,
+    //liquids
+    pinkieFloor,
 
     //prop
-    ancientSus, serridBoulder,
+    ancientSus, crabStoneBoulder, forsiteBoulder, forsBoulder,
 
     //ores
-    forsOre1, khylidOre1,
+    forsOre, khylidOre,
 
     //drills
     forsDrill,
     //distribution
     //defense
     forsWall,
-
-    //def
-    //forsWall, forsWallLarge,
-    //core
     coreLegion;
 
     public static void load() {
         //region environment
-        fir = new Floor("fir") {{
-            variants = 4;
-        }};
-
-        firWall = new StaticWall("fir-wall") {{
-            variants = 3;
-        }};
-
-        forenite = new Floor("forenite") {{
-            variants = 4;
-        }};
-
-        foreniteWall = new StaticWall("forenite-wall") {{
-            variants = 3;
-        }};
-
-        forsite = new Floor("forsite") {{
-            variants = 3;
-        }};
-
-        forsiteWall = new StaticWall("forsite-wall") {{
-            variants = 3;
-        }};
-
-        infernoCrystal = new Floor("inferno-crystal") {{
-            variants = 4;
-        }};
-
-        infernoCrystalWall = new StaticWall("inferno-crystal-wall") {{
-            variants = 3;
-        }};
-
+        //region biomes
+        //region seaBiome
         seaSerrid = new Floor("sea-serrid") {{
-            variants = 3;
+            variants = 4;
         }};
-
         seaSerridWall = new StaticWall("sea-serrid-wall") {{
             variants = 3;
         }};
-
-        serridDust = new Floor("serrid-dust") {{
-            variants = 4;
+        crabStone = new Floor("crab-stone") {{
+           variants = 4;
         }};
-
-        serridDustWall = new StaticWall("serrid-dust-wall") {{
+        crabStoneWall = new StaticWall("crab-stone-wall") {{
             variants = 3;
         }};
-
-        spaceRock = new Floor("space-rock") {{
-            variants = 4;
+        crabStoneBoulder = new Prop("crab-stone-boulder"){{
+            variants = 2;
+            crabStone.asFloor().decoration = this;
         }};
-
-        spaceRockWall = new StaticWall("space-rock-wall") {{
-            variants = 3;
-        }};
-
-        uberraschung = new Floor("uberraschung") {{
-            variants = 4;
-        }};
-
-        uberraschungWall = new StaticWall("uberraschung-wall") {{
-            variants = 3;
-        }};
-        //LIQUIDS/ZHYZHA
-        mainLiquid = new Floor("main-liquid") {{
+        mainlFloor = new Floor("mainl-floor") {{
             variants = 4;
             isLiquid = true;
         }};
-
+        mainlDeepFloor = new Floor("mainl-deep-floor") {{
+            variants = 4;
+            isLiquid = true;
+        }};
+        //endregion seaBiome
+        //region forestBiome
+        forenite = new Floor("forenite") {{
+            variants = 4;
+        }};
+        foreniteWall = new StaticWall("forenite-wall") {{
+            variants = 3;
+        }};
+        fir = new Floor("fir") {{
+            variants = 4;
+        }};
+        firWall = new StaticWall("fir-wall") {{
+            variants = 3;
+        }};
+        forsite = new Floor("forsite") {{
+            variants = 3;
+        }};
+        forsiteWall = new StaticWall("forsite-wall") {{
+            variants = 3;
+        }};
+        forsiteBoulder = new Prop("forsite-boulder") {{
+            variants = 2;
+        }};
+        forsBoulder = new Prop("fors-boulder") {{
+            variants = 2;
+        }};
+        spaceRock = new Floor("space-rock") {{
+            variants = 4;
+        }};
+        spaceRockWall = new StaticWall("space-rock-wall") {{
+            variants = 3;
+        }};
+        //endregion forestBiome
+        //region otherBiomes
+        whiteChips = new Floor("white-chips") {{
+            variants = 4;
+        }};
+        whiteChipsWall = new StaticWall("white-chips-wall") {{
+            variants = 3;
+        }};
+        terra = new Floor("terra") {{
+            variants = 4;
+        }};
+        terraWall = new StaticWall("terra-wall") {{
+            variants = 3;
+        }};
         pinkieFloor = new Floor("pinkie-floor"){{
            variants = 4;
            isLiquid = true;
@@ -125,21 +123,16 @@ public class HLPBlocks{
             variants = 1;
             clipSize = 96f;
         }};
-
-        serridBoulder = new Prop("serrid-boulder"){{
-            variants = 2;
-            serridDust.asFloor().decoration = this;
-        }};
         //endregion prop
 
         //ores
-        forsOre1 = new ModOverlayFloor("fors-ore"){{
+        forsOre = new ModOverlayFloor("fors-ore"){{
             parent = blendGroup = forsite;
             variants = 2;
             attributes.set(HLPAttribute.forsattr, 1f);
         }};
-        khylidOre1 = new ModOverlayFloor(("khylid-ore")) {{
-           parent = blendGroup = mainLiquid;
+        khylidOre = new ModOverlayFloor(("khylid-ore")) {{
+           parent = blendGroup = mainlFloor;
            variants = 2;
            attributes.set(HLPAttribute.khylidattr, 1f);
         }};
