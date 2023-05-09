@@ -102,7 +102,7 @@ public class HLPBlocks{
         //region otherBiomes
         whiteChips = new Floor("white-chips") {{
             variants = 4;
-        }};
+        }};//a
         whiteChipsWall = new StaticWall("white-chips-wall") {{
             variants = 3;
         }};
