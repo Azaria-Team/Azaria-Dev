@@ -55,7 +55,7 @@ public class HLPBlocks{
             variants = 3;
         }};
         crabStoneBoulder = new Prop("crab-stone-boulder"){{
-            variants = 2;
+            variants = 3;
             crabStone.asFloor().decoration = this;
         }};
         mainlFloor = new Floor("mainl-floor") {{
