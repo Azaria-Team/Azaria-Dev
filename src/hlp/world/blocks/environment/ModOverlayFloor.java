@@ -26,19 +26,18 @@ public class ModOverlayFloor extends Floor{
              */
 
             new Point2(0, 0),
+            new Point2(1, 0),
+            new Point2(1, -1),
             new Point2(0, -1),
-            new Point2(-1, 0),
-            new Point2(-1, -1),
 
     };
     public Block parent = Blocks.air;
 
     static{
         for(var p : offsets){
-            p.sub(1, 1);
+            p.sub(1, 0);
         }
     }
-
     public ModOverlayFloor(String name){
         super(name);
         useColor = false;
