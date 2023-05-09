@@ -1,12 +1,42 @@
 package hlp.content;
 
 import arc.graphics.Color;
+import arc.graphics.g2d.Fill;
+import arc.graphics.g2d.Lines;
 import arc.math.Mathf;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
 import mindustry.entities.Effect;
+import mindustry.graphics.Pal;
+
+import static arc.graphics.g2d.Draw.color;
+import static arc.graphics.g2d.Lines.lineAngle;
+import static arc.graphics.g2d.Lines.stroke;
+import static arc.math.Angles.randLenVectors;
 
 public class HLPFx {
+    public static final Effect
+
+    explosionSmall = new Effect(30, e -> {
+        e.scaled(7, i -> {
+            stroke(3f * i.fout());
+            Lines.circle(e.x, e.y, 3f + i.fin() * 10f);
+        });
+
+        color(Color.gray);
+
+        randLenVectors(e.id, 6, 2f + 19f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 3f + 0.5f);
+            Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
+        });
+
+        color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 1, 8, 1f + 23f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 3f);
+        });
+    });
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {
         Seq<Vec2> lines = new Seq<>();

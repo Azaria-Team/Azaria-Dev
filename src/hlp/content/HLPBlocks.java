@@ -1,6 +1,7 @@
 package hlp.content;
 
 import hlp.world.blocks.environment.ModOverlayFloor;
+import hlp.world.blocks.power.LightningPowerNode;
 import mindustry.content.Items;
 import mindustry.content.UnitTypes;
 import mindustry.gen.Sounds;
@@ -8,6 +9,7 @@ import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
+import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
@@ -31,9 +33,16 @@ public class HLPBlocks{
     //ores
     forsOre, khylidOre,
 
+    //power
+    plasmaNode, plasmaNodeLarge,
+    plasmaDistributor, plasmaDistributorLarge,
+
     //drills
     forsDrill,
+
     //distribution
+    impulseConveyor,
+
     //defense
     forsWall,
     coreLegion;
@@ -123,7 +132,6 @@ public class HLPBlocks{
         ancientSus = new Prop("ancient-sus"){{
             breakable = false;
             size = 1;
-            variants = 1;
             solid = true;
         }};
         //endregion prop
@@ -140,6 +148,42 @@ public class HLPBlocks{
            attributes.set(HLPAttribute.khylidattr, 1f);
         }};
         //endregion environment
+        //region power
+        plasmaNode = new LightningPowerNode("plasma-node", 0){{
+            requirements(Category.power, with(HLPItems.khylid, 30));
+            consumePowerBuffered(4000f);
+            lightningRange = 16 * 8f;
+            thresholdPerTile = 25f / 8;
+        }};
+
+        plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0){{
+            //todo crafting
+            requirements(Category.power, with(HLPItems.khylid, 40));
+            consumePowerBuffered(30000f);
+            size = 2;
+            lightningRange = 29 * 8f;
+            thresholdPerTile = 60f / 8;
+        }};
+
+        plasmaDistributor = new LightningPowerNode("plasma-distributor", 12){{
+            requirements(Category.power, with(HLPItems.khylid, 40));
+            size = 2;
+            consumePowerBuffered(7500f);
+            lightningRange = 9 * 8f;
+            laserRange = 7;
+            thresholdPerTile = 10f / 8;
+        }};
+
+        plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24){{
+            //todo crafting
+            requirements(Category.power, with(HLPItems.khylid, 55));
+            consumePowerBuffered(55000f);
+            size = 3;
+            lightningRange = 16 * 8f;
+            laserRange = 12;
+            thresholdPerTile = 40f / 8;
+        }};
+        //endregion power
         //region drills
         forsDrill = new AttributeCrafter("fors-block"){{
             requirements(Category.production, with(HLPItems.fors, 20));
@@ -158,6 +202,12 @@ public class HLPBlocks{
         }};
         //endregion drills
         //region distribution
+        impulseConveyor = new Duct("impulse-conveyor"){{
+            requirements(Category.distribution, with(HLPItems.fors, 1));
+            health = 90;
+            speed = 5f;
+            researchCost = with(HLPItems.fors, 5);
+        }};
         //endregion distribution
         //region production
         //endregion production
