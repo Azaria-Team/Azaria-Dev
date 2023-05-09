@@ -39,8 +39,9 @@ public class HLPUnits {
             accel = 0.1f;
             itemCapacity = 50;
             health = 230f;
-            engineOffset = 6f;
-            hitSize = 9f;
+            engineSize = 1.8f;
+            engineOffset = 5.7f;
+            hitSize = 8f;
             alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;
 

@@ -38,6 +38,8 @@ public class HLPBlocks{
     forsDrill,
     //distribution
 
+    //def
+    //forsWall, forsWallLarge,
     //core
     coreLegion;
 
