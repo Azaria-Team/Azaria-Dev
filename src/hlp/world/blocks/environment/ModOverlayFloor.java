@@ -26,8 +26,8 @@ public class ModOverlayFloor extends Floor{
              */
 
             new Point2(0, 0),
-            new Point2(1, 0),
-            new Point2(1, -1),
+            new Point2(-1, 0),
+            new Point2(-1, 1),
             new Point2(0, -1),
 
     };
