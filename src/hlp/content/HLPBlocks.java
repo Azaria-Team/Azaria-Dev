@@ -122,7 +122,7 @@ public class HLPBlocks{
         //region prop
         ancientSus = new Prop("ancient-sus"){{
             breakable = false;
-            size = 3;
+            size = 1;
             variants = 1;
             solid = true;
         }};
