@@ -120,10 +120,11 @@ public class HLPBlocks{
         }};
 
         //region prop
-        ancientSus = new TallBlock("ancient-sus"){{
+        ancientSus = new Prop("ancient-sus"){{
             breakable = false;
+            size = 3;
             variants = 1;
-            clipSize = 96f;
+            solid = true;
         }};
 
         serridBoulder = new Prop("serrid-boulder"){{
