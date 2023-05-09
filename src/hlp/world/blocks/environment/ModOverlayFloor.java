@@ -38,7 +38,6 @@ public class ModOverlayFloor extends Floor{
             p.sub(1, 0);
         }
     }
-
     public ModOverlayFloor(String name){
         super(name);
         useColor = false;

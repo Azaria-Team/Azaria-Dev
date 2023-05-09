@@ -7,10 +7,8 @@ import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
-import mindustry.world.blocks.environment.Floor;
-import mindustry.world.blocks.environment.OverlayFloor;
-import mindustry.world.blocks.environment.Prop;
-import mindustry.world.blocks.environment.StaticWall;
+import mindustry.world.blocks.defense.Wall;
+import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.meta.Attribute;
@@ -37,6 +35,8 @@ public class HLPBlocks{
     //drills
     forsDrill,
     //distribution
+    //defense
+    forsWall,
 
     //def
     //forsWall, forsWallLarge,
@@ -120,8 +120,10 @@ public class HLPBlocks{
         }};
 
         //region prop
-        ancientSus = new Prop("ancient-sus"){{
+        ancientSus = new TallBlock("ancient-sus"){{
             breakable = false;
+            variants = 1;
+            clipSize = 96f;
         }};
 
         serridBoulder = new Prop("serrid-boulder"){{
@@ -161,8 +163,16 @@ public class HLPBlocks{
         //endregion drills
         //region distribution
         //endregion distribution
-        //regionproduction
+        //region production
         //endregion production
+        //region defense
+        forsWall = new Wall("fors-wall"){{
+            requirements(Category.defense, with(HLPItems.fors, 6));
+            health = 120 * 4;
+            armor = 2f;
+            buildCostMultiplier = 8f;
+        }};
+        //endregion defense
         //region core
         coreLegion = new CoreBlock("core-legion"){{
             requirements(Category.effect, with(Items.graphite, 1400, Items.silicon, 1200));
