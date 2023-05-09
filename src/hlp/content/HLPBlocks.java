@@ -120,7 +120,7 @@ public class HLPBlocks{
         //region prop
         ancientSus = new TallBlock("ancient-sus"){{
             breakable = false;
-            variants = 3;
+            variants = 1;
             clipSize = 96f;
         }};
 
