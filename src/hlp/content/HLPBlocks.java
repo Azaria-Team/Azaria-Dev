@@ -88,9 +88,11 @@ public class HLPBlocks{
         }};
         forsiteBoulder = new Prop("forsite-boulder") {{
             variants = 2;
+            forsite.asFloor().decoration = this;
         }};
         forsBoulder = new Prop("fors-boulder") {{
             variants = 2;
+            forsite.asFloor().decoration = this;
         }};
         spaceRock = new Floor("space-rock") {{
             variants = 4;
