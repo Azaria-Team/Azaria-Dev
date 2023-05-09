@@ -35,7 +35,7 @@ public class ModOverlayFloor extends Floor{
 
     static{
         for(var p : offsets){
-            p.sub(1, 0);
+            p.sub(0, 0);
         }
     }
 
