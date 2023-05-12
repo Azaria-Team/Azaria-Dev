@@ -1,13 +1,16 @@
 package hlp.content;
 
 import arc.graphics.Color;
+import hlp.entities.bullet.VogBulletType;
 import hlp.graphics.HPLPal;
+import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.FlakBulletType;
 import mindustry.gen.Sounds;
 import mindustry.gen.UnitEntity;
+import mindustry.gen.UnitWaterMove;
 import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
@@ -18,10 +21,11 @@ import static mindustry.Vars.tilesize;
 public class HLPUnits {
     public static UnitType
             //aurelia core units
-            gyurza; /*veresk, vortex;*/
-
+            gyurza,  /*veresk, vortex;*/
+            //angelshark unit tree
+            angelshark, glcucus;
     public static void load() {
-        //core
+        //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
             constructor = UnitEntity::create;
 
@@ -86,5 +90,30 @@ public class HLPUnits {
                 }};
             }});
         }};
+        //endregion aureliaCoreUnits
+        //region angelsharkTree
+        angelshark = new UnitType("angelshark") {{
+            speed = 0.72f;
+            drag = 0.12f;
+            hitSize = 12f;
+            health = 230;
+            accel = 0.2f;
+            drag = 0.05f;
+            rotateSpeed = 2.9f;
+            faceTarget = true; //do not forget to put false here
+
+            range = 25 * Vars.tilesize;
+            constructor = UnitWaterMove::create;
+
+            weapons.add(new Weapon("vog-launcher") {{
+                reload = 45f;
+                shootY = 2f;
+                rotate = true;
+                bullet = new VogBulletType(5f, 20) {{
+                    lifetime = 60f;
+                }};
+            }});
+        }};
+        //endregion angelsharkTree
     }
 }
