@@ -104,6 +104,7 @@ public class HLPUnits {
 
             range = 25 * Vars.tilesize;
             constructor = UnitWaterMove::create;
+            outlineColor = HPLPal.aureliaOutline;
 
             weapons.add(new Weapon("vog-launcher") {{
                 reload = 45f;
