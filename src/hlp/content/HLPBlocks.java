@@ -5,6 +5,7 @@ import hlp.world.blocks.power.LightningPowerNode;
 import mindustry.content.Items;
 import mindustry.content.UnitTypes;
 import mindustry.gen.Sounds;
+import mindustry.graphics.CacheLayer;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
@@ -70,10 +71,14 @@ public class HLPBlocks{
         mainlFloor = new Floor("mainl-floor") {{
             variants = 4;
             isLiquid = true;
+            cacheLayer = CacheLayer.water;
+
         }};
         mainlDeepFloor = new Floor("mainl-deep-floor") {{
             variants = 4;
             isLiquid = true;
+            cacheLayer = CacheLayer.water;
+
         }};
         //endregion seaBiome
         //region forestBiome
@@ -126,6 +131,8 @@ public class HLPBlocks{
         pinkieFloor = new Floor("pinkie-floor"){{
            variants = 4;
            isLiquid = true;
+            cacheLayer = CacheLayer.water;
+
         }};
 
         //region prop
