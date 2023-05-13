@@ -180,7 +180,7 @@ public class HLPUnits {
                         y = -4;
                         mirror = true;
                         alternate = false;
-                        baseRotation = -45f;
+                        baseRotation = -145f;
                         shootCone = 360f;
                         shoot = new ShootSpread(1, 10f);
                         bullet = new AimBulletType(3f, 20, "missile") {{
