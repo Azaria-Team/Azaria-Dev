@@ -7,6 +7,7 @@ import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.FlakBulletType;
+import mindustry.entities.bullet.MissileBulletType;
 import mindustry.gen.Sounds;
 import mindustry.gen.UnitEntity;
 import mindustry.gen.UnitWaterMove;
@@ -114,7 +115,7 @@ public class HLPUnits {
                 reload = 45f;
                 shootY = 2f;
                 rotate = true;
-                bullet = new BasicBulletType(5f, 20, "hlp-vog") {{
+                bullet = new MissileBulletType(5f, 20, "hlp-vog") {{
                     backColor = HLPPal.vogPinkBack;
                     frontColor = HLPPal.vogPink;
                     homingPower = 0.08f;
@@ -122,6 +123,7 @@ public class HLPUnits {
                     width = 8f;
                     height = 14f;
                     hitSound = Sounds.explosion;
+                    trailEffect = HLPFx.vogTrail;
                     trailRotation = true;
                     trailInterval = 0.5f;
                     lifetime = 60f;

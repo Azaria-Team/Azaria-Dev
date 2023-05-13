@@ -42,7 +42,7 @@ public class HLPFx {
         });
     }),
 
-    disperseTrail = new Effect(13, e -> {
+    vogTrail = new Effect(13, e -> {
         color(HLPPal.vogPink, HLPPal.vogPinkBack, e.fin());
         stroke(0.2f + e.fout() * 0.6f);
         rand.setSeed(e.id);
