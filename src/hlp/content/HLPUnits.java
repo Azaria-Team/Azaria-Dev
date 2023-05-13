@@ -152,10 +152,10 @@ public class HLPUnits {
                         mirror = true;
                         alternate = false;
                         layerOffset = -0.0001f;
-                        baseRotation = -45f;
+                        baseRotation = -65f;
                         shootCone = 360f;
                         shoot = new ShootSpread(1, 10f);
-                        bullet = new AimBulletType(3f, 20, "missile") {{
+                        bullet = new AimBulletType(3f, 26, "missile") {{
                             backColor = HLPPal.vogPinkBack;
                             frontColor = HLPPal.vogPink;
                             maxRange = 190;
@@ -182,10 +182,10 @@ public class HLPUnits {
                         mirror = true;
                         alternate = false;
                         layerOffset = -0.0001f;
-                        baseRotation = -145f;
+                        baseRotation = -165f;
                         shootCone = 360f;
                         shoot = new ShootSpread(1, 10f);
-                        bullet = new AimBulletType(3f, 20, "missile") {{
+                        bullet = new AimBulletType(3f, 26, "missile") {{
                             backColor = HLPPal.vogPinkBack;
                             frontColor = HLPPal.vogPink;
                             homingPower = 0.06f;
