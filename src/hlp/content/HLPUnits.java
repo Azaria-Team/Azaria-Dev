@@ -147,8 +147,8 @@ public class HLPUnits {
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;
-                        x = 5;
-                        y = 6;
+                        x = 3;
+                        y = 4;
                         mirror = true;
                         alternate = false;
                         layerOffset = -0.0001f;
@@ -170,15 +170,15 @@ public class HLPUnits {
                             trailEffect = HLPFx.paimMissileTrail;
                             trailRotation = true;
                             trailInterval = 0.5f;
-                            lifetime = 120f;
+                            lifetime = 180f;
                         }};
                     }},
                     new Weapon("hlp-plasma-pointer") {{
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;
-                        x = 5;
-                        y = -6;
+                        x = 3;
+                        y = 4;
                         mirror = true;
                         alternate = false;
                         layerOffset = -0.0001f;
@@ -199,7 +199,7 @@ public class HLPUnits {
                             trailEffect = HLPFx.paimMissileTrail;
                             trailRotation = true;
                             trailInterval = 0.5f;
-                            lifetime = 120f;
+                            lifetime = 180f;
                         }};
                     }});
         }};
