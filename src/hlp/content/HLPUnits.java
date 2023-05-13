@@ -53,7 +53,7 @@ public class HLPUnits {
             new Weapon(){{
                 x = y = 0f;
                 mirror = false;
-                reload = 10f;
+                reload = 30f;
 
                 soundPitchMin = 1f;
                 shootSound = Sounds.flame;
@@ -80,15 +80,15 @@ public class HLPUnits {
                     collidesAir = true;
                     collidesGround = true;
 
-                    lifetime = 70f;
+                    lifetime = 80f;
 
                     hitEffect = Fx.massiveExplosion;
                     keepVelocity = false;
 
                     speed = 0f;
-                    damage = 60;
+                    damage = 15;
 
-                    splashDamage = 40f;
+                    splashDamage = 20f;
                     splashDamageRadius = 100f;
                 }};
             }});
@@ -112,7 +112,7 @@ public class HLPUnits {
             outlineColor = HLPPal.aureliaOutline;
 
             weapons.add(new Weapon("hlp-vog-launcher") {{
-                reload = 45f;
+                reload = 30f;
                 shootY = 2f;
                 rotate = true;
                 bullet = new MissileBulletType(5f, 20, "hlp-vog") {{
@@ -120,7 +120,7 @@ public class HLPUnits {
                     frontColor = HLPPal.vogPink;
                     homingPower = 0.08f;
                     shrinkY = 0.3f;
-                    width = 8f;
+                    width = 10f;
                     height = 14f;
                     hitSound = Sounds.explosion;
                     trailEffect = HLPFx.vogTrail;
