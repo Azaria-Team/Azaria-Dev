@@ -22,19 +22,20 @@ public class HLPFx {
     public static final Effect
 
     explosionSmall = new Effect(30, e -> {
+        color(HLPPal.vogPink);
         e.scaled(7, i -> {
             stroke(3f * i.fout());
             Lines.circle(e.x, e.y, 3f + i.fin() * 10f);
         });
 
-        color(Color.gray);
+        color(HLPPal.vogPink);
 
         randLenVectors(e.id, 6, 2f + 19f * e.finpow(), (x, y) -> {
             Fill.circle(e.x + x, e.y + y, e.fout() * 3f + 0.5f);
             Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
         });
 
-        color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, Color.pink, e.fin());
         stroke(1.5f * e.fout());
 
         randLenVectors(e.id + 1, 8, 1f + 23f * e.finpow(), (x, y) -> {

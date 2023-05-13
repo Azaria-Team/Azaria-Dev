@@ -123,6 +123,7 @@ public class HLPUnits {
                     width = 10f;
                     height = 14f;
                     hitSound = Sounds.explosion;
+                    hitEffect = HLPFx.explosionSmall;
                     trailEffect = HLPFx.vogTrail;
                     trailRotation = true;
                     trailInterval = 0.5f;
