@@ -4,6 +4,7 @@ import acontent.world.meta.*;
 import arc.*;
 import arc.audio.*;
 import arc.graphics.*;
+import arc.graphics.g2d.TextureRegion;
 import arc.math.*;
 import arc.struct.*;
 import arc.util.*;
@@ -36,6 +37,8 @@ public class LightningPowerNode extends PowerNode {
     public Sound lightningSound = Sounds.spark;
 
     AStats aStats = new AStats();
+    TextureRegion laser;
+    TextureRegion laserEnd;
 
     public LightningPowerNode(String name, int maxNodes) {
         super(name);
@@ -48,6 +51,15 @@ public class LightningPowerNode extends PowerNode {
         stats = aStats.copy(stats);
         if(maxNodes == 0) configurable = false;
         laserColor2 = HLPPal.lightningNodeColor;
+    }
+
+    @Override
+    public void load(){
+        super.load();
+        laser = Core.atlas.find(name+"-aurlaser");
+        laser = Core.atlas.find("@-aurlaser");
+        laserEnd = Core.atlas.find(name+"-aurlaser-end");
+        laserEnd = Core.atlas.find("@-aurlaser-end");
     }
 
     @Override

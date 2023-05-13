@@ -30,7 +30,7 @@ public class HLPFx {
 
         color(HLPPal.vogPink);
 
-        randLenVectors(e.id, 6, 2f + 19f * e.finpow(), (x, y) -> {
+        randLenVectors(e.id, 7, 2f + 19f * e.finpow(), (x, y) -> {
             Fill.circle(e.x + x, e.y + y, e.fout() * 3f + 0.5f);
             Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
         });
@@ -43,9 +43,24 @@ public class HLPFx {
         });
     }),
 
+    explosionSmall2 = new Effect(20, e -> {
+        color(HLPPal.vogPink);
+        e.scaled(8, i -> {
+            stroke(2f * i.fout());
+            Lines.circle(e.x, e.y, 2f + i.fin() * 5f);
+        });
+
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, Color.pink, e.fin());
+        stroke(1.01f * e.fout());
+
+        randLenVectors(e.id + 1, 4, 1f + 16 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 2f);
+        });
+    }),
+
     vogTrail = new Effect(13, e -> {
         color(HLPPal.vogPink, HLPPal.vogPinkBack, e.fin());
-        stroke(0.2f + e.fout() * 0.6f);
+        stroke(0.3f + e.fout() * 0.7f);
         rand.setSeed(e.id);
 
         for(int i = 0; i < 1; i++){
