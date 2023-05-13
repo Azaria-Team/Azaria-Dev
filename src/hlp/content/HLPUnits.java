@@ -116,7 +116,7 @@ public class HLPUnits {
                 shootY = 2f;
                 rotate = true;
                 x = 0;
-                y = -3;
+                y = -6;
                 mirror = false;
                 bullet = new MissileBulletType(5f, 23, "hlp-vog") {{
                     backColor = HLPPal.vogPinkBack;
