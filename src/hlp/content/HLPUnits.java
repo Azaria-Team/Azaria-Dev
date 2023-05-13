@@ -159,7 +159,7 @@ public class HLPUnits {
                             backColor = HLPPal.vogPinkBack;
                             frontColor = HLPPal.vogPink;
                             maxRange = 190;
-                            homingPower = 0.02f;
+                            homingPower = 0.06f;
                             homingRange = 0;
                             drag = 0.01f;
                             width = 13f;
@@ -188,7 +188,7 @@ public class HLPUnits {
                         bullet = new AimBulletType(3f, 20, "missile") {{
                             backColor = HLPPal.vogPinkBack;
                             frontColor = HLPPal.vogPink;
-                            homingPower = 0.02f;
+                            homingPower = 0.06f;
                             homingRange = 0;
                             drag = 0.01f;
                             width = 13f;
