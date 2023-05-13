@@ -8,6 +8,7 @@ import arc.math.*;
 import arc.struct.*;
 import arc.util.*;
 import hlp.content.HLPFx;
+import hlp.graphics.HLPPal;
 import hlp.world.meta.HLPStat;
 import hlp.world.meta.HLPStatUnit;
 import mindustry.*;
@@ -31,7 +32,7 @@ public class LightningPowerNode extends PowerNode {
     // minimal energy delta per tile required for lightning
     public float thresholdPerTile;
     public Effect lightningFx = Fx.lightning;
-    public Color lightningColor = Pal.surge;
+    public Color lightningColor = HLPPal.lightningNodeColor;
     public Sound lightningSound = Sounds.spark;
 
     AStats aStats = new AStats();
@@ -46,6 +47,7 @@ public class LightningPowerNode extends PowerNode {
         update = true;
         stats = aStats.copy(stats);
         if(maxNodes == 0) configurable = false;
+        laserColor2 = HLPPal.lightningNodeColor;
     }
 
     @Override

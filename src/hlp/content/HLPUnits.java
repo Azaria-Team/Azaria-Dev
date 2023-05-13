@@ -1,8 +1,7 @@
 package hlp.content;
 
 import arc.graphics.Color;
-import hlp.entities.bullet.VogBulletType;
-import hlp.graphics.HPLPal;
+import hlp.graphics.HLPPal;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
@@ -47,13 +46,13 @@ public class HLPUnits {
             engineOffset = 5.7f;
             hitSize = 8f;
             alwaysUnlocked = true;
-            outlineColor = HPLPal.aureliaOutline;
+            outlineColor = HLPPal.aureliaOutline;
 
             weapons.add(
             new Weapon(){{
                 x = y = 0f;
                 mirror = false;
-                reload = 20f;
+                reload = 10f;
 
                 soundPitchMin = 1f;
                 shootSound = Sounds.flame;
@@ -61,23 +60,26 @@ public class HLPUnits {
                 bullet = new FlakBulletType(){{
                     width = 8;
                     height = 8;
+                    shrinkY = 0;
+                    shrinkX = 0;
 
                     maxRange = 10f;
                     ignoreRotation = true;
 
-                    backColor = Pal.heal;
-                    frontColor = Color.white;
-                    mixColorTo = Color.white;
+                    backColor = Pal.bulletYellowBack;
+                    frontColor = Pal.bulletYellow;
 
                     hitSound = Sounds.plasmaboom;
 
                     shootCone = 180f;
                     ejectEffect = Fx.none;
+                    shootEffect = Fx.none;
                     hitShake = 1f;
 
-                    collidesAir = false;
+                    collidesAir = true;
+                    collidesGround = true;
 
-                    lifetime = 300f;
+                    lifetime = 70f;
 
                     hitEffect = Fx.massiveExplosion;
                     keepVelocity = false;
@@ -99,18 +101,29 @@ public class HLPUnits {
             health = 230;
             accel = 0.2f;
             drag = 0.05f;
-            rotateSpeed = 2.9f;
-            faceTarget = true; //do not forget to put false here
-
+            faceTarget = false;
+            rotateSpeed = 4f;
+            trailLength = 20;
+            waveTrailX = 5f;
+            trailScl = 1.3f;
             range = 25 * Vars.tilesize;
             constructor = UnitWaterMove::create;
-            outlineColor = HPLPal.aureliaOutline;
+            outlineColor = HLPPal.aureliaOutline;
 
-            weapons.add(new Weapon("vog-launcher") {{
+            weapons.add(new Weapon("hlp-vog-launcher") {{
                 reload = 45f;
                 shootY = 2f;
                 rotate = true;
-                bullet = new VogBulletType(5f, 20) {{
+                bullet = new BasicBulletType(5f, 20, "hlp-vog") {{
+                    backColor = HLPPal.vogPinkBack;
+                    frontColor = HLPPal.vogPink;
+                    homingPower = 0.08f;
+                    shrinkY = 0.3f;
+                    width = 8f;
+                    height = 14f;
+                    hitSound = Sounds.explosion;
+                    trailRotation = true;
+                    trailInterval = 0.5f;
                     lifetime = 60f;
                 }};
             }});

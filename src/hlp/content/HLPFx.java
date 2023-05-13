@@ -4,8 +4,10 @@ import arc.graphics.Color;
 import arc.graphics.g2d.Fill;
 import arc.graphics.g2d.Lines;
 import arc.math.Mathf;
+import arc.math.Rand;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
+import hlp.graphics.HLPPal;
 import mindustry.entities.Effect;
 import mindustry.graphics.Pal;
 
@@ -15,6 +17,8 @@ import static arc.graphics.g2d.Lines.stroke;
 import static arc.math.Angles.randLenVectors;
 
 public class HLPFx {
+    public static final Rand rand = new Rand();
+    public static final Vec2 v = new Vec2();
     public static final Effect
 
     explosionSmall = new Effect(30, e -> {
@@ -36,7 +40,20 @@ public class HLPFx {
         randLenVectors(e.id + 1, 8, 1f + 23f * e.finpow(), (x, y) -> {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 3f);
         });
+    }),
+
+    disperseTrail = new Effect(13, e -> {
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, e.fin());
+        stroke(0.2f + e.fout() * 0.6f);
+        rand.setSeed(e.id);
+
+        for(int i = 0; i < 1; i++){
+            float rot = e.rotation + rand.range(10f) + 180f;
+            v.trns(rot, rand.random(e.fin() * 18f));
+            lineAngle(e.x + v.x, e.y + v.y, rot, e.fout() * rand.random(1f, 4f) + 1f);
+        }
     });
+
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {
         Seq<Vec2> lines = new Seq<>();
