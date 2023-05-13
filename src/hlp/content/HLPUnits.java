@@ -147,8 +147,8 @@ public class HLPUnits {
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;
-                        x = 3;
-                        y = 4;
+                        x = 5;
+                        y = 3;
                         mirror = true;
                         alternate = false;
                         layerOffset = -0.0001f;
@@ -177,8 +177,8 @@ public class HLPUnits {
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;
-                        x = 3;
-                        y = 4;
+                        x = 5;
+                        y = -4;
                         mirror = true;
                         alternate = false;
                         layerOffset = -0.0001f;
