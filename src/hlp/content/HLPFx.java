@@ -58,7 +58,7 @@ public class HLPFx {
         });
     }),
 
-    vogTrail = new Effect(13, e -> {
+    vogTrail = new Effect(15, e -> {
         color(HLPPal.vogPink, HLPPal.vogPinkBack, e.fin());
         stroke(0.3f + e.fout() * 0.7f);
         rand.setSeed(e.id);
@@ -68,8 +68,15 @@ public class HLPFx {
             v.trns(rot, rand.random(e.fin() * 18f));
             lineAngle(e.x + v.x, e.y + v.y, rot, e.fout() * rand.random(1f, 4f) + 1f);
         }
-    });
+    }),
 
+    paimMissileTrail = new Effect(20f, 50f, e -> {
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, Color.pink,  e.fin() * e.fin());
+
+        randLenVectors(e.id, 4, 1f + e.finpow() * 15, e.rotation + 180, 7f, (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, 0.30f + e.fout() * 1.1f);
+        });
+    });
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {
         Seq<Vec2> lines = new Seq<>();
