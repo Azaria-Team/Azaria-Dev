@@ -207,6 +207,7 @@ public class HLPBlocks{
             consumePower(0.5f);
             displayEfficiency = false;
             size = 2;
+            squareSprite = false;
         }};
         //endregion drills
         //region distribution
@@ -238,6 +239,7 @@ public class HLPBlocks{
             size = 3;
             armor = 2f;
             alwaysUnlocked = true;
+            squareSprite = false;
 
             unitCapModifier = 12;
         }};

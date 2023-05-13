@@ -146,11 +146,12 @@ public class HLPUnits {
                     new Weapon("hlp-plasma-pointer") {{
                         reload = 60f;
                         shootY = 2f;
-                        rotate = true;
-                        x = 3;
-                        y = 4;
+                        rotate = false;
+                        x = 4;
+                        y = 5;
                         mirror = true;
                         alternate = false;
+                        layerOffset = -0.0001f;
                         baseRotation = -45f;
                         shootCone = 360f;
                         shoot = new ShootSpread(1, 10f);
@@ -175,11 +176,12 @@ public class HLPUnits {
                     new Weapon("hlp-plasma-pointer") {{
                         reload = 60f;
                         shootY = 2f;
-                        rotate = true;
-                        x = 3;
-                        y = -4;
+                        rotate = false;
+                        x = 4;
+                        y = -5;
                         mirror = true;
                         alternate = false;
+                        layerOffset = -0.0001f;
                         baseRotation = -145f;
                         shootCone = 360f;
                         shoot = new ShootSpread(1, 10f);
