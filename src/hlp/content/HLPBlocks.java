@@ -152,6 +152,7 @@ public class HLPBlocks{
         khylidOre = new ModOverlayFloor(("khylid-ore")) {{
            parent = blendGroup = mainlFloor;
            variants = 2;
+           cacheLayer = CacheLayer.water;
            attributes.set(HLPAttribute.khylidattr, 1f);
         }};
         //endregion environment
@@ -206,6 +207,7 @@ public class HLPBlocks{
             consumePower(0.5f);
             displayEfficiency = false;
             size = 2;
+            squareSprite = false;
         }};
         //endregion drills
         //region distribution
@@ -237,6 +239,7 @@ public class HLPBlocks{
             size = 3;
             armor = 2f;
             alwaysUnlocked = true;
+            squareSprite = false;
 
             unitCapModifier = 12;
         }};

@@ -4,8 +4,10 @@ import arc.graphics.Color;
 import arc.graphics.g2d.Fill;
 import arc.graphics.g2d.Lines;
 import arc.math.Mathf;
+import arc.math.Rand;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
+import hlp.graphics.HLPPal;
 import mindustry.entities.Effect;
 import mindustry.graphics.Pal;
 
@@ -15,26 +17,64 @@ import static arc.graphics.g2d.Lines.stroke;
 import static arc.math.Angles.randLenVectors;
 
 public class HLPFx {
+    public static final Rand rand = new Rand();
+    public static final Vec2 v = new Vec2();
     public static final Effect
 
     explosionSmall = new Effect(30, e -> {
+        color(HLPPal.vogPink);
         e.scaled(7, i -> {
             stroke(3f * i.fout());
             Lines.circle(e.x, e.y, 3f + i.fin() * 10f);
         });
 
-        color(Color.gray);
+        color(HLPPal.vogPink);
 
-        randLenVectors(e.id, 6, 2f + 19f * e.finpow(), (x, y) -> {
+        randLenVectors(e.id, 7, 2f + 19f * e.finpow(), (x, y) -> {
             Fill.circle(e.x + x, e.y + y, e.fout() * 3f + 0.5f);
             Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
         });
 
-        color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, Color.pink, e.fin());
         stroke(1.5f * e.fout());
 
         randLenVectors(e.id + 1, 8, 1f + 23f * e.finpow(), (x, y) -> {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 3f);
+        });
+    }),
+
+    explosionSmall2 = new Effect(20, e -> {
+        color(HLPPal.vogPink);
+        e.scaled(8, i -> {
+            stroke(2f * i.fout());
+            Lines.circle(e.x, e.y, 2f + i.fin() * 5f);
+        });
+
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, Color.pink, e.fin());
+        stroke(1.01f * e.fout());
+
+        randLenVectors(e.id + 1, 4, 1f + 16 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 2f);
+        });
+    }),
+
+    vogTrail = new Effect(15, e -> {
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, e.fin());
+        stroke(0.3f + e.fout() * 0.7f);
+        rand.setSeed(e.id);
+
+        for(int i = 0; i < 1; i++){
+            float rot = e.rotation + rand.range(10f) + 180f;
+            v.trns(rot, rand.random(e.fin() * 18f));
+            lineAngle(e.x + v.x, e.y + v.y, rot, e.fout() * rand.random(1f, 4f) + 1f);
+        }
+    }),
+
+    paimMissileTrail = new Effect(20f, 50f, e -> {
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, Color.pink,  e.fin() * e.fin());
+
+        randLenVectors(e.id, 4, 1f + e.finpow() * 15, e.rotation + 180, 7f, (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, 0.30f + e.fout() * 1.1f);
         });
     });
 

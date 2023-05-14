@@ -4,10 +4,12 @@ import acontent.world.meta.*;
 import arc.*;
 import arc.audio.*;
 import arc.graphics.*;
+import arc.graphics.g2d.TextureRegion;
 import arc.math.*;
 import arc.struct.*;
 import arc.util.*;
 import hlp.content.HLPFx;
+import hlp.graphics.HLPPal;
 import hlp.world.meta.HLPStat;
 import hlp.world.meta.HLPStatUnit;
 import mindustry.*;
@@ -31,10 +33,12 @@ public class LightningPowerNode extends PowerNode {
     // minimal energy delta per tile required for lightning
     public float thresholdPerTile;
     public Effect lightningFx = Fx.lightning;
-    public Color lightningColor = Pal.surge;
+    public Color lightningColor = HLPPal.lightningNodeColor;
     public Sound lightningSound = Sounds.spark;
 
     AStats aStats = new AStats();
+    TextureRegion laser;
+    TextureRegion laserEnd;
 
     public LightningPowerNode(String name, int maxNodes) {
         super(name);
@@ -46,6 +50,16 @@ public class LightningPowerNode extends PowerNode {
         update = true;
         stats = aStats.copy(stats);
         if(maxNodes == 0) configurable = false;
+        laserColor2 = HLPPal.lightningNodeColor;
+    }
+
+    @Override
+    public void load(){
+        super.load();
+        laser = Core.atlas.find(name+"-aurlaser");
+        laser = Core.atlas.find("@-aurlaser");
+        laserEnd = Core.atlas.find(name+"-aurlaser-end");
+        laserEnd = Core.atlas.find("@-aurlaser-end");
     }
 
     @Override
