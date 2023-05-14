@@ -162,6 +162,8 @@ public class HLPUnits {
                             maxRange = 190;
                             homingPower = 0.06f;
                             homingRange = 0;
+                            shrinkY = 0f;
+                            shrinkX = 0f;
                             drag = 0.01f;
                             width = 13f;
                             height = 15f;
@@ -171,7 +173,7 @@ public class HLPUnits {
                             trailEffect = HLPFx.paimMissileTrail;
                             trailRotation = true;
                             trailInterval = 0.5f;
-                            lifetime = 180f;
+                            lifetime = 200f;
                         }};
                     }},
                     new Weapon("hlp-plasma-pointer") {{
@@ -192,6 +194,8 @@ public class HLPUnits {
 							sprite = "hlp-dagger-missile";
                             homingPower = 0.06f;
                             homingRange = 0;
+                            shrinkY = 0f;
+                            shrinkX = 0f;
                             drag = 0.01f;
                             width = 13f;
                             height = 15f;
@@ -201,7 +205,7 @@ public class HLPUnits {
                             trailEffect = HLPFx.paimMissileTrail;
                             trailRotation = true;
                             trailInterval = 0.5f;
-                            lifetime = 180f;
+                            lifetime = 200f;
                         }};
                     }});
         }};
