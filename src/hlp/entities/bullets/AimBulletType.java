@@ -16,7 +16,7 @@ import mindustry.world.blocks.defense.turrets.Turret;
 
 public class AimBulletType extends BasicBulletType {
 
-    public AimBulletType(float speed, float damage, String bulletSprite){
+    public AimBulletType(float speed, float damage){
         super(speed, damage);
     }
 
