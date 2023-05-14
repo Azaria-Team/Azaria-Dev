@@ -177,12 +177,12 @@ public class HLPUnits {
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;
-                        x = 6;
-                        y = 0;
+                        x = 5;
+                        y = -1;
                         mirror = true;
                         alternate = false;
                         layerOffset = -0.0001f;
-                        baseRotation = -165f;
+                        baseRotation = -115f;
                         shootCone = 360f;
                         shoot = new ShootSpread(1, 10f);
                         bullet = new AimBulletType(3f, 26, "hlp-dagger-missile") {{
