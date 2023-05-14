@@ -132,7 +132,7 @@ public class HLPUnits {
             accel = 0.3f;
             drag = 0.04f;
 
-            faceTarget = false;
+            faceTarget = true;
             rotateSpeed = 3f;
             trailLength = 20;
             waveTrailX = 6f;
