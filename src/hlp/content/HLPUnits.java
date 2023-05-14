@@ -165,7 +165,7 @@ public class HLPUnits {
                             shrinkY = 0f;
                             shrinkX = 0f;
                             drag = 0.01f;
-                            width = 13f;
+                            width = 9f;
                             height = 15f;
                             hitSound = Sounds.explosion;
                             hitEffect = HLPFx.explosionSmall;
@@ -197,7 +197,7 @@ public class HLPUnits {
                             shrinkY = 0f;
                             shrinkX = 0f;
                             drag = 0.01f;
-                            width = 13f;
+                            width = 9f;
                             height = 15f;
                             hitSound = Sounds.explosion;
                             hitEffect = HLPFx.explosionSmall;
