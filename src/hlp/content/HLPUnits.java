@@ -162,7 +162,7 @@ public class HLPUnits {
                             homingPower = 0.06f;
                             homingRange = 0;
                             drag = 0.01f;
-                            width = 13f;
+                            width = 9f;
                             height = 15f;
                             hitSound = Sounds.explosion;
                             hitEffect = HLPFx.explosionSmall;
@@ -191,7 +191,7 @@ public class HLPUnits {
                             homingPower = 0.06f;
                             homingRange = 0;
                             drag = 0.01f;
-                            width = 13f;
+                            width = 9f;
                             height = 15f;
                             hitSound = Sounds.explosion;
                             hitEffect = HLPFx.explosionSmall;
