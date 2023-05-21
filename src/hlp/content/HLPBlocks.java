@@ -178,7 +178,7 @@ public class HLPBlocks{
         //endregion environment
         //region power
         plasmaNode = new LightningPowerNode("plasma-node", 0){{
-            requirements(Category.power, with(HLPItems.khylid, 30));
+            requirements(Category.power, with(HLPItems.khylid, 20));
             consumePowerBuffered(4000f);
             lightningRange = 16 * 8f;
             thresholdPerTile = 25f / 8;
@@ -186,7 +186,7 @@ public class HLPBlocks{
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0){{
             //todo crafting
-            requirements(Category.power, with(HLPItems.khylid, 40));
+            requirements(Category.power, with(HLPItems.khylid, 30));
             consumePowerBuffered(30000f);
             size = 2;
             lightningRange = 29 * 8f;
@@ -233,23 +233,22 @@ public class HLPBlocks{
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
             outputItem = new ItemStack(HLPItems.fors, 2);
-            craftTime = 40;
+            craftTime = 55;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
-            consumePower(0.5f);
             displayEfficiency = false;
             size = 2;
             squareSprite = false;
         }};
         khylidDrill = new AttributeCrafter("khylid-block"){{
-            requirements(Category.production, with(HLPItems.fors, 50));
+            requirements(Category.production, with(HLPItems.fors, 40));
             attribute = HLPAttribute.khylidattr;
             group = BlockGroup.liquids;
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
             outputItem = new ItemStack(HLPItems.khylid, 2);
-            craftTime = 60;
+            craftTime = 70;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             consumePower(0.5f);
