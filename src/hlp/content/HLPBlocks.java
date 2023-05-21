@@ -212,7 +212,7 @@ public class HLPBlocks{
             thresholdPerTile = 40f / 8;
         }};
 
-        thermalEvaporator = new ThermalGenerator("thermal-evaporator"){{
+        thermalEvaporator = new ThermalGenerator("shit-generator"){{
             requirements(Category.power, with(HLPItems.fors, 50, HLPItems.craside, 20));
             powerProduction = 3f;
             displayEfficiency = true;
