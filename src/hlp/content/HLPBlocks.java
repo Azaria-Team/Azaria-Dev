@@ -11,7 +11,10 @@ import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.distribution.Duct;
+import mindustry.world.blocks.distribution.Junction;
+import mindustry.world.blocks.distribution.Router;
 import mindustry.world.blocks.environment.*;
+import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.meta.Attribute;
@@ -22,7 +25,7 @@ import static mindustry.type.ItemStack.with;
 public class HLPBlocks{
     public static Block
     //environment
-    seaSerrid, seaSerridWall, crabStone, crabStoneWall, mainlFloor, mainlDeepFloor, whiteChips, whiteChipsWall,
+    seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, mainlThermalFloor, whiteChips, whiteChipsWall,
     fir, firWall, forenite, foreniteWall, forsite, forsiteWall,
     spaceRock, spaceRockWall, terra, terraWall,
     //liquids
@@ -36,13 +39,13 @@ public class HLPBlocks{
 
     //power
     plasmaNode, plasmaNodeLarge,
-    plasmaDistributor, plasmaDistributorLarge,
+    plasmaDistributor, plasmaDistributorLarge, thermalEvaporator,
 
     //drills
-    forsDrill,
+    forsDrill, khylidDrill,
 
     //distribution
-    impulseConveyor,
+    impulseConveyor, impulseJunction, impulseRouter,
 
     //defense
     forsWall,
@@ -61,6 +64,9 @@ public class HLPBlocks{
         crabStone = new Floor("crab-stone") {{
            variants = 4;
         }};
+        crabStoneCratters = new Floor("crab-stone-cratters") {{
+            variants = 4;
+        }};
         crabStoneWall = new StaticWall("crab-stone-wall") {{
             variants = 3;
         }};
@@ -71,14 +77,28 @@ public class HLPBlocks{
         mainlFloor = new Floor("mainl-floor") {{
             variants = 4;
             isLiquid = true;
+            liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
+            albedo = 0.5f;
 
         }};
         mainlDeepFloor = new Floor("mainl-deep-floor") {{
             variants = 4;
             isLiquid = true;
+            liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
+            drownTime = 50f;
+            albedo = 0.5f;
 
+        }};
+        mainlThermalFloor = new Floor("mainl-thermal") {{
+            variants = 4;
+            liquidDrop = HLPLiquids.mainl;
+            cacheLayer = CacheLayer.water;
+            liquidMultiplier = 1f;
+            isLiquid = true;
+            albedo = 0.5f;
+            attributes.set(HLPAttribute.mainlheatattr, 0.25f);
         }};
         //endregion seaBiome
         //region forestBiome
@@ -191,6 +211,18 @@ public class HLPBlocks{
             laserRange = 12;
             thresholdPerTile = 40f / 8;
         }};
+
+        thermalEvaporator = new ThermalGenerator("thermal-evaporator"){{
+            requirements(Category.power, with(HLPItems.fors, 50, HLPItems.craside, 20));
+            powerProduction = 3f;
+            displayEfficiency = true;
+            size = 2;
+            floating = true;
+            placeableLiquid = true;
+            ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
+            attribute = HLPAttribute.mainlheatattr;
+        }};
         //endregion power
         //region drills
         forsDrill = new AttributeCrafter("fors-block"){{
@@ -201,7 +233,23 @@ public class HLPBlocks{
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
             outputItem = new ItemStack(HLPItems.fors, 2);
-            craftTime = 90;
+            craftTime = 40;
+            ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
+            consumePower(0.5f);
+            displayEfficiency = false;
+            size = 2;
+            squareSprite = false;
+        }};
+        khylidDrill = new AttributeCrafter("khylid-block"){{
+            requirements(Category.production, with(HLPItems.fors, 50));
+            attribute = HLPAttribute.khylidattr;
+            group = BlockGroup.liquids;
+            minEfficiency = 4f - 0.0001f;
+            baseEfficiency = 0f;
+            boostScale = 1f / 4f;
+            outputItem = new ItemStack(HLPItems.khylid, 2);
+            craftTime = 60;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             consumePower(0.5f);
@@ -213,9 +261,22 @@ public class HLPBlocks{
         //region distribution
         impulseConveyor = new Duct("impulse-conveyor"){{
             requirements(Category.distribution, with(HLPItems.fors, 1));
-            health = 90;
+            health = 130;
             speed = 5f;
             researchCost = with(HLPItems.fors, 5);
+
+        }};
+        impulseJunction = new Junction("impulse-junction"){{
+            requirements(Category.distribution, with(HLPItems.fors, 2));
+            speed = 30;
+            capacity = 1;
+            health = 140;
+            buildCostMultiplier = 6f;
+        }};
+        impulseRouter = new Router("impulse-router"){{
+            requirements(Category.distribution, with(HLPItems.fors, 3));
+            speed = 16;
+            buildCostMultiplier = 4f;
         }};
         //endregion distribution
         //region production
