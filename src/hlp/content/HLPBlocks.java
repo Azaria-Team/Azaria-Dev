@@ -178,7 +178,8 @@ public class HLPBlocks{
         //endregion environment
         //region power
         plasmaNode = new LightningPowerNode("plasma-node", 0){{
-            requirements(Category.power, with(HLPItems.khylid, 20));
+            requirements(Category.power, with(HLPItems.fors, 1, HLPItems.khylid, 2));
+
             consumePowerBuffered(4000f);
             lightningRange = 16 * 8f;
             thresholdPerTile = 25f / 8;
@@ -186,7 +187,7 @@ public class HLPBlocks{
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0){{
             //todo crafting
-            requirements(Category.power, with(HLPItems.khylid, 30));
+            requirements(Category.power, with(HLPItems.khylid, 1000));
             consumePowerBuffered(30000f);
             size = 2;
             lightningRange = 29 * 8f;
@@ -194,7 +195,7 @@ public class HLPBlocks{
         }};
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12){{
-            requirements(Category.power, with(HLPItems.khylid, 40));
+            requirements(Category.power, with(HLPItems.fors, 20, HLPItems.khylid, 30));
             size = 2;
             consumePowerBuffered(7500f);
             lightningRange = 9 * 8f;
@@ -204,7 +205,7 @@ public class HLPBlocks{
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24){{
             //todo crafting
-            requirements(Category.power, with(HLPItems.khylid, 55));
+            requirements(Category.power, with(HLPItems.khylid, 1000));
             consumePowerBuffered(55000f);
             size = 3;
             lightningRange = 16 * 8f;
@@ -259,7 +260,7 @@ public class HLPBlocks{
         //endregion drills
         //region distribution
         impulseConveyor = new Duct("impulse-conveyor"){{
-            requirements(Category.distribution, with(HLPItems.fors, 1));
+            requirements(Category.distribution, with(HLPItems.fors, 1000));
             health = 130;
             speed = 5f;
             researchCost = with(HLPItems.fors, 5);
