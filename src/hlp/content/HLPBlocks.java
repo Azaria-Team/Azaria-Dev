@@ -42,7 +42,7 @@ public class HLPBlocks{
     plasmaDistributor, plasmaDistributorLarge, thermalEvaporator,
 
     //drills
-    forsDrill, khylidDrill,
+    forsDrill, pumpDrill,
 
     //distribution
     impulseConveyor, impulseJunction, impulseRouter,
@@ -241,7 +241,7 @@ public class HLPBlocks{
             size = 2;
             squareSprite = false;
         }};
-        khylidDrill = new AttributeCrafter("khylid-block"){{
+        pumpDrill = new AttributeCrafter("pump-drill"){{
             requirements(Category.production, with(HLPItems.fors, 40));
             attribute = HLPAttribute.khylidattr;
             group = BlockGroup.liquids;
