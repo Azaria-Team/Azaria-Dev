@@ -260,7 +260,7 @@ public class HLPBlocks{
         //endregion drills
         //region distribution
         impulseConveyor = new Duct("impulse-conveyor"){{
-            requirements(Category.distribution, with(HLPItems.fors, 1000));
+            requirements(Category.distribution, with(HLPItems.fors, 1));
             health = 130;
             speed = 5f;
             researchCost = with(HLPItems.fors, 5);
