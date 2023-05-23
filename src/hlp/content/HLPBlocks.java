@@ -1,5 +1,6 @@
 package hlp.content;
 
+import hlp.utils.Utils;
 import hlp.world.blocks.environment.ModOverlayFloor;
 import hlp.world.blocks.power.LightningPowerNode;
 import mindustry.content.Items;
@@ -7,6 +8,7 @@ import mindustry.content.UnitTypes;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
 import mindustry.type.Category;
+import mindustry.type.Item;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
@@ -17,12 +19,14 @@ import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
+import mindustry.world.draw.*;
 import mindustry.world.meta.Attribute;
 import mindustry.world.meta.BlockGroup;
 
 import static mindustry.type.ItemStack.with;
 
 public class HLPBlocks{
+    public static Item item;
     public static Block
     //environment
     seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, mainlThermalFloor, whiteChips, whiteChipsWall,
@@ -240,6 +244,11 @@ public class HLPBlocks{
             displayEfficiency = false;
             size = 2;
             squareSprite = false;
+            drawer = new DrawMulti(
+                    new DrawGlowRegion("fors-block-item"){{
+                        color = item.color;
+                    }}
+            );
         }};
         pumpDrill = new AttributeCrafter("pump-drill"){{
             requirements(Category.production, with(HLPItems.fors, 40));
@@ -256,6 +265,11 @@ public class HLPBlocks{
             displayEfficiency = false;
             size = 2;
             squareSprite = false;
+            drawer = new DrawMulti(
+                    new DrawGlowRegion("pump-drill-bloom"){{
+                        color = item.color;
+                    }}
+            );
         }};
         //endregion drills
         //region distribution
@@ -268,15 +282,17 @@ public class HLPBlocks{
         }};
         impulseJunction = new Junction("impulse-junction"){{
             requirements(Category.distribution, with(HLPItems.fors, 2));
-            speed = 30;
+            speed = 6;
             capacity = 1;
             health = 140;
             buildCostMultiplier = 6f;
+            squareSprite = false;
         }};
         impulseRouter = new Router("impulse-router"){{
             requirements(Category.distribution, with(HLPItems.fors, 3));
             speed = 16;
             buildCostMultiplier = 4f;
+            squareSprite = false;
         }};
         //endregion distribution
         //region production
