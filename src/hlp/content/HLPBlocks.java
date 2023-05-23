@@ -220,7 +220,7 @@ public class HLPBlocks{
             thresholdPerTile = 40f / 8;
         }};
 
-        thermalEvaporator = new ThermalGenerator("shit-generator"){{
+        thermalEvaporator = new ThermalGenerator("thermal-evaporator"){{
             requirements(Category.power, with(HLPItems.fors, 40));
             powerProduction = 2f;
             displayEfficiency = true;
@@ -241,7 +241,7 @@ public class HLPBlocks{
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
             outputItem = new ItemStack(HLPItems.fors, 4);
-            craftTime = 200f;
+            craftTime = 240f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             displayEfficiency = false;
