@@ -19,6 +19,7 @@ import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
+import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.draw.*;
 import mindustry.world.meta.Attribute;
 import mindustry.world.meta.BlockGroup;
@@ -26,7 +27,7 @@ import mindustry.world.meta.BlockGroup;
 import static mindustry.type.ItemStack.with;
 
 public class HLPBlocks{
-    public static Item item;
+    public static HLPItems item;
     public static Block
     //environment
     seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, mainlThermalFloor, whiteChips, whiteChipsWall,
@@ -53,7 +54,9 @@ public class HLPBlocks{
 
     //defense
     forsWall,
-    coreLegion;
+
+    //storage
+    coreLegion, caseI;
 
     public static void load() {
         //region environment
@@ -238,7 +241,7 @@ public class HLPBlocks{
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
             outputItem = new ItemStack(HLPItems.fors, 4);
-            craftTime = 400f;
+            craftTime = 200f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             displayEfficiency = false;
@@ -246,7 +249,7 @@ public class HLPBlocks{
             squareSprite = false;
             drawer = new DrawMulti(
                     new DrawGlowRegion("fors-block-item"){{
-                        color = item.color;
+                        color = item.fors.color;
                     }}
             );
         }};
@@ -267,7 +270,7 @@ public class HLPBlocks{
             squareSprite = false;
             drawer = new DrawMulti(
                     new DrawGlowRegion("pump-drill-bloom"){{
-                        color = item.color;
+                        color = item.khylid.color;
                     }}
             );
         }};
@@ -305,7 +308,7 @@ public class HLPBlocks{
             buildCostMultiplier = 8f;
         }};
         //endregion defense
-        //region core
+        //region storage
         coreLegion = new CoreBlock("core-legion"){{
             requirements(Category.effect, with(Items.graphite, 1400, Items.silicon, 1200));
 
@@ -320,6 +323,13 @@ public class HLPBlocks{
 
             unitCapModifier = 12;
         }};
-        //endregion core
+
+        caseI = new StorageBlock("case"){{
+            requirements(Category.effect, with(HLPItems.fors));
+            size = 2;
+            itemCapacity = 100;
+            scaledHealth = 80;
+        }};
+        //endregion storage
     }
 }
