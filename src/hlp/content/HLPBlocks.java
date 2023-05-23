@@ -315,7 +315,7 @@ public class HLPBlocks{
         }};
 
         caseI = new StorageBlock("case"){{
-            requirements(Category.effect, with(HLPItems.fors));
+            requirements(Category.effect, with(HLPItems.fors, 100));
             size = 2;
             itemCapacity = 100;
             scaledHealth = 80;
