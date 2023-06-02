@@ -248,7 +248,7 @@ public class HLPBlocks{
             size = 2;
             squareSprite = false;
             drawer = new DrawMulti(
-                    new DrawGlowRegion("-fors-glow"){{
+                    new DrawGlowRegion(){{
                         color = HLPPal.fors;
                         glowScale = 0f;
                         glowIntensity = 0f;
@@ -271,7 +271,7 @@ public class HLPBlocks{
             size = 2;
             squareSprite = false;
             drawer = new DrawMulti(
-                    new DrawGlowRegion("-khylid-glow"){{
+                    new DrawGlowRegion(){{
                         color = HLPPal.khylid;
                     }}
             );
