@@ -10,6 +10,9 @@ public static final Color
 
         vogPink = Color.valueOf("ffaeb9"),
         vogPinkBack = Color.valueOf("e55690"),
+
+        fors = Color.valueOf("f3b2c1"),
+        khylid = Color.valueOf("87d7bf"),
         lightningNodeColor = Color.valueOf("f6738d");
 
 

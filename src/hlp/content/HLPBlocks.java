@@ -1,5 +1,6 @@
 package hlp.content;
 
+import hlp.graphics.HLPPal;
 import hlp.utils.Utils;
 import hlp.world.blocks.environment.ModOverlayFloor;
 import hlp.world.blocks.power.LightningPowerNode;
@@ -27,7 +28,6 @@ import mindustry.world.meta.BlockGroup;
 import static mindustry.type.ItemStack.with;
 
 public class HLPBlocks{
-    public static HLPItems item;
     public static Block
     //environment
     seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, mainlThermalFloor, whiteChips, whiteChipsWall,
@@ -247,6 +247,13 @@ public class HLPBlocks{
             displayEfficiency = false;
             size = 2;
             squareSprite = false;
+            drawer = new DrawMulti(
+                    new DrawGlowRegion("fors-block-item"){{
+                        color = HLPPal.fors;
+                        glowScale = 0f;
+                        glowIntensity = 0f;
+                    }}
+            );
         }};
         pumpDrill = new AttributeCrafter("pump-drill"){{
             requirements(Category.production, with(HLPItems.fors, 40));
@@ -263,6 +270,11 @@ public class HLPBlocks{
             displayEfficiency = false;
             size = 2;
             squareSprite = false;
+            drawer = new DrawMulti(
+                    new DrawGlowRegion("pump-drill-bloom"){{
+                        color = HLPPal.khylid;
+                    }}
+            );
         }};
         //endregion drills
         //region distribution
