@@ -247,13 +247,6 @@ public class HLPBlocks{
             displayEfficiency = false;
             size = 2;
             squareSprite = false;
-            drawer = new DrawMulti(
-                    new DrawGlowRegion(){{
-                        color = HLPPal.fors;
-                        glowScale = 0f;
-                        glowIntensity = 0f;
-                    }}
-            );
         }};
         pumpDrill = new AttributeCrafter("pump-drill"){{
             requirements(Category.production, with(HLPItems.fors, 40));
@@ -270,11 +263,6 @@ public class HLPBlocks{
             displayEfficiency = false;
             size = 2;
             squareSprite = false;
-            drawer = new DrawMulti(
-                    new DrawGlowRegion(){{
-                        color = HLPPal.khylid;
-                    }}
-            );
         }};
         //endregion drills
         //region distribution
