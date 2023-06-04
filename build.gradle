@@ -145,10 +145,6 @@ task zipJar(type: Jar) {
         include "mod.hjson"
         include "icon.png"
     }
-
-    dependsOn 'tools:pack'
-    dependsOn 'build'
-    tasks.findByName('build').mustRunAfter 'tools:pack'
 }
 
 task deploy(type: Jar) {
