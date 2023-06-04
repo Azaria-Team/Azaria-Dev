@@ -1,10 +1,12 @@
 package hlp.content;
 
+import arc.graphics.Color;
 import hlp.graphics.HLPPal;
 import hlp.utils.Utils;
 import hlp.world.blocks.environment.ModOverlayFloor;
 import hlp.world.blocks.power.LightningPowerNode;
 import mindustry.content.Items;
+import mindustry.content.Liquids;
 import mindustry.content.UnitTypes;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
@@ -247,6 +249,15 @@ public class HLPBlocks{
             displayEfficiency = false;
             size = 2;
             squareSprite = false;
+            drawer = new DrawMulti(
+                    new DrawRegion(),
+                    new DrawGlowRegion(){{
+                        alpha = 0.7f;
+                        color = HLPPal.fors;
+                        glowIntensity = 0.3f;
+                        glowScale = 6f;
+                    }}
+            );
         }};
         pumpDrill = new AttributeCrafter("pump-drill"){{
             requirements(Category.production, with(HLPItems.fors, 40));
@@ -262,6 +273,15 @@ public class HLPBlocks{
             consumePower(0.5f);
             displayEfficiency = false;
             size = 2;
+            drawer = new DrawMulti(
+                    new DrawRegion(),
+                    new DrawGlowRegion(){{
+                        alpha = 0.7f;
+                        color = HLPPal.khylid;
+                        glowIntensity = 0.2f;
+                        glowScale = 5f;
+                    }}
+            );
             squareSprite = false;
         }};
         //endregion drills
