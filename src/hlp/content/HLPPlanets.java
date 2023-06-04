@@ -75,8 +75,14 @@ public class HLPPlanets {
             orbitRadius = 40f;
             alwaysUnlocked = true;
             landCloudColor = Pal.spore.cpy().a(0.5f);
-            hiddenItems.addAll(HLPItems.aurionaItems).removeAll(Items.serpuloItems);
-            hiddenItems.addAll(HLPItems.aurionaItems).removeAll(Items.erekirItems);
+            hiddenItems.addAll(Items.erekirItems).removeAll(Items.serpuloItems);
+            hiddenItems.addAll(Items.serpuloItems).removeAll(Items.erekirItems);
+            itemWhitelist.addAll(HLPItems.aurionaItems);
+            ruleSetter = r -> {
+                r.waveTeam = Team.crux;
+                r.placeRangeCheck = false;
+                r.showSpawns = true;
+            };
         }};
     }
 }
