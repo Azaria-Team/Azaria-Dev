@@ -28,7 +28,7 @@ jobs:
 
     - name: Build mod jar
 
-      run: ./gradlew deploy
+      run: ./gradlew deploy -Pcommit=$(git rev-parse --short "$GITHUB_SHA")
 
     - name: Upload built jar file
 
