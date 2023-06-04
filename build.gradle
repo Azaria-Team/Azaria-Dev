@@ -33,6 +33,12 @@ dependencies{
     implementation "com.github.Zelaux:AdvancedContentInfo:$aciVersion"
 
     annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
+    implementation "com.github.Zelaux.ZelauxModCore:core:2a3f8a1aa92"
+    compileOnly "com.github.Zelaux.ZelauxModCore:annotations:2a3f8a1aa92"
+
+    //other
+    implementation 'com.google.code.gson:gson:2.10.1'
+    compileOnly 'org.jetbrains:annotations:23.0.0'
 }
 
 //force arc version
