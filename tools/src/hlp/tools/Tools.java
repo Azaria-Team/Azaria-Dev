@@ -13,7 +13,7 @@ import mindustry.core.*;
 import mindustry.ctype.*;
 import mindustry.mod.*;
 import mindustry.mod.Mods.*;
-import hlp.*;
+import hlp.HLP;
 import hlp.tools.GenAtlas.*;
 
 import java.nio.file.*;
