@@ -1,101 +1,254 @@
-apply plugin: "java"
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
+apply plugin: "java"
 version '1.0'
 
 targetCompatibility = 8
 sourceCompatibility = JavaVersion.VERSION_16
 
-sourceSets.main.java.srcDirs = ["src"]
-
-repositories{
-    mavenCentral()
-    maven{ url 'https://www.jitpack.io' }
-}
-
 ext{
-    //the build number that this mod is made for
-    mindustryVersion = 'v144.3'
-    jabelVersion = "93fde537c7"
-    aciVersion = "45ad8cd8ed9"
     sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
 }
 
-//java 8 backwards compatibility flag
-allprojects{
-    tasks.withType(JavaCompile){
-        options.compilerArgs.addAll(['--release', '8'])
+allprojects {
+    apply plugin: "java"
+
+    sourceSets.main {
+        java.srcDirs = ["core/src"]
+        resources.srcDirs = ["core/assets"]
+    }
+
+    tasks.withType(JavaCompile).tap {
+        configureEach {
+            options.compilerArgs.addAll(['--release', '16'])
+        }
+    }
+
+    repositories {
+        mavenCentral()
+
+        maven {
+            url 'https://www.jitpack.io'
+        }
+    }
+
+    dependencies {
+
+        annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
+        compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+        compileOnly "com.github.Anuken.MindustryJitpack:core:$mindustryVersion"
+        implementation "com.github.Zelaux:AdvancedContentInfo:$aciVersion"
+
+        implementation "com.github.Zelaux.ZelauxModCore:core:$zelauxCoreVersion"
+
+
+        implementation 'com.google.code.gson:gson:2.10.1'
+        compileOnly 'org.jetbrains:annotations:23.0.0'
+        compileOnly "com.github.Zelaux.ZelauxModCore:annotations:$zelauxCoreVersion"
     }
 }
 
-dependencies{
-    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
-    compileOnly "com.github.Anuken.MindustryJitpack:core:$mindustryVersion"
-    implementation "com.github.Zelaux:AdvancedContentInfo:$aciVersion"
+buildscript{
 
-    annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
-    implementation "com.github.Zelaux.ZelauxModCore:core:2a3f8a1aa92"
-    compileOnly "com.github.Zelaux.ZelauxModCore:annotations:2a3f8a1aa92"
+    repositories{
+        mavenLocal()
+        mavenCentral()
+        maven{ url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven{ url 'https://jitpack.io' }
+    }
+    dependencies{
+        classpath "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+        classpath "com.github.Anuken.Mindustry:core:$mindustryVersion"
 
-    //other
-    implementation 'com.google.code.gson:gson:2.10.1'
-    compileOnly 'org.jetbrains:annotations:23.0.0'
+        classpath "com.github.Zelaux.ZelauxModCore:annotations:$zelauxCoreVersion"
+    }
 }
 
 //force arc version
-configurations.all{
+configurations.configureEach {
     resolutionStrategy.eachDependency { details ->
-        if(details.requested.group == 'com.github.Anuken.Arc'){
+        if(details.requested.group == 'com.github.Anuken.Arc') {
             details.useVersion "$mindustryVersion"
         }
     }
 }
 
-task jarAndroid{
+sourceSets.main {
+    java.srcDirs = ["core/src"]
+    resources.srcDirs = ["core/assets"]
+}
+
+task jarAndroid {
     dependsOn "jar"
 
     doLast{
-        if(!sdkRoot || !new File(sdkRoot).exists()) throw new GradleException("No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory.");
+        if(!sdkRoot || !new File(sdkRoot as String).exists()) throw new GradleException(
+                "No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory."
+        )
 
-        def platformRoot = new File("$sdkRoot/platforms/").listFiles().sort().reverse().find{ f -> new File(f, "android.jar").exists()}
+        def platformRoot = new File("$sdkRoot/platforms/").listFiles().sort().reverse().find{
+            f -> new File(f, "android.jar").exists()
+        }
 
-        if(!platformRoot) throw new GradleException("No android.jar found. Ensure that you have an Android platform installed.")
+        if(!platformRoot) throw new GradleException(
+                "No android.jar found. Ensure that you have an Android platform installed."
+        )
 
-        //collect dependencies needed for desugaring
-        def dependencies = (configurations.compileClasspath.asList() + configurations.runtimeClasspath.asList() + [new File(platformRoot, "android.jar")]).collect{ "--classpath $it.path" }.join(" ")
+        def dependencies = (configurations.compileClasspath.asList() +
+                configurations.runtimeClasspath.asList() + [new File(platformRoot, "android.jar")]).collect{
+
+            "--classpath $it.path"
+        }.join(" ")
 
         //dex and desugar files - this requires d8 in your PATH
         "d8 $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar"
-            .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
+                .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
     }
 }
 
-jar{
+jar {
     archiveFileName = "${project.archivesBaseName}Desktop.jar"
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
-    from{
-        configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
     }
 
-    from(rootDir){
+    from(rootDir) {
         include "mod.hjson"
+        include "icon.png"
+    }
+}
+
+task zipJar(type: Jar) {
+    archiveFileName = "${project.archivesBaseName}Desktop.zip"
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
     }
 
-    from("assets/"){
+    from("$buildDir/classes/java/main") {
         include "**"
     }
+
+    from("$buildDir/resources/main") {
+        include "**"
+    }
+
+    from(rootDir) {
+        include "mod.hjson"
+        include "icon.png"
+    }
+
+    dependsOn 'tools:pack'
+    dependsOn 'build'
+    tasks.findByName('build').mustRunAfter 'tools:pack'
 }
 
-task deploy(type: Jar){
+task deploy(type: Jar) {
     dependsOn jarAndroid
     dependsOn jar
     archiveFileName = "${project.archivesBaseName}.jar"
 
-    from{ [zipTree("$buildDir/libs/${project.archivesBaseName}Desktop.jar"), zipTree("$buildDir/libs/${project.archivesBaseName}Android.jar")] }
+    from {[
+            zipTree("$buildDir/libs/${project.archivesBaseName}Desktop.jar"),
+            zipTree("$buildDir/libs/${project.archivesBaseName}Android.jar")
+    ]}
 
-    doLast{
-        delete{
+    doLast {
+        delete {
             delete "$buildDir/libs/${project.archivesBaseName}Desktop.jar"
             delete "$buildDir/libs/${project.archivesBaseName}Android.jar"
         }
+    }
+}
+
+static def os(){ //Returns OS name
+    String s = System.getProperty("os.name")
+    return s == null ? "" : s
+}
+
+@SuppressWarnings('SpellCheckingInspection')
+static def getdatadir() { //Returns Mindustry data directory path
+    def ret = System.getenv("MINDUSTRY_DATA_DIR")
+    if(ret == null){
+        def os = os()
+        if(os.contains("Windows")){
+            return System.getenv("AppData") + "\\Mindustry\\"
+        }else if(os.contains("Linux") || os.contains("BSD")){
+            if(System.getenv("XDG_DATA_HOME") != null){
+                String dir = System.getenv("XDG_DATA_HOME")
+                if(!dir.endsWith("/")) dir += "/"
+                return dir + "Mindustry/"
+            }
+            return System.getProperty("user.home") + "/.local/share/Mindustry/"
+        }else if(os.contains("Mac")){
+            return System.getProperty("user.home") + "/Library/Application Support/Mindustry/"
+        }
+    }
+    return ret
+}
+
+task mjar(){
+    dependsOn "jar"
+    doFirst{}
+    ext{
+        acopy = { String intoPath ->
+            delete{
+                delete "${intoPath}/${project.archivesBaseName}Desktop.jar"
+            }
+            copy{
+                from "$buildDir/libs/${project.archivesBaseName}Desktop.jar"
+                into intoPath
+            }
+            println "Moved to ${intoPath}"
+        }
+    }
+    doLast{
+        def modsDirectories = []
+        def file = new File(rootDir, "modsDirectories.txt")
+
+        if(file.exists()){
+            BufferedReader reader = new BufferedReader(new FileReader(file))
+            reader.lines().forEach(line -> modsDirectories.add(line))
+            reader.close()
+        }else{
+            modsDirectories.add("classic")
+        }
+        for(String directory : modsDirectories){
+            if(directory.startsWith("#") || directory.startsWith("//")){
+                println "Directory \"$directory\" was skipped."
+                continue
+            }
+            if(directory.equals("classic")){
+                directory = getdatadir() + "mods"
+            }
+            acopy(directory)
+        }
+        def time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
+        println "Build ended at: ${time}"
+    }
+}
+
+task mrun{
+    dependsOn mjar
+    doLast{
+        def gamePath = "${temporaryDir.absolutePath}\\Mindustry${mindustryVersion}.jar"
+        def gameUrl = mindustryVersion.startsWith("v") ?
+                "https://github.com/Anuken/Mindustry/releases/download/${mindustryVersion}/Mindustry.jar" :
+                "https://github.com/Anuken/MindustryBuilds/releases/download/${mindustryVersion}/Mindustry-BE-Desktop-${mindustryVersion}.jar"
+        def gameFile = new File(gamePath)
+        if (!gameFile.exists()) {
+            println "Downloading Mindustry ${mindustryVersion} from ${gameUrl} to ${gamePath}"
+            new URL(gameUrl).withInputStream{ i -> gameFile.withOutputStream{ it << i } }
+            println "Done"
+        }
+        javaexec{ classpath = files(gamePath) }
     }
 }

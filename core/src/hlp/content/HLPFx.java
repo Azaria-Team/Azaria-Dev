@@ -9,7 +9,6 @@ import arc.math.geom.Vec2;
 import arc.struct.Seq;
 import hlp.graphics.HLPPal;
 import mindustry.entities.Effect;
-import mindustry.graphics.Pal;
 
 import static arc.graphics.g2d.Draw.color;
 import static arc.graphics.g2d.Lines.lineAngle;

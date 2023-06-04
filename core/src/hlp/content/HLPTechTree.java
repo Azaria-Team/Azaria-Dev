@@ -3,7 +3,6 @@ package hlp.content;
 import static mindustry.content.TechTree.*;
 import static hlp.content.HLPItems.*;
 import static hlp.content.HLPBlocks.*;
-import hlp.content.HLPUnits.*;
 
 public class HLPTechTree{
 

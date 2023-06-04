@@ -1,15 +1,11 @@
 package hlp.entities.bullets;
 
-import arc.math.Angles;
-import arc.math.Mathf;
 import arc.util.Time;
 import arc.util.Tmp;
 import hlp.utils.Utils;
-import mindustry.entities.Units;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.gen.Bullet;
 import mindustry.gen.Posc;
-import mindustry.gen.Teamc;
 import mindustry.gen.Unitc;
 import mindustry.logic.Ranged;
 import mindustry.world.blocks.defense.turrets.Turret;

@@ -1,12 +1,10 @@
 package hlp.content;
 
-import arc.graphics.Color;
 import hlp.entities.bullets.AimBulletType;
 import hlp.graphics.HLPPal;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
-import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.FlakBulletType;
 import mindustry.entities.bullet.MissileBulletType;
 import mindustry.entities.pattern.ShootSpread;
@@ -16,9 +14,6 @@ import mindustry.gen.UnitWaterMove;
 import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-
-
-import static mindustry.Vars.tilesize;
 
 public class HLPUnits {
     public static UnitType

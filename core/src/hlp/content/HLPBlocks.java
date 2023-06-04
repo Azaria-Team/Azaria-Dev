@@ -1,17 +1,15 @@
 package hlp.content;
 
-import arc.graphics.Color;
 import hlp.graphics.HLPPal;
-import hlp.utils.Utils;
+import hlp.world.blocks.defense.wall.IndestructibleWall;
 import hlp.world.blocks.environment.ModOverlayFloor;
 import hlp.world.blocks.power.LightningPowerNode;
+import hlp.world.blocks.sandbox.SnMultiSource;
+import hlp.world.blocks.sandbox.SnMultiVoid;
 import mindustry.content.Items;
-import mindustry.content.Liquids;
-import mindustry.content.UnitTypes;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
 import mindustry.type.Category;
-import mindustry.type.Item;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
@@ -24,17 +22,17 @@ import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.draw.*;
-import mindustry.world.meta.Attribute;
 import mindustry.world.meta.BlockGroup;
+import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.type.ItemStack.with;
 
 public class HLPBlocks{
     public static Block
-    //environment
-    seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, mainlThermalFloor, whiteChips, whiteChipsWall,
-    fir, firWall, forenite, foreniteWall, forsite, forsiteWall,
-    spaceRock, spaceRockWall, terra, terraWall,
+            //environment
+            seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, mainlThermalFloor, whiteChips, whiteChipsWall,
+            fir, firWall, forenite, foreniteWall, forsite, forsiteWall,
+            spaceRock, spaceRockWall, terra, terraWall,
     //liquids
     pinkieFloor,
 
@@ -46,7 +44,7 @@ public class HLPBlocks{
 
     //power
     plasmaNode, plasmaNodeLarge,
-    plasmaDistributor, plasmaDistributorLarge, thermalEvaporator,
+            plasmaDistributor, plasmaDistributorLarge, thermalEvaporator,
 
     //drills
     forsDrill, pumpDrill,
@@ -58,7 +56,10 @@ public class HLPBlocks{
     forsWall,
 
     //storage
-    coreLegion, caseI;
+    coreLegion, caseI,
+
+    //sanbox
+    multiSource, multiVoid, indestructibleWall, indestructibleWallLarge;
 
     public static void load() {
         //region environment
@@ -71,7 +72,7 @@ public class HLPBlocks{
             variants = 3;
         }};
         crabStone = new Floor("crab-stone") {{
-           variants = 4;
+            variants = 4;
         }};
         crabStoneCratters = new Floor("crab-stone-cratters") {{
             variants = 4;
@@ -79,7 +80,7 @@ public class HLPBlocks{
         crabStoneWall = new StaticWall("crab-stone-wall") {{
             variants = 3;
         }};
-        crabStoneBoulder = new Prop("crab-stone-boulder"){{
+        crabStoneBoulder = new Prop("crab-stone-boulder") {{
             variants = 3;
             crabStone.asFloor().decoration = this;
         }};
@@ -157,15 +158,15 @@ public class HLPBlocks{
         terraWall = new StaticWall("terra-wall") {{
             variants = 3;
         }};
-        pinkieFloor = new Floor("pinkie-floor"){{
-           variants = 4;
-           isLiquid = true;
+        pinkieFloor = new Floor("pinkie-floor") {{
+            variants = 4;
+            isLiquid = true;
             cacheLayer = CacheLayer.water;
 
         }};
 
         //region prop
-        ancientSus = new Prop("ancient-sus"){{
+        ancientSus = new Prop("ancient-sus") {{
             breakable = false;
             size = 1;
             solid = true;
@@ -173,20 +174,20 @@ public class HLPBlocks{
         //endregion prop
 
         //ores
-        forsOre = new ModOverlayFloor("fors-ore"){{
+        forsOre = new ModOverlayFloor("fors-ore") {{
             parent = blendGroup = forsite;
             variants = 2;
             attributes.set(HLPAttribute.forsattr, 1f);
         }};
         khylidOre = new ModOverlayFloor(("khylid-ore")) {{
-           parent = blendGroup = mainlFloor;
-           variants = 2;
-           cacheLayer = CacheLayer.water;
-           attributes.set(HLPAttribute.khylidattr, 1f);
+            parent = blendGroup = mainlFloor;
+            variants = 2;
+            cacheLayer = CacheLayer.water;
+            attributes.set(HLPAttribute.khylidattr, 1f);
         }};
         //endregion environment
         //region power
-        plasmaNode = new LightningPowerNode("plasma-node", 0){{
+        plasmaNode = new LightningPowerNode("plasma-node", 0) {{
             requirements(Category.power, with(HLPItems.fors, 1, HLPItems.khylid, 2));
 
             consumePowerBuffered(4000f);
@@ -194,7 +195,7 @@ public class HLPBlocks{
             thresholdPerTile = 25f / 8;
         }};
 
-        plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0){{
+        plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
             //todo crafting
             requirements(Category.power, with(HLPItems.khylid, 1000));
             consumePowerBuffered(30000f);
@@ -203,7 +204,7 @@ public class HLPBlocks{
             thresholdPerTile = 60f / 8;
         }};
 
-        plasmaDistributor = new LightningPowerNode("plasma-distributor", 12){{
+        plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
             requirements(Category.power, with(HLPItems.fors, 20, HLPItems.khylid, 30));
             size = 2;
             consumePowerBuffered(7500f);
@@ -212,7 +213,7 @@ public class HLPBlocks{
             thresholdPerTile = 10f / 8;
         }};
 
-        plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24){{
+        plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
             //todo crafting
             requirements(Category.power, with(HLPItems.khylid, 1000));
             consumePowerBuffered(55000f);
@@ -222,7 +223,7 @@ public class HLPBlocks{
             thresholdPerTile = 40f / 8;
         }};
 
-        thermalEvaporator = new ThermalGenerator("thermal-evaporator"){{
+        thermalEvaporator = new ThermalGenerator("thermal-evaporator") {{
             requirements(Category.power, with(HLPItems.fors, 40));
             powerProduction = 2f;
             displayEfficiency = true;
@@ -235,7 +236,7 @@ public class HLPBlocks{
         }};
         //endregion power
         //region drills
-        forsDrill = new AttributeCrafter("fors-block"){{
+        forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(HLPItems.fors, 20));
             attribute = HLPAttribute.forsattr;
             group = BlockGroup.liquids;
@@ -251,7 +252,7 @@ public class HLPBlocks{
             squareSprite = false;
             drawer = new DrawMulti(
                     new DrawRegion(),
-                    new DrawGlowRegion(){{
+                    new DrawGlowRegion() {{
                         alpha = 0.7f;
                         color = HLPPal.fors;
                         glowIntensity = 0.3f;
@@ -259,7 +260,7 @@ public class HLPBlocks{
                     }}
             );
         }};
-        pumpDrill = new AttributeCrafter("pump-drill"){{
+        pumpDrill = new AttributeCrafter("pump-drill") {{
             requirements(Category.production, with(HLPItems.fors, 40));
             attribute = HLPAttribute.khylidattr;
             group = BlockGroup.liquids;
@@ -275,7 +276,7 @@ public class HLPBlocks{
             size = 2;
             drawer = new DrawMulti(
                     new DrawRegion(),
-                    new DrawGlowRegion(){{
+                    new DrawGlowRegion() {{
                         alpha = 0.7f;
                         color = HLPPal.khylid;
                         glowIntensity = 0.2f;
@@ -286,14 +287,14 @@ public class HLPBlocks{
         }};
         //endregion drills
         //region distribution
-        impulseConveyor = new Duct("impulse-conveyor"){{
+        impulseConveyor = new Duct("impulse-conveyor") {{
             requirements(Category.distribution, with(HLPItems.fors, 1));
             health = 130;
             speed = 5f;
             researchCost = with(HLPItems.fors, 5);
 
         }};
-        impulseJunction = new Junction("impulse-junction"){{
+        impulseJunction = new Junction("impulse-junction") {{
             requirements(Category.distribution, with(HLPItems.fors, 2));
             speed = 6;
             capacity = 1;
@@ -301,7 +302,7 @@ public class HLPBlocks{
             buildCostMultiplier = 6f;
             squareSprite = false;
         }};
-        impulseRouter = new Router("impulse-router"){{
+        impulseRouter = new Router("impulse-router") {{
             requirements(Category.distribution, with(HLPItems.fors, 3));
             speed = 16;
             buildCostMultiplier = 4f;
@@ -311,7 +312,7 @@ public class HLPBlocks{
         //region production
         //endregion production
         //region defense
-        forsWall = new Wall("fors-wall"){{
+        forsWall = new Wall("fors-wall") {{
             requirements(Category.defense, with(HLPItems.fors, 6));
             health = 120 * 4;
             armor = 2f;
@@ -319,7 +320,7 @@ public class HLPBlocks{
         }};
         //endregion defense
         //region storage
-        coreLegion = new CoreBlock("core-legion"){{
+        coreLegion = new CoreBlock("core-legion") {{
             requirements(Category.effect, with(Items.graphite, 1400, Items.silicon, 1200));
 
             isFirstTier = true;
@@ -334,12 +335,32 @@ public class HLPBlocks{
             unitCapModifier = 12;
         }};
 
-        caseI = new StorageBlock("case"){{
+        caseI = new StorageBlock("case") {{
             requirements(Category.effect, with(HLPItems.fors, 100));
             size = 2;
             itemCapacity = 100;
             scaledHealth = 80;
         }};
         //endregion storage
+        //region sandbox
+        multiSource = new SnMultiSource("multi-source") {{
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.empty);
+            hideDetails = false;
+        }};
+
+        multiVoid = new SnMultiVoid("multi-void") {{
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.empty);
+            hideDetails = false;
+        }};
+
+        indestructibleWall = new IndestructibleWall("indestructible-wall") {{
+            size = 1;
+            placeableLiquid = true;
+        }};
+        indestructibleWallLarge = new IndestructibleWall("indestructible-wall-large") {{
+            size = 2;
+            placeableLiquid = true;
+        }};
+        //endregion sandbox
     }
 }
