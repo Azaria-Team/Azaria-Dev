@@ -30,9 +30,9 @@ import static mindustry.type.ItemStack.with;
 public class HLPBlocks{
     public static Block
             //environment
-            seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, mainlThermalFloor, whiteChips, whiteChipsWall,
+            seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, serridMainl, mainlSerrid, huitaRock, huitaRockWall, mainlThermalFloor,
             fir, firWall, forenite, foreniteWall, forsite, forsiteWall,
-            spaceRock, spaceRockWall, terra, terraWall,
+            spaceRock, spaceRockWall,
     //liquids
     pinkieFloor,
 
@@ -99,7 +99,22 @@ public class HLPBlocks{
             cacheLayer = CacheLayer.water;
             drownTime = 50f;
             albedo = 0.5f;
-
+        }};
+        serridMainl = new Floor("serrid-mainl") {{
+            variants = 4;
+            isLiquid = true;
+            liquidDrop = HLPLiquids.mainl;
+            cacheLayer = CacheLayer.water;
+            drownTime = 50f;
+            albedo = 0.5f;
+        }};
+        mainlSerrid = new Floor("mainl-serrid") {{
+            variants = 4;
+            isLiquid = true;
+            liquidDrop = HLPLiquids.mainl;
+            cacheLayer = CacheLayer.water;
+            drownTime = 50f;
+            albedo = 0.5f;
         }};
         mainlThermalFloor = new Floor("mainl-thermal") {{
             variants = 4;
@@ -116,6 +131,12 @@ public class HLPBlocks{
             variants = 4;
         }};
         foreniteWall = new StaticWall("forenite-wall") {{
+            variants = 3;
+        }};
+        huitaRock = new Floor("huita-rock") {{
+           variants = 4;
+        }};
+        huitaRockWall = new StaticWall("huita-rock-wall") {{
             variants = 3;
         }};
         fir = new Floor("fir") {{
@@ -146,18 +167,6 @@ public class HLPBlocks{
         }};
         //endregion forestBiome
         //region otherBiomes
-        whiteChips = new Floor("white-chips") {{
-            variants = 4;
-        }};//aaa
-        whiteChipsWall = new StaticWall("white-chips-wall") {{
-            variants = 3;
-        }};
-        terra = new Floor("terra") {{
-            variants = 4;
-        }};
-        terraWall = new StaticWall("terra-wall") {{
-            variants = 3;
-        }};
         pinkieFloor = new Floor("pinkie-floor") {{
             variants = 4;
             isLiquid = true;
