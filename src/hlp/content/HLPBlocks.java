@@ -199,36 +199,36 @@ public class HLPBlocks{
         plasmaNode = new LightningPowerNode("plasma-node", 0) {{
             requirements(Category.power, with(HLPItems.fors, 1, HLPItems.khylid, 2));
 
-            consumePowerBuffered(4000f);
-            lightningRange = 16 * 8f;
+            consumePowerBuffered(600f);
+            lightningRange = 7 * 8f;
             thresholdPerTile = 25f / 8;
         }};
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
             //todo crafting
             requirements(Category.power, with(HLPItems.khylid, 1000));
-            consumePowerBuffered(30000f);
+            consumePowerBuffered(14000f);
             size = 2;
-            lightningRange = 29 * 8f;
+            lightningRange = 17 * 8f;
             thresholdPerTile = 60f / 8;
         }};
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
             requirements(Category.power, with(HLPItems.fors, 20, HLPItems.khylid, 30));
             size = 2;
-            consumePowerBuffered(7500f);
-            lightningRange = 9 * 8f;
-            laserRange = 7;
+            consumePowerBuffered(1000f);
+            lightningRange = 5 * 8f;
+            laserRange = 10;
             thresholdPerTile = 10f / 8;
         }};
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
             //todo crafting
             requirements(Category.power, with(HLPItems.khylid, 1000));
-            consumePowerBuffered(55000f);
+            consumePowerBuffered(10000f);
             size = 3;
-            lightningRange = 16 * 8f;
-            laserRange = 12;
+            lightningRange = 15 * 8f;
+            laserRange = 17;
             thresholdPerTile = 40f / 8;
         }};
 
