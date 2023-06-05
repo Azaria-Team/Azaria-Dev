@@ -1,38 +1,26 @@
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-
 apply plugin: "java"
 version '1.0'
 
 targetCompatibility = 8
 sourceCompatibility = JavaVersion.VERSION_16
 
+sourceSets.main.java.srcDirs = ["src"]
+
+repositories{
+    mavenCentral()
+    maven{ url 'https://www.jitpack.io' }
+}
+
 ext{
     sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
 }
 
-allprojects {
-    apply plugin: "java"
-
-    sourceSets.main {
-        java.srcDirs = ["core/src"]
-        resources.srcDirs = ["core/assets"]
+//java 8 backwards compatibility flag
+allprojects{
+    tasks.withType(JavaCompile){
+        options.compilerArgs.addAll(['--release', '8'])
     }
-
-    tasks.withType(JavaCompile).tap {
-        configureEach {
-            options.compilerArgs.addAll(['--release', '16'])
-        }
-    }
-
-    repositories {
-        mavenCentral()
-
-        maven {
-            url 'https://www.jitpack.io'
-        }
-    }
-
+}
     dependencies {
 
         annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
@@ -74,11 +62,6 @@ configurations.configureEach {
     }
 }
 
-sourceSets.main {
-    java.srcDirs = ["core/src"]
-    resources.srcDirs = ["core/assets"]
-}
-
 task jarAndroid{
     dependsOn "jar"
 
@@ -98,6 +81,7 @@ task jarAndroid{
     }
 }
 
+
 jar{
     archiveFileName = "${project.archivesBaseName}Desktop.jar"
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
@@ -108,36 +92,10 @@ jar{
 
     from(rootDir){
         include "mod.hjson"
-        include "mod.json"
     }
 
     from("assets/"){
         include "**"
-    }
-}
-
-
-task zipJar(type: Jar) {
-    archiveFileName = "${project.archivesBaseName}Desktop.zip"
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-    from {
-        configurations.runtimeClasspath.collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
-    }
-
-    from("$buildDir/classes/java/main") {
-        include "**"
-    }
-
-    from("$buildDir/resources/main") {
-        include "**"
-    }
-
-    from(rootDir) {
-        include "mod.hjson"
-        include "icon.png"
     }
 }
 
@@ -153,89 +111,5 @@ task deploy(type: Jar){
             delete "$buildDir/libs/${project.archivesBaseName}Desktop.jar"
             delete "$buildDir/libs/${project.archivesBaseName}Android.jar"
         }
-    }
-}
-
-static def os(){ //Returns OS name
-    String s = System.getProperty("os.name")
-    return s == null ? "" : s
-}
-
-@SuppressWarnings('SpellCheckingInspection')
-static def getdatadir() { //Returns Mindustry data directory path
-    def ret = System.getenv("MINDUSTRY_DATA_DIR")
-    if(ret == null){
-        def os = os()
-        if(os.contains("Windows")){
-            return System.getenv("AppData") + "\\Mindustry\\"
-        }else if(os.contains("Linux") || os.contains("BSD")){
-            if(System.getenv("XDG_DATA_HOME") != null){
-                String dir = System.getenv("XDG_DATA_HOME")
-                if(!dir.endsWith("/")) dir += "/"
-                return dir + "Mindustry/"
-            }
-            return System.getProperty("user.home") + "/.local/share/Mindustry/"
-        }else if(os.contains("Mac")){
-            return System.getProperty("user.home") + "/Library/Application Support/Mindustry/"
-        }
-    }
-    return ret
-}
-
-task mjar(){
-    dependsOn "jar"
-    doFirst{}
-    ext{
-        acopy = { String intoPath ->
-            delete{
-                delete "${intoPath}/${project.archivesBaseName}Desktop.jar"
-            }
-            copy{
-                from "$buildDir/libs/${project.archivesBaseName}Desktop.jar"
-                into intoPath
-            }
-            println "Moved to ${intoPath}"
-        }
-    }
-    doLast{
-        def modsDirectories = []
-        def file = new File(rootDir, "modsDirectories.txt")
-
-        if(file.exists()){
-            BufferedReader reader = new BufferedReader(new FileReader(file))
-            reader.lines().forEach(line -> modsDirectories.add(line))
-            reader.close()
-        }else{
-            modsDirectories.add("classic")
-        }
-        for(String directory : modsDirectories){
-            if(directory.startsWith("#") || directory.startsWith("//")){
-                println "Directory \"$directory\" was skipped."
-                continue
-            }
-            if(directory.equals("classic")){
-                directory = getdatadir() + "mods"
-            }
-            acopy(directory)
-        }
-        def time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
-        println "Build ended at: ${time}"
-    }
-}
-
-task mrun{
-    dependsOn mjar
-    doLast{
-        def gamePath = "${temporaryDir.absolutePath}\\Mindustry${mindustryVersion}.jar"
-        def gameUrl = mindustryVersion.startsWith("v") ?
-                "https://github.com/Anuken/Mindustry/releases/download/${mindustryVersion}/Mindustry.jar" :
-                "https://github.com/Anuken/MindustryBuilds/releases/download/${mindustryVersion}/Mindustry-BE-Desktop-${mindustryVersion}.jar"
-        def gameFile = new File(gamePath)
-        if (!gameFile.exists()) {
-            println "Downloading Mindustry ${mindustryVersion} from ${gameUrl} to ${gamePath}"
-            new URL(gameUrl).withInputStream{ i -> gameFile.withOutputStream{ it << i } }
-            println "Done"
-        }
-        javaexec{ classpath = files(gamePath) }
     }
 }
