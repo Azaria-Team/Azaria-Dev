@@ -100,6 +100,7 @@ task jarAndroid{
 
 jar{
     archiveFileName = "${project.archivesBaseName}Desktop.jar"
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     from{
         configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
@@ -107,7 +108,7 @@ jar{
 
     from(rootDir){
         include "mod.hjson"
-        include "icon.png"
+        include "mod.json"
     }
 
     from("assets/"){
