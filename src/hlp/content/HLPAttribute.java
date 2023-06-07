@@ -11,5 +11,4 @@ public class HLPAttribute {
             forsattr = add("fors-attr"),
             khylidattr = add("khylid-attr"),
             mainlheatattr = add("khylid-attr");
-
 }
