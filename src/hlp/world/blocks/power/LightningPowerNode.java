@@ -13,7 +13,6 @@ import hlp.graphics.HLPPal;
 import hlp.world.meta.HLPStat;
 import hlp.world.meta.HLPStatUnit;
 import mindustry.*;
-import mindustry.annotations.Annotations;
 import mindustry.content.*;
 import mindustry.core.*;
 import mindustry.entities.*;
@@ -35,10 +34,9 @@ public class LightningPowerNode extends PowerNode {
     public float thresholdPerTile;
     public Effect lightningFx = Fx.lightning;
     public Color lightningColor = HLPPal.lightningNodeColor;
+    public Sound lightningSound = Sounds.none;
 
     AStats aStats = new AStats();
-    public @Annotations.Load(value = "@-aurlaser", fallback = "aurlaser") TextureRegion laser;
-    public @Annotations.Load(value = "@-aurlaser-end", fallback = "aurlaser-end") TextureRegion laserEnd;
 
     public LightningPowerNode(String name, int maxNodes) {
         super(name);
@@ -149,6 +147,8 @@ public class LightningPowerNode extends PowerNode {
                     power.status -= toGive / thisCap;
 
                     HLPFx.lightning(x, y, node.x, node.y, lightningColor, 3, 12f, lightningFx);
+                    lightningSound.at(this);
+                    lightningSound.at(node);
                 }
                 nodes.clear();
             }
