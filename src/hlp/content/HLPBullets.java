@@ -15,7 +15,7 @@ public class HLPBullets {
 
     public static void load() {
         forceBullet = new FlakBulletType(3f, 60f){{
-           sprite = "circle=bullet";
+           sprite = "circle-bullet";
            trailInterval = 0.4f;
            trailEffect = HLPFx.forceBulletTrail;
            hitEffect = HLPFx.forceBulletHit;
@@ -35,8 +35,8 @@ public class HLPBullets {
            pierceCap = 2;
 
             fragBullet = intervalBullet = new FlakBulletType(4f, 5){{
-                width = 4f;
-                height = 9f;
+                width = 2f;
+                height = 5f;
                 pierce = true;
                 lifetime = 35f;
                 pierceCap = 2;
@@ -51,13 +51,13 @@ public class HLPBullets {
                 despawnSound = Sounds.titanExplosion;
             }};
 
-            bulletInterval = 3f;
-            intervalRandomSpread = 20f;
-            intervalBullets = 2;
+            bulletInterval = 40f;
+            intervalRandomSpread = -180f;
+            intervalBullets = 3;
             intervalAngle = -180f;
-            intervalSpread = -300f;
+            intervalSpread = 300f;
 
-            fragBullets = 10;
+            fragBullets = 5;
             fragVelocityMin = 0.1f;
             fragVelocityMax = 1.3f;
             fragLifeMin = 0.4f;

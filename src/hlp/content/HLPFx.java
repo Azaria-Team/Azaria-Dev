@@ -134,8 +134,8 @@ public class HLPFx {
 
         color(HLPPal.fors, Color.pink, e.fin());
         for(int i = 0; i < 1; i++){
-            float rot = e.rotation + rand.range(13f) + 180f;
-            v.trns(rot, rand.random(e.fin() * 14f));
+            float rot = e.rotation + rand.range(16f) + 180f;
+            v.trns(rot, rand.random(e.fin() * 20f));
             lineAngle(e.x + v.x, e.y + v.y, rot, e.fout() * rand.random(2f, 3f) + 1f);
         }
 

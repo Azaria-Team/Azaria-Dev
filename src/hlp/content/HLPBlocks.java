@@ -352,7 +352,7 @@ public class HLPBlocks{
         }};
 
         forceTurret = new ItemTurret("force"){{
-            requirements(Category.effect, with(HLPItems.fors, 120, HLPItems.khylid, 50));
+            requirements(Category.defense, with(HLPItems.fors, 120, HLPItems.khylid, 50));
             health = 600;
             shootEffect = HLPFx.shootForce;
             smokeEffect = HLPFx.shootSmokeForce;
@@ -383,7 +383,7 @@ public class HLPBlocks{
                               moveY = -2f;
                               moveRot = -7f;
                         }},
-                        new RegionPart("-blade-barrel"){{
+                        new RegionPart("-barrel"){{
                             progress = PartProgress.recoil;
                             mirror = false;
                             under = false;
