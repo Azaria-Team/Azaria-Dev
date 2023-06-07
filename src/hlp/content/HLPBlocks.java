@@ -3,11 +3,8 @@ package hlp.content;
 import hlp.graphics.HLPPal;
 import hlp.world.blocks.defense.wall.IndestructibleWall;
 import hlp.world.blocks.environment.ModOverlayFloor;
+import hlp.world.blocks.power.EffectThermalPowerGenerator;
 import hlp.world.blocks.power.LightningPowerNode;
-import hlp.world.blocks.sandbox.SnMultiSource;
-import hlp.world.blocks.sandbox.SnMultiVoid;
-import hlp.world.draw.EffectDraw;
-import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
@@ -18,14 +15,16 @@ import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.distribution.Junction;
 import mindustry.world.blocks.distribution.Router;
-import mindustry.world.blocks.environment.*;
-import mindustry.world.blocks.power.ThermalGenerator;
+import mindustry.world.blocks.environment.Floor;
+import mindustry.world.blocks.environment.Prop;
+import mindustry.world.blocks.environment.StaticWall;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
-import mindustry.world.draw.*;
+import mindustry.world.draw.DrawGlowRegion;
+import mindustry.world.draw.DrawMulti;
+import mindustry.world.draw.DrawRegion;
 import mindustry.world.meta.BlockGroup;
-import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.type.ItemStack.with;
 
@@ -61,7 +60,7 @@ public class HLPBlocks{
     coreLegion, caseI,
 
     //sanbox
-    multiSource, multiVoid, indestructibleWall, indestructibleWallLarge;
+    indestructibleWall, indestructibleWallLarge;
 
     public static void load() {
         //region environment
@@ -234,7 +233,7 @@ public class HLPBlocks{
             thresholdPerTile = 40f / 8;
         }};
 
-        thermalEvaporator = new ThermalGenerator("thermal-evaporator") {{
+        thermalEvaporator = new EffectThermalPowerGenerator("thermal-evaporator") {{
             requirements(Category.power, with(HLPItems.fors, 40));
             powerProduction = 2f;
             displayEfficiency = true;
@@ -244,30 +243,29 @@ public class HLPBlocks{
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             attribute = HLPAttribute.mainlheatattr;
-            drawer = new DrawMulti(
-                    new DrawRegion(),
-                    new EffectDraw() {{
+            effects.addAll(
+                    new EffectBuild() {{
                         effect = HLPFx.smokeEvaporatorBig;
-                        x = 0;
-                        y = 0;
+                        x = 0f;
+                        y = 0f;
                     }},
-                    new EffectDraw() {{
-                        effectChanceDelta = 0.13f;
+                    new EffectBuild(){{
+                        effectChance = 0.13f;
                         x = 0;
                         y = 2;
                     }},
-                    new EffectDraw() {{
-                        effectChanceDelta = 0.13f;
+                    new EffectBuild(){{
+                        effectChance = 0.13f;
                         x = 0;
                         y = -2;
                     }},
-                    new EffectDraw() {{
-                        effectChanceDelta = 0.13f;
+                    new EffectBuild(){{
+                        effectChance = 0.13f;
                         x = 2;
                         y = 0;
                     }},
-                    new EffectDraw() {{
-                        effectChanceDelta = 0.13f;
+                    new EffectBuild(){{
+                        effectChance = 0.13f;
                         x = -2;
                         y = 0;
                     }}
@@ -383,15 +381,6 @@ public class HLPBlocks{
         }};
         //endregion storage
         //region sandbox
-        multiSource = new SnMultiSource("multi-source") {{
-            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.empty);
-            hideDetails = false;
-        }};
-
-        multiVoid = new SnMultiVoid("multi-void") {{
-            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.empty);
-            hideDetails = false;
-        }};
 
         indestructibleWall = new IndestructibleWall("indestructible-wall") {{
             size = 1;
