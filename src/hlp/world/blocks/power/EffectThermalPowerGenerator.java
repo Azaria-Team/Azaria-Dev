@@ -24,13 +24,10 @@ public class EffectThermalPowerGenerator extends ThermalGenerator {
         public float sum;
 
         public void effects() {
-            boolean valid = efficiency > 0;
 
             if(wasVisible) {
-                if (valid) {
                     if (Mathf.chanceDelta(effectChance)) {
                         effect.at(x, y);
-                    }
                 }
             }
         }
