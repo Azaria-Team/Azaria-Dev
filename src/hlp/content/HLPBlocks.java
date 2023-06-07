@@ -362,7 +362,6 @@ public class HLPBlocks{
             shootY = -2;
             outlineColor = HLPPal.aureliaOutline;
             size = 3;
-            reload = 600f;
             recoil = 2f;
             range = 19 * Vars.tilesize;
             shootCone = 10f;
