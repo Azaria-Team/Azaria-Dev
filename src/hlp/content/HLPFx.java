@@ -1,6 +1,7 @@
 package hlp.content;
 
 import arc.graphics.Color;
+import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Fill;
 import arc.graphics.g2d.Lines;
 import arc.math.Mathf;
@@ -8,6 +9,7 @@ import arc.math.Rand;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
 import hlp.graphics.HLPPal;
+import mindustry.core.Renderer;
 import mindustry.entities.Effect;
 
 import static arc.graphics.g2d.Draw.color;
@@ -78,6 +80,7 @@ public class HLPFx {
     });
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {
+        Draw.alpha(Renderer.laserOpacity);
         Seq<Vec2> lines = new Seq<>();
         boolean swap = Math.abs(y1 - y2) < Math.abs(x1 - x2);
         if(swap) {

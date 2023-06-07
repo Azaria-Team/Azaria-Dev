@@ -13,6 +13,7 @@ import hlp.graphics.HLPPal;
 import hlp.world.meta.HLPStat;
 import hlp.world.meta.HLPStatUnit;
 import mindustry.*;
+import mindustry.annotations.Annotations;
 import mindustry.content.*;
 import mindustry.core.*;
 import mindustry.entities.*;
@@ -34,11 +35,10 @@ public class LightningPowerNode extends PowerNode {
     public float thresholdPerTile;
     public Effect lightningFx = Fx.lightning;
     public Color lightningColor = HLPPal.lightningNodeColor;
-    public Sound lightningSound = Sounds.spark;
 
     AStats aStats = new AStats();
-    TextureRegion laser;
-    TextureRegion laserEnd;
+    public @Annotations.Load(value = "@-aurlaser", fallback = "aurlaser") TextureRegion laser;
+    public @Annotations.Load(value = "@-aurlaser-end", fallback = "aurlaser-end") TextureRegion laserEnd;
 
     public LightningPowerNode(String name, int maxNodes) {
         super(name);
@@ -51,15 +51,6 @@ public class LightningPowerNode extends PowerNode {
         stats = aStats.copy(stats);
         if(maxNodes == 0) configurable = false;
         laserColor2 = HLPPal.lightningNodeColor;
-    }
-
-    @Override
-    public void load(){
-        super.load();
-        laser = Core.atlas.find(name+"-aurlaser");
-        laser = Core.atlas.find("@-aurlaser");
-        laserEnd = Core.atlas.find(name+"-aurlaser-end");
-        laserEnd = Core.atlas.find("@-aurlaser-end");
     }
 
     @Override
@@ -99,6 +90,15 @@ public class LightningPowerNode extends PowerNode {
         // draw connection range only if this block can be connected
         if(maxNodes > 0) super.drawPlace(x, y, rotation, valid);
         Drawf.dashCircle(x * tilesize + offset, y * tilesize + offset, lightningRange, Pal.placing);
+    }
+
+    @Override
+    public void drawLaser(float x1, float y1, float x2, float y2, int size1, int size2){
+        float angle1 = Angles.angle(x1, y1, x2, y2),
+                vx = Mathf.cosDeg(angle1), vy = Mathf.sinDeg(angle1),
+                len1 = size1 * tilesize / 2f - 1.5f, len2 = size2 * tilesize / 2f - 1.5f;
+
+        Drawf.laser(laser, laserEnd, x1 + vx*len1, y1 + vy*len1, x2 - vx*len2, y2 - vy*len2, laserScale);
     }
 
     public class LightningPowerNodeBuild extends PowerNodeBuild {
@@ -158,8 +158,6 @@ public class LightningPowerNode extends PowerNode {
                     power.status -= toGive / thisCap;
 
                     HLPFx.lightning(x, y, node.x, node.y, lightningColor, 3, 12f, lightningFx);
-                    lightningSound.at(this);
-                    lightningSound.at(node);
                 }
                 nodes.clear();
             }
