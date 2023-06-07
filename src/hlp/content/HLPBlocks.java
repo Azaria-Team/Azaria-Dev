@@ -30,10 +30,10 @@ import static mindustry.type.ItemStack.with;
 
 public class HLPBlocks{
     public static Block
-            //environment
-            seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, serridMainl, mainlSerrid, huitaRock, huitaRockWall, mainlThermalFloor,
-            fir, firWall, forenite, foreniteWall, forsite, forsiteWall,
-            spaceRock, spaceRockWall,
+    //environment
+    seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, serridMainl, mainlSerrid, huitaRock, huitaRockWall, mainlThermalFloor,
+    fir, firWall, forenite, foreniteWall, forsite, forsiteWall,
+    spaceRock, spaceRockWall,
     //liquids
     pinkieFloor,
 
