@@ -11,6 +11,7 @@ import arc.struct.Seq;
 import hlp.graphics.HLPPal;
 import mindustry.core.Renderer;
 import mindustry.entities.Effect;
+import mindustry.graphics.Pal;
 
 import static arc.graphics.g2d.Draw.color;
 import static arc.graphics.g2d.Lines.lineAngle;
@@ -21,6 +22,28 @@ public class HLPFx {
     public static final Rand rand = new Rand();
     public static final Vec2 v = new Vec2();
     public static final Effect
+
+    forsDrillEffect = new Effect(30, e -> {
+        color(Color.white, HLPPal.fors, e.fin());
+        randLenVectors(e.id, 5, 2f + 14f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2.5f + 0.5f);
+        });
+    }),
+
+    smokeEvaporatorSmall = new Effect(50, e -> {
+        color(Color.white, e.fin());
+        randLenVectors(e.id, 3, 2f + 10f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.5f);
+            Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
+        });
+    }),
+    smokeEvaporatorBig = new Effect(30, e -> {
+        color(Color.white, e.fin());
+        randLenVectors(e.id, 5, 3f + 16f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 3f + 0.2f);
+            Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
+        });
+    }),
 
     explosionSmall = new Effect(30, e -> {
         color(HLPPal.vogPink);
@@ -80,12 +103,12 @@ public class HLPFx {
     }),
 
     lightning2 = new Effect(10f, 500f, e -> {
-        Draw.alpha(Renderer.laserOpacity);
         if(!(e.data instanceof Seq)) return;
         Seq<Vec2> lines = e.data();
 
         stroke(3f * e.fout());
         color(e.color, Color.white, e.fin());
+        Draw.alpha(Renderer.laserOpacity);
 
         for(int i = 0; i < lines.size - 1; i++){
             Vec2 cur = lines.get(i);

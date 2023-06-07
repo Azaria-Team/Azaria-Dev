@@ -6,6 +6,8 @@ import hlp.world.blocks.environment.ModOverlayFloor;
 import hlp.world.blocks.power.LightningPowerNode;
 import hlp.world.blocks.sandbox.SnMultiSource;
 import hlp.world.blocks.sandbox.SnMultiVoid;
+import hlp.world.draw.EffectDraw;
+import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
@@ -242,6 +244,34 @@ public class HLPBlocks{
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             attribute = HLPAttribute.mainlheatattr;
+            drawer = new DrawMulti(
+                    new DrawRegion(),
+                    new EffectDraw() {{
+                        effect = HLPFx.smokeEvaporatorBig;
+                        x = 0;
+                        y = 0;
+                    }},
+                    new EffectDraw() {{
+                        effectChanceDelta = 0.13f;
+                        x = 0;
+                        y = 2;
+                    }},
+                    new EffectDraw() {{
+                        effectChanceDelta = 0.13f;
+                        x = 0;
+                        y = -2;
+                    }},
+                    new EffectDraw() {{
+                        effectChanceDelta = 0.13f;
+                        x = 2;
+                        y = 0;
+                    }},
+                    new EffectDraw() {{
+                        effectChanceDelta = 0.13f;
+                        x = -2;
+                        y = 0;
+                    }}
+            );
         }};
         //endregion power
         //region drills
@@ -258,14 +288,15 @@ public class HLPBlocks{
             ambientSoundVolume = 0.06f;
             displayEfficiency = false;
             size = 2;
+            craftEffect = HLPFx.forsDrillEffect;
             squareSprite = false;
             drawer = new DrawMulti(
                     new DrawRegion(),
                     new DrawGlowRegion() {{
                         alpha = 0.7f;
                         color = HLPPal.fors;
-                        glowIntensity = 0.3f;
-                        glowScale = 6f;
+                        glowIntensity = 0.4f;
+                        glowScale = 11f;
                     }}
             );
         }};
@@ -286,10 +317,10 @@ public class HLPBlocks{
             drawer = new DrawMulti(
                     new DrawRegion(),
                     new DrawGlowRegion() {{
-                        alpha = 0.7f;
+                        alpha = 0.8f;
                         color = HLPPal.khylid;
-                        glowIntensity = 0.2f;
-                        glowScale = 5f;
+                        glowIntensity = 0.1f;
+                        glowScale = 9f;
                     }}
             );
             squareSprite = false;
