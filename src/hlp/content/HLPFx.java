@@ -11,6 +11,8 @@ import arc.struct.Seq;
 import hlp.graphics.HLPPal;
 import mindustry.core.Renderer;
 import mindustry.entities.Effect;
+import mindustry.graphics.Drawf;
+import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 
 import static arc.graphics.g2d.Draw.color;
@@ -94,11 +96,81 @@ public class HLPFx {
         }
     }),
 
-    paimMissileTrail = new Effect(20f, 50f, e -> {
+    aimMissileTrail = new Effect(20f, 50f, e -> {
         color(HLPPal.vogPink, HLPPal.vogPinkBack, Color.pink,  e.fin() * e.fin());
 
         randLenVectors(e.id, 4, 1f + e.finpow() * 15, e.rotation + 180, 7f, (x, y) -> {
             Fill.circle(e.x + x, e.y + y, 0.30f + e.fout() * 1.1f);
+        });
+    }),
+
+    shootForce = new Effect(10, e -> {
+        color(Color.pink, e.color, e.fin());
+        float w = 1.3f + 10 * e.fout();
+        Drawf.tri(e.x, e.y, w, 20f * e.fout(), e.rotation);
+        Drawf.tri(e.x, e.y, w, 5f * e.fout(), e.rotation + 180f);
+    }),
+
+    shootSmokeForce = new Effect(60f, e -> {
+        rand.setSeed(e.id);
+        for(int i = 0; i < 10; i++){
+            v.trns(e.rotation + rand.range(10f), rand.random(e.finpow() * 20f));
+            e.scaled(e.lifetime * rand.random(0.1f, 0.3f), b -> {
+                color(e.color, HLPPal.fors, b.fin());
+                Fill.circle(e.x + v.x, e.y + v.y, b.fout() * 2f + 0.3f);
+            });
+        }
+    }),
+
+    forceBulletTrail = new Effect(50, e -> {
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, e.fin());
+
+        randLenVectors(e.id, 4, 1f + e.finpow() * 17, e.rotation + 180, 9f, (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, 1.2f + e.fout() * 1.1f);
+        });
+
+        stroke(0.6f + e.fout() * 0.9f);
+        rand.setSeed(e.id);
+
+        color(HLPPal.fors, Color.pink, e.fin());
+        for(int i = 0; i < 1; i++){
+            float rot = e.rotation + rand.range(13f) + 180f;
+            v.trns(rot, rand.random(e.fin() * 14f));
+            lineAngle(e.x + v.x, e.y + v.y, rot, e.fout() * rand.random(2f, 3f) + 1f);
+        }
+
+    }).layer(Layer.bullet - 0.001f), //below bullets
+
+    forceBulletHit = new Effect(30, e -> {
+        color(HLPPal.fors);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+        });
+
+        color(HLPPal.fors);
+
+        randLenVectors(e.id, 10, 3f + 20f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.7f);
+            Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
+        });
+
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, Color.pink, e.fin());
+        stroke(1.5f * e.fout());
+    }),
+
+    forceBulletDespawn = new Effect(30, e -> {
+        color(HLPPal.fors);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+        });
+
+        color(HLPPal.vogPink, HLPPal.vogPinkBack, Color.pink, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 1, 10, 1f + 30f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 3f);
         });
     }),
 

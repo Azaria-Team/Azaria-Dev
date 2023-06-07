@@ -1,16 +1,22 @@
 package hlp.content;
 
+import arc.graphics.Color;
 import hlp.graphics.HLPPal;
 import hlp.world.blocks.defense.wall.IndestructibleWall;
 import hlp.world.blocks.environment.ModOverlayFloor;
 import hlp.world.blocks.power.LightningPowerNode;
+import mindustry.Vars;
+import mindustry.content.Fx;
 import mindustry.content.Items;
+import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
+import mindustry.graphics.Pal;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
+import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.distribution.Junction;
 import mindustry.world.blocks.distribution.Router;
@@ -24,7 +30,9 @@ import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.draw.DrawGlowRegion;
 import mindustry.world.draw.DrawMulti;
 import mindustry.world.draw.DrawRegion;
+import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.BlockGroup;
+import mindustry.world.meta.Env;
 
 import static mindustry.type.ItemStack.with;
 
@@ -55,6 +63,7 @@ public class HLPBlocks{
 
     //defense
     forsWall,
+    forceTurret,
 
     //storage
     coreLegion, caseI,
@@ -335,20 +344,65 @@ public class HLPBlocks{
         //endregion production
         //region defense
         forsWall = new Wall("fors-wall") {{
+            requirements(Category.effect, with(HLPItems.fors, 130));
             requirements(Category.defense, with(HLPItems.fors, 6));
             health = 120 * 4;
             armor = 2f;
             buildCostMultiplier = 8f;
         }};
+
+        forceTurret = new ItemTurret("force"){{
+            requirements(Category.effect, with(HLPItems.fors, 120, HLPItems.khylid, 50));
+            health = 600;
+            shootEffect = HLPFx.shootForce;
+            smokeEffect = HLPFx.shootSmokeForce;
+            reload = 70f;
+            inaccuracy = 2f;
+            shake = 2f;
+            shootY = -2;
+            outlineColor = HLPPal.aureliaOutline;
+            size = 3;
+            reload = 600f;
+            recoil = 2f;
+            range = 19 * Vars.tilesize;
+            shootCone = 10f;
+            rotateSpeed = 2.4f;
+
+            shootSound = Sounds.shootAlt;
+            squareSprite = false;
+            itemCapacity = 20;
+
+            ammo(HLPItems.fors, HLPBullets.forceBullet);
+
+            drawer = new DrawTurret("reinforced-"){{
+                parts.add(
+                        new RegionPart("-edge"){{
+                              progress = PartProgress.recoil;
+                              mirror = true;
+                              under = false;
+                              moveX = 1f;
+                              moveY = -2f;
+                              moveRot = -7f;
+                        }},
+                        new RegionPart("-blade-barrel"){{
+                            progress = PartProgress.recoil;
+                            mirror = false;
+                            under = false;
+                            moveX = 0f;
+                            moveY = -2f;
+                            moveRot = 0f;
+                        }});
+            }};
+        }};
         //endregion defense
         //region storage
         coreLegion = new CoreBlock("core-legion") {{
-            requirements(Category.effect, with(Items.graphite, 1400, Items.silicon, 1200));
+            requirements(Category.effect, with(HLPItems.fors, 1200, HLPItems.khylid, 800));
 
             isFirstTier = true;
             unitType = HLPUnits.gyurza;
             health = 2000;
-            itemCapacity = 2600;
+            itemCapacity = 2500;
             size = 3;
             armor = 2f;
             alwaysUnlocked = true;
@@ -362,6 +416,7 @@ public class HLPBlocks{
             size = 2;
             itemCapacity = 100;
             scaledHealth = 80;
+            squareSprite = false;
         }};
         //endregion storage
         //region sandbox

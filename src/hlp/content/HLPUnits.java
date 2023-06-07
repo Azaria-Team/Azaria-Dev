@@ -115,7 +115,7 @@ public class HLPUnits {
                     trailEffect = HLPFx.vogTrail;
                     trailRotation = true;
                     trailInterval = 0.5f;
-                    lifetime = 60f;
+                    lifetime = 40f;
                 }};
             }});
         }};
@@ -155,7 +155,7 @@ public class HLPUnits {
                             frontColor = HLPPal.vogPink;
 							sprite = "hlp-dagger-missile";
                             maxRange = 190;
-                            homingPower = 0.06f;
+                            homingPower = 0.07f;
                             homingRange = 0;
                             shrinkY = 0f;
                             shrinkX = 0f;
@@ -165,7 +165,7 @@ public class HLPUnits {
                             hitSound = Sounds.explosion;
                             hitEffect = HLPFx.explosionSmall;
                             despawnEffect = HLPFx.explosionSmall2;
-                            trailEffect = HLPFx.paimMissileTrail;
+                            trailEffect = HLPFx.aimMissileTrail;
                             trailRotation = true;
                             trailInterval = 0.5f;
                             lifetime = 200f;
@@ -197,7 +197,7 @@ public class HLPUnits {
                             hitSound = Sounds.explosion;
                             hitEffect = HLPFx.explosionSmall;
                             despawnEffect = HLPFx.explosionSmall2;
-                            trailEffect = HLPFx.paimMissileTrail;
+                            trailEffect = HLPFx.aimMissileTrail;
                             trailRotation = true;
                             trailInterval = 0.5f;
                             lifetime = 200f;
