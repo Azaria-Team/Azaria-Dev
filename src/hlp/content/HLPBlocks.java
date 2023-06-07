@@ -3,7 +3,6 @@ package hlp.content;
 import hlp.graphics.HLPPal;
 import hlp.world.blocks.defense.wall.IndestructibleWall;
 import hlp.world.blocks.environment.ModOverlayFloor;
-import hlp.world.blocks.power.EffectThermalPowerGenerator;
 import hlp.world.blocks.power.LightningPowerNode;
 import mindustry.content.Items;
 import mindustry.gen.Sounds;
@@ -18,6 +17,7 @@ import mindustry.world.blocks.distribution.Router;
 import mindustry.world.blocks.environment.Floor;
 import mindustry.world.blocks.environment.Prop;
 import mindustry.world.blocks.environment.StaticWall;
+import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
@@ -233,7 +233,7 @@ public class HLPBlocks{
             thresholdPerTile = 40f / 8;
         }};
 
-        thermalEvaporator = new EffectThermalPowerGenerator("thermal-evaporator") {{
+        thermalEvaporator = new ThermalGenerator("thermal-evaporator") {{
             requirements(Category.power, with(HLPItems.fors, 40));
             powerProduction = 2f;
             displayEfficiency = true;
@@ -243,31 +243,15 @@ public class HLPBlocks{
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             attribute = HLPAttribute.mainlheatattr;
-            effects.addAll(
-                    new EffectBuild() {{
-                        effect = HLPFx.smokeEvaporatorBig;
-                        x = 0f;
-                        y = 0f;
-                    }},
-                    new EffectBuild(){{
-                        effectChance = 0.13f;
-                        x = 0;
-                        y = 2;
-                    }},
-                    new EffectBuild(){{
-                        effectChance = 0.13f;
-                        x = 0;
-                        y = -2;
-                    }},
-                    new EffectBuild(){{
-                        effectChance = 0.13f;
-                        x = 2;
-                        y = 0;
-                    }},
-                    new EffectBuild(){{
-                        effectChance = 0.13f;
-                        x = -2;
-                        y = 0;
+            generateEffect = HLPFx.smokeEvaporatorBig;
+            effectChance = 0.4f;
+            drawer = new DrawMulti(
+                    new DrawRegion(),
+                    new DrawGlowRegion() {{
+                        alpha = 0.7f;
+                        color = HLPPal.lightningNodeColor;
+                        glowIntensity = 0.4f;
+                        glowScale = 11f;
                     }}
             );
         }};
