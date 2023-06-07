@@ -77,10 +77,29 @@ public class HLPFx {
         randLenVectors(e.id, 4, 1f + e.finpow() * 15, e.rotation + 180, 7f, (x, y) -> {
             Fill.circle(e.x + x, e.y + y, 0.30f + e.fout() * 1.1f);
         });
+    }),
+
+    lightning2 = new Effect(10f, 500f, e -> {
+        Draw.alpha(Renderer.laserOpacity);
+        if(!(e.data instanceof Seq)) return;
+        Seq<Vec2> lines = e.data();
+
+        stroke(3f * e.fout());
+        color(e.color, Color.white, e.fin());
+
+        for(int i = 0; i < lines.size - 1; i++){
+            Vec2 cur = lines.get(i);
+            Vec2 next = lines.get(i + 1);
+
+            Lines.line(cur.x, cur.y, next.x, next.y, false);
+        }
+
+        for(Vec2 p : lines){
+            Fill.circle(p.x, p.y, Lines.getStroke() / 2f);
+        }
     });
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {
-        Draw.alpha(Renderer.laserOpacity);
         Seq<Vec2> lines = new Seq<>();
         boolean swap = Math.abs(y1 - y2) < Math.abs(x1 - x2);
         if(swap) {

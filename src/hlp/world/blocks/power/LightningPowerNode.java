@@ -32,9 +32,8 @@ public class LightningPowerNode extends PowerNode {
 
     // minimal energy delta per tile required for lightning
     public float thresholdPerTile;
-    public Effect lightningFx = Fx.lightning;
+    public Effect lightningFx = HLPFx.lightning2;
     public Color lightningColor = HLPPal.lightningNodeColor;
-    public Sound lightningSound = Sounds.none;
 
     AStats aStats = new AStats();
 
@@ -147,8 +146,6 @@ public class LightningPowerNode extends PowerNode {
                     power.status -= toGive / thisCap;
 
                     HLPFx.lightning(x, y, node.x, node.y, lightningColor, 3, 12f, lightningFx);
-                    lightningSound.at(this);
-                    lightningSound.at(node);
                 }
                 nodes.clear();
             }
