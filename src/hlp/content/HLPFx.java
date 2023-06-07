@@ -125,7 +125,7 @@ public class HLPFx {
     forceBulletTrail = new Effect(50, e -> {
         color(HLPPal.vogPink, HLPPal.vogPinkBack, e.fin());
 
-        randLenVectors(e.id, 4, 1f + e.finpow() * 17, e.rotation + 180, 9f, (x, y) -> {
+        randLenVectors(e.id, 3, 1f + e.finpow() * 17, e.rotation + 180, 9f, (x, y) -> {
             Fill.circle(e.x + x, e.y + y, 1.2f + e.fout() * 1.1f);
         });
 

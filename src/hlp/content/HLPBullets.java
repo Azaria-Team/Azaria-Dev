@@ -16,21 +16,19 @@ public class HLPBullets {
     public static void load() {
         forceBullet = new FlakBulletType(3f, 60f){{
            sprite = "circle-bullet";
-           trailInterval = 0.4f;
+           trailInterval = 0.5f;
            trailEffect = HLPFx.forceBulletTrail;
            hitEffect = HLPFx.forceBulletHit;
            despawnEffect = HLPFx.forceBulletDespawn;
            trailRotation = true;
            shrinkX = shrinkY = 0f;
-           width = 17f;
-           height = 17f;
+           width = 13f;
+           height = 13f;
            lifetime = 120;
 
            backColor = HLPPal.vogPinkBack;
            frontColor = HLPPal.vogPink;
            trailColor = HLPPal.fors;
-           trailLength = 5;
-           trailWidth = 4;
            pierce = true;
            pierceCap = 2;
 

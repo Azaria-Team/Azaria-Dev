@@ -379,6 +379,7 @@ public class HLPBlocks{
                               progress = PartProgress.recoil;
                               mirror = true;
                               under = false;
+                              under = true;
                               moveX = 1f;
                               moveY = -2f;
                               moveRot = -7f;
