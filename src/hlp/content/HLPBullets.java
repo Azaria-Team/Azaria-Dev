@@ -24,7 +24,7 @@ public class HLPBullets {
            shrinkX = shrinkY = 0f;
            width = 11f;
            height = 11f;
-           lifetime = 120;
+           lifetime = 70;
            collidesGround = true;
            collidesAir = true;
 
@@ -34,6 +34,9 @@ public class HLPBullets {
 
            trailLength = 18;
            trailWidth = 3;
+
+            splashDamage = 20f;
+            splashDamageRadius = 30f;
         }};
     }
 }

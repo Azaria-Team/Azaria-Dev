@@ -379,13 +379,13 @@ public class HLPBlocks{
                             progress = PartProgress.warmup;
                             mirror = false;
                             under = false;
-                            moveRot = -10f;
+                            moveRot = -8f;
                         }},
                         new RegionPart("-edge-l"){{
                             progress = PartProgress.warmup;
                             mirror = false;
                             under = false;
-                            moveRot = 10f;
+                            moveRot = 8f;
                         }},
                         new RegionPart("-barrel"){{
                             progress = PartProgress.recoil;
