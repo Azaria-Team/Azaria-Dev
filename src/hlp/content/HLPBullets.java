@@ -14,7 +14,7 @@ public class HLPBullets {
             none, forceBullet;
 
     public static void load() {
-        forceBullet = new FlakBulletType(3f, 60f){{
+        forceBullet = new FlakBulletType(3f, 40f){{
            sprite = "circle-bullet";
            trailInterval = 0.5f;
            trailEffect = HLPFx.forceBulletTrail;
@@ -22,8 +22,8 @@ public class HLPBullets {
            despawnEffect = HLPFx.forceBulletDespawn;
            trailRotation = true;
            shrinkX = shrinkY = 0f;
-           width = 13f;
-           height = 13f;
+           width = 11f;
+           height = 11f;
            lifetime = 120;
            collidesGround = true;
            collidesAir = true;
@@ -32,7 +32,7 @@ public class HLPBullets {
            frontColor = HLPPal.forsBack;
            trailColor = HLPPal.forceBulletBack;
 
-           trailLength = 10;
+           trailLength = 18;
            trailWidth = 3;
         }};
     }

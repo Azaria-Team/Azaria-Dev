@@ -122,7 +122,7 @@ public class HLPFx {
         }
     }),
 
-    forceBulletTrail = new Effect(50, e -> {
+    forceBulletTrail = new Effect(25, e -> {
         color(HLPPal.forceBullet, HLPPal.forceBulletBack, e.fin());
 
         stroke(0.6f + e.fout() * 0.9f);
