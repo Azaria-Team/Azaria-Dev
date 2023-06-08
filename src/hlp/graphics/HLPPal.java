@@ -12,7 +12,11 @@ public static final Color
         vogPinkBack = Color.valueOf("e55690"),
 
         fors = Color.valueOf("f3b2c1"),
-        khylid = Color.valueOf("87d7bf"),
+        forsBack = Color.valueOf("c28392"),
+
+        forceBullet = Color.valueOf("d67d92"),
+        forceBulletBack = Color.valueOf("d67d92"),
+        khylid = Color.valueOf("ad5f71"),
         lightningNodeColor = Color.valueOf("f6738d");
 
 
