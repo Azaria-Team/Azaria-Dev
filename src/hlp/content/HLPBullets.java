@@ -25,40 +25,15 @@ public class HLPBullets {
            width = 13f;
            height = 13f;
            lifetime = 120;
+           collidesGround = true;
+           collidesAir = true;
 
-           backColor = HLPPal.vogPinkBack;
-           frontColor = HLPPal.vogPink;
-           trailColor = HLPPal.fors;
-           pierce = true;
-           pierceCap = 2;
+           backColor = HLPPal.fors;
+           frontColor = HLPPal.forsBack;
+           trailColor = HLPPal.forceBulletBack;
 
-            fragBullet = intervalBullet = new FlakBulletType(4f, 5){{
-                width = 2f;
-                height = 5f;
-                pierce = true;
-                lifetime = 35f;
-                pierceCap = 2;
-                pierceBuilding = true;
-                backColor = HLPPal.vogPinkBack;
-                frontColor = HLPPal.vogPink;
-                hitEffect = HLPFx.explosionSmall;
-                despawnEffect = HLPFx.explosionSmall2;
-                homingPower = 0.2f;
-                lifetime = 30;
-                shrinkX = shrinkY = 0f;
-                despawnSound = Sounds.titanExplosion;
-            }};
-
-            bulletInterval = 40f;
-            intervalRandomSpread = -180f;
-            intervalBullets = 3;
-            intervalAngle = -180f;
-            intervalSpread = 300f;
-
-            fragBullets = 5;
-            fragVelocityMin = 0.1f;
-            fragVelocityMax = 1.3f;
-            fragLifeMin = 0.4f;
+           trailLength = 10;
+           trailWidth = 3;
         }};
     }
 }

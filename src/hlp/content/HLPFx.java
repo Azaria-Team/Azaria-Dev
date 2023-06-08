@@ -105,7 +105,7 @@ public class HLPFx {
     }),
 
     shootForce = new Effect(10, e -> {
-        color(Color.pink, e.color, e.fin());
+        color(HLPPal.vogPink, e.fin());
         float w = 1.3f + 10 * e.fout();
         Drawf.tri(e.x, e.y, w, 20f * e.fout(), e.rotation);
         Drawf.tri(e.x, e.y, w, 5f * e.fout(), e.rotation + 180f);
@@ -116,25 +116,21 @@ public class HLPFx {
         for(int i = 0; i < 10; i++){
             v.trns(e.rotation + rand.range(10f), rand.random(e.finpow() * 20f));
             e.scaled(e.lifetime * rand.random(0.1f, 0.3f), b -> {
-                color(e.color, HLPPal.fors, b.fin());
+                color(e.color, HLPPal.forceBullet, b.fin());
                 Fill.circle(e.x + v.x, e.y + v.y, b.fout() * 2f + 0.3f);
             });
         }
     }),
 
     forceBulletTrail = new Effect(50, e -> {
-        color(HLPPal.vogPink, HLPPal.vogPinkBack, e.fin());
-
-        randLenVectors(e.id, 3, 1f + e.finpow() * 17, e.rotation + 180, 9f, (x, y) -> {
-            Fill.circle(e.x + x, e.y + y, 1.2f + e.fout() * 1.1f);
-        });
+        color(HLPPal.forceBullet, HLPPal.forceBulletBack, e.fin());
 
         stroke(0.6f + e.fout() * 0.9f);
         rand.setSeed(e.id);
 
-        color(HLPPal.fors, Color.pink, e.fin());
+        color(HLPPal.forceBullet, HLPPal.forceBulletBack, e.fin());
         for(int i = 0; i < 1; i++){
-            float rot = e.rotation + rand.range(16f) + 180f;
+            float rot = e.rotation + rand.range(20f) + 180f;
             v.trns(rot, rand.random(e.fin() * 20f));
             lineAngle(e.x + v.x, e.y + v.y, rot, e.fout() * rand.random(2f, 3f) + 1f);
         }
