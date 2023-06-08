@@ -361,7 +361,7 @@ public class HLPBlocks{
             shake = 2f;
             shootY = -2;
             outlineColor = HLPPal.aureliaOutline;
-            size = 3;
+            size = 2;
             recoil = 2f;
             range = 19 * Vars.tilesize;
             shootCone = 10f;
@@ -373,7 +373,7 @@ public class HLPBlocks{
 
             ammo(HLPItems.fors, HLPBullets.forceBullet);
 
-            drawer = new DrawTurret("reinforced-"){{
+            drawer = new DrawTurret("fortified-"){{
                 parts.add(
                         new RegionPart("-edge"){{
                               progress = PartProgress.recoil;
