@@ -344,7 +344,6 @@ public class HLPBlocks{
         //endregion production
         //region defense
         forsWall = new Wall("fors-wall") {{
-            requirements(Category.effect, with(HLPItems.fors, 130));
             requirements(Category.defense, with(HLPItems.fors, 6));
             health = 120 * 4;
             armor = 2f;
@@ -352,7 +351,7 @@ public class HLPBlocks{
         }};
 
         forceTurret = new ItemTurret("force"){{
-            requirements(Category.defense, with(HLPItems.fors, 120, HLPItems.khylid, 50));
+            requirements(Category.turret, with(HLPItems.fors, 120, HLPItems.khylid, 50));
             health = 600;
             shootEffect = HLPFx.shootForce;
             smokeEffect = HLPFx.shootSmokeForce;

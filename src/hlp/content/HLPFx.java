@@ -135,7 +135,7 @@ public class HLPFx {
             lineAngle(e.x + v.x, e.y + v.y, rot, e.fout() * rand.random(2f, 3f) + 1f);
         }
 
-    }).layer(Layer.effect),
+    }),
 
     forceBulletHit = new Effect(30, e -> {
         color(HLPPal.fors);
