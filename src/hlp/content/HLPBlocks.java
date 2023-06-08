@@ -375,15 +375,25 @@ public class HLPBlocks{
 
             drawer = new DrawTurret("fortified-"){{
                 parts.add(
-                        new RegionPart("-edge"){{
+                        new RegionPart("-edge-r"){{
                               progress = PartProgress.warmup;
-                              mirror = true;
+                              mirror = false;
                               under = false;
                               moveX = 1f;
                               moveY = -2f;
                               moveRot = -7f;
-                              x = 2;
-                              y = 3;
+                              x = 4;
+                              y = 4;
+                        }},
+                        new RegionPart("-edge-l"){{
+                            progress = PartProgress.warmup;
+                            mirror = false;
+                            under = false;
+                            moveX = 1f;
+                            moveY = -2f;
+                            moveRot = -7f;
+                            x = -4;
+                            y = 4;
                         }},
                         new RegionPart("-barrel"){{
                             progress = PartProgress.recoil;
