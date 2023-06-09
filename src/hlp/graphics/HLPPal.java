@@ -15,7 +15,8 @@ public static final Color
         forsBack = Color.valueOf("c28392"),
 
         forceBullet = Color.valueOf("d67d92"),
-        forceBulletBack = Color.valueOf("d67d92"),
+        forceBulletBack = Color.valueOf("bc6479"),
+
         khylid = Color.valueOf("ad5f71"),
         lightningNodeColor = Color.valueOf("f6738d");
 
