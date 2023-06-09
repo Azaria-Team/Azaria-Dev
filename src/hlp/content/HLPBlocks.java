@@ -62,7 +62,7 @@ public class HLPBlocks{
     impulseConveyor, impulseJunction, impulseRouter,
 
     //defense
-    forsWall,
+    forsWall, forsWallLarge,
     forceTurret,
 
     //storage
@@ -346,8 +346,16 @@ public class HLPBlocks{
         forsWall = new Wall("fors-wall") {{
             requirements(Category.effect, with(HLPItems.fors, 130));
             requirements(Category.defense, with(HLPItems.fors, 6));
-            health = 120 * 4;
+            health = 140 * 4;
             armor = 2f;
+            buildCostMultiplier = 8f;
+        }};
+
+        forsWallLarge = new Wall("fors-wall-large") {{
+            requirements (Category.effect, with(HLPItems.fors, 600));
+            requirements (Category.defense, with(HLPItems.fors, 24));
+            health = 120 * 16;
+            armor = 3f;
             buildCostMultiplier = 8f;
         }};
 
