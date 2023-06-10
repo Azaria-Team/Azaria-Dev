@@ -40,7 +40,7 @@ public class HLPBlocks{
     public static Block
     //environment
     seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, serridMainl, mainlSerrid, huitaRock, huitaRockWall, mainlThermalFloor,
-    fir, firWall, forenite, foreniteWall, forsite, forsiteWall,
+    fir, firWall, forenite, foreniteWall, forsite, forsiteWall, serridDust, serridDustWall,
     spaceRock, spaceRockWall,
     //liquids
     pinkieFloor,
@@ -175,6 +175,14 @@ public class HLPBlocks{
         spaceRockWall = new StaticWall("space-rock-wall") {{
             variants = 3;
         }};
+        serridDust = new Floor("serrid-dust") {{
+            variants = 4;
+        }};
+        serridDustWall = new StaticWall("serrid-dust-wall") {{
+            variants = 3;
+        }};
+
+
         //endregion forestBiome
         //region otherBiomes
         pinkieFloor = new Floor("pinkie-floor") {{
