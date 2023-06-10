@@ -365,6 +365,7 @@ public class HLPBlocks{
         forsWallLarge = new Wall("fors-wall-large") {{
             requirements (Category.defense, with(HLPItems.fors, 24));
             health = 120 * 16;
+            size = 2;
             armor = 3f;
             buildCostMultiplier = 8f;
         }};
