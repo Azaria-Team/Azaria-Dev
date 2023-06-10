@@ -14,7 +14,7 @@ public class HLPBullets {
             none, forceBullet;
 
     public static void load() {
-        forceBullet = new FlakBulletType(3f, 40f){{
+        forceBullet = new FlakBulletType(3f, 65f){{
            sprite = "circle-bullet";
            trailInterval = 0.5f;
            trailEffect = HLPFx.forceBulletTrail;
@@ -35,8 +35,8 @@ public class HLPBullets {
            trailLength = 18;
            trailWidth = 3;
 
-            splashDamage = 20f;
-            splashDamageRadius = 30f;
+            splashDamage = 15f;
+            splashDamageRadius = 20f;
         }};
     }
 }
