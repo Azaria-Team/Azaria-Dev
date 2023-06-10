@@ -1,23 +1,20 @@
 package hlp.content;
 
-import arc.graphics.Color;
 import hlp.graphics.HLPPal;
 import hlp.world.blocks.defense.wall.IndestructibleWall;
 import hlp.world.blocks.environment.ModOverlayFloor;
 import hlp.world.blocks.power.LightningPowerNode;
 import mindustry.Vars;
-import mindustry.content.Fx;
-import mindustry.content.Items;
 import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
-import mindustry.graphics.Pal;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.distribution.Duct;
+import mindustry.world.blocks.distribution.DuctBridge;
 import mindustry.world.blocks.distribution.Junction;
 import mindustry.world.blocks.distribution.Router;
 import mindustry.world.blocks.environment.Floor;
@@ -32,7 +29,6 @@ import mindustry.world.draw.DrawMulti;
 import mindustry.world.draw.DrawRegion;
 import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.BlockGroup;
-import mindustry.world.meta.Env;
 
 import static mindustry.type.ItemStack.with;
 
@@ -59,7 +55,7 @@ public class HLPBlocks{
     forsDrill, pumpDrill,
 
     //distribution
-    impulseConveyor, impulseJunction, impulseRouter,
+    impulseConveyor, impulseJunction, impulseRouter, impulseBridgeConveyor,
 
     //defense
     forsWall, forsWallLarge,
@@ -347,19 +343,26 @@ public class HLPBlocks{
             buildCostMultiplier = 4f;
             squareSprite = false;
         }};
+        impulseBridgeConveyor = new DuctBridge("impulse-bridge-conveyor"){{
+            requirements(Category.distribution, with(HLPItems.fors, 10));
+            health = 90;
+            speed = 4f;
+            buildCostMultiplier = 2f;
+            researchCostMultiplier = 0.3f;
+            squareSprite = false;
+        }};
         //endregion distribution
         //region production
         //endregion production
         //region defense
         forsWall = new Wall("fors-wall") {{
             requirements(Category.defense, with(HLPItems.fors, 6));
-            health = 140 * 4;
+            health = 120 * 4;
             armor = 2f;
             buildCostMultiplier = 8f;
         }};
 
         forsWallLarge = new Wall("fors-wall-large") {{
-            requirements (Category.effect, with(HLPItems.fors, 600));
             requirements (Category.defense, with(HLPItems.fors, 24));
             health = 120 * 16;
             armor = 3f;
@@ -378,7 +381,7 @@ public class HLPBlocks{
             outlineColor = HLPPal.aureliaOutline;
             size = 2;
             recoil = 2f;
-            range = 19 * Vars.tilesize;
+            range = 24 * Vars.tilesize;
             shootCone = 10f;
             rotateSpeed = 2.4f;
 
