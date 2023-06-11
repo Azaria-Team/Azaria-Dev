@@ -386,7 +386,7 @@ public class HLPBlocks{
             shootCone = 10f;
             rotateSpeed = 2.4f;
 
-            shootSound = Sounds.shootAlt;
+            shootSound = Sounds.cannon;
             squareSprite = false;
             itemCapacity = 20;
 
