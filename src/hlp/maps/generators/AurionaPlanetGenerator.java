@@ -38,11 +38,11 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                     {HLPBlocks.mainlFloor, HLPBlocks.mainlFloor, HLPBlocks.mainlFloor, HLPBlocks.mainlFloor, HLPBlocks.mainlFloor, HLPBlocks.mainlFloor, HLPBlocks.mainlFloor, HLPBlocks.mainlFloor, HLPBlocks.mainlFloor, HLPBlocks.mainlDeepFloor, HLPBlocks.mainlDeepFloor, HLPBlocks.mainlFloor, HLPBlocks.mainlFloor}
             };
 
-    float water = 2f / arr[0].length;
+    float water = 5f / arr[0].length;
 
     ObjectMap<Block, Block> tars = ObjectMap.of(
-            HLPBlocks.fir, HLPBlocks.forsite,
-            HLPBlocks.forenite, HLPBlocks.forsite
+            HLPBlocks.crabStone, HLPBlocks.seaSerrid,
+            HLPBlocks.crabStone, HLPBlocks.seaSerrid
     );
 
     float rawHeight(Vec3 position){
