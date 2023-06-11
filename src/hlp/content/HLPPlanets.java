@@ -1,6 +1,8 @@
 package hlp.content;
 
 import arc.graphics.Color;
+import hlp.graphics.HLPPal;
+import hlp.maps.generators.AurionaPlanetGenerator;
 import mindustry.content.*;
 import mindustry.game.Team;
 import mindustry.graphics.Pal;
@@ -52,11 +54,10 @@ public class HLPPlanets {
         }};
 
         auriona = new Planet("Auriona", aStar, 1.2f, 3){{
-            generator = new SerpuloPlanetGenerator();
+            generator = new AurionaPlanetGenerator();
             meshLoader = () -> new HexMesh(this, 6);
             cloudMeshLoader = () -> new MultiMesh(
-                    new HexSkyMesh(this, 11, 0.15f, 0.13f, 5, new Color().set(Pal.spore).mul(0.9f).a(0.75f), 2, 0.45f, 0.9f, 0.38f),
-                    new HexSkyMesh(this, 1, 0.6f, 0.16f, 5, Color.white.cpy().lerp(Pal.spore, 0.55f).a(0.75f), 2, 0.45f, 1f, 0.41f)
+                    new HexSkyMesh(this, 11, 0.17f, 0.13f, 4, new Color().set(HLPPal.aurionaCloud).mul(0.9f).a(0.75f), 3, 0.45f, 0.87f, 0.38f)
             );
 
             launchCapacityMultiplier = 0.5f;
@@ -67,14 +68,14 @@ public class HLPPlanets {
             allowLaunchSchematics = true;
             enemyCoreSpawnReplace = true;
             allowLaunchLoadout = true;
-            iconColor = Color.valueOf("7d4dff");
-            atmosphereColor = Color.valueOf("3c1b8f");
+            iconColor = Color.valueOf("24b95a");
+            atmosphereColor = Color.valueOf("24b95a");
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
             startSector = 15;
             orbitRadius = 40f;
             alwaysUnlocked = true;
-            landCloudColor = Pal.spore.cpy().a(0.5f);
+            landCloudColor = HLPPal.aurionaCloud;
             hiddenItems.addAll(Items.erekirItems).removeAll(Items.serpuloItems);
             hiddenItems.addAll(Items.serpuloItems).removeAll(Items.erekirItems);
             ruleSetter = r -> {

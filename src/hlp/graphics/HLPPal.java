@@ -16,8 +16,9 @@ public static final Color
 
         forceBullet = Color.valueOf("d67d92"),
         forceBulletBack = Color.valueOf("bc6479"),
+        aurionaCloud = Color.valueOf("94debc"),
 
-        khylid = Color.valueOf("ad5f71"),
+        khylid = Color.valueOf("87d7bf"),
         lightningNodeColor = Color.valueOf("f6738d");
 
 
