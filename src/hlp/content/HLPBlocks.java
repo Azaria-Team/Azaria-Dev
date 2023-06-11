@@ -95,8 +95,7 @@ public class HLPBlocks{
             isLiquid = true;
             liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
-            albedo = 0.5f;
-
+            albedo = 0.9f;
         }};
         mainlDeepFloor = new Floor("mainl-deep-floor") {{
             variants = 4;
@@ -104,7 +103,7 @@ public class HLPBlocks{
             liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
             drownTime = 50f;
-            albedo = 0.5f;
+            albedo = 0.9f;
         }};
         serridMainl = new Floor("serrid-mainl") {{
             variants = 4;
@@ -112,7 +111,7 @@ public class HLPBlocks{
             liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
             drownTime = 50f;
-            albedo = 0.5f;
+            albedo = 0.9f;
         }};
         mainlSerrid = new Floor("mainl-serrid") {{
             variants = 4;
@@ -120,7 +119,7 @@ public class HLPBlocks{
             liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
             drownTime = 50f;
-            albedo = 0.5f;
+            albedo = 0.9f;
         }};
         mainlThermalFloor = new Floor("mainl-thermal") {{
             variants = 4;
@@ -128,7 +127,7 @@ public class HLPBlocks{
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
-            albedo = 0.5f;
+            albedo = 0.9f;
             attributes.set(HLPAttribute.mainlheatattr, 0.25f);
         }};
         //endregion seaBiome
@@ -185,7 +184,7 @@ public class HLPBlocks{
             variants = 4;
             isLiquid = true;
             cacheLayer = CacheLayer.water;
-
+            albedo = 0.8f;
         }};
 
         //region prop
