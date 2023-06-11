@@ -62,6 +62,8 @@ public class HLPPlanets {
 
             launchCapacityMultiplier = 0.5f;
             sectorSeed = 2;
+            tidalLock = true;
+            allowLaunchToNumbered = false;
             allowWaves = true;
             allowWaveSimulation = true;
             allowSectorInvasion = true;
@@ -75,7 +77,7 @@ public class HLPPlanets {
             startSector = 15;
             orbitRadius = 40f;
             alwaysUnlocked = true;
-            landCloudColor = HLPPal.aurionaCloud;
+            landCloudColor = Color.valueOf("24b95a");
             hiddenItems.addAll(Items.erekirItems).removeAll(Items.serpuloItems);
             hiddenItems.addAll(Items.serpuloItems).removeAll(Items.erekirItems);
             ruleSetter = r -> {
