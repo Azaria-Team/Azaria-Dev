@@ -58,7 +58,9 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
     @Override
     public Color getColor(Vec3 position) {
-        return null;
+        Block block = getBlock(position);
+
+        return Tmp.c1.set(block.mapColor).a(1f - block.albedo);
     }
 
     @Override
