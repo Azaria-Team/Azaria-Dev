@@ -95,8 +95,7 @@ public class HLPBlocks{
             isLiquid = true;
             liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
-            albedo = 0.5f;
-
+            albedo = 0.9f;
         }};
         mainlDeepFloor = new Floor("mainl-deep-floor") {{
             variants = 4;
@@ -104,7 +103,7 @@ public class HLPBlocks{
             liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
             drownTime = 50f;
-            albedo = 0.5f;
+            albedo = 0.9f;
         }};
         serridMainl = new Floor("serrid-mainl") {{
             variants = 4;
@@ -112,7 +111,7 @@ public class HLPBlocks{
             liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
             drownTime = 50f;
-            albedo = 0.5f;
+            albedo = 0.9f;
         }};
         mainlSerrid = new Floor("mainl-serrid") {{
             variants = 4;
@@ -120,7 +119,7 @@ public class HLPBlocks{
             liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
             drownTime = 50f;
-            albedo = 0.5f;
+            albedo = 0.9f;
         }};
         mainlThermalFloor = new Floor("mainl-thermal") {{
             variants = 4;
@@ -128,7 +127,7 @@ public class HLPBlocks{
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
-            albedo = 0.5f;
+            albedo = 0.9f;
             attributes.set(HLPAttribute.mainlheatattr, 0.25f);
         }};
         //endregion seaBiome
@@ -185,7 +184,7 @@ public class HLPBlocks{
             variants = 4;
             isLiquid = true;
             cacheLayer = CacheLayer.water;
-
+            albedo = 0.8f;
         }};
 
         //region prop
@@ -211,10 +210,10 @@ public class HLPBlocks{
         //endregion environment
         //region power
         plasmaNode = new LightningPowerNode("plasma-node", 0) {{
-            requirements(Category.power, with(HLPItems.fors, 1, HLPItems.khylid, 2));
+            requirements(Category.power, with(HLPItems.fors, 15));
 
             consumePowerBuffered(600f);
-            lightningRange = 7 * 8f;
+            lightningRange = 8 * 8f;
             thresholdPerTile = 25f / 8;
         }};
 
@@ -223,12 +222,12 @@ public class HLPBlocks{
             requirements(Category.power, with(HLPItems.khylid, 1000));
             consumePowerBuffered(14000f);
             size = 2;
-            lightningRange = 17 * 8f;
+            lightningRange = 15 * 8f;
             thresholdPerTile = 60f / 8;
         }};
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
-            requirements(Category.power, with(HLPItems.fors, 20, HLPItems.khylid, 30));
+            requirements(Category.power, with(HLPItems.fors, 30));
             size = 2;
             consumePowerBuffered(1000f);
             lightningRange = 5 * 8f;
@@ -386,7 +385,7 @@ public class HLPBlocks{
             shootCone = 10f;
             rotateSpeed = 2.4f;
 
-            shootSound = Sounds.shootAlt;
+            shootSound = Sounds.cannon;
             squareSprite = false;
             itemCapacity = 20;
 

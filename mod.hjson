@@ -3,6 +3,6 @@ name: "hlp"
 author: "HLP Team"
 main: "hlp.HLP"
 description: "A Mindustry Java mod."
-version: 1.0
+version: 0.1A
 minGameVersion: 141
 java: true

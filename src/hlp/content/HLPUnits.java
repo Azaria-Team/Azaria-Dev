@@ -52,7 +52,7 @@ public class HLPUnits {
                         mirror = false;
                         reload = 30f;
                         soundPitchMin = 1f;
-                        shootSound = Sounds.flame;
+                        shootSound = Sounds.shootAlt;
                         bullet = new FlakBulletType(){{
                             width = 8;
                             height = 8;
@@ -103,6 +103,7 @@ public class HLPUnits {
                 x = 0;
                 y = -6;
                 mirror = false;
+                shootSound = Sounds.missileLarge;
                 bullet = new MissileBulletType(5f, 23, "hlp-vog") {{
                     backColor = HLPPal.vogPinkBack;
                     frontColor = HLPPal.vogPink;
