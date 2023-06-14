@@ -35,15 +35,21 @@ import static mindustry.type.ItemStack.with;
 public class HLPBlocks{
     public static Block
     //environment
-    seaSerrid, seaSerridWall, crabStone, crabStoneCratters, crabStoneWall, mainlFloor, mainlDeepFloor, serridMainl, mainlSerrid, huitaRock, huitaRockWall, mainlThermalFloor,
-    fir, firWall, forenite, foreniteWall, forsite, forsiteWall, serridDust, serridDustWall,
-    spaceRock, spaceRockWall,
-    //liquids
-    pinkieFloor,
+            //forest biome
+            forsite, forsiteWall, fir, firWall, forenite, foreniteWall,
+            //sea biome
+            serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
+            //crystal biome
+            crystalIce, crystalIceWall, lamprosMineral, lamprosMineralWall, lamprosCrystals,
+            //other
+            darkSerrid, darkSerridWall, huitaRock, huitaRockWall,
+            //liquids
+            oxylite, deepOxylite, serridOxylite, darkSerridOxylite,
 
     //prop
-    ancientSus, crabStoneBoulder, forsiteBoulder, forsBoulder,
-
+    ancientSus, crabStoneBoulder, serridBoulder, serridicBoulder, huitaBoulder,
+    foreniteBoulder, firBoulder, darkSerridBoulder, forsiteBoulder, forsBoulder,
+    lamprosBoulder, crystalIceBoulder,
     //ores
     forsOre, khylidOre,
 
@@ -70,58 +76,82 @@ public class HLPBlocks{
     public static void load() {
         //region environment
         //region biomes
-        //region seaBiome
-        seaSerrid = new Floor("sea-serrid") {{
+        //region forest biome
+        forsite = new Floor("forsite") {{
             variants = 4;
         }};
-        seaSerridWall = new StaticWall("sea-serrid-wall") {{
+        forsiteWall = new StaticWall("forsite-wall") {{
             variants = 3;
+            forsite.asFloor().wall = this;
+
+        }};
+        forenite = new Floor("forenite") {{
+            variants = 4;
+        }};
+        foreniteWall = new StaticWall("forenite-wall") {{
+            variants = 3;
+            forenite.asFloor().wall = this;
+        }};
+        fir = new Floor("fir") {{
+            variants = 4;
+        }};
+        firWall = new StaticWall("fir-wall") {{
+            variants = 3;
+            fir.asFloor().wall = this;
+        }};
+        forsiteBoulder = new Prop("forsite-boulder") {{
+            variants = 2;
+            forsite.asFloor().decoration = this;
+        }};
+        forsBoulder = new Prop("fors-boulder") {{
+            variants = 2;
+            //probably there were no parent floor and you will place this block with your kutty paws uwu
+        }};
+        foreniteBoulder = new Prop("forenite-boulder") {{
+            variants = 3;
+            forenite.asFloor().decoration = this;
+        }};
+        firBoulder = new Prop("fir-boulder") {{
+            variants = 3;
+            fir.asFloor().decoration = this;
+        }};
+        //endregion forest biome
+
+        //region sea biome
+        serridDust = new Floor("serrid-dust") {{
+            variants = 4;
+        }};
+        serridDustWall = new StaticWall("serrid-dust-wall") {{
+            variants = 3;
+            serridDust.asFloor().wall = this;
         }};
         crabStone = new Floor("crab-stone") {{
             variants = 4;
         }};
-        crabStoneCratters = new Floor("crab-stone-cratters") {{
-            variants = 4;
-        }};
         crabStoneWall = new StaticWall("crab-stone-wall") {{
             variants = 3;
+            crabStone.asFloor().wall = this;
+        }};
+        serridicRock = new Floor("serridic-stone") {{
+            variants = 4;
+        }};
+        serridicRockWall = new StaticWall("serridic-stone-wall") {{
+            variants = 3;
+            serridicRock.asFloor().wall = this;
         }};
         crabStoneBoulder = new Prop("crab-stone-boulder") {{
             variants = 3;
             crabStone.asFloor().decoration = this;
         }};
-        mainlFloor = new Floor("mainl-floor") {{
-            variants = 4;
-            isLiquid = true;
-            liquidDrop = HLPLiquids.mainl;
-            cacheLayer = CacheLayer.water;
-            albedo = 0.9f;
+        serridBoulder = new Prop("serrid-boulder") {{
+            variants = 3;
+            serridDust.asFloor().decoration = this;
         }};
-        mainlDeepFloor = new Floor("mainl-deep-floor") {{
-            variants = 4;
-            isLiquid = true;
-            liquidDrop = HLPLiquids.mainl;
-            cacheLayer = CacheLayer.water;
-            drownTime = 50f;
-            albedo = 0.9f;
+        serridicBoulder = new Prop("serridic-boulder") {{
+            variants = 3;
+            serridicRock.asFloor().decoration = this;
         }};
-        serridMainl = new Floor("serrid-mainl") {{
-            variants = 4;
-            isLiquid = true;
-            liquidDrop = HLPLiquids.mainl;
-            cacheLayer = CacheLayer.water;
-            drownTime = 50f;
-            albedo = 0.9f;
-        }};
-        mainlSerrid = new Floor("mainl-serrid") {{
-            variants = 4;
-            isLiquid = true;
-            liquidDrop = HLPLiquids.mainl;
-            cacheLayer = CacheLayer.water;
-            drownTime = 50f;
-            albedo = 0.9f;
-        }};
-        mainlThermalFloor = new Floor("mainl-thermal") {{
+        oxylite = new Floor("oxylite") {{
             variants = 4;
             liquidDrop = HLPLiquids.mainl;
             cacheLayer = CacheLayer.water;
@@ -130,68 +160,90 @@ public class HLPBlocks{
             albedo = 0.9f;
             attributes.set(HLPAttribute.mainlheatattr, 0.25f);
         }};
-        //endregion seaBiome
-        //region forestBiome
-        forenite = new Floor("forenite") {{
+        deepOxylite = new Floor("deep-oxylite") {{
+            variants = 4;
+            liquidDrop = HLPLiquids.mainl;
+            cacheLayer = CacheLayer.water;
+            liquidMultiplier = 1f;
+            isLiquid = true;
+            albedo = 0.9f;
+        }};
+        serridOxylite = new Floor("serrid-oxylite") {{
+            variants = 4;
+            liquidDrop = HLPLiquids.mainl;
+            cacheLayer = CacheLayer.water;
+            liquidMultiplier = 1f;
+            isLiquid = true;
+            albedo = 0.9f;
+        }};
+        darkSerridOxylite = new Floor("dark-serrid-oxylite") {{
+            variants = 4;
+            liquidDrop = HLPLiquids.mainl;
+            cacheLayer = CacheLayer.water;
+            liquidMultiplier = 1f;
+            isLiquid = true;
+            albedo = 0.9f;
+        }};
+        //endregion sea biome
+
+        //region crystal biome
+        crystalIce = new Floor("crystal-ice") {{
             variants = 4;
         }};
-        foreniteWall = new StaticWall("forenite-wall") {{
+        crystalIceWall = new StaticWall("crystal-ice-wall") {{
             variants = 3;
+            crystalIce.asFloor().wall = this;
+        }};
+        lamprosMineral = new Floor("lampros-mineral") {{
+            variants = 4;
+        }};
+        lamprosCrystals = new Floor("lampros-crystals") {{
+            variants = 4;
+        }};
+        lamprosMineralWall = new StaticWall("lampros-mineral-wall") {{
+            variants = 3;
+            lamprosMineral.asFloor().wall = this;
+        }};
+        crystalIceBoulder = new Prop("crystal-ice-boulders") {{
+            variants = 3;
+            crystalIce.asFloor().decoration = this;
+        }};
+        lamprosBoulder = new Prop("lampros-boulder") {{
+            variants = 3;
+            lamprosMineral.asFloor().decoration = this;
+        }};
+        //endregion crystal biome
+
+        //region other
+        darkSerrid = new Floor("dark-serrid") {{
+            variants = 4;
+        }} ;
+        darkSerridWall = new StaticWall("dark-serrid-wall") {{
+            variants = 3;
+            darkSerrid.asFloor().wall = this;
+        }};
+        darkSerridBoulder = new StaticWall("dark-serrid-boulder") {{
+            variants = 3;
+            darkSerrid.asFloor().decoration = this;
         }};
         huitaRock = new Floor("huita-rock") {{
-           variants = 4;
+            variants = 4;
         }};
         huitaRockWall = new StaticWall("huita-rock-wall") {{
             variants = 3;
+            huitaRock.asFloor().wall = this;
         }};
-        fir = new Floor("fir") {{
-            variants = 4;
-        }};
-        firWall = new StaticWall("fir-wall") {{
-            variants = 3;
-        }};
-        forsite = new Floor("forsite") {{
-            variants = 3;
-        }};
-        forsiteWall = new StaticWall("forsite-wall") {{
-            variants = 3;
-        }};
-        forsiteBoulder = new Prop("forsite-boulder") {{
+        huitaBoulder = new Prop("huita-boulder") {{
             variants = 2;
-            forsite.asFloor().decoration = this;
+            huitaRock.asFloor().decoration = this;
         }};
-        forsBoulder = new Prop("fors-boulder") {{
-            variants = 2;
-            forsite.asFloor().decoration = this;
-        }};
-        spaceRock = new Floor("space-rock") {{
-            variants = 4;
-        }};
-        spaceRockWall = new StaticWall("space-rock-wall") {{
-            variants = 3;
-        }};
-        serridDust = new Floor("serrid-dust") {{
-            variants = 4;
-        }};
-        serridDustWall = new StaticWall("serrid-dust-wall") {{
-            variants = 3;
-        }};
-
-
-        //endregion forestBiome
-        //region otherBiomes
-        pinkieFloor = new Floor("pinkie-floor") {{
-            variants = 4;
-            isLiquid = true;
-            cacheLayer = CacheLayer.water;
-            albedo = 0.8f;
-        }};
-
+        //endregion other
         //region prop
         ancientSus = new Prop("ancient-sus") {{
             breakable = false;
             size = 1;
             solid = true;
+
         }};
         //endregion prop
 
@@ -202,7 +254,7 @@ public class HLPBlocks{
             attributes.set(HLPAttribute.forsattr, 1f);
         }};
         khylidOre = new ModOverlayFloor(("khylid-ore")) {{
-            parent = blendGroup = mainlFloor;
+            parent = blendGroup = oxylite;
             variants = 2;
             cacheLayer = CacheLayer.water;
             attributes.set(HLPAttribute.khylidattr, 1f);
