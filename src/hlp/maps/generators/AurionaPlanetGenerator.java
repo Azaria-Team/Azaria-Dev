@@ -19,30 +19,37 @@ import mindustry.world.Block;
 import mindustry.world.TileGen;
 
 public class AurionaPlanetGenerator extends PlanetGenerator {
+    float scl = 5f;
+    float waterOffset = 0.07f;
+
     Block[][] arr =
             {
-                    {HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite},
-                    {HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.oxylite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.oxylite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.crabStone, HLPBlocks.serridOxylite, HLPBlocks.serridOxylite, HLPBlocks.oxylite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.serridDust, HLPBlocks.deepOxylite, HLPBlocks.oxylite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.serridDust, HLPBlocks.serridDust, HLPBlocks.serridOxylite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridDust, HLPBlocks.forsite, HLPBlocks.serridDust, HLPBlocks.serridOxylite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.crabStone, HLPBlocks.serridDust, HLPBlocks.oxylite, HLPBlocks.serridDust},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.serridOxylite, HLPBlocks.crabStone, HLPBlocks.oxylite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.serridDust, HLPBlocks.oxylite, HLPBlocks.oxylite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.serridOxylite, HLPBlocks.serridOxylite, HLPBlocks.deepOxylite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite},
-                    {HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite}
+                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.serridOxylite, HLPBlocks.serridDust, HLPBlocks.serridicRock, HLPBlocks.serridDust},
+                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.serridOxylite,HLPBlocks.serridDust, HLPBlocks.serridicRock, HLPBlocks.crabStone},
+                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.crabStone, HLPBlocks.forsite, HLPBlocks.fir},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.forenite, HLPBlocks.forsite},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridOxylite, HLPBlocks.serridDust,HLPBlocks.forenite, HLPBlocks.crabStone},
+                    {HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.fir, HLPBlocks.crabStone},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.forenite, HLPBlocks.crabStone},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.serridDust, HLPBlocks.forsite},
+                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.forsite, HLPBlocks.fir},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridOxylite, HLPBlocks.crabStone, HLPBlocks.forenite, HLPBlocks.crystalIce},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.crabStone, HLPBlocks.lamprosMineral, HLPBlocks.crystalIce},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridOxylite, HLPBlocks.serridDust, HLPBlocks.crystalIce, HLPBlocks.crystalIce},
+                    {HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridDust, HLPBlocks.lamprosMineral, HLPBlocks.lamprosMineral}
             };
 
+    float water = 3f / arr[0].length;
+
     float rawHeight(Vec3 position){
-        return Simplex.noise3d(seed, 8, 0.7f, 1f, position.x, position.y, position.z);
+        position = Tmp.v33.set(position).scl(scl);
+        return (Mathf.pow(Simplex.noise3d(seed, 7, 0.5f, 1f/3f, position.x, position.y, position.z), 2.3f) + waterOffset) / (1f + waterOffset);
     }
     
     @Override
     public float getHeight(Vec3 position){
-        return 0;
+        float height = rawHeight(position);
+        return Math.max(height, water);
     }
     @Override
     
