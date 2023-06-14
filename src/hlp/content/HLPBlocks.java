@@ -77,13 +77,20 @@ public class HLPBlocks{
         //region environment
         //region biomes
         //region forest biome
-        forsite = new Floor("forsite") {{
+        forsite = new Floor("forsite-plates") {{
             variants = 4;
         }};
         forsiteWall = new StaticWall("forsite-wall") {{
             variants = 3;
             forsite.asFloor().wall = this;
-
+        }};
+        forsiteBoulder = new Prop("forsite-boulder") {{
+            variants = 2;
+            forsite.asFloor().decoration = this;
+        }};
+        forsBoulder = new Prop("fors-boulder") {{
+            variants = 2;
+            //probably there were no parent floor & you will place this block with your kutty paws uwu
         }};
         forenite = new Floor("forenite") {{
             variants = 4;
@@ -92,24 +99,16 @@ public class HLPBlocks{
             variants = 3;
             forenite.asFloor().wall = this;
         }};
+        foreniteBoulder = new Prop("forenite-boulder") {{
+            variants = 3;
+            forenite.asFloor().decoration = this;
+        }};
         fir = new Floor("fir") {{
             variants = 4;
         }};
         firWall = new StaticWall("fir-wall") {{
             variants = 3;
             fir.asFloor().wall = this;
-        }};
-        forsiteBoulder = new Prop("forsite-boulder") {{
-            variants = 2;
-            forsite.asFloor().decoration = this;
-        }};
-        forsBoulder = new Prop("fors-boulder") {{
-            variants = 2;
-            //probably there were no parent floor and you will place this block with your kutty paws uwu
-        }};
-        foreniteBoulder = new Prop("forenite-boulder") {{
-            variants = 3;
-            forenite.asFloor().decoration = this;
         }};
         firBoulder = new Prop("fir-boulder") {{
             variants = 3;
@@ -125,6 +124,10 @@ public class HLPBlocks{
             variants = 3;
             serridDust.asFloor().wall = this;
         }};
+        serridBoulder = new Prop("serrid-boulder") {{
+            variants = 3;
+            serridDust.asFloor().decoration = this;
+        }};
         crabStone = new Floor("crab-stone") {{
             variants = 4;
         }};
@@ -132,20 +135,16 @@ public class HLPBlocks{
             variants = 3;
             crabStone.asFloor().wall = this;
         }};
-        serridicRock = new Floor("serridic-stone") {{
+        crabStoneBoulder = new Prop("crab-stone-boulder") {{
+            variants = 3;
+            crabStone.asFloor().decoration = this;
+        }};
+        serridicRock = new Floor("serridic-rock") {{
             variants = 4;
         }};
         serridicRockWall = new StaticWall("serridic-stone-wall") {{
             variants = 3;
             serridicRock.asFloor().wall = this;
-        }};
-        crabStoneBoulder = new Prop("crab-stone-boulder") {{
-            variants = 3;
-            crabStone.asFloor().decoration = this;
-        }};
-        serridBoulder = new Prop("serrid-boulder") {{
-            variants = 3;
-            serridDust.asFloor().decoration = this;
         }};
         serridicBoulder = new Prop("serridic-boulder") {{
             variants = 3;
@@ -191,8 +190,12 @@ public class HLPBlocks{
             variants = 4;
         }};
         crystalIceWall = new StaticWall("crystal-ice-wall") {{
-            variants = 3;
+            variants = 2;
             crystalIce.asFloor().wall = this;
+        }};
+        crystalIceBoulder = new Prop("crystal-ice-boulder") {{
+            variants = 3;
+            crystalIce.asFloor().decoration = this;
         }};
         lamprosMineral = new Floor("lampros-mineral") {{
             variants = 4;
@@ -203,10 +206,6 @@ public class HLPBlocks{
         lamprosMineralWall = new StaticWall("lampros-mineral-wall") {{
             variants = 3;
             lamprosMineral.asFloor().wall = this;
-        }};
-        crystalIceBoulder = new Prop("crystal-ice-boulders") {{
-            variants = 3;
-            crystalIce.asFloor().decoration = this;
         }};
         lamprosBoulder = new Prop("lampros-boulder") {{
             variants = 3;
