@@ -24,19 +24,19 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
     Block[][] arr =
             {
-                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.serridOxylite, HLPBlocks.serridDust, HLPBlocks.serridicRock, HLPBlocks.serridDust},
-                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.serridOxylite,HLPBlocks.serridDust, HLPBlocks.serridicRock, HLPBlocks.crabStone},
-                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.crabStone, HLPBlocks.forsite, HLPBlocks.fir},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.forenite, HLPBlocks.forsite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridOxylite, HLPBlocks.serridDust,HLPBlocks.forenite, HLPBlocks.crabStone},
-                    {HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.fir, HLPBlocks.crabStone},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.forenite, HLPBlocks.crabStone},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.serridDust, HLPBlocks.forsite},
-                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.forsite, HLPBlocks.fir},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridOxylite, HLPBlocks.crabStone, HLPBlocks.forenite, HLPBlocks.crystalIce},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.crabStone, HLPBlocks.lamprosMineral, HLPBlocks.crystalIce},
-                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridOxylite, HLPBlocks.serridDust, HLPBlocks.crystalIce, HLPBlocks.crystalIce},
-                    {HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridDust, HLPBlocks.lamprosMineral, HLPBlocks.lamprosMineral}
+                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.serridOxylite, HLPBlocks.serridDust, HLPBlocks.serridicRock, HLPBlocks.serridDust, HLPBlocks.serridDust},
+                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.serridOxylite,HLPBlocks.serridDust, HLPBlocks.serridicRock, HLPBlocks.serridicRock, HLPBlocks.crabStone},
+                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.oxylite, HLPBlocks.crabStone, HLPBlocks.forsite, HLPBlocks.fir, HLPBlocks.serridicRock},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.forenite, HLPBlocks.forsite, HLPBlocks.crabStone},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridOxylite, HLPBlocks.serridDust,HLPBlocks.forenite, HLPBlocks.fir, HLPBlocks.forenite},
+                    {HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.fir, HLPBlocks.forsite, HLPBlocks.fir},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.forenite, HLPBlocks.forenite, HLPBlocks.crabStone},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.serridDust, HLPBlocks.forsite, HLPBlocks.forsite},
+                    {HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.crabStone, HLPBlocks.forsite, HLPBlocks.fir, HLPBlocks.fir},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridOxylite, HLPBlocks.crabStone, HLPBlocks.forenite, HLPBlocks.lamprosMineral},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.oxylite, HLPBlocks.crabStone, HLPBlocks.lamprosMineral, HLPBlocks.lamprosMineral, HLPBlocks.crystalIce},
+                    {HLPBlocks.deepOxylite, HLPBlocks.deepOxylite, HLPBlocks.serridDust, HLPBlocks.lamprosMineral, HLPBlocks.crystalIce, HLPBlocks.lamprosMineral, HLPBlocks.crystalIce},
+                    {HLPBlocks.oxylite, HLPBlocks.deepOxylite, HLPBlocks.serridDust, HLPBlocks.crystalIce, HLPBlocks.lamprosMineral, HLPBlocks.crystalIce, HLPBlocks.crystalIce}
             };
 
     float water = 3f / arr[0].length;

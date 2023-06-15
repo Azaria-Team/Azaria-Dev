@@ -57,7 +57,8 @@ public class HLPPlanets {
             generator = new AurionaPlanetGenerator();
             meshLoader = () -> new HexMesh(this, 6);
             cloudMeshLoader = () -> new MultiMesh(
-                    new HexSkyMesh(this, 11, 0.17f, 0.13f, 4, Color.valueOf("94debc").a(0.75f), 3, 0.45f, 0.87f, 0.38f)
+                    new HexSkyMesh(this, 11, 0.25f, 0.14f, 5, Color.valueOf("81ffd7").a(0.75f), 2, 0.45f, 0.87f, 0.38f),
+                    new HexSkyMesh(this, 2, 0.6f, 0.17f, 5, Color.valueOf("c1f4e4").a(0.75f), 2, 0.45f, 1f, 0.43f)
             );
 
             launchCapacityMultiplier = 0.5f;
