@@ -61,7 +61,7 @@ public class HLPBlocks{
     forsDrill, pumpDrill,
 
     //distribution
-    impulseConveyor, impulseJunction, impulseRouter, impulseBridgeConveyor,
+    impulseConveyor, impulseJunction, impulseRouter, impulseBridge,
 
     //defense
     forsWall, forsWallLarge,
@@ -393,7 +393,7 @@ public class HLPBlocks{
             buildCostMultiplier = 4f;
             squareSprite = false;
         }};
-        impulseBridgeConveyor = new DuctBridge("impulse-bridge-conveyor"){{
+        impulseBridge = new DuctBridge("impulse-bridge"){{
             requirements(Category.distribution, with(HLPItems.fors, 10));
             health = 90;
             speed = 4f;
