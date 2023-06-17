@@ -1,7 +1,7 @@
 displayName: "Project HLP"
-name: "hlp"
-author: "HLP Team"
-main: "hlp.HLP"
+name: "hpl"
+author: "HPL Team"
+main: "hpl.HPL"
 description: "A Mindustry Java mod."
 version: 0.1A
 minGameVersion: 141
