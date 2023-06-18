@@ -1,19 +1,35 @@
 package hpl.content;
 
+import arc.graphics.Color;
+import arc.graphics.g2d.Lines;
+import arc.math.Interp;
 import hpl.entities.bullets.AimBulletType;
 import hpl.graphics.HPLPal;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
+import mindustry.entities.Effect;
+import mindustry.entities.bullet.BulletType;
+import mindustry.entities.bullet.ExplosionBulletType;
 import mindustry.entities.bullet.FlakBulletType;
 import mindustry.entities.bullet.MissileBulletType;
+import mindustry.entities.effect.MultiEffect;
+import mindustry.entities.effect.WaveEffect;
+import mindustry.entities.effect.WrapEffect;
+import mindustry.entities.part.FlarePart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
 import mindustry.gen.UnitEntity;
 import mindustry.gen.UnitWaterMove;
+import mindustry.graphics.Drawf;
+import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
+import mindustry.type.unit.MissileUnitType;
+
+import static arc.graphics.g2d.Draw.color;
+import static arc.graphics.g2d.Lines.stroke;
 
 public class HPLUnits {
     public static UnitType
@@ -40,8 +56,8 @@ public class HPLUnits {
             accel = 0.1f;
             itemCapacity = 50;
             health = 290f;
-            engineSize = 1.8f;
-            engineOffset = 5.7f;
+            engineSize = 2f;
+            engineOffset = 8f;
             hitSize = 8f;
             alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;
@@ -52,30 +68,34 @@ public class HPLUnits {
                         mirror = false;
                         reload = 30f;
                         soundPitchMin = 1f;
-                        shootSound = Sounds.shootAlt;
-                        bullet = new FlakBulletType(){{
-                            width = 8;
-                            height = 8;
-                            shrinkY = 0;
-                            shrinkX = 0;
-                            maxRange = 10f;
-                            ignoreRotation = true;
-                            backColor = Pal.bulletYellowBack;
-                            frontColor = Pal.bulletYellow;
-                            hitSound = Sounds.plasmaboom;
-                            shootCone = 180f;
-                            ejectEffect = Fx.none;
-                            shootEffect = Fx.none;
-                            hitShake = 1f;
-                            collidesAir = true;
-                            collidesGround = true;
-                            lifetime = 80f;
-                            hitEffect = Fx.massiveExplosion;
-                            keepVelocity = false;
+                        shootSound = Sounds.missileSmall;
+                        bullet = new BulletType(){{
+                            shake = 2f;
                             speed = 0f;
-                            damage = 15;
-                            splashDamage = 20f;
-                            splashDamageRadius = 100f;
+                            keepVelocity = false;
+                            inaccuracy = 2f;
+
+                            spawnUnit = new MissileUnitType("gyurza-missile"){{
+                                engineSize = 1.75f;
+                                engineLayer = Layer.effect;
+                                speed = 3.7f;
+                                maxRange = 6f;
+                                lifetime = 50;
+                                outlineColor = HPLPal.aureliaOutline;
+                                health = 25;
+                                lowAltitude = true;
+
+                                weapons.add(new Weapon(){{
+                                    shootCone = 360f;
+                                    mirror = false;
+                                    reload = 1f;
+                                    shootOnDeath = true;
+                                    bullet = new ExplosionBulletType(30f, 10f){{
+                                        shootEffect = Fx.massiveExplosion;
+                                        buildingDamageMultiplier = 0.25f;
+                                    }};
+                                }});
+                            }};
                         }};
                     }});
         }};
@@ -103,7 +123,7 @@ public class HPLUnits {
                 x = 0;
                 y = -6;
                 mirror = false;
-                shootSound = Sounds.missileLarge;
+                shootSound = Sounds.shootAlt;
                 bullet = new MissileBulletType(5f, 23, "hlp-vog") {{
                     backColor = HPLPal.vogPinkBack;
                     frontColor = HPLPal.vogPink;

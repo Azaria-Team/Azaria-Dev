@@ -1,6 +1,7 @@
 package hpl.content;
 
 import hpl.graphics.HPLPal;
+import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.FlakBulletType;
 
@@ -9,7 +10,7 @@ public class HPLBullets {
             none, forceBullet;
 
     public static void load() {
-        forceBullet = new FlakBulletType(3f, 65f){{
+        forceBullet = new BasicBulletType(3f, 65f){{
            sprite = "circle-bullet";
            trailInterval = 0.5f;
            trailEffect = HPLFx.forceBulletTrail;
@@ -17,8 +18,9 @@ public class HPLBullets {
            despawnEffect = HPLFx.forceBulletDespawn;
            trailRotation = true;
            shrinkX = shrinkY = 0f;
-           width = 11f;
-           height = 11f;
+           width = 9f;
+           height = 9f;
+           hitSize = 5;
            lifetime = 70;
            collidesGround = true;
            collidesAir = true;
