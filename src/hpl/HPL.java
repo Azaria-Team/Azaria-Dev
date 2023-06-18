@@ -20,7 +20,7 @@ public class HPL extends Mod{
 
                 BaseDialog dialog = new BaseDialog("Attention!");
                 dialog.cont.add("The mod is under development and there you can see unfinished content/bugs!").row();
-                dialog.cont.image(Core.atlas.find("hlp-fors")).pad(20f).row();
+                dialog.cont.image(Core.atlas.find("hpl-fors")).pad(20f).row();
                 dialog.cont.button("Okay", dialog::hide).size(100f, 50f);
                 dialog.show();
             });

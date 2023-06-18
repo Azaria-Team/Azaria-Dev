@@ -79,8 +79,10 @@ public class HPLUnits {
                                 engineSize = 1.75f;
                                 engineLayer = Layer.effect;
                                 speed = 3.7f;
-                                maxRange = 6f;
-                                lifetime = 50;
+                                maxRange = 10f;
+                                trailWidth = 1;
+
+                                lifetime = 60;
                                 outlineColor = HPLPal.aureliaOutline;
                                 health = 25;
                                 lowAltitude = true;
@@ -116,7 +118,7 @@ public class HPLUnits {
             constructor = UnitWaterMove::create;
             outlineColor = HPLPal.aureliaOutline;
 
-            weapons.add(new Weapon("hlp-vog-launcher") {{
+            weapons.add(new Weapon("hpl-vog-launcher") {{
                 reload = 30f;
                 shootY = 2f;
                 rotate = true;
@@ -124,7 +126,7 @@ public class HPLUnits {
                 y = -6;
                 mirror = false;
                 shootSound = Sounds.shootAlt;
-                bullet = new MissileBulletType(5f, 23, "hlp-vog") {{
+                bullet = new MissileBulletType(5f, 23, "hpl-vog") {{
                     backColor = HPLPal.vogPinkBack;
                     frontColor = HPLPal.vogPink;
                     homingPower = 0.02f;
@@ -159,7 +161,7 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
 
             weapons.add(
-                    new Weapon("hlp-plasma-pointer") {{
+                    new Weapon("hpl-plasma-pointer") {{
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;
@@ -174,7 +176,7 @@ public class HPLUnits {
                         bullet = new AimBulletType(3f, 26) {{
                             backColor = HPLPal.vogPinkBack;
                             frontColor = HPLPal.vogPink;
-							sprite = "hlp-dagger-missile";
+							sprite = "hpl-dagger-missile";
                             maxRange = 190;
                             homingPower = 0.07f;
                             homingRange = 0;
@@ -192,7 +194,7 @@ public class HPLUnits {
                             lifetime = 200f;
                         }};
                     }},
-                    new Weapon("hlp-plasma-pointer") {{
+                    new Weapon("hpl-plasma-pointer") {{
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;

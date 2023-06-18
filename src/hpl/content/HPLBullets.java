@@ -11,15 +11,15 @@ public class HPLBullets {
 
     public static void load() {
         forceBullet = new BasicBulletType(3f, 65f){{
-           sprite = "circle-bullet";
+           sprite = "hpl-dagger-missile";
            trailInterval = 0.5f;
            trailEffect = HPLFx.forceBulletTrail;
            hitEffect = HPLFx.forceBulletHit;
            despawnEffect = HPLFx.forceBulletDespawn;
            trailRotation = true;
            shrinkX = shrinkY = 0f;
-           width = 9f;
-           height = 9f;
+           width = 8f;
+           height = 12f;
            hitSize = 5;
            lifetime = 70;
            collidesGround = true;
