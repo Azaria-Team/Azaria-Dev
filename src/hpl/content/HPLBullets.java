@@ -10,7 +10,7 @@ public class HPLBullets {
             none, forceBullet;
 
     public static void load() {
-        forceBullet = new BasicBulletType(3f, 65f){{
+        forceBullet = new BasicBulletType(4f, 65f){{
            sprite = "hpl-dagger-missile";
            trailInterval = 0.5f;
            trailEffect = HPLFx.forceBulletTrail;
@@ -21,7 +21,7 @@ public class HPLBullets {
            width = 8f;
            height = 12f;
            hitSize = 5;
-           lifetime = 70;
+           lifetime = 55;
            collidesGround = true;
            collidesAir = true;
 

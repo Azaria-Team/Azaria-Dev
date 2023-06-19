@@ -307,7 +307,7 @@ public class HPLBlocks {
             ambientSoundVolume = 0.06f;
             attribute = HPLAttribute.mainlheatattr;
             generateEffect = HPLFx.smokeEvaporatorBig;
-            effectChance = 0.4f;
+            effectChance = 0.2f;
             drawer = new DrawMulti(
                     new DrawRegion(),
                     new DrawGlowRegion() {{

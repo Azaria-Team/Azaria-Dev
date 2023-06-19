@@ -66,7 +66,7 @@ public class HPLUnits {
                     new Weapon(){{
                         x = y = 0f;
                         mirror = false;
-                        reload = 30f;
+                        reload = 70f;
                         soundPitchMin = 1f;
                         shootSound = Sounds.missileSmall;
                         bullet = new BulletType(){{
@@ -78,8 +78,8 @@ public class HPLUnits {
                             spawnUnit = new MissileUnitType("gyurza-missile"){{
                                 engineSize = 1.75f;
                                 engineLayer = Layer.effect;
-                                speed = 3.7f;
-                                maxRange = 10f;
+                                speed = 3f;
+                                maxRange = 15f;
                                 trailWidth = 1;
 
                                 lifetime = 60;
@@ -172,6 +172,7 @@ public class HPLUnits {
                         layerOffset = -0.0001f;
                         baseRotation = -65f;
                         shootCone = 360f;
+						shootSound = Sounds.missileSmall;
                         shoot = new ShootSpread(1, 10f);
                         bullet = new AimBulletType(3f, 26) {{
                             backColor = HPLPal.vogPinkBack;
@@ -205,11 +206,12 @@ public class HPLUnits {
                         layerOffset = -0.0001f;
                         baseRotation = -115f;
                         shootCone = 360f;
+						shootSound = Sounds.missileSmall;
                         shoot = new ShootSpread(1, 10f);
                         bullet = new AimBulletType(3f, 26) {{
                             backColor = HPLPal.vogPinkBack;
                             frontColor = HPLPal.vogPink;
-							sprite = "hlp-dagger-missile";
+							sprite = "hpl-dagger-missile";
                             homingPower = 0.06f;
                             homingRange = 0;
                             shrinkY = 0f;

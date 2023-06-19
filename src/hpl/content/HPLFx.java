@@ -39,8 +39,8 @@ public class HPLFx {
     }),
     smokeEvaporatorBig = new Effect(30, e -> {
         color(Color.white, e.fin());
-        randLenVectors(e.id, 5, 3f + 16f * e.finpow(), (x, y) -> {
-            Fill.circle(e.x + x, e.y + y, e.fout() * 3f + 0.2f);
+        randLenVectors(e.id, 5, 2f + 12f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.2f);
             Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
         });
     }),
