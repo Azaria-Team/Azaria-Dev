@@ -56,8 +56,8 @@ public class HPLUnits {
             accel = 0.1f;
             itemCapacity = 50;
             health = 290f;
-            engineSize = 2f;
-            engineOffset = 8f;
+            engineSize = 4f;
+            engineOffset = 11f;
             hitSize = 8f;
             alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;

@@ -2,6 +2,7 @@ package hpl.content;
 
 import hpl.graphics.HPLPal;
 import hpl.world.blocks.defense.wall.IndestructibleWall;
+import hpl.world.blocks.distribution.ModDuct;
 import hpl.world.blocks.environment.ModOverlayFloor;
 import hpl.world.blocks.power.LightningPowerNode;
 import mindustry.Vars;
@@ -372,12 +373,13 @@ public class HPLBlocks {
         }};
         //endregion drills
         //region distribution
-        impulseConveyor = new Duct("impulse-conveyor") {{
+        impulseConveyor = new ModDuct("impulse-conveyor") {{
             requirements(Category.distribution, with(HPLItems.fors, 1));
             health = 130;
             speed = 5f;
             researchCost = with(HPLItems.fors, 5);
-
+            junctionReplacement = HPLBlocks.impulseJunction;
+            bridgeReplacement = HPLBlocks.impulseBridge;
         }};
         impulseJunction = new Junction("impulse-junction") {{
             requirements(Category.distribution, with(HPLItems.fors, 2));

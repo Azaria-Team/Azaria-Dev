@@ -14,7 +14,7 @@ public class HPLItems {
         cost = 0.75f;
         }};
         khylid = new Item("khylid", Color.valueOf("87d7bf")) {{
-            cost = 30f;
+            cost = 0.3f;
         }};
         craside = new Item("craside", Color.valueOf("d9fa96")) {{
             cost = 0.6f;
