@@ -1,42 +1,31 @@
 package hpl.content;
 
-import arc.graphics.Color;
-import arc.graphics.g2d.Lines;
-import arc.math.Interp;
 import hpl.entities.bullets.AimBulletType;
+import hpl.entities.units.StriCopterUnitType;
 import hpl.graphics.HPLPal;
+import hpl.world.draw.Blade;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
-import mindustry.entities.Effect;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.ExplosionBulletType;
-import mindustry.entities.bullet.FlakBulletType;
 import mindustry.entities.bullet.MissileBulletType;
-import mindustry.entities.effect.MultiEffect;
-import mindustry.entities.effect.WaveEffect;
-import mindustry.entities.effect.WrapEffect;
-import mindustry.entities.part.FlarePart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
 import mindustry.gen.UnitEntity;
 import mindustry.gen.UnitWaterMove;
-import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
-
-import static arc.graphics.g2d.Draw.color;
-import static arc.graphics.g2d.Lines.stroke;
 
 public class HPLUnits {
     public static UnitType
     //aurelia core units
     gyurza,  /*veresk, vortex;*/
     //angelshark unit tree
-    angelshark, glaucus;
+    angelshark, glaucus,
+    unmaker;
     public static void load() {
         //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
