@@ -68,7 +68,7 @@ public class HPLPlanets {
             atmosphereColor = Color.valueOf("24b95a");
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
-            startSector = 15;
+            startSector = 10;
             orbitRadius = 40f;
             alwaysUnlocked = true;
             landCloudColor = Color.valueOf("24b95a");

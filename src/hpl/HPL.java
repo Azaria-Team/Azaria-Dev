@@ -7,6 +7,7 @@ import arc.util.Time;
 import hpl.utils.ManyPlanetSystems;
 import mindustry.game.EventType;
 import mindustry.mod.*;
+import mindustry.type.SectorPreset;
 import mindustry.ui.dialogs.BaseDialog;
 import hpl.content.*;
 
@@ -42,6 +43,7 @@ public class HPL extends Mod{
         HPLUnits.load();
         HPLBlocks.load();
         HPLPlanets.load();
+        HPLSectorPreset.load();
         HPLTechTree.load();
     }
 }
