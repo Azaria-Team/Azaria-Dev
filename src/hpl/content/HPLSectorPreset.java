@@ -8,7 +8,7 @@ public class HPLSectorPreset {
     public static SectorPreset abandonedShoreline;
 
     public static void load(){
-        abandonedShoreline = new SectorPreset("abandoned-coast", auriona, 15){{
+        abandonedShoreline = new SectorPreset("abandoned-shoreline", auriona, 15){{
             addStartingItems = true;
             alwaysUnlocked = true;
             difficulty = 1;
