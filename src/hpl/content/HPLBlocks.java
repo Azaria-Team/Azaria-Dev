@@ -167,6 +167,7 @@ public class HPLBlocks {
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.9f;
+			drownTime = 140f;
         }};
         serridOxylite = new Floor("serrid-oxylite") {{
             variants = 4;
