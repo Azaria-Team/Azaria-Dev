@@ -167,6 +167,7 @@ public class HPLBlocks {
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.9f;
+			drownTime = 140f;
         }};
         serridOxylite = new Floor("serrid-oxylite") {{
             variants = 4;
@@ -266,7 +267,7 @@ public class HPLBlocks {
             researchCost = with(HPLItems.fors, 25);
     
             consumePowerBuffered(600f);
-            lightningRange = 8 * 8f;
+            lightningRange = 18 * 8f;
             thresholdPerTile = 25f / 8;
         }};
 
@@ -275,7 +276,7 @@ public class HPLBlocks {
             requirements(Category.power, with(HPLItems.khylid, 1000));
             consumePowerBuffered(14000f);
             size = 2;
-            lightningRange = 15 * 8f;
+            lightningRange = 28 * 8f;
             thresholdPerTile = 60f / 8;
         }};
 
@@ -285,7 +286,7 @@ public class HPLBlocks {
             size = 2;
             consumePowerBuffered(4f);
             lightningRange = 5 * 8f;
-            laserRange = 10;
+            laserRange = 7;
             thresholdPerTile = 10f / 8;
         }};
 
@@ -295,7 +296,7 @@ public class HPLBlocks {
             consumePowerBuffered(10000f);
             size = 3;
             lightningRange = 15 * 8f;
-            laserRange = 17;
+            laserRange = 16;
             thresholdPerTile = 40f / 8;
         }};
 
