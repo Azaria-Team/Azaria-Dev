@@ -435,7 +435,7 @@ public class HPLBlocks {
 
         forceTurret = new ItemTurret("force"){{
             requirements(Category.turret, with(HPLItems.fors, 120, HPLItems.khylid, 50));
-            researchCost = with(HPLItems.fors, 200, khylid, 70);
+            researchCost = with(HPLItems.fors, 200, HPLItems.khylid, 70);
             health = 600;
             shootEffect = HPLFx.shootForce;
             smokeEffect = HPLFx.shootSmokeForce;
@@ -483,7 +483,7 @@ public class HPLBlocks {
             }};
         }};
         //endregion defense
-        //region storage
+        //region storage ффф
         coreLegion = new CoreBlock("core-legion") {{
             requirements(Category.effect, with(HPLItems.fors, 1200, HPLItems.khylid, 800));
 
