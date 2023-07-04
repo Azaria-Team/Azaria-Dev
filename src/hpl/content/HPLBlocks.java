@@ -262,8 +262,9 @@ public class HPLBlocks {
         //endregion environment
         //region power
         plasmaNode = new LightningPowerNode("plasma-node", 0) {{
-            requirements(Category.power, with(HPLItems.fors, 15));
-
+            requirements(Category.power, with(HPLItems.fors, 3  ));
+            researchCost = with(HPLItems.fors, 25);
+    
             consumePowerBuffered(600f);
             lightningRange = 8 * 8f;
             thresholdPerTile = 25f / 8;
@@ -280,6 +281,7 @@ public class HPLBlocks {
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
             requirements(Category.power, with(HPLItems.fors, 30));
+            researchCost = with(HPLItems.fors, 40);
             size = 2;
             consumePowerBuffered(4f);
             lightningRange = 5 * 8f;
@@ -299,6 +301,8 @@ public class HPLBlocks {
 
         thermalEvaporator = new ThermalGenerator("thermal-evaporator") {{
             requirements(Category.power, with(HPLItems.fors, 40));
+            researchCost = with(HPLItems.fors, 65);
+
             powerProduction = 2f;
             displayEfficiency = true;
             size = 2;
@@ -323,6 +327,7 @@ public class HPLBlocks {
         //region drills
         forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(HPLItems.fors, 20));
+            researchCost = with(HPLItems.fors, 5);
             attribute = HPLAttribute.forsattr;
             group = BlockGroup.liquids;
             minEfficiency = 4f - 0.0001f;
@@ -348,6 +353,7 @@ public class HPLBlocks {
         }};
         pumpDrill = new AttributeCrafter("pump-drill") {{
             requirements(Category.production, with(HPLItems.fors, 40));
+            researchCost = with(HPLItems.fors, 7);
             attribute = HPLAttribute.khylidattr;
             group = BlockGroup.liquids;
             minEfficiency = 4f - 0.0001f;
@@ -383,6 +389,7 @@ public class HPLBlocks {
         }};
         impulseJunction = new Junction("impulse-junction") {{
             requirements(Category.distribution, with(HPLItems.fors, 2));
+            researchCost = with(HPLItems.fors, 10);
             speed = 6;
             capacity = 1;
             health = 140;
@@ -391,12 +398,14 @@ public class HPLBlocks {
         }};
         impulseRouter = new Router("impulse-router") {{
             requirements(Category.distribution, with(HPLItems.fors, 3));
+            researchCost = with(HPLItems.fors, 15);
             speed = 16;
             buildCostMultiplier = 4f;
             squareSprite = false;
         }};
         impulseBridge = new DuctBridge("impulse-bridge"){{
             requirements(Category.distribution, with(HPLItems.fors, 10));
+            researchCost = with(HPLItems.fors, 20);
             health = 90;
             speed = 4f;
             buildCostMultiplier = 2f;
@@ -409,6 +418,7 @@ public class HPLBlocks {
         //region defense
         forsWall = new Wall("fors-wall") {{
             requirements(Category.defense, with(HPLItems.fors, 6));
+            researchCost = with(HPLItems.fors, 100);
             health = 120 * 4;
             armor = 2f;
             buildCostMultiplier = 8f;
@@ -416,6 +426,7 @@ public class HPLBlocks {
 
         forsWallLarge = new Wall("fors-wall-large") {{
             requirements (Category.defense, with(HPLItems.fors, 24));
+            researchCost = with(HPLItems.fors, 450);
             health = 120 * 16;
             size = 2;
             armor = 3f;
@@ -424,6 +435,7 @@ public class HPLBlocks {
 
         forceTurret = new ItemTurret("force"){{
             requirements(Category.turret, with(HPLItems.fors, 120, HPLItems.khylid, 50));
+            researchCost = with(HPLItems.fors, 200, khylid, 70);
             health = 600;
             shootEffect = HPLFx.shootForce;
             smokeEffect = HPLFx.shootSmokeForce;
