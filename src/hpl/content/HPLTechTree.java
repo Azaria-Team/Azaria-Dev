@@ -51,16 +51,16 @@ public class HPLTechTree {
             });
             //endregion turrets
             //endregion blocks
-        });
-        //region items and liquids
-        nodeProduce(fors, () -> {
-            nodeProduce(craside, () -> {
-                nodeProduce(khylid, () -> {
-                    nodeProduce(ferbium, () -> {
+			       //region items and liquids
+            nodeProduce(fors, () -> {
+                nodeProduce(craside, () -> {
+                    nodeProduce(khylid, () -> {
+                        nodeProduce(ferbium, () -> {
                     });
                 });
             });
         });
         //endregion items and liquids
+        });
     }
 }
