@@ -12,6 +12,7 @@ public class HPLItems {
     public static void load() {
         fors = new Item("fors", Color.valueOf("f3b2c1")) {{
         cost = 0.75f;
+        alwaysUnlocked = true;
         }};
         khylid = new Item("khylid", Color.valueOf("87d7bf")) {{
             cost = 0.3f;

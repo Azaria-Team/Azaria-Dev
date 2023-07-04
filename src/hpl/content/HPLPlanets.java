@@ -68,8 +68,8 @@ public class HPLPlanets {
             atmosphereColor = Color.valueOf("24b95a");
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
-            startSector = 10;
-            orbitRadius = 40f;
+            startSector = 15;
+            orbitRadius = 60f;
             alwaysUnlocked = true;
             landCloudColor = Color.valueOf("24b95a");
             hiddenItems.addAll(Items.erekirItems).addAll(Items.serpuloItems).removeAll(HPLItems.aurionaItems);
@@ -77,6 +77,10 @@ public class HPLPlanets {
                 r.waveTeam = Team.crux;
                 r.placeRangeCheck = false;
                 r.showSpawns = true;
+                r.fog = true;
+                r.staticFog = true;
+                r.lighting = true;
+                r.coreDestroyClear = true;
             };
         }};
     }

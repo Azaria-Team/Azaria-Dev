@@ -55,7 +55,7 @@ public class HPLUnits {
                     new Weapon(){{
                         x = y = 0f;
                         mirror = false;
-                        reload = 70f;
+                        reload = 80f;
                         soundPitchMin = 1f;
                         shootSound = Sounds.missileSmall;
                         bullet = new BulletType(){{
@@ -115,7 +115,7 @@ public class HPLUnits {
                 y = -6;
                 mirror = false;
                 shootSound = Sounds.shootAlt;
-                bullet = new MissileBulletType(5f, 23, "hpl-vog") {{
+                bullet = new MissileBulletType(5f, 27, "hpl-vog") {{
                     backColor = HPLPal.vogPinkBack;
                     frontColor = HPLPal.vogPink;
                     homingPower = 0.02f;
@@ -163,11 +163,11 @@ public class HPLUnits {
                         shootCone = 360f;
 						shootSound = Sounds.missileSmall;
                         shoot = new ShootSpread(1, 10f);
-                        bullet = new AimBulletType(3f, 26) {{
+                        bullet = new AimBulletType(3f, 35) {{
                             backColor = HPLPal.vogPinkBack;
                             frontColor = HPLPal.vogPink;
 							sprite = "hpl-dagger-missile";
-                            maxRange = 190;
+                            maxRange = 240;
                             homingPower = 0.07f;
                             homingRange = 0;
                             shrinkY = 0f;
@@ -182,6 +182,8 @@ public class HPLUnits {
                             trailRotation = true;
                             trailInterval = 0.5f;
                             lifetime = 200f;
+                            splashDamage = 15;
+                            splashDamageRadius = 15;
                         }};
                     }},
                     new Weapon("hpl-plasma-pointer") {{
@@ -197,11 +199,12 @@ public class HPLUnits {
                         shootCone = 360f;
 						shootSound = Sounds.missileSmall;
                         shoot = new ShootSpread(1, 10f);
-                        bullet = new AimBulletType(3f, 26) {{
+                        bullet = new AimBulletType(3f, 35) {{
                             backColor = HPLPal.vogPinkBack;
                             frontColor = HPLPal.vogPink;
 							sprite = "hpl-dagger-missile";
-                            homingPower = 0.06f;
+                            maxRange = 240;
+                            homingPower = 0.07f;
                             homingRange = 0;
                             shrinkY = 0f;
                             shrinkX = 0f;
@@ -215,6 +218,8 @@ public class HPLUnits {
                             trailRotation = true;
                             trailInterval = 0.5f;
                             lifetime = 200f;
+                            splashDamage = 15;
+                            splashDamageRadius = 15;
                         }};
                     }});
         }};
