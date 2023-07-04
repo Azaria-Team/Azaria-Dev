@@ -9,44 +9,51 @@ public class HPLTechTree {
     public static void load(){
         HPLPlanets.auriona.techTree = nodeRoot("auriona", coreLegion, () -> {
             //region distribution
-            nodeProduce(impulseConveyor, () -> {
-                nodeProduce(impulseJunction, () -> {
-                    nodeProduce(impulseRouter, () -> {
+            node(impulseConveyor, () -> {
+                node(impulseJunction, () -> {
+                    node(impulseRouter, () -> {
                     });
+
                 });
-                nodeProduce(impulseBridge, () -> {
+                node(impulseBridge, () -> {
                 });
+
             });
             //endregion distribution
             //region crafting
             node(forsDrill, () -> {
                 node(pumpDrill, () -> {
+
                 });
             });
             //endregion crafting
             //region power
             node(plasmaNode, () -> {
                 node(plasmaDistributor, () -> {
+
                 });
             });
 
             node(thermalEvaporator, () -> {
+
             });
             //endregion power
             //region defense
             node(forsWall, () -> {
                 node(forsWallLarge, () -> {
+
                 });
             });
             //endregion defense
             //region turrets
             node(forceTurret, () -> {
+
             });
             //endregion turrets
             //endregion blocks
         });
         //region items and liquids
-        nodeProduce(HPLItems.fors, () -> {
+        nodeProduce(fors, () -> {
             nodeProduce(craside, () -> {
                 nodeProduce(khylid, () -> {
                     nodeProduce(ferbium, () -> {
