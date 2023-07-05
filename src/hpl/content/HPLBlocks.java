@@ -435,8 +435,8 @@ public class HPLBlocks {
         }};
 
         forceTurret = new ItemTurret("force"){{
-            requirements(Category.turret, with(HPLItems.fors, 120, HPLItems.khylid, 50));
-            researchCost = with(HPLItems.fors, 200, HPLItems.khylid, 70);
+            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 30);
+            researchCost = with(HPLItems.fors, 150, HPLItems.khylid, 70);
             health = 600;
             shootEffect = HPLFx.shootForce;
             smokeEffect = HPLFx.shootSmokeForce;
