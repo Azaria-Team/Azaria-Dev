@@ -169,7 +169,7 @@ public class HPLBlocks {
             albedo = 0.9f;
 			drownTime = 140f;
         }};
-        serridOxylite = new Floor("serrid-oxylite") {{
+        serridOxylite = new Floor("serrid-oxylite") {{  
             variants = 4;
             liquidDrop = HPLLiquids.mainl;
             cacheLayer = CacheLayer.water;
@@ -273,7 +273,7 @@ public class HPLBlocks {
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
             //todo crafting
-            requirements(Category.power, with(HPLItems.khylid, 1000));
+            requirements(Category.power, with(HPLItems.khylid, 20));
             consumePowerBuffered(14000f);
             size = 2;
             lightningRange = 28 * 8f;
@@ -281,7 +281,7 @@ public class HPLBlocks {
         }};
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
-            requirements(Category.power, with(HPLItems.fors, 30));
+            requirements(Category.power, with(HPLItems.fors, 10));
             researchCost = with(HPLItems.fors, 40);
             size = 2;
             consumePowerBuffered(4f);
@@ -417,6 +417,7 @@ public class HPLBlocks {
         //region production
         //endregion production
         //region defense
+
         forsWall = new Wall("fors-wall") {{
             requirements(Category.defense, with(HPLItems.fors, 6));
             researchCost = with(HPLItems.fors, 100);
@@ -435,7 +436,7 @@ public class HPLBlocks {
         }};
 
         forceTurret = new ItemTurret("force"){{
-            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 30);
+            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 30));
             researchCost = with(HPLItems.fors, 150, HPLItems.khylid, 70);
             health = 600;
             shootEffect = HPLFx.shootForce;
