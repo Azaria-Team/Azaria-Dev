@@ -12,7 +12,7 @@ public class HPLSectorPreset {
             addStartingItems = true;
             alwaysUnlocked = true;
             difficulty = 1;
-            captureWave = 11;
+            captureWave = 5;
             startWaveTimeMultiplier = 3f;
         }};
     }
