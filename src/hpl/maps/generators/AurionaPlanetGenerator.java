@@ -17,11 +17,8 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
     float scl = 5f;
     float waterOffset = 0.07f;
 
-    {
-        defaultLoadout = HPLLoadouts.basicLegion;
-    }
+    public Schematic defaultLoadout = HPLLoadouts.basicLegion;
 
-    
     Block[][] arr =
             {
                     {HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.serridDust, HPLBlocks.serridDust},
