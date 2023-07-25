@@ -60,6 +60,8 @@ public class HPLTechTree {
                 });
             });
         });
+            node(HPLSectorPreset.abandonedShoreline, () -> {
+            });
         //endregion items and liquids
         });
     }
