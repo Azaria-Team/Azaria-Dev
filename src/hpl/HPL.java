@@ -42,6 +42,7 @@ public class HPL extends Mod{
         HPLBullets.load();
         HPLUnits.load();
         HPLBlocks.load();
+        HPLLoadouts.load();
         HPLPlanets.load();
         HPLSectorPreset.load();
         HPLTechTree.load();
