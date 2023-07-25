@@ -18,7 +18,6 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
     float waterOffset = 0.07f;
 
     {
-        baseSeed = 2;
         defaultLoadout = HPLLoadouts.basicLegion;
     }
 
