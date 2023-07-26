@@ -12,11 +12,16 @@ import mindustry.content.Blocks;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.world.Block;
 import mindustry.world.TileGen;
+import hpl.content.HPLLoadouts;
 
 public class AurionaPlanetGenerator extends PlanetGenerator {
     float scl = 5f;
     float waterOffset = 0.07f;
 
+    {
+    defaultLoadout = HPLLoadouts.basicLegion;
+    }
+    
     Block[][] arr =
             {
                     {HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.serridDust, HPLBlocks.serridDust},
