@@ -19,6 +19,7 @@ import mindustry.world.blocks.distribution.DuctBridge;
 import mindustry.world.blocks.distribution.Junction;
 import mindustry.world.blocks.distribution.Router;
 import mindustry.world.blocks.environment.Floor;
+import mindustry.world.blocks.environment.OreBlock;
 import mindustry.world.blocks.environment.Prop;
 import mindustry.world.blocks.environment.StaticWall;
 import mindustry.world.blocks.power.ThermalGenerator;
