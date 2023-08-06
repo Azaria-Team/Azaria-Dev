@@ -52,17 +52,20 @@ public class HPLBlocks {
     foreniteBoulder, firBoulder, darkSerridBoulder, forsiteBoulder, forsBoulder,
     lamprosBoulder, crystalIceBoulder,
     //ores
-    forsOre, khylidOre,
+    forsOre, forsRock, khylidOre,
 
     //power
     plasmaNode, plasmaNodeLarge,
             plasmaDistributor, plasmaDistributorLarge, thermalEvaporator,
 
     //drills
-    forsDrill, pumpDrill,
+    waveDrill, forsDrill, pumpDrill,
 
     //distribution
     impulseConveyor, impulseJunction, impulseRouter, impulseBridge,
+
+    //zavod
+    crasideBrewer,
 
     //defense
     forsWall, forsWallLarge,
@@ -249,7 +252,12 @@ public class HPLBlocks {
         //endregion prop
 
         //ores
-        forsOre = new ModOverlayFloor("fors-ore") {{
+        forsOre = new OreBlock(HPLItems.fors){{
+            oreDefault = true;
+            oreThreshold = 0.81f;
+            oreScale = 23.47619f;
+        }};
+        forsRock = new ModOverlayFloor("fors-rock") {{
             parent = blendGroup = forsite;
             variants = 2;
             attributes.set(HPLAttribute.forsattr, 1f);
@@ -304,7 +312,7 @@ public class HPLBlocks {
             requirements(Category.power, with(HPLItems.fors, 40));
             researchCost = with(HPLItems.fors, 65);
 
-            powerProduction = 2f;
+            powerProduction = 0.5f;
             displayEfficiency = true;
             size = 2;
             floating = true;
@@ -361,7 +369,7 @@ public class HPLBlocks {
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
             outputItem = new ItemStack(HPLItems.khylid, 2);
-            craftTime = 70;
+            craftTime = 160;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             consumePower(0.5f);
@@ -415,6 +423,7 @@ public class HPLBlocks {
         }};
         //endregion distribution
         //region production
+        //crasideBrewer = new GenericCrafter("craside-brewer") {{}}
         //endregion production
         //region defense
 
