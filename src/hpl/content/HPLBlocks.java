@@ -6,9 +6,14 @@ import hpl.world.blocks.distribution.ModDuct;
 import hpl.world.blocks.environment.ModOverlayFloor;
 import hpl.world.blocks.power.LightningPowerNode;
 import mindustry.Vars;
+import mindustry.content.Fx;
+import mindustry.content.Items;
+import mindustry.content.Liquids;
+import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
+import mindustry.graphics.Pal;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
@@ -24,6 +29,8 @@ import mindustry.world.blocks.environment.Prop;
 import mindustry.world.blocks.environment.StaticWall;
 import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
+import mindustry.world.blocks.production.BurstDrill;
+import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.draw.DrawGlowRegion;
@@ -65,7 +72,7 @@ public class HPLBlocks {
     //distribution
     impulseConveyor, impulseJunction, impulseRouter, impulseBridge,
 
-    //zavod
+    //production
     crasideBrewer,
 
     //defense
@@ -334,12 +341,44 @@ public class HPLBlocks {
             );
         }};
         //endregion power
+        //region production
+        crasideBrewer = new GenericCrafter("craside-brewer") {{
+            requirements(Category.crafting, with(HPLItems.fors, 50, HPLItems.khylid, 20));
+            outputItem = new ItemStack(HPLItems.craside, 1);
+            consumeItems(with(HPLItems.fors, 2, HPLItems.volcanicSerrid, 1));
+            craftTime = 40f;
+            ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
+            size = 2;
+            craftEffect = HPLFx.forsDrillEffect;
+            squareSprite = false;
+            drawer = new DrawMulti(
+                    new DrawRegion()
+                    );
+        }};
+        //endregion production
         //region drills
+        waveDrill = new BurstDrill("wave-drill"){{
+            requirements(Category.production, with(HPLItems.fors, 20));
+            drillTime = 60f * 12f;
+            size = 4;
+            hasPower = true;
+            tier = 2;
+            drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
+            shake = 4f;
+            itemCapacity = 20;
+            researchCost = with(HPLItems.fors, 5);
+
+            drillMultipliers.put(Items.beryllium, 2.5f);
+
+            fogRadius = 4;
+
+            consumePower(2f / 60f);
+        }};
         forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(HPLItems.fors, 20));
             researchCost = with(HPLItems.fors, 5);
             attribute = HPLAttribute.forsattr;
-            group = BlockGroup.liquids;
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
