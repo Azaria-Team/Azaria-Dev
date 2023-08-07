@@ -29,12 +29,9 @@ dependencies {
     compileOnly "com.github.Anuken.MindustryJitpack:core:$mindustryVersion"
     implementation "com.github.Zelaux:AdvancedContentInfo:$aciVersion"
 
-    implementation "com.github.Zelaux.ZelauxModCore:core:$zelauxCoreVersion"
-
 
     implementation 'com.google.code.gson:gson:2.10.1'
     compileOnly 'org.jetbrains:annotations:23.0.0'
-    compileOnly "com.github.Zelaux.ZelauxModCore:annotations:$zelauxCoreVersion"
 }
 
 buildscript{
@@ -48,8 +45,6 @@ buildscript{
     dependencies{
         classpath "com.github.Anuken.Arc:arc-core:$mindustryVersion"
         classpath "com.github.Anuken.Mindustry:core:$mindustryVersion"
-
-        classpath "com.github.Zelaux.ZelauxModCore:annotations:$zelauxCoreVersion"
     }
 }
 
