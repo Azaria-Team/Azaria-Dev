@@ -36,7 +36,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10.1'
     compileOnly 'org.jetbrains:annotations:23.0.0'
 }
-
+/*
 buildscript{
 
     repositories{
@@ -50,6 +50,8 @@ buildscript{
         classpath "com.github.Anuken.Mindustry:core:$mindustryVersion"
     }
 }
+
+ */
 
 //force arc version
 configurations.configureEach {
