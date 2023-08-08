@@ -45,7 +45,6 @@ configurations.configureEach {
         }
     }
 }
-*/
 
 task jarAndroid{
     dependsOn "jar"
