@@ -33,27 +33,9 @@ dependencies {
 
     annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
 
-    /*
     implementation 'com.google.code.gson:gson:2.10.1'
     compileOnly 'org.jetbrains:annotations:23.0.0'
-    */
 }
-
-/*
-buildscript{
-
-    repositories{
-        mavenLocal()
-        mavenCentral()
-        maven{ url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven{ url 'https://jitpack.io' }
-    }
-    dependencies{
-        classpath "com.github.Anuken.Arc:arc-core:$mindustryVersion"
-        classpath "com.github.Anuken.Mindustry:core:$mindustryVersion"
-    }
-}
-
 
 //force arc version
 configurations.configureEach {
