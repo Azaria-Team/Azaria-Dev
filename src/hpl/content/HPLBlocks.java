@@ -64,7 +64,7 @@ public class HPLBlocks {
 
     //power
     plasmaNode, plasmaNodeLarge,
-            plasmaDistributor, plasmaDistributorLarge, thermalEvaporator,
+    plasmaDistributor, plasmaDistributorLarge, thermalEvaporator,
 
     //drills
     waveDrill, forsDrill, pumpDrill,
