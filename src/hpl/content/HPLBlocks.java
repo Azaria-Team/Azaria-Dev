@@ -349,7 +349,7 @@ public class HPLBlocks {
             craftTime = 40f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
-            size = 2;
+            size = 3;
             craftEffect = HPLFx.forsDrillEffect;
             squareSprite = false;
             drawer = new DrawMulti(
@@ -361,7 +361,7 @@ public class HPLBlocks {
         waveDrill = new BurstDrill("wave-drill"){{
             requirements(Category.production, with(HPLItems.fors, 20));
             drillTime = 60f * 12f;
-            size = 4;
+            size = 3;
             hasPower = true;
             tier = 2;
             drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
@@ -463,7 +463,6 @@ public class HPLBlocks {
         }};
         //endregion distribution
         //region production
-        //crasideBrewer = new GenericCrafter("craside-brewer") {{}}
         //endregion production
         //region defense
 

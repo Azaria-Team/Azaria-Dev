@@ -10,6 +10,7 @@ import mindustry.content.Fx;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.ExplosionBulletType;
 import mindustry.entities.bullet.MissileBulletType;
+import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
 import mindustry.gen.UnitEntity;
@@ -22,10 +23,13 @@ import mindustry.type.unit.MissileUnitType;
 public class HPLUnits {
     public static UnitType
     //aurelia core units
-    gyurza,  /*veresk, vortex;*/
+    gyurza, veresk, vortex,
     //angelshark unit tree
-    angelshark, glaucus,
+    angelshark, glaucus, aurora,
+    //unmaker tree
     unmaker;
+    //off the tree
+    //bigKaboom, torpedo
     public static void load() {
         //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
@@ -89,6 +93,14 @@ public class HPLUnits {
                             }};
                         }};
                     }});
+            parts.add(
+
+                    new RegionPart("-blade") {{
+                        moveRot = -15;
+                        moves.add(new PartMove(PartProgress.reload, 2f, 1f, -5f));
+                        progress = PartProgress.warmup;
+                        mirror = true;
+                    }});
         }};
         //endregion aureliaCoreUnits
         //region angelsharkTree
@@ -96,7 +108,7 @@ public class HPLUnits {
             speed = 0.9f;
             drag = 0.12f;
             hitSize = 12f;
-            health = 300;
+            health = 350;
             accel = 0.2f;
             faceTarget = false;
             rotateSpeed = 4f;
@@ -133,9 +145,8 @@ public class HPLUnits {
         }};
         glaucus = new UnitType("glaucus") {{
             speed = 0.72f;
-            drag = 0.15f;
             hitSize = 15f;
-            health = 780;
+            health = 900;
             accel = 0.3f;
             drag = 0.04f;
 
@@ -154,8 +165,8 @@ public class HPLUnits {
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;
-                        x = 5;
-                        y = 1;
+                        x = 6;
+                        y = 1.3f;
                         mirror = true;
                         alternate = false;
                         layerOffset = -0.0001f;
@@ -191,7 +202,7 @@ public class HPLUnits {
                         shootY = 2f;
                         rotate = false;
                         x = 5;
-                        y = -2;
+                        y = -2.3f;
                         mirror = true;
                         alternate = false;
                         layerOffset = -0.0001f;
@@ -220,6 +231,59 @@ public class HPLUnits {
                             lifetime = 200f;
                             splashDamage = 15;
                             splashDamageRadius = 15;
+                        }};
+                    }},
+                    new Weapon("vog-automatic-launcher") {{
+                        reload = 35f;
+                        shootY = 3f;
+                        rotate = true;
+                        x = 0;
+                        y = -2.5f;
+                        mirror = false;
+                        shootSound = Sounds.shootAlt;
+                        shoot.shots = 4;
+                        shoot.shotDelay = 6f;
+                        bullet = new MissileBulletType (6f, 15, "hpl-vog") {{
+                            backColor = HPLPal.vogPinkBack;
+                            frontColor = HPLPal.vogPink;
+                            homingPower = 0.02f;
+                            width = 13f;
+                            height = 15f;
+                            hitSound = Sounds.explosion;
+                            hitEffect = HPLFx.explosionSmall;
+                            despawnEffect = HPLFx.explosionSmall2;
+                            trailEffect = HPLFx.vogTrail;
+                            trailRotation = true;
+                            trailInterval = 0.5f;
+                            lifetime = 40f;
+                        }};
+
+                        new RegionPart("-shaft") {{
+                        }};
+                    }});
+
+        }};
+
+        aurora = new UnitType("aurora") {{
+            speed = 0.7f;
+            drag = 0.9f;
+            hitSize = 17f;
+            health = 3200;
+            accel = 0.35f;
+            faceTarget = false;
+            rotateSpeed = 3f;
+            trailLength = 30;
+            waveTrailX = 6f;
+            trailScl = 1.5f;
+            range = 30 * Vars.tilesize;
+            constructor = UnitWaterMove::create;
+            outlineColor = HPLPal.aureliaOutline;
+
+            weapons.add (
+                    new Weapon("kpa") {{
+
+                        new RegionPart("shaft") {{
+
                         }};
                     }});
         }};
