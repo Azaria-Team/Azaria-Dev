@@ -33,7 +33,7 @@ public class HPLItems {
         ognium = new Item("ognium", Color.valueOf("5e3143")) {{
             cost = 1f;
         }};
-        neuroCrystal = new Item("ognium", Color.valueOf("4f2e6c")) {{
+        neuroCrystal = new Item("neuro-crystal", Color.valueOf("4f2e6c")) {{
             cost = 1f;
         }};
         hyperliosAlloy = new Item("hyperlios-alloy", Color.valueOf("54686a")) {{
