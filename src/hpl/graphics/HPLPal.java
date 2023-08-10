@@ -18,7 +18,7 @@ public static final Color
         aurionaCloud = Color.valueOf("94debc"),
 
         khylid = Color.valueOf("87d7bf"),
-        lightningNodeColor = Color.valueOf("f6738d");
+        lightningNodeColor = Color.valueOf("f6738d"),
 
-
+        decompositionColor = Color.valueOf("ff7f73");
 }
