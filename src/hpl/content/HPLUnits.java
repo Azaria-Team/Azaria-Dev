@@ -96,7 +96,7 @@ public class HPLUnits {
             parts.add(
 
                     new RegionPart("-blade") {{
-                        moveRot = -15;
+                        moveRot = -10;
                         moves.add(new PartMove(PartProgress.reload, 2f, 1f, -5f));
                         progress = PartProgress.warmup;
                         mirror = true;
@@ -234,8 +234,9 @@ public class HPLUnits {
                         }};
                     }},
                     new Weapon("vog-automatic-launcher") {{
-                        reload = 35f;
+                        reload = 40f;
                         shootY = 3f;
+                        inaccuracy = 4;
                         rotate = true;
                         x = 0;
                         y = -2.5f;

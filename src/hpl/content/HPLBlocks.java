@@ -284,7 +284,7 @@ public class HPLBlocks {
     
             consumePowerBuffered(600f);
             lightningRange = 18 * 8f;
-            thresholdPerTile = 25f / 8;
+            thresholdPerTile = 125f;
         }};
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
@@ -293,7 +293,7 @@ public class HPLBlocks {
             consumePowerBuffered(14000f);
             size = 2;
             lightningRange = 28 * 8f;
-            thresholdPerTile = 60f / 8;
+            thresholdPerTile = 160f;
         }};
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
@@ -303,7 +303,7 @@ public class HPLBlocks {
             consumePowerBuffered(4f);
             lightningRange = 5 * 8f;
             laserRange = 7;
-            thresholdPerTile = 10f / 8;
+            thresholdPerTile = 100f;
         }};
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
@@ -313,7 +313,7 @@ public class HPLBlocks {
             size = 3;
             lightningRange = 15 * 8f;
             laserRange = 16;
-            thresholdPerTile = 40f / 8;
+            thresholdPerTile = 400f;
         }};
 
         thermalEvaporator = new ThermalGenerator("thermal-evaporator") {{
