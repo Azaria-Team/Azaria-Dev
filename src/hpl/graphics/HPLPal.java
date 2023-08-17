@@ -13,8 +13,8 @@ public static final Color
         fors = Color.valueOf("f3b2c1"),
         forsBack = Color.valueOf("c28392"),
 
-        forceBullet = Color.valueOf("d67d92"),
-        forceBulletBack = Color.valueOf("bc6479"),
+        forceBullet = Color.valueOf("ffffff"),
+        forceBulletBack = Color.valueOf("f27c98"),
         aurionaCloud = Color.valueOf("94debc"),
 
         khylid = Color.valueOf("87d7bf"),
