@@ -128,8 +128,8 @@ public class HPLUnits {
                 mirror = false;
                 shootSound = Sounds.shootAlt;
                 bullet = new MissileBulletType(5f, 27, "hpl-vog") {{
-                    backColor = HPLPal.vogPinkBack;
-                    frontColor = HPLPal.vogPink;
+                    backColor = HPLPal.forceBulletBack;
+                    frontColor = HPLPal.forceBullet;
                     homingPower = 0.02f;
                     width = 13f;
                     height = 15f;
@@ -175,8 +175,8 @@ public class HPLUnits {
 						shootSound = Sounds.missileSmall;
                         shoot = new ShootSpread(1, 10f);
                         bullet = new AimBulletType(3f, 35) {{
-                            backColor = HPLPal.vogPinkBack;
-                            frontColor = HPLPal.vogPink;
+                            backColor = HPLPal.forceBulletBack;
+                            frontColor = HPLPal.forceBullet;
 							sprite = "hpl-dagger-missile";
                             maxRange = 240;
                             homingPower = 0.07f;

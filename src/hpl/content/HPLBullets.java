@@ -26,7 +26,7 @@ public class HPLBullets {
            collidesAir = true;
 
            backColor = HPLPal.fors;
-           frontColor = HPLPal.forsBack;
+           frontColor = HPLPal.forceBullet;
            trailColor = HPLPal.forceBulletBack;
 
            trailLength = 18;
