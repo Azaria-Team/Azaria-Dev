@@ -19,10 +19,11 @@ public class HPL extends Mod{
         Events.on(EventType.ClientLoadEvent.class, e -> {
             Time.runTask(10f, () -> {
 
-                BaseDialog dialog = new BaseDialog("Attention!");
-                dialog.cont.add("The mod is under development and there you can see unfinished content/bugs!").row();
-                dialog.cont.image(Core.atlas.find("hpl-fors")).pad(20f).row();
+                BaseDialog dialog = new BaseDialog("ATTENTION!");
+                dialog.cont.add("THIS IS A BETA VERSION OF THE GAME WHICH MAY NOT DISPLAY THE FINAL QUALITY OF THE PROJECT").row();
+                dialog.cont.image(Core.atlas.find("icon")).pad(20f).row();
                 dialog.cont.button("Okay", dialog::hide).size(100f, 50f);
+                dialog.cont.image(Core.atlas.find("hpl-tirle"));
                 dialog.show();
             });
         });
