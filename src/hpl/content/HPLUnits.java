@@ -264,6 +264,7 @@ public class HPLUnits {
                                 progress = PartProgress.recoil;
                                 mirror = false;
                                 under = true;
+                                top = true;
                                 moveX = 0f;
                                 moveY = -3f;
                                 moveRot = 0f;
