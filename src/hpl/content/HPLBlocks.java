@@ -284,14 +284,14 @@ public class HPLBlocks {
             researchCost = with(HPLItems.fors, 25);
     
             consumePowerBuffered(600f);
-            lightningRange = 18 * 8f;
+            lightningRange = 17 * 8f;
             thresholdPerTile = 12 / 8f;
         }};
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
             //todo crafting
             requirements(Category.power, with(HPLItems.khylid, 20));
-            consumePowerBuffered(14000f);
+            consumePowerBuffered(4000f);
             size = 2;
             lightningRange = 28 * 8f;
             thresholdPerTile = 16f / 8f;
@@ -304,17 +304,17 @@ public class HPLBlocks {
             consumePowerBuffered(3000f);
             lightningRange = 5 * 8f;
             laserRange = 7;
-            thresholdPerTile = 10f / 8f;
+            thresholdPerTile = 2f / 8f;
         }};
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
             //todo crafting
             requirements(Category.power, with(HPLItems.khylid, 20));
-            consumePowerBuffered(50000f);
+            consumePowerBuffered(5000f);
             size = 3;
             lightningRange = 15 * 8f;
             laserRange = 16;
-            thresholdPerTile = 4f / 8f;
+            thresholdPerTile = 5f / 8f;
         }};
 
         thermalEvaporator = new ThermalGenerator("thermal-evaporator") {{
