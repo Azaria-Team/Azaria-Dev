@@ -381,7 +381,7 @@ public class HPLBlocks {
                         shadowOffset = 1f;
                         baseOffset = 6f / 4f;
                         layer = Layer.blockOver + 1f;
-                        angleOffset = 90 / 4f;
+                        angleOffset = 90;
                     }},
                     new DrawRegion("-top"){{
                         layer = Layer.blockOver + 0.1f;
