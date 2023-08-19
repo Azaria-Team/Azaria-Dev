@@ -28,9 +28,6 @@ public class HPLBurstDrill extends Drill {
     public float shake = 2f;
     public Interp speedCurve = Interp.pow2In;
 
-    public @Annotations.Load("@-top-invert")
-    TextureRegion topInvertRegion;
-
     public float invertedTime = 200f;
 
     public Sound drillSound = Sounds.drillImpact;
@@ -143,13 +140,6 @@ public class HPLBurstDrill extends Drill {
             Draw.rect(region, x, y);
             drawer.draw(this);
             drawDefaultCracks();
-
-            Draw.rect(topRegion, x, y);
-            if(invertTime > 0 && topInvertRegion.found()){
-                Draw.alpha(Interp.pow3Out.apply(invertTime));
-                Draw.rect(topInvertRegion, x, y);
-                Draw.color();
-            }
 
             if(dominantItem != null && drawMineItem){
                 Draw.color(dominantItem.color);
