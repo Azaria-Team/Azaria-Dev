@@ -246,7 +246,7 @@ public class HPLUnits {
                         shoot.shotDelay = 6f;
                         bullet = new MissileBulletType (6f, 15, "hpl-vog") {{
                             backColor = HPLPal.vogPinkBack;
-                            frontColor = HPLPal.vogPink;
+                            frontColor = HPLPal.forceBullet;
                             homingPower = 0.02f;
                             width = 13f;
                             height = 15f;
@@ -263,7 +263,7 @@ public class HPLUnits {
                             {
                                 progress = PartProgress.recoil;
                                 mirror = false;
-                                under = false;
+                                under = true;
                                 moveX = 0f;
                                 moveY = -3f;
                                 moveRot = 0f;
