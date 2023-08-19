@@ -377,11 +377,11 @@ public class HPLBlocks {
             consumePower(2f / 60f);
             drawer = new DrawMulti(
                     new DrawDefault(),
-                    new DrawDrillPart(9f / 4f){{
+                    new DrawDrillPart(11f / 4f){{
                         shadowOffset = 1f;
-                        baseOffset = 6f / 4f;
+                        baseOffset = 4f / 4f;
                         layer = Layer.blockOver + 1f;
-                        angleOffset = 90;
+                        angleOffset = 135;
                     }},
                     new DrawRegion("-top"){{
                         layer = Layer.blockOver + 0.1f;
