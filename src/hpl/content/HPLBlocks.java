@@ -360,37 +360,6 @@ public class HPLBlocks {
         }};
         //endregion production
         //region drills
-        waveDrill = new HPLBurstDrill("wave-drill"){{
-            requirements(Category.production, with(HPLItems.fors, 20));
-            drillTime = 60f * 12f;
-            size = 3;
-            hasPower = true;
-            tier = 2;
-            //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
-            shake = 3f;
-            itemCapacity = 20;
-            researchCost = with(HPLItems.fors, 5);
-
-            drillMultipliers.put(Items.beryllium, 2.5f);
-
-            fogRadius = 4;
-
-            consumePower(2f / 60f);
-            drawer = new DrawMulti(
-                    new DrawDefault(),
-                    new DrawDrillPart(11f / 4f){{
-                        shadowOffset = 1f;
-                        baseOffset = 4f / 4f;
-                        layer = Layer.blockOver;
-                        angleOffset = 135;
-                        drawPlan = false;
-
-                    }},
-                    new DrawRegion("-top"){{
-                        layer = Layer.blockOver + 0.1f;
-                    }}
-            );
-        }};
         //Soon
         forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(HPLItems.fors, 20));
@@ -442,6 +411,37 @@ public class HPLBlocks {
                     }}
             );
             squareSprite = false;
+        }};
+        waveDrill = new HPLBurstDrill("wave-drill"){{
+            requirements(Category.production, with(HPLItems.fors, 20));
+            drillTime = 60f * 12f;
+            size = 3;
+            hasPower = true;
+            tier = 2;
+            //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
+            shake = 3f;
+            itemCapacity = 20;
+            researchCost = with(HPLItems.fors, 5);
+
+            drillMultipliers.put(Items.beryllium, 2.5f);
+
+            fogRadius = 4;
+
+            consumePower(2f / 60f);
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawDrillPart(11f / 4f){{
+                        shadowOffset = 1f;
+                        baseOffset = 4f / 4f;
+                        layer = Layer.blockOver;
+                        angleOffset = 135;
+                        drawPlan = false;
+
+                    }},
+                    new DrawRegion("-top"){{
+                        layer = Layer.blockOver + 0.1f;
+                    }}
+            );
         }};
         //endregion drills
         //region distribution
