@@ -380,8 +380,8 @@ public class HPLBlocks {
                     new DrawDrillPart(9f / 4f){{
                         shadowOffset = 1f;
                         baseOffset = 6f / 4f;
-                        layer = Layer.blockOver;
-                        angleOffset = 70 / 4f;
+                        layer = Layer.blockOver + 1f;
+                        angleOffset = 90 / 4f;
                     }},
                     new DrawRegion("-top"){{
                         layer = Layer.blockOver + 0.1f;
