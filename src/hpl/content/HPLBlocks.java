@@ -365,7 +365,7 @@ public class HPLBlocks {
             size = 3;
             hasPower = true;
             tier = 2;
-            drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
+            //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
             shake = 4f;
             itemCapacity = 20;
             researchCost = with(HPLItems.fors, 5);
@@ -377,11 +377,11 @@ public class HPLBlocks {
             consumePower(2f / 60f);
             drawer = new DrawMulti(
                     new DrawDefault(),
-                    new DrawDrillPart(10f / 4f){{
-                        shadowOffset = 3f;
-                        baseOffset = 5f / 4f;
+                    new DrawDrillPart(9f / 4f){{
+                        shadowOffset = 1f;
+                        baseOffset = 6f / 4f;
                         layer = Layer.blockOver;
-                        angleOffset = 80 / 4f;
+                        angleOffset = 70 / 4f;
                     }},
                     new DrawRegion("-top"){{
                         layer = Layer.blockOver + 0.1f;
