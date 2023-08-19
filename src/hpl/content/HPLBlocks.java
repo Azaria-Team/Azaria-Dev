@@ -321,7 +321,7 @@ public class HPLBlocks {
             requirements(Category.power, with(HPLItems.fors, 40));
             researchCost = with(HPLItems.fors, 65);
 
-            powerProduction = 0.5f;
+            powerProduction = 0.5f / 3;
             displayEfficiency = true;
             size = 2;
             floating = true;
