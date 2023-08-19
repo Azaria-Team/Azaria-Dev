@@ -13,9 +13,5 @@ public class HPLLiquids {
             viscosity = 0.65f;
             temperature = 0.3f;
         }};
-        pinkie = new Liquid("pinkie", Color.valueOf("a355be")) {{
-            viscosity = 0.65f;
-            temperature = 0.3f;
-        }};
     }
 }

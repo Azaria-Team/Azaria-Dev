@@ -7,7 +7,7 @@ import mindustry.type.Item;
 public class HPLItems {
     public static Item
     //items
-    fors, craside, khylid, volcanicSerrid, ferbium, superdenseAlloy, ognium, neuroCrystal, hyperliosAlloy;
+    fors, craside, khylid, volcanicSerrid, ferbium, superdenseAlloy, ognium, neuroCrystal, hyperliosAlloy, arcanite;
     public static final Seq<Item> aurionaItems = new Seq<>();
     public static void load() {
         fors = new Item("fors", Color.valueOf("f3b2c1")) {{
@@ -38,6 +38,9 @@ public class HPLItems {
         }};
         hyperliosAlloy = new Item("hyperlios-alloy", Color.valueOf("54686a")) {{
             cost = 1f;
+        }};
+        arcanite = new Item("arcanite"){{
+            cost = 2f;
         }};
 
         aurionaItems.addAll(
