@@ -1,10 +1,13 @@
 package hpl.content;
 
+import hpl.HPL;
 import hpl.graphics.HPLPal;
 import hpl.world.blocks.defense.wall.IndestructibleWall;
 import hpl.world.blocks.distribution.ModDuct;
 import hpl.world.blocks.environment.ModOverlayFloor;
 import hpl.world.blocks.power.LightningPowerNode;
+import hpl.world.blocks.production.HPLBurstDrill;
+import hpl.world.draw.DrawDrillPart;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.Items;
@@ -13,6 +16,7 @@ import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
+import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
@@ -33,10 +37,7 @@ import mindustry.world.blocks.production.BurstDrill;
 import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
-import mindustry.world.draw.DrawGlowRegion;
-import mindustry.world.draw.DrawMulti;
-import mindustry.world.draw.DrawRegion;
-import mindustry.world.draw.DrawTurret;
+import mindustry.world.draw.*;
 import mindustry.world.meta.BlockGroup;
 
 import static mindustry.type.ItemStack.with;
@@ -284,7 +285,7 @@ public class HPLBlocks {
     
             consumePowerBuffered(600f);
             lightningRange = 18 * 8f;
-            thresholdPerTile = 125f;
+            thresholdPerTile = 12 / 8f;
         }};
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
@@ -293,7 +294,7 @@ public class HPLBlocks {
             consumePowerBuffered(14000f);
             size = 2;
             lightningRange = 28 * 8f;
-            thresholdPerTile = 160f;
+            thresholdPerTile = 16f / 8f;
         }};
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
@@ -303,7 +304,7 @@ public class HPLBlocks {
             consumePowerBuffered(4f);
             lightningRange = 5 * 8f;
             laserRange = 7;
-            thresholdPerTile = 100f;
+            thresholdPerTile = 10f / 8f;
         }};
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
@@ -313,7 +314,7 @@ public class HPLBlocks {
             size = 3;
             lightningRange = 15 * 8f;
             laserRange = 16;
-            thresholdPerTile = 400f;
+            thresholdPerTile = 4f / 8f;
         }};
 
         thermalEvaporator = new ThermalGenerator("thermal-evaporator") {{
@@ -358,7 +359,7 @@ public class HPLBlocks {
         }};
         //endregion production
         //region drills
-        waveDrill = new BurstDrill("wave-drill"){{
+        waveDrill = new HPLBurstDrill("wave-drill"){{
             requirements(Category.production, with(HPLItems.fors, 20));
             drillTime = 60f * 12f;
             size = 3;
@@ -374,6 +375,17 @@ public class HPLBlocks {
             fogRadius = 4;
 
             consumePower(2f / 60f);
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawDrillPart(75f / 2f){{
+                        shadowOffset = 3f;
+                        baseOffset = 80f / 2f;
+                        layer = Layer.blockOver;
+                    }},
+                    new DrawRegion("-top"){{
+                        layer = Layer.blockOver + 0.1f;
+                    }}
+            );
         }};
         forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(HPLItems.fors, 20));
