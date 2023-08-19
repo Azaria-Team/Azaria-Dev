@@ -201,7 +201,7 @@ public class HPLUnits {
                         reload = 60f;
                         shootY = 2f;
                         rotate = false;
-                        x = 5;
+                        x = 6;
                         y = -2.3f;
                         mirror = true;
                         alternate = false;
