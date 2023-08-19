@@ -22,7 +22,7 @@ public class DrawDrillPart extends DrawBlock{
     public boolean drawPlan = true;
     public float shadowOffset = -1f;
     public String suffix = "-dpart";
-    public TextureRegion reg1, reg2, regt, regPrev;
+    public TextureRegion reg1, reg2, regt;
 
     public DrawDrillPart(float maxOffset){
         this.maxOffset = maxOffset;
@@ -62,18 +62,22 @@ public class DrawDrillPart extends DrawBlock{
         }
         Draw.z(z);
     }
-
+/*
     @Override
     public void drawPlan(Block block, BuildPlan plan, Eachable<BuildPlan> list){
         if(!drawPlan) return;
         Draw.rect(regPrev, plan.drawx(), plan.drawy());
     }
 
+ */
+/*
     @Override
     public TextureRegion[] icons(Block block){
         return new TextureRegion[]{regPrev};
     }
 
+
+ */
     @Override
     public void load(Block block){
         super.load(block);
@@ -81,7 +85,7 @@ public class DrawDrillPart extends DrawBlock{
         reg1 = Core.atlas.find(block.name + suffix + "0", block.name + suffix);
         reg2 = Core.atlas.find(block.name + suffix + "1", block.name + suffix);
         regt = Core.atlas.find(block.name + suffix + "-t");
-        regPrev = Core.atlas.find(block.name + suffix + "-preview");
+        //regPrev = Core.atlas.find(block.name + suffix + "-preview");
     }
 }
 
