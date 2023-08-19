@@ -283,7 +283,7 @@ public class HPLBlocks {
             requirements(Category.power, with(HPLItems.fors, 3  ));
             researchCost = with(HPLItems.fors, 25);
     
-            consumePowerBuffered(600f);
+            consumePowerBuffered(1000f);
             lightningRange = 17 * 8f;
             thresholdPerTile = 12 / 8f;
         }};
@@ -291,7 +291,7 @@ public class HPLBlocks {
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
             //todo crafting
             requirements(Category.power, with(HPLItems.khylid, 20));
-            consumePowerBuffered(4000f);
+            consumePowerBuffered(5000f);
             size = 2;
             lightningRange = 28 * 8f;
             thresholdPerTile = 16f / 8f;
@@ -301,7 +301,7 @@ public class HPLBlocks {
             requirements(Category.power, with(HPLItems.fors, 10));
             researchCost = with(HPLItems.fors, 40);
             size = 2;
-            consumePowerBuffered(3000f);
+            consumePowerBuffered(300f);
             lightningRange = 5 * 8f;
             laserRange = 7;
             thresholdPerTile = 2f / 8f;
