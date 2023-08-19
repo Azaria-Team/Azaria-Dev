@@ -21,7 +21,7 @@ public class HPLTechTree {
             });
             //endregion distribution
             //region crafting
-            node(forsDrill, () -> {
+            node(waveDrill, () -> {
                 node(pumpDrill, () -> {
 
                 });

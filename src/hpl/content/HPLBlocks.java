@@ -285,7 +285,7 @@ public class HPLBlocks {
     
             consumePowerBuffered(1000f);
             lightningRange = 17 * 8f;
-            thresholdPerTile = 12 / 8f;
+            thresholdPerTile = 5 / 8f;
         }};
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
@@ -343,6 +343,7 @@ public class HPLBlocks {
         }};
         //endregion power
         //region production
+        //TODO
         crasideBrewer = new GenericCrafter("craside-brewer") {{
             requirements(Category.crafting, with(HPLItems.fors, 50, HPLItems.khylid, 20));
             outputItem = new ItemStack(HPLItems.craside, 1);
@@ -388,6 +389,7 @@ public class HPLBlocks {
                     }}
             );
         }};
+        //Soon
         forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(HPLItems.fors, 20));
             researchCost = with(HPLItems.fors, 5);

@@ -233,7 +233,7 @@ public class HPLUnits {
                             splashDamageRadius = 15;
                         }};
                     }},
-                    new Weapon("vog-automatic-launcher") {{
+                    new Weapon("hpl-vog-automatic-launcher") {{
                         reload = 40f;
                         shootY = 3f;
                         inaccuracy = 4;
@@ -258,11 +258,19 @@ public class HPLUnits {
                             trailInterval = 0.5f;
                             lifetime = 40f;
                         }};
-
-                        new RegionPart("-shaft") {{
-                        }};
+                        parts.add(
+                        new RegionPart("-shaft"){
+                            {
+                                progress = PartProgress.recoil;
+                                mirror = false;
+                                under = false;
+                                moveX = 0f;
+                                moveY = -3f;
+                                moveRot = 0f;
+                                //x = 0;
+                                //y = -2f;
+                            }});
                     }});
-
         }};
 
         aurora = new UnitType("aurora") {{
