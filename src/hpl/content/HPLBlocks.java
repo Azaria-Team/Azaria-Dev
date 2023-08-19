@@ -308,7 +308,7 @@ public class HPLBlocks {
         }};
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
-            //todo crafting
+              //todo crafting
             requirements(Category.power, with(HPLItems.khylid, 20));
             consumePowerBuffered(5000f);
             size = 3;
@@ -367,7 +367,7 @@ public class HPLBlocks {
             hasPower = true;
             tier = 2;
             //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
-            shake = 4f;
+            shake = 3f;
             itemCapacity = 20;
             researchCost = with(HPLItems.fors, 5);
 
@@ -381,8 +381,10 @@ public class HPLBlocks {
                     new DrawDrillPart(11f / 4f){{
                         shadowOffset = 1f;
                         baseOffset = 4f / 4f;
-                        layer = Layer.blockOver + 1f;
+                        layer = Layer.blockOver;
                         angleOffset = 135;
+                        drawPlan = false;
+
                     }},
                     new DrawRegion("-top"){{
                         layer = Layer.blockOver + 0.1f;

@@ -176,7 +176,7 @@ public class HPLUnits {
                         shoot = new ShootSpread(1, 10f);
                         bullet = new AimBulletType(3f, 35) {{
                             backColor = HPLPal.vogPinkBack;
-                            frontColor = HPLPal.forceBullet;
+                            frontColor = HPLPal.vogPink;
 							sprite = "hpl-dagger-missile";
                             maxRange = 240;
                             homingPower = 0.07f;
@@ -212,7 +212,7 @@ public class HPLUnits {
                         shoot = new ShootSpread(1, 10f);
                         bullet = new AimBulletType(3f, 35) {{
                             backColor = HPLPal.vogPinkBack;
-                            frontColor = HPLPal.forceBullet;
+                            frontColor = HPLPal.vogPink;
 							sprite = "hpl-dagger-missile";
                             maxRange = 240;
                             homingPower = 0.07f;
