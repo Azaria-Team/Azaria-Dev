@@ -394,7 +394,7 @@ public class HPLBlocks {
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
-            outputItem = new ItemStack(HPLItems.khylid, 2);
+            outputItem = new ItemStack(HPLItems.khylid, 4);
             craftTime = 160;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
@@ -487,7 +487,7 @@ public class HPLBlocks {
             requirements(Category.defense, with(HPLItems.fors, 6));
             researchCost = with(HPLItems.fors, 100);
             health = 120 * 4;
-            armor = 2f;
+            armor = 3f;
             buildCostMultiplier = 8f;
         }};
 
@@ -501,9 +501,9 @@ public class HPLBlocks {
         }};
 
         forceTurret = new ItemTurret("force"){{
-            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 30));
+            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 25));
             researchCost = with(HPLItems.fors, 150, HPLItems.khylid, 70);
-            health = 600;
+            health = 700;
             shootEffect = HPLFx.shootForce;
             smokeEffect = HPLFx.shootSmokeForce;
             reload = 70f;
@@ -556,7 +556,7 @@ public class HPLBlocks {
 
             isFirstTier = true;
             unitType = HPLUnits.gyurza;
-            health = 2000;
+            health = 2500;
             itemCapacity = 2500;
             size = 3;
             armor = 2f;
