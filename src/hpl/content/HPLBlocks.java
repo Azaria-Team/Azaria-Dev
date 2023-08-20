@@ -486,7 +486,7 @@ public class HPLBlocks {
         forsWall = new Wall("fors-wall") {{
             requirements(Category.defense, with(HPLItems.fors, 6));
             researchCost = with(HPLItems.fors, 100);
-            health = 120 * 4;
+            health = 160 * 4;
             armor = 3f;
             buildCostMultiplier = 8f;
         }};
@@ -494,7 +494,7 @@ public class HPLBlocks {
         forsWallLarge = new Wall("fors-wall-large") {{
             requirements (Category.defense, with(HPLItems.fors, 24));
             researchCost = with(HPLItems.fors, 450);
-            health = 120 * 16;
+            health = 160 * 16;
             size = 2;
             armor = 3f;
             buildCostMultiplier = 8f;

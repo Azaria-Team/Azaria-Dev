@@ -138,7 +138,7 @@ public class HPLUnits {
                     trailEffect = HPLFx.vogTrail;
                     trailRotation = true;
                     trailInterval = 0.5f;
-                    lifetime = 45;
+                    lifetime = 35;
 
                     splashDamage = 65f;
                     splashDamageRadius = 30f;
