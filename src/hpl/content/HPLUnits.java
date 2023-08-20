@@ -120,7 +120,7 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
 
             weapons.add(new Weapon("hpl-vog-launcher") {{
-                reload = 1.5f;
+                reload = 90f;
                 shootY = 2f;
                 rotate = true;
                 x = 0;
@@ -142,6 +142,7 @@ public class HPLUnits {
 
                     splashDamage = 65f;
                     splashDamageRadius = 30f;
+                    homingPower = 0.001f;
                 }};
             }});
         }};
@@ -248,7 +249,7 @@ public class HPLUnits {
                         shootSound = Sounds.shootAlt;
                         shoot.shots = 4;
                         shoot.shotDelay = 6f;
-                        bullet = new MissileBulletType (6f, 30, "hpl-vog") {{
+                        bullet = new MissileBulletType (6f, 10, "hpl-vog") {{
                             backColor = HPLPal.vogPinkBack;
                             frontColor = HPLPal.forceBullet;
                             width = 13f;
