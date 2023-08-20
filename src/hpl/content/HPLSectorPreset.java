@@ -11,7 +11,7 @@ public class HPLSectorPreset {
         abandonedShoreline = new SectorPreset("abandoned-shoreline", auriona, 15){{
             alwaysUnlocked = true;
             difficulty = 1;
-            captureWave = 11;
+            captureWave = 10;
             startWaveTimeMultiplier = 3f;
         }};
     }
