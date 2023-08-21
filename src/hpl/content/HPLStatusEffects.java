@@ -11,13 +11,13 @@ public class HPLStatusEffects {
     public static void load() {
         weakness = new StatusEffect ("weakness") {{
             color = HPLPal.unmakerColor;
-            damage = 0.25f;
+            damage = 0.45f;
             healthMultiplier = 0.8f;
             speedMultiplier =  0.5f;
         }};
 
         decomposition = new StatusEffect ("decomposition") {{
-            damage = 1.1f;
+            damage = 1.4f;
             healthMultiplier = 0.7f;
             buildSpeedMultiplier = 0.8f;
         }};

@@ -105,10 +105,11 @@ public class HPLUnits {
         //endregion aureliaCoreUnits
         //region angelsharkTree
         angelshark = new UnitType("angelshark") {{
+            targetAir = true;
             speed = 0.9f;
             drag = 0.12f;
             hitSize = 12f;
-            health = 420;
+            health = 620;
             accel = 0.2f;
             faceTarget = false;
             rotateSpeed = 4f;
@@ -148,11 +149,12 @@ public class HPLUnits {
         glaucus = new UnitType("glaucus") {{
             speed = 0.72f;
             hitSize = 15f;
-            health = 1100;
+            health = 1700;
             accel = 0.3f;
             drag = 0.04f;
 
             faceTarget = true;
+            targetAir = true;
             rotateSpeed = 3f;
             trailLength = 20;
             waveTrailX = 6f;
@@ -281,7 +283,7 @@ public class HPLUnits {
             speed = 0.7f;
             drag = 0.9f;
             hitSize = 17f;
-            health = 3200;
+            health = 4300;
             accel = 0.35f;
             faceTarget = false;
             rotateSpeed = 3f;
