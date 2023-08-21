@@ -6,16 +6,17 @@ import hpl.graphics.HPLPal;
 import mindustry.type.StatusEffect;
 
 public class HPLStatusEffects {
-    public static StatusEffect decomposition, advancedDecomposition;
+    public static StatusEffect weakness, decomposition;
 
     public static void load() {
-        decomposition = new StatusEffect ("decomposition") {{
+        weakness = new StatusEffect ("weakness") {{
+            color = HPLPal.unmakerColor;
             damage = 0.25f;
             healthMultiplier = 0.8f;
             speedMultiplier =  0.5f;
         }};
 
-        advancedDecomposition = new StatusEffect("no-sprite-because-rename") {{
+        decomposition = new StatusEffect ("decomposition") {{
             damage = 1.1f;
             healthMultiplier = 0.7f;
             buildSpeedMultiplier = 0.8f;
