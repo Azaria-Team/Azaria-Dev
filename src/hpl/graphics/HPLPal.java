@@ -20,5 +20,5 @@ public static final Color
         khylid = Color.valueOf("87d7bf"),
         lightningNodeColor = Color.valueOf("f6738d"),
 
-        decompositionColor = Color.valueOf("ff7f73");
+        unmakerColor = Color.valueOf("ff7f73");
 }
