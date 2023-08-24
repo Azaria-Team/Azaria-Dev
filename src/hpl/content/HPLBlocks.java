@@ -27,10 +27,7 @@ import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.distribution.DuctBridge;
 import mindustry.world.blocks.distribution.Junction;
 import mindustry.world.blocks.distribution.Router;
-import mindustry.world.blocks.environment.Floor;
-import mindustry.world.blocks.environment.OreBlock;
-import mindustry.world.blocks.environment.Prop;
-import mindustry.world.blocks.environment.StaticWall;
+import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.production.BurstDrill;
@@ -46,7 +43,7 @@ public class HPLBlocks {
     public static Block
     //environment
             //forest biome
-            forsite, forsiteWall, fir, firWall, forenite, foreniteWall,
+            forsite, forsiteWall, fir, firWall, forenite, foreniteWall, kust, bigKust,
             //sea biome
             serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
             //crystal biome
@@ -126,6 +123,12 @@ public class HPLBlocks {
         firBoulder = new Prop("fir-boulder") {{
             variants = 3;
             fir.asFloor().decoration = this;
+        }};
+        kust = new TreeBlock("kust") {{
+           variants = 2;
+        }};
+        bigKust = new TreeBlock("big-kust") {{
+            variants = 3;
         }};
         //endregion forest biome
 
@@ -235,11 +238,12 @@ public class HPLBlocks {
             variants = 3;
             darkSerrid.asFloor().wall = this;
         }};
-        darkSerridBoulder = new StaticWall("dark-serrid-boulder") {{
+        darkSerridBoulder = new Prop("dark-serrid-boulder") {{
             variants = 3;
             darkSerrid.asFloor().decoration = this;
         }};
         huitaRock = new Floor("huita-rock") {{
+            itemDrop = HPLItems.volcanicSerrid;
             variants = 4;
         }};
         huitaRockWall = new StaticWall("huita-rock-wall") {{
