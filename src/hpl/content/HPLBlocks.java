@@ -128,7 +128,7 @@ public class HPLBlocks {
         kust = new TreeBlock("kust") {{
            variants = 2;
         }};
-        bigKust = new StaticTree("big-kust") {{
+        bigKust = new TallBlock("big-kust") {{
             variants = 3;
         }};
         swampShine = new TallBlock("swamp-shine") {{
