@@ -43,7 +43,8 @@ public class HPLBlocks {
     public static Block
     //environment
             //forest biome
-            forsite, forsiteWall, fir, firWall, forenite, foreniteWall, kust, bigKust, swampShine,
+            forsite, forsiteWall, fir, firWall, forenite, foreniteWall,
+            kust, bigKust, swampShine, swampShineBoulder,
             //sea biome
             serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
             //crystal biome
@@ -134,6 +135,13 @@ public class HPLBlocks {
             variants = 3;
             emitLight = true;
             lightColor = HPLPal.forestLight;
+            lightRadius = 7 * Vars.tilesize;
+        }};
+        swampShineBoulder = new Prop("swamp-shine-boulder") {{
+            variants = 3;
+            emitLight = true;
+            lightColor = HPLPal.forestLight;
+            lightRadius = 3 * Vars.tilesize;
         }};
         //endregion forest biome
 
