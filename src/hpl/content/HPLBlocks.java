@@ -43,7 +43,7 @@ public class HPLBlocks {
     public static Block
     //environment
             //forest biome
-            forsite, forsiteWall, fir, firWall, forenite, foreniteWall,
+            forsite, forsiteWall, fir, firWall, forenite, foreniteWall, theFlower,
             kust, bigKust, swampShine, swampShineBoulder,
             //sea biome
             serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
@@ -142,6 +142,8 @@ public class HPLBlocks {
             emitLight = true;
             lightColor = HPLPal.forestLight;
             lightRadius = 3 * Vars.tilesize;
+        }};
+        theFlower = new TreeBlock("the-flower") {{
         }};
         //endregion forest biome
 
