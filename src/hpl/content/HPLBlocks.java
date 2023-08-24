@@ -43,7 +43,7 @@ public class HPLBlocks {
     public static Block
     //environment
             //forest biome
-            forsite, forsiteWall, fir, firWall, forenite, foreniteWall, kust, bigKust,
+            forsite, forsiteWall, fir, firWall, forenite, foreniteWall, kust, bigKust, swampShine,
             //sea biome
             serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
             //crystal biome
@@ -127,8 +127,12 @@ public class HPLBlocks {
         kust = new TreeBlock("kust") {{
            variants = 2;
         }};
-        bigKust = new TreeBlock("big-kust") {{
+        bigKust = new StaticTree("big-kust") {{
             variants = 3;
+        }};
+        swampShine = new TallBlock("swamp-shine") {{
+            variants = 3;
+            emitLight = true;
         }};
         //endregion forest biome
 
