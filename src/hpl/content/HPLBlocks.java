@@ -133,6 +133,7 @@ public class HPLBlocks {
         swampShine = new TallBlock("swamp-shine") {{
             variants = 3;
             emitLight = true;
+            lightColor = HPLPal.forestLight;
         }};
         //endregion forest biome
 

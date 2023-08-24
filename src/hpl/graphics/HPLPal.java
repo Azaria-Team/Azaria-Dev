@@ -20,5 +20,6 @@ public static final Color
         khylid = Color.valueOf("87d7bf"),
         lightningNodeColor = Color.valueOf("f6738d"),
 
-        unmakerColor = Color.valueOf("ff7f73");
+        unmakerColor = Color.valueOf("ff7f73"),
+        forestLight = Color.valueOf("5eff8f");
 }
