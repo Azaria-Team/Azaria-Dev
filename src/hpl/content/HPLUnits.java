@@ -49,8 +49,8 @@ public class HPLUnits {
             accel = 0.1f;
             itemCapacity = 50;
             health = 300f;
-            engineSize = 4f;
-            engineOffset = 11f;
+            engineSize = 3f;
+            engineOffset = 9.5f;
             hitSize = 8f;
             alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;
@@ -109,6 +109,7 @@ public class HPLUnits {
             speed = 0.9f;
             drag = 0.12f;
             hitSize = 12f;
+			armor = 2;
             health = 620;
             accel = 0.2f;
             faceTarget = false;
@@ -149,7 +150,8 @@ public class HPLUnits {
         glaucus = new UnitType("glaucus") {{
             speed = 0.72f;
             hitSize = 15f;
-            health = 1700;
+            health = 1700;\
+			armor = 8;
             accel = 0.3f;
             drag = 0.04f;
 
@@ -283,6 +285,7 @@ public class HPLUnits {
             speed = 0.7f;
             drag = 0.9f;
             hitSize = 17f;
+			armor = 14;
             health = 4300;
             accel = 0.35f;
             faceTarget = false;
