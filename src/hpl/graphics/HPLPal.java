@@ -5,7 +5,7 @@ import arc.graphics.Color;
 public class HPLPal {
 public static final Color
     //palette
-        aureliaOutline = Color.valueOf("2d2a3a"),
+        aureliaOutline = Color.valueOf("2c2a36"),
 
         vogPink = Color.valueOf("ffaeb9"),
         vogPinkBack = Color.valueOf("e55690"),
@@ -21,5 +21,6 @@ public static final Color
         lightningNodeColor = Color.valueOf("f6738d"),
 
         unmakerColor = Color.valueOf("ff7f73"),
+        unmakerDark = Color.valueOf("d96f77"),
         forestLight = Color.valueOf("5eff8f");
 }

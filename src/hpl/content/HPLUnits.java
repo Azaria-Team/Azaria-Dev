@@ -7,6 +7,7 @@ import hpl.world.draw.Blade;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
+import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.ExplosionBulletType;
 import mindustry.entities.bullet.MissileBulletType;
@@ -27,9 +28,11 @@ public class HPLUnits {
     //angelshark unit tree
     angelshark, glaucus, aurora,
     //unmaker tree
-    unmaker;
+    unmaker,
+    //vector tree
+    vector, zephyr;
     //off the tree
-    //bigKaboom, torpedo
+    //supportDrone, torpedoNaval, bigKaboom
     public static void load() {
         //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
@@ -306,5 +309,64 @@ public class HPLUnits {
                     }});
         }};
         //endregion angelsharkTree
+        //region unmakerTree
+
+        //endregion unmakerTree
+        unmaker = new UnitType("unmaker") {{
+            isEnemy = true;
+            flying = true;
+            drag = 0.08f;
+            speed = 5.2f;
+            rotateSpeed = 4f;
+            accel = 0.4f;
+            itemCapacity = 5;
+            health = 350f;
+            hitSize = 8.5f;
+            outlineColor = HPLPal.aureliaOutline;
+            weapons.add(
+                    new Weapon("unmaker-teeth") {{
+                        x = 10f /4;
+                        y = 33f / 4;
+                        reload = 20;
+                        layerOffset = -0.002f;
+                        alternate = false;
+                        recoil = 3.5f;
+                        shoot = new ShootSpread(3, 15f);
+                        bullet = new BasicBulletType(3.5f, 15) {{
+                            lifetime = 30f;
+                            sprite = "dagger-bullet";
+                            frontColor = HPLPal.unmakerColor;
+                            backColor = HPLPal.unmakerDark;
+                        }};
+                    }});
+        }};
+        //region vectorTree
+        vector = new UnitType("vector") {{
+            isEnemy = true;
+
+            lowAltitude = true;
+            flying = true;
+            drag = 0.05f;
+            speed = 2.2f;
+            rotateSpeed = 9f;
+            accel = 0.4f;
+            itemCapacity = 20;
+            health = 480f;
+            hitSize = 7f;
+            outlineColor = HPLPal.aureliaOutline;
+        }};
+        zephyr = new UnitType("zephyr") {{
+            isEnemy = true;
+            flying = true;
+            drag = 0.05f;
+            speed = 2.6f;
+            rotateSpeed = 14f;
+            accel = 0.4f;
+            itemCapacity = 25;
+            health = 1370;
+            hitSize = 7f;
+            outlineColor = HPLPal.aureliaOutline;
+        }};
+        //endregion vectorTree
     }
 }

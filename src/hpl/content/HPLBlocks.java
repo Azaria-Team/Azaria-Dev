@@ -143,8 +143,6 @@ public class HPLBlocks {
             lightColor = HPLPal.forestLight;
             lightRadius = 3 * Vars.tilesize;
         }};
-        theFlower = new TreeBlock("the-flower") {{
-        }};
         //endregion forest biome
 
         //region sea biome
