@@ -18,7 +18,7 @@ import mindustry.world.TileGen;
 import hpl.content.HPLLoadouts;
 
 public class AurionaPlanetGenerator extends PlanetGenerator {
-    float scl = 7f;
+    float scl = 5f;
     float waterOffset = 0.07f;
 
     {
@@ -27,7 +27,23 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
     Block[][] arr =
             {
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.serridicRock, HPLBlocks.crabStone, HPLBlocks.forsite},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.serridDust, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.serridicRock, HPLBlocks.serridicRock, HPLBlocks.crabStone, HPLBlocks.crabStone, HPLBlocks.forsite},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.serridDust, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.crabStone, HPLBlocks.forsite},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.huitaRock, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.crabStone, HPLBlocks.crabStone},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.crabStone},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.huitaRock, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.crabStone, HPLBlocks.crabStone},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.crabStone, HPLBlocks.crabStone, HPLBlocks.forenite, HPLBlocks.serridicRock, HPLBlocks.crabStone, HPLBlocks.forenite, HPLBlocks.forenite, HPLBlocks.forsite},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.crabStone, HPLBlocks.forsite, HPLBlocks.fir, HPLBlocks.fir, HPLBlocks.fir, HPLBlocks.forenite, HPLBlocks.fir, HPLBlocks.forsite},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.fir, HPLBlocks.forsite, HPLBlocks.forsite, HPLBlocks.forenite, HPLBlocks.fir, HPLBlocks.fir},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.forenite, HPLBlocks.forenite, HPLBlocks.forsite, HPLBlocks.forsite, HPLBlocks.forenite, HPLBlocks.darkSerrid, HPLBlocks.fir},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.darkSerrid, HPLBlocks.fir, HPLBlocks.fir, HPLBlocks.crystalIce, HPLBlocks.forenite, HPLBlocks.forenite, HPLBlocks.forsite, HPLBlocks.forenite, HPLBlocks.lamprosMineral},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.darkSerridOxylite, HPLBlocks.fir, HPLBlocks.fir, HPLBlocks.lamprosMineral, HPLBlocks.forenite, HPLBlocks.forenite, HPLBlocks.lamprosMineral, HPLBlocks.forsite, HPLBlocks.crystalIce, HPLBlocks.crystalIce},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.darkSerridOxylite, HPLBlocks.darkSerrid, HPLBlocks.lamprosMineral, HPLBlocks.forsite, HPLBlocks.lamprosMineral, HPLBlocks.lamprosMineral, HPLBlocks.darkSerrid, HPLBlocks.lamprosMineral, HPLBlocks.crystalIce, HPLBlocks.crystalIce},
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.darkSerridOxylite, HPLBlocks.darkSerrid, HPLBlocks.darkSerrid, HPLBlocks.forsite, HPLBlocks.lamprosMineral, HPLBlocks.darkSerrid, HPLBlocks.crystalIce, HPLBlocks.crystalIce, HPLBlocks.crystalIce, HPLBlocks.crystalIce}
+            };
+            /*
+            {
+                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.serridicRock, HPLBlocks.crabStone, HPLBlocks.forsite, },
                     {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.crabStone},
                     {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.forsite, HPLBlocks.forsite},
                     {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.forenite, HPLBlocks.fir, HPLBlocks.forenite, HPLBlocks.forenite},
@@ -38,7 +54,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                     {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.darkSerridOxylite, HPLBlocks.darkSerrid, HPLBlocks.lamprosMineral, HPLBlocks.forsite, HPLBlocks.lamprosMineral, HPLBlocks.crystalIce},
                     {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.darkSerridOxylite, HPLBlocks.darkSerrid, HPLBlocks.forsite, HPLBlocks.crystalIce, HPLBlocks.crystalIce, HPLBlocks.crystalIce},
             };
-    /*
+
     Block[][] arr =
             {
                     {HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.serridDust, HPLBlocks.crabStone, HPLBlocks.crabStone, HPLBlocks.crabStone},
@@ -58,7 +74,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
 
      */
-    float water = 5f / arr[0].length;
+    float water = 4f / arr[0].length;
 
     float rawHeight(Vec3 position){
         position = Tmp.v33.set(position).scl(scl);
