@@ -313,6 +313,7 @@ public class HPLUnits {
 
         //endregion unmakerTree
         unmaker = new UnitType("unmaker") {{
+            constructor = UnitEntity::create;
             isEnemy = true;
             flying = true;
             drag = 0.08f;
@@ -342,6 +343,7 @@ public class HPLUnits {
         }};
         //region vectorTree
         vector = new UnitType("vector") {{
+            constructor = UnitEntity::create;
             isEnemy = true;
 
             lowAltitude = true;
@@ -356,6 +358,7 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
         }};
         zephyr = new UnitType("zephyr") {{
+            constructor = UnitEntity::create;
             isEnemy = true;
             flying = true;
             drag = 0.05f;
