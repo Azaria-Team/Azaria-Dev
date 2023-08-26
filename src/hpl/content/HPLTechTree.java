@@ -53,8 +53,8 @@ public class HPLTechTree {
             //endregion blocks
 			       //region items and liquids
             nodeProduce(fors, () -> {
-                nodeProduce(craside, () -> {
-                    nodeProduce(khylid, () -> {
+                nodeProduce(khylid, () -> {
+                    nodeProduce(craside, () -> {
                         nodeProduce(ferbium, () -> {
                     });
                 });

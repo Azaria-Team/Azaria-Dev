@@ -12,6 +12,7 @@ import hpl.graphics.HPLPal;
 import mindustry.core.Renderer;
 import mindustry.entities.Effect;
 import mindustry.graphics.Drawf;
+import mindustry.graphics.Layer;
 
 import static arc.graphics.g2d.Draw.color;
 import static arc.graphics.g2d.Lines.lineAngle;
@@ -44,6 +45,14 @@ public class HPLFx {
             Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
         });
     }),
+
+    crasideBrewerSmoke = new Effect(20, e -> {
+        color(HPLPal.craside, e.fin());
+        randLenVectors(e.id, 3, 1f + 10f * e.fin(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 0.9f + 0.1f);
+            Fill.circle(e.x + x / 0.9f, e.y + y / 0.9f, e.fout());
+        });
+    }).layer(Layer.block + 0.05f),
 
     explosionSmall = new Effect(30, e -> {
         color(HPLPal.vogPink);

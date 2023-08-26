@@ -28,10 +28,14 @@ public class HPLPlanets {
             );
         }};
 
-        bStar = new Planet("bStar", aStar, 6f){{
+        bStar = new Planet("bStar", aStar, 5f){{
             bloom = true;
-            accessible = false;
-            orbitRadius = 120f;
+            accessible = true;
+            orbitRadius = 130f;
+            camRadius = 6f;
+            visible = true;
+            alwaysUnlocked = true;
+            drawOrbit = false;
 
             meshLoader = () -> new SunMesh(
                     this, 4,

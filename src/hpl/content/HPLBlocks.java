@@ -1,5 +1,6 @@
 package hpl.content;
 
+import arc.graphics.Color;
 import hpl.HPL;
 import hpl.graphics.HPLPal;
 import hpl.world.blocks.defense.wall.IndestructibleWall;
@@ -7,6 +8,7 @@ import hpl.world.blocks.distribution.ModDuct;
 import hpl.world.blocks.environment.ModOverlayFloor;
 import hpl.world.blocks.power.LightningPowerNode;
 import hpl.world.blocks.production.HPLBurstDrill;
+import hpl.world.draw.DrawCrasideSmelt;
 import hpl.world.draw.DrawDrillPart;
 import mindustry.Vars;
 import mindustry.content.Fx;
@@ -82,7 +84,7 @@ public class HPLBlocks {
     coreLegion, caseI,
 
     //sanbox
-    indestructibleWall, indestructibleWallLarge;
+    indestructibleWall, indestructibleWallLarge, testBlock;
 
     public static void load() {
         //region environment
@@ -181,16 +183,17 @@ public class HPLBlocks {
         }};
         oxylite = new Floor("oxylite") {{
             variants = 4;
-            liquidDrop = HPLLiquids.oxylite;
+            liquidDrop = HPLLiquids.oxyliteLiq;
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.9f;
             attributes.set(HPLAttribute.mainlheatattr, 0.25f);
+            mapColor = Color.valueOf("50a9a8");
         }};
         deepOxylite = new Floor("deep-oxylite") {{
             variants = 4;
-            liquidDrop = HPLLiquids.oxylite;
+            liquidDrop = HPLLiquids.oxyliteLiq;
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
@@ -199,7 +202,7 @@ public class HPLBlocks {
         }};
         serridOxylite = new Floor("serrid-oxylite") {{  
             variants = 4;
-            liquidDrop = HPLLiquids.oxylite;
+            liquidDrop = HPLLiquids.oxyliteLiq;
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
@@ -207,7 +210,7 @@ public class HPLBlocks {
         }};
         darkSerridOxylite = new Floor("dark-serrid-oxylite") {{
             variants = 4;
-            liquidDrop = HPLLiquids.oxylite;
+            liquidDrop = HPLLiquids.oxyliteLiq;
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
@@ -369,11 +372,19 @@ public class HPLBlocks {
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             size = 3;
-            craftEffect = HPLFx.forsDrillEffect;
+            craftEffect = Fx.none;
             squareSprite = false;
             drawer = new DrawMulti(
-                    new DrawRegion()
-                    );
+                    new DrawRegion("-bottom"){{
+                        layer = Layer.block;
+                    }},
+                    new DrawRegion(){{
+                        layer = Layer.block + 0.1f;
+                    }},
+                    new DrawRegion("-top"){{
+                        layer = Layer.block + 0.2f;
+                    }}
+            );
         }};
         //endregion production
         //region drills
@@ -602,5 +613,23 @@ public class HPLBlocks {
             placeableLiquid = true;
         }};
         //endregion sandbox
+
+        testBlock = new GenericCrafter("test-block") {{
+            requirements(Category.crafting, with(HPLItems.fors, 50, HPLItems.khylid, 20));
+            outputItem = new ItemStack(HPLItems.craside, 1);
+            consumeItems(with(HPLItems.fors, 2, HPLItems.volcanicSerrid, 1));
+            craftTime = 40f;
+            ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
+            size = 3;
+            craftEffect = Fx.none;
+            squareSprite = false;
+            drawer = new DrawMulti(
+                    new DrawRegion(){{
+                        layer = Layer.block;
+                    }},
+                    new DrawCrasideSmelt()
+            );
+        }};
     }
 }
