@@ -43,18 +43,22 @@ public class HPLUnits {
 
             lowAltitude = true;
             flying = true;
-            mineSpeed = 8f;
-            mineTier = 2;
-            buildSpeed = 0.4f;
-            drag = 0.05f;
+
             speed = 3.3f;
             rotateSpeed = 17f;
             accel = 0.1f;
-            itemCapacity = 50;
+            drag = 0.05f;
+
+            mineSpeed = 8f;
+            mineTier = 2;
+            buildSpeed = 0.4f;
+
             health = 300f;
+            hitSize = 8f;
+            itemCapacity = 50;
+
             engineSize = 3f;
             engineOffset = 9.5f;
-            hitSize = 8f;
             alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;
 
@@ -314,28 +318,32 @@ public class HPLUnits {
         //endregion unmakerTree
         unmaker = new UnitType("unmaker") {{
             constructor = UnitEntity::create;
-            isEnemy = true;
             flying = true;
-            drag = 0.08f;
-            speed = 5.2f;
-            rotateSpeed = 4f;
-            accel = 0.4f;
+
+            speed = 4f;
+            rotateSpeed = 17f;
+            accel = 0.1f;
+            drag = 0.05f;
+
+            health = 460f;
+            hitSize = 9f;
             itemCapacity = 5;
-            health = 350f;
-            hitSize = 8.5f;
+
+            engineSize = 3f;
+            engineOffset = 9.5f;
+            alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;
             weapons.add(
                     new Weapon("unmaker-teeth") {{
-                        x = 10f /4;
-                        y = 33f / 4;
+                        x = 1f;
+                        y = 4.4f;
                         reload = 20;
                         layerOffset = -0.002f;
-                        alternate = false;
                         recoil = 3.5f;
-                        shoot = new ShootSpread(3, 15f);
-                        bullet = new BasicBulletType(3.5f, 15) {{
+                        shoot = new ShootSpread(3, 10f);
+                        bullet = new BasicBulletType(4f, 15) {{
                             lifetime = 30f;
-                            sprite = "dagger-bullet";
+                            sprite = "dagbul";
                             frontColor = HPLPal.unmakerColor;
                             backColor = HPLPal.unmakerDark;
                         }};
