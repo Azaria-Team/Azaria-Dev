@@ -14,6 +14,7 @@ public class HPLStatusEffects {
             damage = 0.45f;
             healthMultiplier = 0.8f;
             speedMultiplier =  0.5f;
+            reloadMultiplier = 1f / 3 * 2;
         }};
 
         decomposition = new StatusEffect ("decomposition") {{

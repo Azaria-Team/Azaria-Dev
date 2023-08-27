@@ -1,5 +1,6 @@
 package hpl.content;
 
+import arc.graphics.Color;
 import hpl.entities.bullets.AimBulletType;
 import hpl.entities.units.StriCopterUnitType;
 import hpl.graphics.HPLPal;
@@ -340,12 +341,15 @@ public class HPLUnits {
                         reload = 20;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
-                        shoot = new ShootSpread(3, 10f);
+                        shoot = new ShootSpread(3, 5f);
                         bullet = new BasicBulletType(4f, 15) {{
                             lifetime = 30f;
-                            sprite = "dagbul";
-                            frontColor = HPLPal.unmakerColor;
-                            backColor = HPLPal.unmakerDark;
+                            sprite = "hpl-dagbul";
+                            status = HPLStatusEffects.weakness;
+                            width = 13f;
+                            height = 15f;
+                            frontColor = Color.valueOf("ffffff");
+                            backColor = HPLPal.unmakerColor;
                         }};
                     }});
         }};
