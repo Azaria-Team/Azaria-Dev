@@ -455,7 +455,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
             });
         }
 
-        Seq<Block> ores = Seq.with(Blocks.oreCopper, Blocks.oreLead);
+        Seq<Block> ores = Seq.with();
         float poles = Math.abs(sector.tile.v.y);
         float nmag = 0.5f;
         float scl = 1f;
@@ -536,16 +536,16 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                         for(int y = -rad1us; y <= rad1us; y++){
                             Tile other = tiles.get(x + tile.x, y + tile.y);
                             //skip solids / other vents / arkycite / slag
-                            if(other == null || other.block().solid || other.floor().attributes.get(Attribute.steam) != 0 || other.floor() == Blocks.slag || other.floor() == Blocks.arkyciteFloor){
+                            if(other == null || other.block().solid || other.floor().attributes.get(Attribute.steam) != 0 || other.floor() == Blocks.slag || other.floor() == Blocks.arkyciteFloor || other.floor() == HPLBlocks.oxylite){
                                 continue outer;
                             }
                         }
                     }
 
                     Block
-                            floor = Blocks.rhyolite,
-                            secondFloor = Blocks.rhyoliteCrater,
-                            vent = Blocks.rhyoliteVent;
+                            floor,
+                            secondFloor,
+                            vent = HPLBlocks.forsite;
 
                     int xDir = 1;
                     //set target material depending on what's encountered
@@ -624,6 +624,8 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
         float difficulty = sector.threat;
         ints.clear();
         ints.ensureCapacity(width * height / 4);
+
+        /*
 
         int ruinCount = rand.random(-2, 4);
         if(ruinCount > 0){
@@ -712,14 +714,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
         for(Room espawn : enemies){
             tiles.getn(espawn.x, espawn.y).setOverlay(Blocks.spawn);
         }
-
-        if(sector.hasEnemyBase()){
-            basegen.generate(tiles, enemies.map(r -> tiles.getn(r.x, r.y)), tiles.get(spawn.x, spawn.y), state.rules.waveTeam, sector, difficulty);
-
-            state.rules.attackMode = sector.info.attack = true;
-        }else{
-            state.rules.winWave = sector.info.winWave = 10 + 5 * (int)Math.max(difficulty * 10, 1);
-        }
+        */
 
         decoration(0.017f);
 
