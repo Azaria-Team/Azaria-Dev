@@ -47,7 +47,7 @@ public class HPLFx {
     }),
 
     crasideBrewerSmoke = new Effect(120, e -> {
-        color(HPLPal.craside, e.fin());
+        color(HPLPal.craside, HPLPal.craside2, e.fin());
         randLenVectors(e.id, 10, 1f + 6f * e.finpow(), (x, y) -> {
             Fill.circle(e.x + x, e.y + y, e.fout() * 2 + 0.1f);
             Fill.circle(e.x + x / 0.9f, e.y + y / 3f, e.fout());

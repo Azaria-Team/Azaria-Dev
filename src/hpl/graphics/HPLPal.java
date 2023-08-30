@@ -13,6 +13,7 @@ public static final Color
         fors = Color.valueOf("f3b2c1"),
         forsBack = Color.valueOf("c28392"),
         craside = Color.valueOf("d9fa96"),
+        craside2 = Color.valueOf("d47f6a"),
 
         forceBullet = Color.valueOf("ffffff"),
         forceBulletBack = Color.valueOf("f27c98"),
