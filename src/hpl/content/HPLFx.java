@@ -52,7 +52,7 @@ public class HPLFx {
             Fill.circle(e.x + x, e.y + y, e.fout() * 2 + 0.1f);
             Fill.circle(e.x + x / 0.9f, e.y + y / 3f, e.fout());
         });
-        randLenVectors(e.id, 5, 1f + 10f * e.finpow(), (x, y) -> {
+        randLenVectors(e.id, 8, 1f + 10f * e.finpow(), (x, y) -> {
             Fill.circle(e.x + x, e.y + y, e.fout() * 4 + 0.1f);
             Fill.circle(e.x + x / 0.9f, e.y + y / 6f, e.fout());
         });
