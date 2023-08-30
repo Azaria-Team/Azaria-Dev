@@ -372,7 +372,7 @@ public class HPLBlocks {
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             size = 3;
-            craftEffect = Fx.none;
+            craftEffect = HPLFx.crasideBrewerSmoke;
             squareSprite = false;
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"){{
@@ -450,8 +450,6 @@ public class HPLBlocks {
             shake = 3f;
             itemCapacity = 20;
             researchCost = with(HPLItems.fors, 5);
-
-            drillMultipliers.put(Items.beryllium, 2.5f);
 
             fogRadius = 4;
 

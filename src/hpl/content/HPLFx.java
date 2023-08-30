@@ -46,11 +46,15 @@ public class HPLFx {
         });
     }),
 
-    crasideBrewerSmoke = new Effect(20, e -> {
+    crasideBrewerSmoke = new Effect(120, e -> {
         color(HPLPal.craside, e.fin());
-        randLenVectors(e.id, 3, 1f + 10f * e.fin(), (x, y) -> {
-            Fill.circle(e.x + x, e.y + y, e.fout() * 0.9f + 0.1f);
-            Fill.circle(e.x + x / 0.9f, e.y + y / 0.9f, e.fout());
+        randLenVectors(e.id, 10, 1f + 6f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2 + 0.1f);
+            Fill.circle(e.x + x / 0.9f, e.y + y / 3f, e.fout());
+        });
+        randLenVectors(e.id, 5, 1f + 10f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 4 + 0.1f);
+            Fill.circle(e.x + x / 0.9f, e.y + y / 6f, e.fout());
         });
     }).layer(Layer.block + 0.05f),
 
