@@ -352,7 +352,7 @@ public class HPLUnits {
                         }};
                     }});
         }};
-        eliminator = new UnitType("unmaker") {{
+        eliminator = new UnitType("eliminator") {{
             constructor = UnitEntity::create;
             flying = true;
 
