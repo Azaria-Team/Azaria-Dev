@@ -8,31 +8,32 @@ import hpl.world.draw.Blade;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
-import mindustry.entities.bullet.BasicBulletType;
-import mindustry.entities.bullet.BulletType;
-import mindustry.entities.bullet.ExplosionBulletType;
-import mindustry.entities.bullet.MissileBulletType;
+import mindustry.entities.bullet.*;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
 import mindustry.gen.UnitEntity;
 import mindustry.gen.UnitWaterMove;
 import mindustry.graphics.Layer;
+import mindustry.type.StatusEffect;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
 
 public class HPLUnits {
     public static UnitType
-    //aurelia core units
+    //aureliaCore units
     gyurza, veresk, vortex,
-    //angelshark unit tree
+    //rocketNaval units
     angelshark, glaucus, aurora,
-    //unmaker tree
-    unmaker,
-    //vector tree
-    vector, zephyr;
-    //off the tree
+    //dragonflyAssault units
+    unmaker,  eliminator,
+    //skyShips tree
+    vector, zephyr,
+    //assaultSupport units
+
+    //offTheTree units
+    shell, bastion, snake, volcano;
     //supportDrone, torpedoNaval, bigKaboom
     public static void load() {
         //region aureliaCoreUnits
@@ -315,14 +316,12 @@ public class HPLUnits {
         }};
         //endregion angelsharkTree
         //region unmakerTree
-
-        //endregion unmakerTree
         unmaker = new UnitType("unmaker") {{
             constructor = UnitEntity::create;
             flying = true;
 
-            speed = 4f;
-            rotateSpeed = 17f;
+            speed = 2.2f;
+            rotateSpeed = 57f;
             accel = 0.1f;
             drag = 0.05f;
 
@@ -353,6 +352,46 @@ public class HPLUnits {
                         }};
                     }});
         }};
+        eliminator = new UnitType("unmaker") {{
+            constructor = UnitEntity::create;
+            flying = true;
+
+            speed = 1.85f;
+            rotateSpeed = 65f;
+            accel = 0.2f;
+            drag = 0.05f;
+
+            health = 1100f;
+            hitSize = 12f;
+            itemCapacity = 10;
+
+            engineSize = 3f;
+            engineOffset = 9.5f;
+            alwaysUnlocked = true;
+            outlineColor = HPLPal.aureliaOutline;
+            weapons.add(
+                    new Weapon("eliminator-emp") {{
+                        reload = 90;
+                        layerOffset = -0.002f;
+                        recoil = 3.5f;
+                        bullet = new EmpBulletType() {{
+                            lifetime = 30f;
+                            speed = 4f;
+                            damage = 30f;
+                            pierce = true;
+
+                            status = HPLStatusEffects.weakness;
+
+                            width = 17f;
+                            height = 12f;
+
+                            frontColor = HPLPal.unmakerColor;
+                            backColor = Color.valueOf("ffffff");
+                            sprite = "emp-wave";
+                        }};
+                    }});
+        }};
+        //endregion unmakerTree
         //region vectorTree
         vector = new UnitType("vector") {{
             constructor = UnitEntity::create;
@@ -379,7 +418,7 @@ public class HPLUnits {
             accel = 0.4f;
             itemCapacity = 25;
             health = 1370;
-            hitSize = 7f;
+            hitSize = 10f;
             outlineColor = HPLPal.aureliaOutline;
         }};
         //endregion vectorTree
