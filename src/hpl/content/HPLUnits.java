@@ -356,8 +356,8 @@ public class HPLUnits {
             constructor = UnitEntity::create;
             flying = true;
 
-            speed = 1.85f;
-            rotateSpeed = 65f;
+            speed = 1.95f;
+            rotateSpeed = 18.75f;
             accel = 0.2f;
             drag = 0.05f;
 
@@ -371,7 +371,7 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
             weapons.add(
                     new Weapon("eliminator-emp") {{
-                        reload = 90;
+                        reload = 45;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         bullet = new EmpBulletType() {{
@@ -387,7 +387,7 @@ public class HPLUnits {
 
                             frontColor = HPLPal.unmakerColor;
                             backColor = Color.valueOf("ffffff");
-                            sprite = "emp-wave";
+                            sprite = "epm-wave";
                         }};
                     }});
         }};
