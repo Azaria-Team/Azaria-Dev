@@ -2,9 +2,11 @@ package hpl.content;
 
 import arc.graphics.Color;
 import hpl.entities.bullets.AimBulletType;
+import hpl.entities.units.DroneUnitType;
 import hpl.entities.units.StriCopterUnitType;
 import hpl.graphics.HPLPal;
 import hpl.world.draw.Blade;
+import hpl.world.draw.Rotor;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
@@ -15,25 +17,21 @@ import mindustry.gen.Sounds;
 import mindustry.gen.UnitEntity;
 import mindustry.gen.UnitWaterMove;
 import mindustry.graphics.Layer;
-import mindustry.type.StatusEffect;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
 
 public class HPLUnits {
     public static UnitType
-    //aureliaCore units
+    //aurelia core units
     gyurza, veresk, vortex,
-    //rocketNaval units
+    //angelshark unit tree
     angelshark, glaucus, aurora,
-    //dragonflyAssault units
-    unmaker,  eliminator,
-    //skyShips tree
-    vector, zephyr,
-    //assaultSupport units
-
-    //offTheTree units
-    shell, bastion, snake, volcano;
+    //unmaker tree
+    unmaker, eliminator,
+    //vector tree
+    vector, zephyr;
+    //off the tree
     //supportDrone, torpedoNaval, bigKaboom
     public static void load() {
         //region aureliaCoreUnits
@@ -118,7 +116,7 @@ public class HPLUnits {
             speed = 0.9f;
             drag = 0.12f;
             hitSize = 12f;
-	    armor = 2;
+	        armor = 2;
             health = 620;
             accel = 0.2f;
             faceTarget = false;
@@ -160,7 +158,7 @@ public class HPLUnits {
             speed = 0.72f;
             hitSize = 15f;
             health = 1700;
-	    armor = 8;
+	        armor = 8;
             accel = 0.3f;
             drag = 0.04f;
 
@@ -294,7 +292,7 @@ public class HPLUnits {
             speed = 0.7f;
             drag = 0.9f;
             hitSize = 17f;
-	    armor = 14;
+	        armor = 14;
             health = 4300;
             accel = 0.35f;
             faceTarget = false;
@@ -316,12 +314,13 @@ public class HPLUnits {
         }};
         //endregion angelsharkTree
         //region unmakerTree
-        unmaker = new UnitType("unmaker") {{
-            constructor = UnitEntity::create;
+
+        //endregion unmakerTree
+        unmaker = new StriCopterUnitType("unmaker") {{
             flying = true;
 
-            speed = 2.2f;
-            rotateSpeed = 57f;
+            speed = 4f;
+            rotateSpeed = 10f;
             accel = 0.1f;
             drag = 0.05f;
 
@@ -333,6 +332,21 @@ public class HPLUnits {
             engineOffset = 9.5f;
             alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;
+            blade.add(
+                    new Blade(name + "-blade"){{
+                        x = 5f;
+                        y = 3f;
+                        bladeMoveSpeed = 40f;
+                        bladeCount = 1;
+                        bladeBlurAlphaMultiplier = 0.7f;
+                    }},
+                    new Blade(name + "-blade1"){{
+                        x = -5f;
+                        y = 3f;
+                        bladeMoveSpeed = -40f;
+                        bladeCount = 1;
+                        bladeBlurAlphaMultiplier = 0.7f;
+                    }});
             weapons.add(
                     new Weapon("unmaker-teeth") {{
                         x = 1f;
@@ -352,12 +366,12 @@ public class HPLUnits {
                         }};
                     }});
         }};
-        eliminator = new UnitType("eliminator") {{
-            constructor = UnitEntity::create;
+
+        eliminator = new StriCopterUnitType("eliminator") {{
             flying = true;
 
             speed = 1.95f;
-            rotateSpeed = 18.75f;
+            rotateSpeed = 7f;
             accel = 0.2f;
             drag = 0.05f;
 
@@ -387,14 +401,12 @@ public class HPLUnits {
 
                             frontColor = HPLPal.unmakerColor;
                             backColor = Color.valueOf("ffffff");
-                            sprite = "epm-wave";
+                            sprite = "emp-wave";
                         }};
                     }});
         }};
-        //endregion unmakerTree
         //region vectorTree
-        vector = new UnitType("vector") {{
-            constructor = UnitEntity::create;
+        vector = new DroneUnitType("vector") {{
             isEnemy = true;
 
             lowAltitude = true;
@@ -407,8 +419,21 @@ public class HPLUnits {
             health = 480f;
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
+
+            rotors.add(
+                    new Rotor(name + "-blade"){{
+                        x = 5f;
+                        y = 3f;
+                        bladeCount = 3;
+                        mirror = true;
+                    }},
+                    new Rotor(name + "-blade1"){{
+                        x = -5f;
+                        y = 3f;
+                        bladeCount = 1;
+                    }});
         }};
-        zephyr = new UnitType("zephyr") {{
+        zephyr = new DroneUnitType("zephyr") {{
             constructor = UnitEntity::create;
             isEnemy = true;
             flying = true;
@@ -418,7 +443,7 @@ public class HPLUnits {
             accel = 0.4f;
             itemCapacity = 25;
             health = 1370;
-            hitSize = 10f;
+            hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
         }};
         //endregion vectorTree
