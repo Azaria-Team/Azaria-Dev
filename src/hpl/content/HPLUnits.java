@@ -2,11 +2,9 @@ package hpl.content;
 
 import arc.graphics.Color;
 import hpl.entities.bullets.AimBulletType;
-import hpl.entities.units.DroneUnitType;
 import hpl.entities.units.StriCopterUnitType;
 import hpl.graphics.HPLPal;
 import hpl.world.draw.Blade;
-import hpl.world.draw.Rotor;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
@@ -319,7 +317,8 @@ public class HPLUnits {
         //region unmakerTree
 
         //endregion unmakerTree
-        unmaker = new StriCopterUnitType("unmaker") {{
+        unmaker = new UnitType("unmaker") {{
+            constructor = UnitEntity::create;
             flying = true;
 
             speed = 4f;
@@ -335,21 +334,6 @@ public class HPLUnits {
             engineOffset = 9.5f;
             alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;
-            blade.add(
-                    new Blade(name + "-blade"){{
-                        x = 5f;
-                        y = 3f;
-                        bladeMoveSpeed = 40f;
-                        bladeCount = 1;
-                        bladeBlurAlphaMultiplier = 0.7f;
-                    }},
-                    new Blade(name + "-blade1"){{
-                        x = -5f;
-                        y = 3f;
-                        bladeMoveSpeed = -40f;
-                        bladeCount = 1;
-                        bladeBlurAlphaMultiplier = 0.7f;
-                    }});
             weapons.add(
                     new Weapon("unmaker-teeth") {{
                         x = 1f;
@@ -370,7 +354,7 @@ public class HPLUnits {
                     }});
         }};
         //region vectorTree
-        vector = new DroneUnitType("vector") {{
+        vector = new UnitType("vector") {{
             constructor = UnitEntity::create;
             isEnemy = true;
 
@@ -384,20 +368,9 @@ public class HPLUnits {
             health = 480f;
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
-            rotors.add(
-                    new Rotor(name + "-blade"){{
-                        x = 5f;
-                        y = 3f;
-                        bladeCount = 3;
-                        mirror = true;
-                    }}/*,
-                    new Rotor(name + "-blade1"){{
-                        x = -5f;
-                        y = 3f;
-                        bladeCount = 1;
-                    }}*/);
         }};
         zephyr = new UnitType("zephyr") {{
+            constructor = UnitEntity::create;
             isEnemy = true;
             flying = true;
             drag = 0.05f;
