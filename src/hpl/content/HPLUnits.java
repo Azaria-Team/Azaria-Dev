@@ -10,10 +10,7 @@ import hpl.world.draw.Rotor;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
-import mindustry.entities.bullet.BasicBulletType;
-import mindustry.entities.bullet.BulletType;
-import mindustry.entities.bullet.ExplosionBulletType;
-import mindustry.entities.bullet.MissileBulletType;
+import mindustry.entities.bullet.*;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
@@ -31,7 +28,7 @@ public class HPLUnits {
     //angelshark unit tree
     angelshark, glaucus, aurora,
     //unmaker tree
-    unmaker,
+    unmaker, eliminator,
     //vector tree
     vector, zephyr;
     //off the tree
@@ -323,7 +320,7 @@ public class HPLUnits {
             flying = true;
 
             speed = 4f;
-            rotateSpeed = 17f;
+            rotateSpeed = 10f;
             accel = 0.1f;
             drag = 0.05f;
 
@@ -366,6 +363,46 @@ public class HPLUnits {
                             height = 15f;
                             frontColor = Color.valueOf("ffffff");
                             backColor = HPLPal.unmakerColor;
+                        }};
+                    }});
+        }};
+
+        eliminator = new UnitType("unmaker") {{
+            constructor = UnitEntity::create;
+            flying = true;
+
+            speed = 1.95f;
+            rotateSpeed = 7f;
+            accel = 0.2f;
+            drag = 0.05f;
+
+            health = 1100f;
+            hitSize = 12f;
+            itemCapacity = 10;
+
+            engineSize = 3f;
+            engineOffset = 9.5f;
+            alwaysUnlocked = true;
+            outlineColor = HPLPal.aureliaOutline;
+            weapons.add(
+                    new Weapon("eliminator-emp") {{
+                        reload = 45;
+                        layerOffset = -0.002f;
+                        recoil = 3.5f;
+                        bullet = new EmpBulletType() {{
+                            lifetime = 30f;
+                            speed = 4f;
+                            damage = 30f;
+                            pierce = true;
+
+                            status = HPLStatusEffects.weakness;
+
+                            width = 17f;
+                            height = 12f;
+
+                            frontColor = HPLPal.unmakerColor;
+                            backColor = Color.valueOf("ffffff");
+                            sprite = "emp-wave";
                         }};
                     }});
         }};
