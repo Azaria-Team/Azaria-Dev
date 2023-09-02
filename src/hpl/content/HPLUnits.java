@@ -367,7 +367,7 @@ public class HPLUnits {
                     }});
         }};
 
-        eliminator = new StriCopterUnitType("unmaker") {{
+        eliminator = new StriCopterUnitType("eliminator") {{
             flying = true;
 
             speed = 1.95f;
