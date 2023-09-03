@@ -474,6 +474,8 @@ public class HPLUnits {
 
             rotors.add(
                     new Rotor(name + "-rotor"){{
+                        rotorLayer = -0.1f;
+                        rotorSpeed = 30f;
                         x = 0f;
                         y = 0f;
                         bladeCount = 3;
@@ -491,6 +493,31 @@ public class HPLUnits {
             health = 1370;
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
+
+            rotors.add(
+                    new Rotor(name + "-rotor") {{
+                        y = -1f;
+                        rotorSpeed = 30f;
+                        bladeCount = 3;
+                    }},
+                    new Rotor(name + "-rotor-shade") {{
+                        y = -1f;
+                        rotorLayer = 0.1f;
+                        bladeCount = 1;
+                    }},
+                    new Rotor(name + "-rotor-glow") {{
+                        y = -1f;
+                        rotorSpeed = 0f;
+                        rotorLayer = 0.2f;
+                        bladeCount = 1;
+                    }}
+            );
+            parts.add(
+                    new RegionPart(name + "-rotor-top") {{
+                      y = -1f;
+                      layerOffset = 0.3f;
+                    }}
+            );
         }};
         //endregion vectorTree
     }
