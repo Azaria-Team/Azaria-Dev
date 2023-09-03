@@ -44,13 +44,13 @@ public class StriCopterUnitType extends UnitType {
                                 blade.bladeOutlineRegion, rx, ry,
                                 blade.bladeOutlineRegion.width * bladeScl,
                                 blade.bladeOutlineRegion.height * bladeScl,
-                                unit.rotation - 90 + Mathf.random(blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                unit.rotation - blade.bladeAngle + Mathf.random(blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                         );
                         Draw.mixcol(Color.white, unit.hitTime);
                         Draw.rect(blade.bladeRegion, rx, ry,
                                 blade.bladeRegion.width * bladeScl,
                                 blade.bladeRegion.height * bladeScl,
-                                unit.rotation - 90 + Mathf.random(blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                unit.rotation - blade.bladeAngle + Mathf.random(blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                         );
 
                         if (blade.doubleBlade) {

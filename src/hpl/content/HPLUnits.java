@@ -388,13 +388,13 @@ public class HPLUnits {
             blade.add(
                     new Blade(name + "-blade"){{
                         /*x = 5, y = 3;*/ y = 1f;
-                        bladeMoveSpeed = 40f;
+                        bladeMoveSpeed = 10f;
                         bladeCount = 1;
                         bladeBlurAlphaMultiplier = 0.7f;
                     }},
                     new Blade(name + "-blade1"){{
                         /* x = -5, y - 3*/ y = 1f;
-                        bladeMoveSpeed = -40f;
+                        bladeMoveSpeed = -10f;
                         bladeCount = 1;
                         bladeBlurAlphaMultiplier = 0.7f;
                     }});
