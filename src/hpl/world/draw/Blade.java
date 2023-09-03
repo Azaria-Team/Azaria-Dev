@@ -37,6 +37,8 @@ public class Blade {
     /** How many blades generated on the unit */
     public int bladeCount = 1;
 
+    public float bladeAngle = 90;
+
     public Blade(String name) {
         this.name = name;
     }
