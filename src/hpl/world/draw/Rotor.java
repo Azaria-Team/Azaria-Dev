@@ -41,9 +41,9 @@ public class Rotor{
     }
 
     public void load(){
-        bladeRegion = Core.atlas.find(name + "-blade");
-        bladeOutlineRegion = Core.atlas.find(name + "-blade-outline");
-        rotorShadeRegion = Core.atlas.find(name + "-blade-shade");
+        bladeRegion = Core.atlas.find(name + "-rotor");
+        bladeOutlineRegion = Core.atlas.find(name + "-rotor-outline");
+        rotorShadeRegion = Core.atlas.find(name + "-rotor-shade");
         topRegion = Core.atlas.find(name + "-top");
     }
 
