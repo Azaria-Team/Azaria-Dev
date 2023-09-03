@@ -500,12 +500,12 @@ public class HPLUnits {
                         rotorSpeed = 30f;
                         bladeCount = 3;
                     }},
-                    new Rotor(name + "-rotor-shade") {{
+                    new Rotor(name + "-shade") {{
                         y = -1f;
                         rotorLayer = 0.1f;
                         bladeCount = 1;
                     }},
-                    new Rotor(name + "-rotor-glow") {{
+                    new Rotor(name + "-glow") {{
                         y = -1f;
                         rotorSpeed = 0f;
                         rotorLayer = 0.2f;
@@ -513,7 +513,7 @@ public class HPLUnits {
                     }}
             );
             parts.add(
-                    new RegionPart(name + "-rotor-top") {{
+                    new RegionPart(name + "-top") {{
                       y = -1f;
                       layerOffset = 0.3f;
                     }}
