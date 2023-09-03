@@ -51,12 +51,6 @@ public class DroneUnitType extends UnitType {
                     // region Normal Rotor
                     Draw.z(z + rotor.rotorLayer);
                     Draw.alpha(rotor.rotorShadeRegion.found() ? 1 - (copter.rotSpeedScl / 0.8f) : 1);
-                    Draw.rect(
-                            rotor.bladeOutlineRegion, rx, ry,
-                            rotor.bladeOutlineRegion.width * rotorScl,
-                            rotor.bladeOutlineRegion.height * rotorScl,
-                            angle
-                    );
                     Draw.mixcol(Color.white, unit.hitTime);
                     Draw.rect(rotor.bladeRegion, rx, ry,
                             rotor.bladeRegion.width * rotorScl,
@@ -67,12 +61,6 @@ public class DroneUnitType extends UnitType {
 
                     // Double Rotor
                     if (rotor.doubleRotor) {
-                        Draw.rect(
-                                rotor.bladeOutlineRegion, rx, ry,
-                                rotor.bladeOutlineRegion.width * rotorScl * -Mathf.sign(false),
-                                rotor.bladeOutlineRegion.height * rotorScl,
-                                -angle
-                        );
                         Draw.mixcol(Color.white, unit.hitTime);
                         Draw.rect(rotor.bladeRegion, rx, ry,
                                 rotor.bladeRegion.width * rotorScl * -Mathf.sign(false),
