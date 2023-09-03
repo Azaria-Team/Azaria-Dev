@@ -3,6 +3,7 @@ package hpl.entities.entity;
 import arc.math.Angles;
 import arc.math.Mathf;
 import arc.util.Time;
+import hpl.content.HPLUnits;
 import hpl.entities.units.StriCopterUnitType;
 import hpl.world.draw.Blade;
 import mindustry.content.Fx;
@@ -14,14 +15,23 @@ public class StriCopterUnitEntity extends UnitEntity {
     public BladeMount[] blades;
     public float bladeMoveSpeedScl = 1f;
 
+    @Override
+    public String toString() {
+        return "StriCopterUnit#" + id;
+    }
+
+    @Override
+    public int classId() {
+        return HPLUnits.classID(getClass());
+    }
 
     @Override
     public void setType(UnitType type) {
         super.setType(type);
-        if (type instanceof StriCopterUnitType stritopter) {
-            blades = new BladeMount[stritopter.blade.size];
+        if (type instanceof StriCopterUnitType ornitopter) {
+            blades = new BladeMount[ornitopter.blade.size];
             for (int i = 0; i < blades.length; i++) {
-                Blade bladeType = stritopter.blade.get(i);
+                Blade bladeType = ornitopter.blade.get(i);
                 blades[i] = new BladeMount(bladeType);
             }
         }

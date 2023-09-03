@@ -3,24 +3,40 @@ package hpl.entities.entity;
 import arc.math.Angles;
 import arc.math.Mathf;
 import arc.util.Time;
+import hpl.content.HPLUnits;
 import hpl.entities.units.DroneUnitType;
 import hpl.world.draw.Blade;
 import hpl.world.draw.Rotor;
 import mindustry.content.Fx;
 import mindustry.gen.UnitEntity;
+import hpl.world.draw.Rotor.RotorMount;
+import hpl.world.draw.Rotor;
+import mindustry.type.UnitType;
 
 public class DroneUnitEntity extends UnitEntity {
-    public Rotor.RotorMount[] rotors;
+    public RotorMount[] rotors;
     public float rotSpeedScl = 1f;
 
     @Override
-    public void add(){
-        DroneUnitType type = (DroneUnitType)this.type;
+    public String toString() {
+        return "DroneUnit#" + id;
+    }
 
-        rotors = new Rotor.RotorMount[type.rotors.size];
-        for (int i = 0; i < rotors.length; i++) {
-            Rotor rotorType = type.rotors.get(i);
-            rotors[i] = new Rotor.RotorMount(rotorType);
+    @Override
+    public int classId() {
+        return HPLUnits.classID(getClass());
+    }
+
+    /** @author GlennFolker#6881 */
+    @Override
+    public void setType(UnitType type) {
+        super.setType(type);
+        if (type instanceof DroneUnitType drone) {
+            rotors = new RotorMount[drone.rotors.size];
+            for (int i = 0; i < rotors.length; i++) {
+                Rotor rotorType = drone.rotors.get(i);
+                rotors[i] = new RotorMount(rotorType);
+            }
         }
     }
 
@@ -43,7 +59,7 @@ public class DroneUnitEntity extends UnitEntity {
             rotSpeedScl = Mathf.lerpDelta(rotSpeedScl, 1f, type.rotorDeathSlowdown);
         }
 
-        for (Rotor.RotorMount rotor : rotors) {
+        for (RotorMount rotor : rotors) {
             rotor.rotorRot += ((rotor.rotor.rotorSpeed * rotSpeedScl) + rotor.rotor.minimumRotorSpeed) * Time.delta;
         }
         type.fallSpeed = 0.006f;

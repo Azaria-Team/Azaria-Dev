@@ -26,14 +26,13 @@ public class DroneUnitType extends UnitType {
         engineSize = 0;
         constructor = DroneUnitEntity::new;
     }
+
     @Override
     public void drawSoftShadow(Unit unit, float alpha) {
         float z = unit.elevation > 0.5f ? (lowAltitude ? Layer.flyingUnitLow : Layer.flyingUnit) : groundLayer + Mathf.clamp(hitSize / 4000f, 0, 0.01f);
         Draw.z(z - 3f);
         super.drawSoftShadow(unit, alpha);
     }
-
-    // Drawing Rotors
     public void drawRotor(Unit unit) {
         float z = unit.elevation > 0.5f ? (lowAltitude ? Layer.flyingUnitLow : Layer.flyingUnit) : groundLayer + Mathf.clamp(hitSize / 4000f, 0, 0.01f);
         applyColor(unit);
@@ -51,7 +50,7 @@ public class DroneUnitType extends UnitType {
 
                     // region Normal Rotor
                     Draw.z(z + rotor.rotorLayer);
-                    Draw.alpha(rotor.bladeShadeRegion.found() ? 1 - (copter.rotSpeedScl / 0.8f) : 1);
+                    Draw.alpha(rotor.rotorShadeRegion.found() ? 1 - (copter.rotSpeedScl / 0.8f) : 1);
                     Draw.rect(
                             rotor.bladeOutlineRegion, rx, ry,
                             rotor.bladeOutlineRegion.width * rotorScl,
@@ -84,22 +83,22 @@ public class DroneUnitType extends UnitType {
                     Draw.reset();
 
                     // Blur Rotor
-                    if (rotor.bladeShadeRegion.found()) {
+                    if (rotor.rotorShadeRegion.found()) {
                         Draw.z(z + rotor.rotorLayer);
                         Draw.alpha(copter.rotSpeedScl * rotor.rotorBlurAlphaMultiplier * (copter.dead() ? copter.rotSpeedScl * 0.5f : 1));
                         Draw.rect(
-                                rotor.bladeShadeRegion, rx, ry,
-                                rotor.bladeShadeRegion.width * rotorScl,
-                                rotor.bladeShadeRegion.height * rotorScl,
+                                rotor.rotorShadeRegion, rx, ry,
+                                rotor.rotorShadeRegion.width * rotorScl,
+                                rotor.rotorShadeRegion.height * rotorScl,
                                 -blurAngle
                         );
 
                         // Double Rotor Blur
                         if (rotor.doubleRotor) {
                             Draw.rect(
-                                    rotor.bladeShadeRegion, rx, ry,
-                                    rotor.bladeShadeRegion.width * rotorScl * -Mathf.sign(false),
-                                    rotor.bladeShadeRegion.height * rotorScl,
+                                    rotor.rotorShadeRegion, rx, ry,
+                                    rotor.rotorShadeRegion.width * rotorScl * -Mathf.sign(false),
+                                    rotor.rotorShadeRegion.height * rotorScl,
                                     blurAngle
                             );
                         }
@@ -111,12 +110,6 @@ public class DroneUnitType extends UnitType {
                     // Rotor Top
                     if (rotor.drawRotorTop) {
                         Draw.z(z + rotor.rotorLayer + 0.001f);
-                        Draw.rect(
-                                rotor.topRegion, rx, ry,
-                                rotor.topRegion.width * rotorTopScl,
-                                rotor.topRegion.height * rotorTopScl,
-                                unit.rotation - 90);
-                        Draw.mixcol(Color.white, unit.hitTime);
                         Draw.rect(
                                 rotor.topRegion, rx, ry,
                                 rotor.topRegion.width * rotorTopScl,

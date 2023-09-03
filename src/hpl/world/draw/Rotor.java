@@ -12,7 +12,7 @@ import mindustry.io.*;
 public class Rotor{
     public final String name;
 
-    public TextureRegion bladeRegion, bladeOutlineRegion, bladeShadeRegion, topRegion;
+    public TextureRegion bladeRegion, bladeOutlineRegion, rotorShadeRegion, topRegion;
 
 
     /** Rotor offsets from the unit */
@@ -33,8 +33,6 @@ public class Rotor{
     public boolean drawRotorTop = false;
     /** Duplicates the initial rotor and spins it on the opposite dirrection */
     public boolean doubleRotor = false;
-    /** Mirrors the rotor */
-    public boolean mirror = false;
     /** How many blades generated on the unit */
     public int bladeCount = 4;
 
@@ -45,7 +43,7 @@ public class Rotor{
     public void load(){
         bladeRegion = Core.atlas.find(name + "-blade");
         bladeOutlineRegion = Core.atlas.find(name + "-blade-outline");
-        bladeShadeRegion = Core.atlas.find(name + "-blade-shade");
+        rotorShadeRegion = Core.atlas.find(name + "-blade-shade");
         topRegion = Core.atlas.find(name + "-top");
     }
 
