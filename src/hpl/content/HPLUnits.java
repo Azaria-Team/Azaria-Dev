@@ -473,15 +473,10 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
 
             rotors.add(
-                    new Rotor(name + "-blade"){{
-                        x = 5f;
-                        y = 3f;
+                    new Rotor(name + "-rotor"){{
+                        x = 0f;
+                        y = 0f;
                         bladeCount = 3;
-                    }},
-                    new Rotor(name + "-blade1"){{
-                        x = -5f;
-                        y = 3f;
-                        bladeCount = 1;
                     }});
         }};
         zephyr = new DroneUnitType("zephyr") {{
