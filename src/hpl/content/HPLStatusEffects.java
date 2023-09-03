@@ -6,10 +6,11 @@ import hpl.graphics.HPLPal;
 import mindustry.type.StatusEffect;
 
 public class HPLStatusEffects {
-    public static StatusEffect weakness, decomposition;
+    public static StatusEffect weakness, decomposition, ultraSuperDuperMegaDohuaMoschniyBuff;
 
     public static void load() {
         weakness = new StatusEffect ("weakness") {{
+
             color = HPLPal.unmakerColor;
             damage = 0.45f;
             healthMultiplier = 0.8f;
@@ -21,6 +22,12 @@ public class HPLStatusEffects {
             damage = 1.4f;
             healthMultiplier = 0.7f;
             buildSpeedMultiplier = 0.8f;
+        }};
+
+        ultraSuperDuperMegaDohuaMoschniyBuff = new StatusEffect("ultra-super-duper-mega-dohua-moschniy-buff") {{
+           healthMultiplier = 1.5f;
+           speedMultiplier = 1.3f;
+           buildSpeedMultiplier = 1.3f;
         }};
     }
 }
