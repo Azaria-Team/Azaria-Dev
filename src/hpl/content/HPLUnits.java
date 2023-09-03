@@ -328,8 +328,7 @@ public class HPLUnits {
             hitSize = 9f;
             itemCapacity = 5;
 
-            engineSize = 3f;
-            engineOffset = 9.5f;
+            engineSize = 0f;
             alwaysUnlocked = true;
             outlineColor = HPLPal.aureliaOutline;
             blade.add(
