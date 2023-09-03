@@ -505,7 +505,7 @@ public class HPLUnits {
                         rotorLayer = 0.1f;
                         bladeCount = 1;
                     }},
-                    new Rotor(name + "-glow") {{
+                    new Rotor(" -glow") {{
                         y = -1f;
                         rotorSpeed = 0f;
                         rotorLayer = 0.2f;
