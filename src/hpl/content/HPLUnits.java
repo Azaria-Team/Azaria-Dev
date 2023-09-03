@@ -315,7 +315,7 @@ public class HPLUnits {
         //endregion angelsharkTree
         //region unmakerTree
 
-        //endregion unmakerTree
+
         unmaker = new StriCopterUnitType("unmaker") {{
             flying = true;
 
@@ -334,15 +334,13 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
             blade.add(
                     new Blade(name + "-blade"){{
-                        x = 5f;
-                        y = 3f;
+                        /*x = 5, y = 3;*/ y = 1f;
                         bladeMoveSpeed = 40f;
                         bladeCount = 1;
                         bladeBlurAlphaMultiplier = 0.7f;
                     }},
                     new Blade(name + "-blade1"){{
-                        x = -5f;
-                        y = 3f;
+                        /* x = -5, y - 3*/ y = 1f;
                         bladeMoveSpeed = -40f;
                         bladeCount = 1;
                         bladeBlurAlphaMultiplier = 0.7f;
@@ -355,8 +353,8 @@ public class HPLUnits {
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         shoot = new ShootSpread(3, 5f);
-                        bullet = new BasicBulletType(4f, 15) {{
-                            lifetime = 30f;
+                        bullet = new BasicBulletType(5.5f, 15) {{
+                            lifetime = 25f;
                             sprite = "hpl-dagbul";
                             status = HPLStatusEffects.weakness;
                             width = 13f;
@@ -401,10 +399,11 @@ public class HPLUnits {
 
                             frontColor = HPLPal.unmakerColor;
                             backColor = Color.valueOf("ffffff");
-                            sprite = "emp-wave";
+                            sprite = "hpl-emp-wave";
                         }};
                     }});
         }};
+        //endregion unmakerTree
         //region vectorTree
         vector = new DroneUnitType("vector") {{
             isEnemy = true;
