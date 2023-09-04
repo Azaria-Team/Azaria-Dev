@@ -494,28 +494,17 @@ public class HPLUnits {
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
 
+ /*          weapons.add(
+                    new Weapon("abominator") {{
+
+                    }}
+            );*/
+
             rotors.add(
                     new Rotor(name + "-rotor") {{
-                        y = -1f;
-                        rotorSpeed = 30f;
-                        bladeCount = 3;
-                    }},
-                    new Rotor(name + "-shade") {{
-                        y = -1f;
-                        rotorLayer = 0.1f;
-                        bladeCount = 1;
-                    }},
-                    new Rotor(" -glow") {{
-                        y = -1f;
-                        rotorSpeed = 0f;
-                        rotorLayer = 0.2f;
-                        bladeCount = 1;
-                    }}
-            );
-            parts.add(
-                    new RegionPart(name + "-top") {{
-                      y = -1f;
-                      layerOffset = 0.3f;
+                      bladeCount = 3;
+                      rotorLayer = 0.1f;
+                      rotorSpeed = 30f;
                     }}
             );
         }};
