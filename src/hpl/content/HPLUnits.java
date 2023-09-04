@@ -501,12 +501,12 @@ public class HPLUnits {
             );*/
 
             rotors.add(
-                    new Rotor(name + "-rotor") {{
-                      bladeCount = 3;
-                      rotorLayer = 0.1f;
-                      rotorSpeed = 30f;
-                    }}
-            );
+                            new Rotor(name + "-rotor"){{
+                                rotorSpeed = 30f;
+                                x = 0f;
+                                y = 0f;
+                                bladeCount = 3;
+                            }});
         }};
         //endregion vectorTree
     }
