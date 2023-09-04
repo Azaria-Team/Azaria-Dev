@@ -482,31 +482,28 @@ public class HPLUnits {
                     }});
         }};
         zephyr = new DroneUnitType("zephyr") {{
-            constructor = UnitEntity::create;
-            isEnemy = true;
-            flying = true;
-            drag = 0.05f;
-            speed = 2.6f;
-            rotateSpeed = 14f;
-            accel = 0.4f;
-            itemCapacity = 25;
-            health = 1370;
-            hitSize = 7f;
-            outlineColor = HPLPal.aureliaOutline;
+           isEnemy = true;
 
- /*          weapons.add(
-                    new Weapon("abominator") {{
+           lowAltitude = true;
+           flying = true;
+           drag = 0.05f;
+           speed = 2.2f;
+           rotateSpeed = 8f;
+           accel = 0.3f;
+           itemCapacity = 30;
+           health = 1100f;
+           hitSize = 12f;
 
-                    }}
-            );*/
+           outlineColor = HPLPal.aureliaOutline;
 
             rotors.add(
-                            new Rotor(name + "-rotor"){{
-                                rotorSpeed = 30f;
-                                x = 0f;
-                                y = 0f;
-                                bladeCount = 3;
-                            }});
+                    new Rotor(name + "-rotor") {{
+                        rotorLayer = -0.1f;
+                        rotorSpeed = 30f;
+                        x = 0f;
+                        y = 0f;
+                        bladeCount = 3;
+                    }});
         }};
         //endregion vectorTree
     }
