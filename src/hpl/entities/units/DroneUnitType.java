@@ -55,22 +55,32 @@ public class DroneUnitType extends UnitType {
                     Draw.rect(rotor.bladeRegion, rx, ry,
                             rotor.bladeRegion.width * rotorScl,
                             rotor.bladeRegion.height * rotorScl,
-                            angle
+                            unit.rotation - angle
                     );
                     // endregion Normal Rotor
-
-                    // Double Rotor
-                    if (rotor.doubleRotor) {
-                        Draw.mixcol(Color.white, unit.hitTime);
-                        Draw.rect(rotor.bladeRegion, rx, ry,
-                                rotor.bladeRegion.width * rotorScl * -Mathf.sign(false),
-                                rotor.bladeRegion.height * rotorScl,
-                                -angle
-                        );
-                    }
                     Draw.reset();
 
                     // Blur Rotor
+                    if (rotor.rotorNotRadial) {
+                        if (rotor.rotorShadeRegion.found()) {
+                            Draw.z(z + rotor.rotorLayer);
+                            Draw.alpha(copter.rotSpeedScl * rotor.rotorBlurAlphaMultiplier * (copter.dead() ? copter.rotSpeedScl * 0.5f : 1));
+                            Draw.rect(
+                                    rotor.rotorShadeRegion, rx, ry,
+                                    rotor.rotorShadeRegion.width * rotorScl,
+                                    rotor.rotorShadeRegion.height * rotorScl,
+                                    unit.rotation - -blurAngle
+                            );
+                        }
+
+                        Draw.reset();
+
+                    }
+                }
+                // Blur Rotor
+                float blurAngle = (mount.rotorRot * rotor.rotorBlurSpeedMultiplier) % 360;
+                float glowAngle = (mount.rotorRot * rotor.rotorBlurSpeedMultiplier * rotor.rotorGlowSpeedMultiplier) % 360;
+                if (rotor.rotorRadial) {
                     if (rotor.rotorShadeRegion.found()) {
                         Draw.z(z + rotor.rotorLayer);
                         Draw.alpha(copter.rotSpeedScl * rotor.rotorBlurAlphaMultiplier * (copter.dead() ? copter.rotSpeedScl * 0.5f : 1));
@@ -80,24 +90,27 @@ public class DroneUnitType extends UnitType {
                                 rotor.rotorShadeRegion.height * rotorScl,
                                 -blurAngle
                         );
-
-                        // Double Rotor Blur
-                        if (rotor.doubleRotor) {
-                            Draw.rect(
-                                    rotor.rotorShadeRegion, rx, ry,
-                                    rotor.rotorShadeRegion.width * rotorScl * -Mathf.sign(false),
-                                    rotor.rotorShadeRegion.height * rotorScl,
-                                    blurAngle
-                            );
-                        }
-                        Draw.reset();
                     }
 
                     Draw.reset();
 
+                    if (rotor.drawGlow) {
+                        if (rotor.rotorGlowRegion.found()) {
+                            Draw.z(z + rotor.rotorLayer + 0.01f);
+                            Draw.alpha(copter.rotSpeedScl * rotor.rotorGlowAlphaMultiplier * (copter.dead() ? copter.rotSpeedScl * 0.5f : 1));
+                            Draw.rect(
+                                    rotor.rotorGlowRegion, rx, ry,
+                                    rotor.rotorGlowRegion.width * rotorScl,
+                                    rotor.rotorGlowRegion.height * rotorScl,
+                                    -glowAngle
+                            );
+                        }
+
+                        Draw.reset();
+                    }
                     // Rotor Top
                     if (rotor.drawRotorTop) {
-                        Draw.z(z + rotor.rotorLayer + 0.001f);
+                        Draw.z(z + rotor.rotorLayer + 0.02f);
                         Draw.rect(
                                 rotor.topRegion, rx, ry,
                                 rotor.topRegion.width * rotorTopScl,

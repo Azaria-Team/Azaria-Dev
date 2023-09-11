@@ -524,6 +524,10 @@ public class HPLUnits {
                         x = 0f;
                         y = 0f;
                         bladeCount = 3;
+                        rotorNotRadial = false;
+                        rotorRadial = true;
+                        drawRotorTop = true;
+                        drawGlow = true;
                     }});
         }};
         //endregion vectorTree

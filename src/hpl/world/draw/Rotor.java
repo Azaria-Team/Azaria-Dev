@@ -12,7 +12,7 @@ import mindustry.io.*;
 public class Rotor{
     public final String name;
 
-    public TextureRegion bladeRegion, bladeOutlineRegion, rotorShadeRegion, topRegion;
+    public TextureRegion bladeRegion, rotorGlowRegion, rotorShadeRegion, topRegion;
 
 
     /** Rotor offsets from the unit */
@@ -28,12 +28,20 @@ public class Rotor{
     /** How fast does the blur region rotates, multiplied by default rotatespeed */
     public float rotorBlurSpeedMultiplier = 0.25f;
     /** Multiplier for rotor blurs alpha */
+    public float rotorGlowSpeedMultiplier = 0.2f;
     public float rotorBlurAlphaMultiplier = 0.9f;
     /** Whenever to draw the rotor top sprite */
+    public float rotorGlowAlphaMultiplier = 1f;
     public boolean drawRotorTop = false;
     /** Duplicates the initial rotor and spins it on the opposite dirrection */
     public boolean doubleRotor = false;
     /** How many blades generated on the unit */
+
+    public boolean rotorNotRadial = true;
+
+    public boolean rotorRadial = false;
+
+    public boolean drawGlow = false;
     public int bladeCount = 4;
 
     public Rotor(String name){
@@ -44,6 +52,7 @@ public class Rotor{
         bladeRegion = Core.atlas.find(name);
         //bladeOutlineRegion = Core.atlas.find(name + "-rotor-outline");
         rotorShadeRegion = Core.atlas.find(name + "-shade");
+        rotorGlowRegion = Core.atlas.find(name + "-glow");
         topRegion = Core.atlas.find(name + "-top");
     }
 
