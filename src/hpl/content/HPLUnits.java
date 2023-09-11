@@ -480,6 +480,8 @@ public class HPLUnits {
                         rotorSpeed = 30f;
                         x = 0f;
                         y = 0f;
+			rotorNotRadial = false;
+                        rotorRadial = true;
                         bladeCount = 3;
                     }});
             weapons.add(new Weapon("") {{
