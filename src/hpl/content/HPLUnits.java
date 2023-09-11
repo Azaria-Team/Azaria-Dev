@@ -15,6 +15,7 @@ import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.entities.part.RegionPart;
+import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
@@ -140,6 +141,7 @@ public class HPLUnits {
                                 outlineColor = HPLPal.aureliaOutline;
                                 health = 25;
                                 lowAltitude = true;
+                                hitSize = 4;
 
                                 weapons.add(new Weapon(){{
                                     shootCone = 360f;
@@ -399,7 +401,7 @@ public class HPLUnits {
                         bladeBlurAlphaMultiplier = 0.7f;
                     }});
             weapons.add(
-                    new Weapon("unmaker-teeth") {{
+                    new Weapon("hpl-unmaker-teeth") {{
                         x = 1f;
                         y = 4.4f;
                         reload = 20;
@@ -480,6 +482,26 @@ public class HPLUnits {
                         y = 0f;
                         bladeCount = 3;
                     }});
+            weapons.add(new Weapon("") {{
+                reload = 10f;
+                shootY = 2f;
+                rotate = true;
+                x = -4;
+                y = -3;
+                mirror = true;
+                alternate = true;
+                shootSound = Sounds.shootAlt;
+                bullet = new BasicBulletType(6f, 10) {{
+                    backColor = HPLPal.droneBulletBack;
+                    frontColor = HPLPal.droneBullet;
+                    width = 9f;
+                    height = 12f;
+                    hitSound = Sounds.explosion;
+                    hitEffect = HPLFx.explosionSmall1;
+                    despawnEffect = HPLFx.explosionSmall3;
+                    lifetime = 30;
+                }};
+            }});
         }};
         zephyr = new DroneUnitType("zephyr") {{
            isEnemy = true;
@@ -498,7 +520,6 @@ public class HPLUnits {
 
             rotors.add(
                     new Rotor(name + "-rotor") {{
-                        rotorLayer = -0.1f;
                         rotorSpeed = 30f;
                         x = 0f;
                         y = 0f;

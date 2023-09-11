@@ -8,6 +8,7 @@ import arc.math.Mathf;
 import arc.math.Rand;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
+import arc.util.Time;
 import hpl.graphics.HPLPal;
 import mindustry.core.Renderer;
 import mindustry.entities.Effect;
@@ -88,6 +89,38 @@ public class HPLFx {
         });
 
         color(HPLPal.vogPink, HPLPal.vogPinkBack, Color.pink, e.fin());
+        stroke(1.01f * e.fout());
+
+        randLenVectors(e.id + 1, 4, 1f + 16 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 2f);
+        });
+    }),
+
+    explosionSmall1 = new Effect(30, e -> {
+        color(HPLPal.droneBullet);
+        e.scaled(7, i -> {
+            stroke(3f * i.fout());
+            Lines.square(e.x, e.y, 3f + i.fin() * 10f, e.rotation * Mathf.random(200) * Time.delta);
+        });
+
+        color(HPLPal.droneBullet);
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 1, 8, 1f + 23f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 3f);
+        });
+    }),
+
+    explosionSmall3 = new Effect(20, e -> {
+        color(HPLPal.droneBullet);
+        e.scaled(8, i -> {
+            stroke(2f * i.fout());
+            Lines.square(e.x, e.y, 2f + i.fin() * 5f, e.rotation * Mathf.random(200) * Time.delta);
+        });
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
         stroke(1.01f * e.fout());
 
         randLenVectors(e.id + 1, 4, 1f + 16 * e.finpow(), (x, y) -> {

@@ -20,7 +20,6 @@ public class HPLBullets {
            shrinkX = shrinkY = 0f;
            width = 8f;
            height = 12f;
-           hitSize = 5;
            lifetime = 35;
            collidesGround = true;
            collidesAir = true;
