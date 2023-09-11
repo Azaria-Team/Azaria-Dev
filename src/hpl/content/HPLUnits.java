@@ -198,7 +198,7 @@ public class HPLUnits {
                     width = 13f;
                     height = 15f;
                     hitSound = Sounds.explosion;
-                    hitEffect = HPLFx.explosionSmall;
+                    hitEffect = HPLFx.hitExplosion;
                     despawnEffect = HPLFx.explosionSmall2;
                     trailEffect = HPLFx.vogTrail;
                     trailRotation = true;
@@ -256,7 +256,7 @@ public class HPLUnits {
                             width = 9f;
                             height = 15f;
                             hitSound = Sounds.explosion;
-                            hitEffect = HPLFx.explosionSmall;
+                            hitEffect = HPLFx.hitExplosion;
                             despawnEffect = HPLFx.explosionSmall2;
                             trailEffect = HPLFx.aimMissileTrail;
                             trailRotation = true;
@@ -293,7 +293,7 @@ public class HPLUnits {
                             width = 9f;
                             height = 15f;
                             hitSound = Sounds.explosion;
-                            hitEffect = HPLFx.explosionSmall;
+                            hitEffect = HPLFx.hitExplosion;
                             despawnEffect = HPLFx.explosionSmall2;
                             trailEffect = HPLFx.aimMissileTrail;
                             trailRotation = true;
@@ -321,7 +321,7 @@ public class HPLUnits {
                             width = 13f;
                             height = 15f;
                             hitSound = Sounds.explosion;
-                            hitEffect = HPLFx.explosionSmall;
+                            hitEffect = HPLFx.hitExplosion;
                             despawnEffect = HPLFx.explosionSmall2;
                             trailEffect = HPLFx.vogTrail;
                             trailRotation = true;
@@ -499,8 +499,8 @@ public class HPLUnits {
                     width = 9f;
                     height = 12f;
                     hitSound = Sounds.explosion;
-                    hitEffect = HPLFx.explosionSmall1;
-                    despawnEffect = HPLFx.explosionSmall3;
+                    hitEffect = HPLFx.hitExplosion1;
+                    despawnEffect = HPLFx.smallBlueExplosion;
                     lifetime = 30;
                 }};
             }});
@@ -546,9 +546,12 @@ public class HPLUnits {
                     width = 11f;
                     height = 14f;
                     hitSound = Sounds.explosion;
-                    hitEffect = HPLFx.explosionSmall1;
-                    despawnEffect = HPLFx.explosionSmall3;
+                    hitEffect = HPLFx.hitExplosionNormal;
+                    despawnEffect = HPLFx.blueExplosionNormal;
                     lifetime = 30;
+
+                    splashDamage = 10f;
+                    splashDamageRadius = 2f * Vars.tilesize;
                 }};
             }});
         }};

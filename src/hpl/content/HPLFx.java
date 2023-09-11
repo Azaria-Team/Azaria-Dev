@@ -59,7 +59,7 @@ public class HPLFx {
         });
     }).layer(Layer.block + 0.05f),
 
-    explosionSmall = new Effect(30, e -> {
+    hitExplosion = new Effect(30, e -> {
         color(HPLPal.vogPink);
         e.scaled(7, i -> {
             stroke(3f * i.fout());
@@ -96,7 +96,7 @@ public class HPLFx {
         });
     }),
 
-    explosionSmall1 = new Effect(30, e -> {
+    hitExplosion1 = new Effect(30, e -> {
         color(HPLPal.droneBullet);
         e.scaled(7, i -> {
             stroke(3f * i.fout());
@@ -113,7 +113,7 @@ public class HPLFx {
         });
     }),
 
-    explosionSmall3 = new Effect(20, e -> {
+    smallBlueExplosion= new Effect(20, e -> {
         color(HPLPal.droneBullet);
         e.scaled(8, i -> {
             stroke(2f * i.fout());
@@ -125,6 +125,39 @@ public class HPLFx {
 
         randLenVectors(e.id + 1, 4, 1f + 16 * e.finpow(), (x, y) -> {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 2f);
+        });
+    }),
+
+    hitExplosionNormal = new Effect(30, e -> {
+        color(HPLPal.droneBullet);
+        e.scaled(10, i -> {
+            stroke(3f * i.fout());
+            Lines.square(e.x, e.y, 5f + i.fin() * 15f, e.rotation * Mathf.random(50) * Time.delta);
+        });
+
+        color(HPLPal.droneBullet);
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 3, 8, 3f + 25f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 4f);
+        });
+    }),
+
+    blueExplosionNormal = new Effect(20, e -> {
+        color(HPLPal.droneBullet);
+        e.scaled(10, i -> {
+            stroke(2f * i.fout());
+            Lines.square(e.x, e.y, 3f + i.fin() * 8f, e.rotation * Mathf.random(300) * Time.delta);
+        });
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
+        stroke(2f * e.fout());
+
+        randLenVectors(e.id + 1, 6, 2f + 19
+                * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 2f);
         });
     }),
 
