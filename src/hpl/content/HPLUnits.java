@@ -27,8 +27,8 @@ import arc.struct.ObjectMap.Entry;
 
 public class HPLUnits {
     public static UnitType
-    //aurelia core units
-    gyurza, veresk, vortex,
+            //aurelia core units
+            gyurza, veresk, vortex,
     //angelshark unit tree
     angelshark, glaucus, aurora,
     //unmaker tree
@@ -172,7 +172,7 @@ public class HPLUnits {
             speed = 0.9f;
             drag = 0.12f;
             hitSize = 12f;
-	        armor = 2;
+            armor = 2;
             health = 620;
             accel = 0.2f;
             faceTarget = false;
@@ -214,7 +214,7 @@ public class HPLUnits {
             speed = 0.72f;
             hitSize = 15f;
             health = 1700;
-	        armor = 8;
+            armor = 8;
             accel = 0.3f;
             drag = 0.04f;
 
@@ -241,12 +241,12 @@ public class HPLUnits {
                         layerOffset = -0.0001f;
                         baseRotation = -65f;
                         shootCone = 360f;
-						shootSound = Sounds.missileSmall;
+                        shootSound = Sounds.missileSmall;
                         shoot = new ShootSpread(1, 10f);
                         bullet = new AimBulletType(3f, 25) {{
                             backColor = HPLPal.vogPinkBack;
                             frontColor = HPLPal.vogPink;
-							sprite = "hpl-dagger-missile";
+                            sprite = "hpl-dagger-missile";
                             maxRange = 240;
                             homingPower = 0.07f;
                             homingRange = 0;
@@ -278,12 +278,12 @@ public class HPLUnits {
                         layerOffset = -0.0001f;
                         baseRotation = -115f;
                         shootCone = 360f;
-						shootSound = Sounds.missileSmall;
+                        shootSound = Sounds.missileSmall;
                         shoot = new ShootSpread(1, 10f);
                         bullet = new AimBulletType(3f, 25) {{
                             backColor = HPLPal.vogPinkBack;
                             frontColor = HPLPal.vogPink;
-							sprite = "hpl-dagger-missile";
+                            sprite = "hpl-dagger-missile";
                             maxRange = 240;
                             homingPower = 0.07f;
                             homingRange = 0;
@@ -329,18 +329,18 @@ public class HPLUnits {
                             lifetime = 40f;
                         }};
                         parts.add(
-                        new RegionPart("-shaft"){
-                            {
-                                progress = PartProgress.recoil;
-                                mirror = false;
-                                under = true;
-                                top = true;
-                                moveX = 0f;
-                                moveY = -3f;
-                                moveRot = 0f;
-                                //x = 0;
-                                //y = -2f;
-                            }});
+                                new RegionPart("-shaft"){
+                                    {
+                                        progress = PartProgress.recoil;
+                                        mirror = false;
+                                        under = true;
+                                        top = true;
+                                        moveX = 0f;
+                                        moveY = -3f;
+                                        moveRot = 0f;
+                                        //x = 0;
+                                        //y = -2f;
+                                    }});
                     }});
         }};
 
@@ -348,7 +348,7 @@ public class HPLUnits {
             speed = 0.7f;
             drag = 0.9f;
             hitSize = 17f;
-	        armor = 14;
+            armor = 14;
             health = 4300;
             accel = 0.35f;
             faceTarget = false;
@@ -465,12 +465,12 @@ public class HPLUnits {
 
             lowAltitude = true;
             flying = true;
-            drag = 0.05f;
-            speed = 2.2f;
-            rotateSpeed = 9f;
-            accel = 0.4f;
+            drag = 0.07f;
+            speed = 2.3f;
+            rotateSpeed = 16f;
+            accel = 0.1f;
             itemCapacity = 20;
-            health = 480f;
+            health = 550f;
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
 
@@ -480,7 +480,7 @@ public class HPLUnits {
                         rotorSpeed = 30f;
                         x = 0f;
                         y = 0f;
-			rotorNotRadial = false;
+                        rotorNotRadial = false;
                         rotorRadial = true;
                         bladeCount = 3;
                     }});
@@ -506,19 +506,19 @@ public class HPLUnits {
             }});
         }};
         zephyr = new DroneUnitType("zephyr") {{
-           isEnemy = true;
+            isEnemy = true;
 
-           lowAltitude = true;
-           flying = true;
-           drag = 0.05f;
-           speed = 2.2f;
-           rotateSpeed = 8f;
-           accel = 0.3f;
-           itemCapacity = 30;
-           health = 1100f;
-           hitSize = 12f;
+            lowAltitude = true;
+            flying = true;
+            drag = 0.05f;
+            speed = 2f;
+            rotateSpeed = 14f;
+            accel = 0.1f;
+            itemCapacity = 30;
+            health = 1180f;
+            hitSize = 12f;
 
-           outlineColor = HPLPal.aureliaOutline;
+            outlineColor = HPLPal.aureliaOutline;
 
             rotors.add(
                     new Rotor(name + "-rotor") {{
@@ -531,6 +531,26 @@ public class HPLUnits {
                         drawRotorTop = true;
                         drawGlow = true;
                     }});
+            weapons.add(new Weapon("") {{
+                reload = 25f;
+                shootY = 2f;
+                rotate = true;
+                x = -5;
+                y = -4;
+                mirror = true;
+                alternate = true;
+                shootSound = Sounds.shootAlt;
+                bullet = new BasicBulletType(5f, 20) {{
+                    backColor = HPLPal.droneBulletBack;
+                    frontColor = HPLPal.droneBullet;
+                    width = 11f;
+                    height = 14f;
+                    hitSound = Sounds.explosion;
+                    hitEffect = HPLFx.explosionSmall1;
+                    despawnEffect = HPLFx.explosionSmall3;
+                    lifetime = 30;
+                }};
+            }});
         }};
         //endregion vectorTree
     }
