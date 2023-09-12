@@ -541,7 +541,7 @@ public class HPLBlocks {
             recoil = 2f;
             range = 24 * Vars.tilesize;
             shootCone = 10f;
-            rotateSpeed = 2.4f;
+            rotateSpeed = 3.4f;
 
             shootSound = Sounds.cannon;
             squareSprite = false;

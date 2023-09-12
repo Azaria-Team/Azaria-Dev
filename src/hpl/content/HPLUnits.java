@@ -173,7 +173,7 @@ public class HPLUnits {
             drag = 0.12f;
             hitSize = 12f;
             armor = 2;
-            health = 620;
+            health = 500;
             accel = 0.2f;
             faceTarget = false;
             rotateSpeed = 4f;
@@ -197,6 +197,8 @@ public class HPLUnits {
                     frontColor = HPLPal.forceBullet;
                     width = 13f;
                     height = 15f;
+                    shrinkX = 0;
+                    shrinkY = 0;
                     hitSound = Sounds.explosion;
                     hitEffect = HPLFx.hitExplosion;
                     despawnEffect = HPLFx.explosionSmall2;
@@ -213,7 +215,7 @@ public class HPLUnits {
         glaucus = new UnitType("glaucus") {{
             speed = 0.72f;
             hitSize = 15f;
-            health = 1700;
+            health = 1600;
             armor = 8;
             accel = 0.3f;
             drag = 0.04f;
@@ -320,6 +322,8 @@ public class HPLUnits {
                             frontColor = HPLPal.forceBullet;
                             width = 13f;
                             height = 15f;
+                            shrinkX = 0;
+                            shrinkY = 0;
                             hitSound = Sounds.explosion;
                             hitEffect = HPLFx.hitExplosion;
                             despawnEffect = HPLFx.explosionSmall2;
@@ -349,7 +353,7 @@ public class HPLUnits {
             drag = 0.9f;
             hitSize = 17f;
             armor = 14;
-            health = 4300;
+            health = 4050;
             accel = 0.35f;
             faceTarget = false;
             rotateSpeed = 3f;
@@ -380,7 +384,7 @@ public class HPLUnits {
             accel = 0.1f;
             drag = 0.05f;
 
-            health = 460f;
+            health = 360f;
             hitSize = 9f;
             itemCapacity = 5;
 
@@ -414,6 +418,8 @@ public class HPLUnits {
                             status = HPLStatusEffects.weakness;
                             width = 13f;
                             height = 15f;
+                            shrinkX = 0;
+                            shrinkY = 0;
                             frontColor = Color.valueOf("ffffff");
                             backColor = HPLPal.unmakerColor;
                         }};
@@ -428,7 +434,7 @@ public class HPLUnits {
             accel = 0.2f;
             drag = 0.05f;
 
-            health = 1100f;
+            health = 970f;
             hitSize = 12f;
             itemCapacity = 10;
 
@@ -451,6 +457,8 @@ public class HPLUnits {
 
                             width = 17f;
                             height = 12f;
+                            shrinkX = 0;
+                            shrinkY = 0;
 
                             frontColor = HPLPal.unmakerColor;
                             backColor = Color.valueOf("ffffff");
@@ -470,7 +478,7 @@ public class HPLUnits {
             rotateSpeed = 16f;
             accel = 0.1f;
             itemCapacity = 20;
-            health = 550f;
+            health = 450f;
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
 
@@ -498,8 +506,10 @@ public class HPLUnits {
                     frontColor = HPLPal.droneBullet;
                     width = 9f;
                     height = 12f;
+                    shrinkX = 0;
+                    shrinkY = 0;
                     hitSound = Sounds.explosion;
-                    hitEffect = HPLFx.hitExplosion1;
+                    hitEffect = HPLFx.blueHitExplosion1;
                     despawnEffect = HPLFx.smallBlueExplosion;
                     lifetime = 30;
                 }};
@@ -515,7 +525,7 @@ public class HPLUnits {
             rotateSpeed = 14f;
             accel = 0.1f;
             itemCapacity = 30;
-            health = 1180f;
+            health = 1090f;
             hitSize = 12f;
 
             outlineColor = HPLPal.aureliaOutline;
@@ -546,12 +556,26 @@ public class HPLUnits {
                     width = 11f;
                     height = 14f;
                     hitSound = Sounds.explosion;
-                    hitEffect = HPLFx.hitExplosionNormal;
+                    hitEffect = HPLFx.blueHitExplosionNormal;
                     despawnEffect = HPLFx.blueExplosionNormal;
-                    lifetime = 30;
-
+                    lifetime = 40;
+                    shrinkX = 0;
+                    shrinkY = 0;
                     splashDamage = 10f;
                     splashDamageRadius = 2f * Vars.tilesize;
+                    fragBullets = 4;
+                    fragBullet = new BasicBulletType(4f, 5) {{
+                        backColor = HPLPal.droneBulletBack;
+                        frontColor = HPLPal.droneBullet;
+                        width = 5f;
+                        height = 8f;
+                        shrinkX = 0;
+                        shrinkY = 0;
+                        hitSound = Sounds.explosion;
+                        hitEffect = HPLFx.blueHitExplosion1;
+                        despawnEffect = HPLFx.smallBlueExplosion;
+                        lifetime = 10;
+                    }};
                 }};
             }});
         }};

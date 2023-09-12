@@ -96,11 +96,11 @@ public class HPLFx {
         });
     }),
 
-    hitExplosion1 = new Effect(30, e -> {
+    blueHitExplosion1 = new Effect(30, e -> {
         color(HPLPal.droneBullet);
         e.scaled(7, i -> {
             stroke(3f * i.fout());
-            Lines.square(e.x, e.y, 3f + i.fin() * 10f, e.rotation * Mathf.random(200) * Time.delta);
+            Lines.square(e.x, e.y, 3f + i.fin() * 10f, e.rotation * Mathf.random(20) * Time.delta);
         });
 
         color(HPLPal.droneBullet);
@@ -113,11 +113,23 @@ public class HPLFx {
         });
     }),
 
+    smallestBlueExplosion= new Effect(20, e -> {
+        color(HPLPal.droneBullet);
+
+        color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
+        stroke(0.50f * e.fout());
+
+        randLenVectors(e.id + 1, 2, 1f + 5 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 0.5f + e.fout() * 1f);
+        });
+    }),
+
+
     smallBlueExplosion= new Effect(20, e -> {
         color(HPLPal.droneBullet);
         e.scaled(8, i -> {
             stroke(2f * i.fout());
-            Lines.square(e.x, e.y, 2f + i.fin() * 5f, e.rotation * Mathf.random(200) * Time.delta);
+            Lines.square(e.x, e.y, 2f + i.fin() * 5f, e.rotation * Mathf.random(20) * Time.delta);
         });
 
         color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
@@ -128,11 +140,11 @@ public class HPLFx {
         });
     }),
 
-    hitExplosionNormal = new Effect(30, e -> {
+    blueHitExplosionNormal = new Effect(30, e -> {
         color(HPLPal.droneBullet);
         e.scaled(10, i -> {
             stroke(3f * i.fout());
-            Lines.square(e.x, e.y, 5f + i.fin() * 15f, e.rotation * Mathf.random(50) * Time.delta);
+            Lines.square(e.x, e.y, 5f + i.fin() * 15f, e.rotation * Mathf.random(30) * Time.delta);
         });
 
         color(HPLPal.droneBullet);
@@ -149,7 +161,7 @@ public class HPLFx {
         color(HPLPal.droneBullet);
         e.scaled(10, i -> {
             stroke(2f * i.fout());
-            Lines.square(e.x, e.y, 3f + i.fin() * 8f, e.rotation * Mathf.random(300) * Time.delta);
+            Lines.square(e.x, e.y, 3f + i.fin() * 8f, e.rotation * Mathf.random(20) * Time.delta);
         });
 
         color(HPLPal.droneBullet, HPLPal.droneBulletBack, e.fin());
