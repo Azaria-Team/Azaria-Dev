@@ -577,6 +577,7 @@ public class HPLBlocks {
             requirements(Category.units, with(HPLItems.fors, 120, HPLItems.khylid, 80, HPLItems.craside, 30));
             repairSpeed = 0.45f;
             repairRadius = 180f;
+            outlineColor = HPLPal.aureliaOutline;
             beamWidth = 1f;
             powerUse = 1f;
             size= 2;
