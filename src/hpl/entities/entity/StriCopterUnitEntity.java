@@ -6,6 +6,7 @@ import arc.util.Time;
 import hpl.content.HPLUnits;
 import hpl.entities.units.StriCopterUnitType;
 import hpl.world.draw.Blade;
+import mindustry.annotations.Annotations;
 import mindustry.content.Fx;
 import mindustry.gen.UnitEntity;
 import mindustry.type.UnitType;
@@ -14,7 +15,7 @@ import static hpl.world.draw.Blade.BladeMount;
 public class StriCopterUnitEntity extends UnitEntity {
     public BladeMount[] blades;
     public float bladeMoveSpeedScl = 1f;
-
+    public long drawSeed = 0;
     @Override
     public String toString() {
         return "StriCopterUnit#" + id;
@@ -37,9 +38,11 @@ public class StriCopterUnitEntity extends UnitEntity {
         }
     }
 
+
     @Override
     public void update() {
         super.update();
+        drawSeed++;
         StriCopterUnitType type = (StriCopterUnitType) this.type;
         float rX = x + Angles.trnsx(rotation - 90, type.fallSmokeX, type.fallSmokeY);
         float rY = y + Angles.trnsy(rotation - 90, type.fallSmokeX, type.fallSmokeY);
@@ -59,6 +62,6 @@ public class StriCopterUnitEntity extends UnitEntity {
         for (BladeMount blade : blades) {
             blade.bladeRotation += ((blade.blade.bladeMoveSpeed * bladeMoveSpeedScl) + blade.blade.minimumBladeMoveSpeed) * Time.delta;
         }
-        type.fallSpeed = 0.006f;
+        type.fallSpeed = 0.01f;
     }
 }

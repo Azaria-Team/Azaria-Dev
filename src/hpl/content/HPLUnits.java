@@ -147,7 +147,7 @@ public class HPLUnits {
                                 outlineColor = HPLPal.aureliaOutline;
                                 health = 25;
                                 lowAltitude = true;
-                                hitSize = 4;
+                                hitSize = 3;
 
                                 weapons.add(new Weapon(){{
                                     shootCone = 360f;
@@ -399,21 +399,21 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
             blade.add(
                     new Blade(name + "-blade"){{
-                        /*x = 5, y = 3;*/ y = 1f; x = -1.3f;
-                        bladeMoveSpeed = 10f;
-                        bladeCount = 1;
-                        bladeBlurAlphaMultiplier = 0.7f;
+                        y = 1f; x = 1.3f;
+                        bladeMoveSpeed = 40f;
+                        bladeBlurAlphaMultiplier = 0.9f;
                     }},
-                    new Blade(name + "-blade1"){{
-                        /* x = -5, y - 3*/ y = 1f; x = 1.3f;
-                        bladeMoveSpeed = -10f;
-                        bladeCount = 1;
-                        bladeBlurAlphaMultiplier = 0.7f;
+
+                    new Blade(name + "-blade"){{
+                        y = -1f; x = 1.3f;
+                        bladeMoveSpeed = -40f;
+                        bladeBlurAlphaMultiplier = 0.9f;
                     }});
+
             weapons.add(
                     new Weapon("hpl-unmaker-teeth") {{
                         x = 1f;
-                        y = 4.4f;
+                        y = 6.4f;
                         reload = 20;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
