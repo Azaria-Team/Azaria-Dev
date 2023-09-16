@@ -501,7 +501,7 @@ public class HPLUnits {
             weapons.add(new Weapon("hpl-vector-gun") {{
                 reload = 10f;
                 shootY = 2f;
-                rotate = true;
+                rotate = false;
                 x = -4;
                 y = -3;
                 mirror = true;
@@ -551,7 +551,7 @@ public class HPLUnits {
             weapons.add(new Weapon("hpl-zephyr-gun") {{
                 reload = 25f;
                 shootY = 2f;
-                rotate = true;
+                rotate = false;
                 x = -5;
                 y = -4;
                 mirror = true;

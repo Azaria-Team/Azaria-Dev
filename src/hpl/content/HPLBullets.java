@@ -23,10 +23,11 @@ public class HPLBullets {
            lifetime = 35;
            collidesGround = true;
            collidesAir = true;
+           hitSize = 3;
 
-            trailColor = HPLPal.vogPinkBack;
-            backColor = HPLPal.vogPinkBack;
-            frontColor = HPLPal.forceBullet;
+           trailColor = HPLPal.vogPinkBack;
+           backColor = HPLPal.vogPinkBack;
+           frontColor = HPLPal.forceBullet;
 
            trailLength = 18;
            trailWidth = 1.7f;
