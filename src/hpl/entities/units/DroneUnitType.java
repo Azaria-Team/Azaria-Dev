@@ -6,11 +6,9 @@ import arc.math.Angles;
 import arc.math.Mathf;
 import arc.struct.Seq;
 import hpl.entities.entity.DroneUnitEntity;
-import hpl.entities.entity.StriCopterUnitEntity;
 import hpl.world.draw.Rotor;
 import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
-import mindustry.graphics.MultiPacker;
 import mindustry.type.UnitType;
 
 public class DroneUnitType extends UnitType {

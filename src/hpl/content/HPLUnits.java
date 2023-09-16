@@ -502,7 +502,7 @@ public class HPLUnits {
                 reload = 10f;
                 shootY = 2f;
                 rotate = true;
-                x = -4;
+                x = 4;
                 y = -3;
                 mirror = true;
                 alternate = true;
