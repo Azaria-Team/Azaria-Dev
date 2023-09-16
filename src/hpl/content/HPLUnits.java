@@ -412,8 +412,8 @@ public class HPLUnits {
 
             weapons.add(
                     new Weapon("hpl-unmaker-teeth") {{
-                        x = 1f;
-                        y = 6.4f;
+                        x = 2f;
+                        y = 7.4f;
                         reload = 20;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
