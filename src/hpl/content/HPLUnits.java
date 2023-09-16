@@ -492,26 +492,27 @@ public class HPLUnits {
                         rotorRadial = true;
                         bladeCount = 3;
                     }});
-            weapons.add(new Weapon("") {{
+            weapons.add(new Weapon("vector-gun") {{
                 reload = 10f;
                 shootY = 2f;
                 rotate = true;
-                x = -4;
+                x = 4;
                 y = -3;
                 mirror = true;
                 alternate = true;
+                shootY = 1.7f;
                 shootSound = Sounds.shootAlt;
                 bullet = new BasicBulletType(6f, 10) {{
                     backColor = HPLPal.droneBulletBack;
                     frontColor = HPLPal.droneBullet;
-                    width = 9f;
-                    height = 12f;
+                    width = 7f;
+                    height = 10f;
                     shrinkX = 0;
                     shrinkY = 0;
                     hitSound = Sounds.explosion;
                     hitEffect = HPLFx.blueHitExplosion1;
                     despawnEffect = HPLFx.smallBlueExplosion;
-                    lifetime = 30;
+                    lifetime = 25;
                 }};
             }});
         }};
@@ -541,7 +542,7 @@ public class HPLUnits {
                         drawRotorTop = true;
                         drawGlow = true;
                     }});
-            weapons.add(new Weapon("") {{
+            weapons.add(new Weapon("zephyr-gun") {{
                 reload = 25f;
                 shootY = 2f;
                 rotate = true;
@@ -550,15 +551,15 @@ public class HPLUnits {
                 mirror = true;
                 alternate = true;
                 shootSound = Sounds.shootAlt;
-                bullet = new BasicBulletType(5f, 20) {{
+                bullet = new BasicBulletType(5.5f, 20) {{
                     backColor = HPLPal.droneBulletBack;
                     frontColor = HPLPal.droneBullet;
-                    width = 11f;
-                    height = 14f;
+                    width = 9f;
+                    height = 11f;
                     hitSound = Sounds.explosion;
                     hitEffect = HPLFx.blueHitExplosionNormal;
                     despawnEffect = HPLFx.blueExplosionNormal;
-                    lifetime = 40;
+                    lifetime = 30;
                     shrinkX = 0;
                     shrinkY = 0;
                     splashDamage = 10f;
