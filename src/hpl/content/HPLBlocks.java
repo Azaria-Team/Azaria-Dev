@@ -1,8 +1,8 @@
 package hpl.content;
 
 import arc.graphics.Color;
-import hpl.HPL;
 import hpl.graphics.HPLPal;
+import hpl.world.blocks.defense.turret.BlockRepairTurret;
 import hpl.world.blocks.defense.wall.IndestructibleWall;
 import hpl.world.blocks.distribution.ModDuct;
 import hpl.world.blocks.environment.ModOverlayFloor;
@@ -13,29 +13,25 @@ import hpl.world.draw.DrawDrillPart;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.Items;
-import mindustry.content.Liquids;
-import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
 import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
-import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.distribution.DuctBridge;
 import mindustry.world.blocks.distribution.Junction;
 import mindustry.world.blocks.distribution.Router;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
-import mindustry.world.blocks.production.BurstDrill;
 import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
+import mindustry.world.blocks.units.RepairTurret;
 import mindustry.world.draw.*;
 import mindustry.world.meta.BlockGroup;
 
@@ -77,6 +73,7 @@ public class HPLBlocks {
     crasideBrewer,
 
     //defense
+    repairTurret,
     forsWall, forsWallLarge,
     forceTurret,
 
@@ -305,7 +302,7 @@ public class HPLBlocks {
     
             consumePowerBuffered(1000f);
             lightningRange = 17 * 8f;
-            thresholdPerTile = 1f / 8f;
+            thresholdPerTile = 0.1f / 8f;
         }};
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
@@ -314,7 +311,7 @@ public class HPLBlocks {
             consumePowerBuffered(5000f);
             size = 2;
             lightningRange = 28 * 8f;
-            thresholdPerTile = 1f / 8f;
+            thresholdPerTile = 0.1f / 8f;
         }};
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
@@ -324,7 +321,7 @@ public class HPLBlocks {
             consumePowerBuffered(300f);
             lightningRange = 5 * 8f;
             laserRange = 7;
-            thresholdPerTile = 1f / 8f;
+            thresholdPerTile = 0.1f / 8f;
         }};
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
@@ -334,7 +331,7 @@ public class HPLBlocks {
             size = 3;
             lightningRange = 15 * 8f;
             laserRange = 16;
-            thresholdPerTile = 1f / 8f;
+            thresholdPerTile = 0.1f / 8f;
         }};
 
         thermalEvaporator = new ThermalGenerator("thermal-evaporator") {{
@@ -574,6 +571,15 @@ public class HPLBlocks {
                             y = 0;
                         }});
             }};
+        }};
+
+        repairTurret = new BlockRepairTurret("repair-turret"){{
+            requirements(Category.units, with(HPLItems.fors, 120, HPLItems.khylid, 80, HPLItems.craside, 30));
+            repairSpeed = 0.45f;
+            repairRadius = 60f;
+            beamWidth = 1f;
+            powerUse = 1f;
+            size= 2;
         }};
         //endregion defense
         //region storage ффф

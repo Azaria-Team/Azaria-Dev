@@ -12,6 +12,7 @@ import hpl.world.draw.Blade;
 import hpl.world.draw.Rotor;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
+import mindustry.ai.types.RepairAI;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.entities.part.RegionPart;
@@ -19,11 +20,16 @@ import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
+import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
+import mindustry.type.unit.ErekirUnitType;
 import mindustry.type.unit.MissileUnitType;
 import arc.struct.*;
 import arc.struct.ObjectMap.Entry;
+import mindustry.type.weapons.RepairBeamWeapon;
+
+import static mindustry.Vars.tilesize;
 
 public class HPLUnits {
     public static UnitType
@@ -34,7 +40,7 @@ public class HPLUnits {
     //unmaker tree
     unmaker, eliminator,
     //vector tree
-    vector, zephyr;
+    vector, zephyr, testHealUnit;
     //off the tree
     //supportDrone, torpedoNaval, bigKaboom
     // Steal from Progressed Material which stole from Unlimited-Armament-Works which stole from  Endless Rusting which stole from Progressed Materials in the past which stole from BetaMindy
