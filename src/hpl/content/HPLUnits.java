@@ -492,7 +492,7 @@ public class HPLUnits {
                         rotorRadial = true;
                         bladeCount = 3;
                     }});
-            weapons.add(new Weapon("vector-gun") {{
+            weapons.add(new Weapon("hpl-vector-gun") {{
                 reload = 10f;
                 shootY = 2f;
                 rotate = true;
@@ -542,7 +542,7 @@ public class HPLUnits {
                         drawRotorTop = true;
                         drawGlow = true;
                     }});
-            weapons.add(new Weapon("zephyr-gun") {{
+            weapons.add(new Weapon("hpl-zephyr-gun") {{
                 reload = 25f;
                 shootY = 2f;
                 rotate = true;
