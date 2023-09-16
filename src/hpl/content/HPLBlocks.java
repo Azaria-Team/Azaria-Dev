@@ -576,7 +576,7 @@ public class HPLBlocks {
         repairTurret = new BlockRepairTurret("repair-turret"){{
             requirements(Category.units, with(HPLItems.fors, 120, HPLItems.khylid, 80, HPLItems.craside, 30));
             repairSpeed = 0.45f;
-            repairRadius = 60f;
+            repairRadius = 180f;
             beamWidth = 1f;
             powerUse = 1f;
             size= 2;
