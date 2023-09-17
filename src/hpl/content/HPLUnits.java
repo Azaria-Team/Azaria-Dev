@@ -503,12 +503,13 @@ public class HPLUnits {
             weapons.add(
                     new Weapon("fghjkjhgfdsasrt8ivlcyu") {{
                         y = 4f;
-                        reload = 20;
+                        x = 0;
+                        reload = 60;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         mirror = false;
-                        bullet = new BasicBulletType(5.5f, 15) {{
-                            lifetime = 25f;
+                        bullet = new BasicBulletType(5.5f, 35) {{
+                            lifetime = 20f;
                             sprite = "hpl-dagbul";
                             status = HPLStatusEffects.decomposition;
                             width = 13f;
