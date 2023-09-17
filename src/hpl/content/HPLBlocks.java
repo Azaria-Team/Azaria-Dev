@@ -21,6 +21,7 @@ import mindustry.graphics.CacheLayer;
 import mindustry.graphics.Layer;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
+import mindustry.type.UnitType;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
@@ -84,7 +85,7 @@ public class HPLBlocks {
     coreLegion, caseI,
 
     //units
-    angelsharkFabricator, vectorFabricator,
+    angelsharkFabricator, vectorFabricator, sourceFabricator, unmakerFabricator, aquaFabricator,
     //sanbox
     indestructibleWall, indestructibleWallLarge, testBlock;
 
@@ -619,6 +620,7 @@ public class HPLBlocks {
             requirements(Category.units, with(HPLItems.fors, 200, HPLItems.khylid, 140, HPLItems.craside, 100));
             size = 3;
             configurable = false;
+            squareSprite = false;
             plans.add(new UnitPlan(HPLUnits.angelshark, 15f * Time.toSeconds, with(HPLItems.fors, 40, HPLItems.khylid, 30, HPLItems.craside, 10)));
             researchCost = with(HPLItems.fors, 180, HPLItems.khylid, 100, HPLItems.craside, 40);
             regionSuffix = "-hpl";
@@ -630,12 +632,25 @@ public class HPLBlocks {
             requirements(Category.units, with(HPLItems.fors, 200, HPLItems.craside, 100));
             size = 3;
             configurable = false;
+            squareSprite = false;
             plans.add(new UnitPlan(HPLUnits.vector, 10f * Time.toSeconds, with(HPLItems.fors, 50, HPLItems.craside, 30)));
             researchCost = with(HPLItems.fors, 220, HPLItems.craside, 80);
             regionSuffix = "-hpl";
             fogRadius = 3;
             consumePower(2f);
         }};
+        unmakerFabricator = new UnitFactory("unmaker-fabricator") {{
+            requirements(Category.units, with(HPLItems.fors, 200, HPLItems.craside, 100));
+            size = 3;
+            configurable = false;
+            squareSprite = false;
+            plans.add(new UnitPlan(HPLUnits.unmaker, 10f * Time.toSeconds, with(HPLItems.fors, 50, HPLItems.craside, 30)));
+            researchCost = with(HPLItems.fors, 220, HPLItems.craside, 80);
+            regionSuffix = "-hpl";
+            fogRadius = 3;
+            consumePower(2f);
+        }};
+
         //endregion
         //endregion storage
         //region sandbox
