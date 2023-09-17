@@ -34,14 +34,20 @@ import static mindustry.Vars.tilesize;
 public class HPLUnits {
     public static UnitType
             //aurelia core units
-            gyurza, veresk, vortex,
+            gyurza, veresk, chaos,
     //angelshark unit tree
-    angelshark, glaucus, aurora,
+    angelshark, glaucus, aurora, dunkleosteus,
     //unmaker tree
-    unmaker, eliminator,
+    unmaker, eliminator, exterminator, blighter, dragonfly,
     //vector tree
-    vector, zephyr, testHealUnit;
+    vector, zephyr, vortex, whirlwind,
+    //fire support
+    source, quantum, diffraction, interference,
+    //amphibia
+    aqua, nameFloat, salamander,
     //off the tree
+    shell, bastion, citadel,
+    testHealUnit;
     //supportDrone, torpedoNaval, bigKaboom
     // Steal from Progressed Material which stole from Unlimited-Armament-Works which stole from  Endless Rusting which stole from Progressed Materials in the past which stole from BetaMindy
     private static final Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new Entry[]{
@@ -469,6 +475,48 @@ public class HPLUnits {
                             frontColor = HPLPal.unmakerColor;
                             backColor = Color.valueOf("ffffff");
                             sprite = "hpl-emp-wave";
+                        }};
+                    }});
+        }};
+        dragonfly = new StriCopterUnitType("dragonfly") {{
+            flying = true;
+
+            speed = 4.5f;
+            rotateSpeed = 10f;
+            accel = 0.1f;
+            drag = 0.05f;
+
+            health = 150f;
+            hitSize = 5f;
+            itemCapacity = 5;
+
+            engineSize = 0f;
+            alwaysUnlocked = true;
+            outlineColor = HPLPal.aureliaOutline;
+            blade.add(
+
+                    new Blade(name + "-blade"){{
+                        y = 0; x = 0f;
+                        bladeMoveSpeed = -40f;
+                        bladeBlurAlphaMultiplier = 0.9f;
+                    }});
+            weapons.add(
+                    new Weapon("fghjkjhgfdsasrt8ivlcyu") {{
+                        y = 4f;
+                        reload = 20;
+                        layerOffset = -0.002f;
+                        recoil = 3.5f;
+                        mirror = false;
+                        bullet = new BasicBulletType(5.5f, 15) {{
+                            lifetime = 25f;
+                            sprite = "hpl-dagbul";
+                            status = HPLStatusEffects.decomposition;
+                            width = 13f;
+                            height = 15f;
+                            shrinkX = 0;
+                            shrinkY = 0;
+                            frontColor = Color.valueOf("ffffff");
+                            backColor = HPLPal.unmakerColor;
                         }};
                     }});
         }};
