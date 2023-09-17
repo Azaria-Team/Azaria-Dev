@@ -501,7 +501,7 @@ public class HPLUnits {
                         bladeBlurAlphaMultiplier = 0.9f;
                     }});
             weapons.add(
-                    new Weapon("fghjkjhgfdsasrt8ivlcyu") {{
+                    new Weapon("aaa") {{
                         y = 4f;
                         x = 0;
                         reload = 60;
