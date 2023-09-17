@@ -558,6 +558,7 @@ public class HPLUnits {
                 shootY = 1.7f;
                 shootSound = Sounds.shootAlt;
                 bullet = new BasicBulletType(6f, 13) {{
+                    sprite = "hpl-grenade";
                     backColor = HPLPal.droneBulletBack;
                     frontColor = HPLPal.droneBullet;
                     width = 7f;
@@ -607,6 +608,7 @@ public class HPLUnits {
                 alternate = true;
                 shootSound = Sounds.shootAlt;
                 bullet = new BasicBulletType(5.5f, 30) {{
+                    sprite = "hpl-grenade";
                     backColor = HPLPal.droneBulletBack;
                     frontColor = HPLPal.droneBullet;
                     width = 9f;
@@ -621,6 +623,7 @@ public class HPLUnits {
                     splashDamageRadius = 2f * Vars.tilesize;
                     fragBullets = 4;
                     fragBullet = new BasicBulletType(4f, 15) {{
+                        sprite = "hpl-grenade";
                         backColor = HPLPal.droneBulletBack;
                         frontColor = HPLPal.droneBullet;
                         width = 5f;
