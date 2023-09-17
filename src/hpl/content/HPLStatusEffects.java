@@ -12,7 +12,7 @@ public class HPLStatusEffects {
         weakness = new StatusEffect ("weakness") {{
 
             color = HPLPal.unmakerColor;
-            damage = 0.45f;
+            damage = 0.3f;
             healthMultiplier = 0.8f;
             speedMultiplier =  0.5f;
             reloadMultiplier = 1f / 3 * 2;

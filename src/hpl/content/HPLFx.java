@@ -173,6 +173,20 @@ public class HPLFx {
         });
     }),
 
+    smallGreenExplosion = new Effect(20, e -> {
+        color(HPLPal.unmakerColor);
+        e.scaled(10, i -> {
+            stroke(2f * i.fout());
+        });
+
+        color(HPLPal.unmakerColor, Color.white, e.fin());
+        stroke(1.01f * e.fout());
+
+        randLenVectors(e.id + 1, 10, 1f + 15 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 0.5f + e.fout() * 1.5f);
+        });
+    }),
+
     vogTrail = new Effect(15, e -> {
         color(HPLPal.vogPink, HPLPal.vogPinkBack, e.fin());
         stroke(0.3f + e.fout() * 0.7f);
@@ -192,6 +206,11 @@ public class HPLFx {
             Fill.circle(e.x + x, e.y + y, 0.30f + e.fout() * 1.1f);
         });
     }),
+
+    unmakerBulletTrail = new Effect(50, e -> {
+        color(HPLPal.unmakerColor);
+        Fill.circle(e.x, e.y, e.rotation * e.fout());
+    }).layer(Layer.bullet - 0.001f), //below bullets
 
     shootForce = new Effect(10, e -> {
         color(HPLPal.vogPink, e.fin());

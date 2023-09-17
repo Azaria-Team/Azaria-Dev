@@ -2,6 +2,7 @@ package hpl.content;
 
 import arc.func.Prov;
 import arc.graphics.Color;
+import arc.util.Time;
 import hpl.entities.bullets.AimBulletType;
 import hpl.entities.entity.DroneUnitEntity;
 import hpl.entities.entity.StriCopterUnitEntity;
@@ -160,9 +161,9 @@ public class HPLUnits {
                                     mirror = false;
                                     reload = 1f;
                                     shootOnDeath = true;
-                                    bullet = new ExplosionBulletType(75f, 15f){{
+                                    bullet = new ExplosionBulletType(75f, 20f){{
                                         shootEffect = Fx.massiveExplosion;
-                                        buildingDamageMultiplier = 0.25f;
+                                        buildingDamageMultiplier = 0.40f;
                                     }};
                                 }});
                             }};
@@ -422,16 +423,23 @@ public class HPLUnits {
                         y = 8f;
                         reload = 20;
                         layerOffset = -0.002f;
+                        inaccuracy = 0.4f;
+
                         recoil = 3.5f;
                         shoot = new ShootSpread(3, 5f);
                         bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 25f;
                             sprite = "hpl-dagbul";
+                            statusDuration = 2f * Time.toSeconds;
                             status = HPLStatusEffects.weakness;
-                            width = 13f;
-                            height = 15f;
+                            width = 10f;
+                            height = 12f;
                             shrinkX = 0;
                             shrinkY = 0;
+                            trailChance = 0.7f;
+                            trailEffect = HPLFx.unmakerBulletTrail;
+                            hitEffect = HPLFx.smallGreenExplosion;
+                            despawnEffect = hitEffect;
                             frontColor = Color.valueOf("ffffff");
                             backColor = HPLPal.unmakerColor;
                         }};
@@ -508,14 +516,18 @@ public class HPLUnits {
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         mirror = false;
-                        bullet = new BasicBulletType(5.5f, 35) {{
+                        bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 20f;
                             sprite = "hpl-dagbul";
+                            statusDuration = 1f * Time.toSeconds;
                             status = HPLStatusEffects.decomposition;
-                            width = 13f;
-                            height = 15f;
+                            width = 8f;
+                            height = 10f;
                             shrinkX = 0;
                             shrinkY = 0;
+                            trailEffect = HPLFx.unmakerBulletTrail;
+                            hitEffect = HPLFx.smallGreenExplosion;
+                            despawnEffect = hitEffect;
                             frontColor = Color.valueOf("ffffff");
                             backColor = HPLPal.unmakerColor;
                         }};
@@ -549,7 +561,6 @@ public class HPLUnits {
                     }});
             weapons.add(new Weapon("hpl-vector-gun") {{
                 reload = 10f;
-                shootY = 2f;
                 rotate = false;
                 x = -4;
                 y = -3;
