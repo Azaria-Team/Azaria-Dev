@@ -519,7 +519,7 @@ public class HPLUnits {
                         bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 20f;
                             sprite = "hpl-dagbul";
-                            statusDuration = 1f * Time.toSeconds;
+                            statusDuration = 0.99f * Time.toSeconds;
                             status = HPLStatusEffects.decomposition;
                             width = 8f;
                             height = 10f;
