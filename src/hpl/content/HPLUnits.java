@@ -521,8 +521,8 @@ public class HPLUnits {
                             sprite = "hpl-dagbul";
                             statusDuration = 0.99f * Time.toSeconds;
                             status = HPLStatusEffects.decomposition;
-                            width = 8f;
-                            height = 10f;
+                            width = 9f;
+                            height = 11f;
                             shrinkX = 0;
                             shrinkY = 0;
                             trailEffect = HPLFx.unmakerBulletTrail;
