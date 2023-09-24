@@ -273,6 +273,7 @@ public class HPLBlocks {
         huitaBoulder = new Prop("huita-boulder") {{
             variants = 2;
             huitaRock.asFloor().decoration = this;
+            mapColor = Color.valueOf("ffffff");
         }};
         //endregion other
         //region prop
@@ -648,7 +649,7 @@ public class HPLBlocks {
             researchCost = with(HPLItems.fors, 220, HPLItems.craside, 80);
             regionSuffix = "-hpl";
             fogRadius = 3;
-            consumePower(2f);
+            consumePower(2fhu);
         }};
 
         //endregion
