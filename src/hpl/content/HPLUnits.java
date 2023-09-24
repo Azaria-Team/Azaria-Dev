@@ -457,6 +457,7 @@ public class HPLUnits {
             health = 970f;
             hitSize = 12f;
             itemCapacity = 10;
+            range = 15 * tilesize;
 
             engineSize = 3f;
             engineOffset = 9.5f;
@@ -464,14 +465,14 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
             weapons.add(
                     new Weapon("eliminator-emp") {{
-                        reload = 45;
+                        reload = 50;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         bullet = new EmpBulletType() {{
-                            lifetime = 30f;
-                            speed = 4f;
-                            damage = 30f;
+                            lifetime = 0;
+                            damage = 0;
                             pierce = true;
+                            lightningLength = 15;
 
                             status = HPLStatusEffects.weakness;
 
@@ -485,6 +486,19 @@ public class HPLUnits {
                             sprite = "hpl-emp-wave";
                         }};
                     }});
+            blade.add(
+                    new Blade(name + "-blade-big"){{
+                        y = 1.5f; x = 1.3f;
+                        bladeMoveSpeed = 40f;
+                        bladeBlurAlphaMultiplier = 0.9f;
+                    }},
+
+                    new Blade(name + "-blade"){{
+                        y = -0.5f; x = 1.3f;
+                        bladeMoveSpeed = -40f;
+                        bladeBlurAlphaMultiplier = 0.9f;
+                    }});
+
         }};
         dragonfly = new StriCopterUnitType("dragonfly") {{
             flying = true;
