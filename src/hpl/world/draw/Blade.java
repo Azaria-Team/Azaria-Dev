@@ -46,6 +46,8 @@ public class Blade {
      */
     public boolean doubleBlade = false;
 
+    public boolean dounbleBlur = true;
+
     public Blade(String name) {
         this.name = name;
     }

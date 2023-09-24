@@ -95,24 +95,26 @@ public class StriCopterUnitType extends UnitType {
                     }
 
                     Draw.reset();
-                    if(blade.shadeRegion.found()){
+                    if(blade.shadeRegion.found()) {
                         Draw.z(z + blade.bladeLayer + 0.001f);
                         Draw.alpha(stri.bladeMoveSpeedScl * blade.bladeBlurAlphaMultiplier * (stri.dead ? stri.bladeMoveSpeedScl * 0.5f : 1));
                         Draw.rect(
                                 blade.shadeRegion, rx, ry,
                                 blade.shadeRegion.width * shadeScl * sign,
                                 blade.shadeRegion.height * shadeScl,
-                                unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                unit.rotation - 90 + sign * Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                         );
                         Draw.mixcol(Color.white, unit.hitTime);
-                        Draw.alpha(stri.bladeMoveSpeedScl * blade.bladeBlurAlphaMultiplier * (stri.dead ? stri.bladeMoveSpeedScl * 0.5f : 1));
-                        Draw.rect(
-                                blade.shadeRegion, rx, ry,
-                                blade.shadeRegion.width * shadeScl * sign,
-                                blade.shadeRegion.height * shadeScl,
-                                unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
-                        );
-                        Draw.reset();
+                        if (blade.dounbleBlur) {
+                            Draw.alpha(stri.bladeMoveSpeedScl * blade.bladeBlurAlphaMultiplier * (stri.dead ? stri.bladeMoveSpeedScl * 0.5f : 1));
+                            Draw.rect(
+                                    blade.shadeRegion, rx, ry,
+                                    blade.shadeRegion.width * shadeScl * sign,
+                                    blade.shadeRegion.height * shadeScl,
+                                    unit.rotation - 90 + sign * Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                            );
+                            Draw.reset();
+                        }
                     }
                     Draw.reset();
                 }

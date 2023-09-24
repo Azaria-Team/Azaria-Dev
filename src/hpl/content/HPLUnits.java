@@ -4,6 +4,7 @@ import arc.func.Prov;
 import arc.graphics.Color;
 import arc.util.Time;
 import hpl.entities.bullets.AimBulletType;
+import hpl.entities.bullets.ModEmpBulletType;
 import hpl.entities.entity.DroneUnitEntity;
 import hpl.entities.entity.StriCopterUnitEntity;
 import hpl.entities.units.DroneUnitType;
@@ -408,13 +409,13 @@ public class HPLUnits {
                     new Blade(name + "-blade"){{
                         y = 1f; x = 1.3f;
                         bladeMoveSpeed = 40f;
-                        bladeBlurAlphaMultiplier = 0.9f;
+                        bladeBlurAlphaMultiplier = 0.5f;
                     }},
 
                     new Blade(name + "-blade"){{
                         y = -1f; x = 1.3f;
                         bladeMoveSpeed = -40f;
-                        bladeBlurAlphaMultiplier = 0.9f;
+                        bladeBlurAlphaMultiplier = 0.5f;
                     }});
 
             weapons.add(
@@ -468,13 +469,21 @@ public class HPLUnits {
                         reload = 50;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
-                        bullet = new EmpBulletType() {{
-                            lifetime = 0;
-                            damage = 0;
-                            pierce = true;
-                            lightningLength = 15;
-
+                        bullet = new ModEmpBulletType() {{
+                            lifetime = 45;
+                            hitSize = 5;
+                            speed = 4.5f;
+                            damage = 40;
+                            powerDamageScl = 0.2f;
+                            powerSclDecrease = 0.1f;
+                            statusDuration = 0.9f * Time.toSeconds;
                             status = HPLStatusEffects.weakness;
+                            pierce = true;
+                            pierceCap = 2;
+                            radius = 5 * tilesize;
+                            chainEffect = Fx.none;
+                            timeDuration = 60f * 4f;
+                            lightningLength = 15;
 
                             width = 17f;
                             height = 12f;
@@ -490,13 +499,13 @@ public class HPLUnits {
                     new Blade(name + "-blade-big"){{
                         y = 1.5f; x = 1.3f;
                         bladeMoveSpeed = 40f;
-                        bladeBlurAlphaMultiplier = 0.9f;
+                        bladeBlurAlphaMultiplier = 0.5f;
                     }},
 
                     new Blade(name + "-blade"){{
-                        y = -0.5f; x = 1.3f;
+                        y = -0.2f; x = 1.3f;
                         bladeMoveSpeed = -40f;
-                        bladeBlurAlphaMultiplier = 0.9f;
+                        bladeBlurAlphaMultiplier = 0.5f;
                     }});
 
         }};
