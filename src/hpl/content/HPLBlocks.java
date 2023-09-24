@@ -265,6 +265,7 @@ public class HPLBlocks {
         huitaRock = new Floor("huita-rock") {{
             itemDrop = HPLItems.volcanicSerrid;
             variants = 4;
+            mapColor = Color.valueOf("ffffff");
         }};
         huitaRockWall = new StaticWall("huita-rock-wall") {{
             variants = 3;
@@ -273,7 +274,6 @@ public class HPLBlocks {
         huitaBoulder = new Prop("huita-boulder") {{
             variants = 2;
             huitaRock.asFloor().decoration = this;
-            mapColor = Color.valueOf("ffffff");
         }};
         //endregion other
         //region prop
@@ -649,7 +649,7 @@ public class HPLBlocks {
             researchCost = with(HPLItems.fors, 220, HPLItems.craside, 80);
             regionSuffix = "-hpl";
             fogRadius = 3;
-            consumePower(2fhu);
+            consumePower(2f);
         }};
 
         //endregion
