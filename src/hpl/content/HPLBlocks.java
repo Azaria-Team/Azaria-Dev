@@ -267,7 +267,6 @@ public class HPLBlocks {
         huitaRock = new Floor("huita-rock") {{
             itemDrop = HPLItems.volcanicSerrid;
             variants = 4;
-            mapColor = Color.valueOf("ffffff");
         }};
         huitaRockWall = new StaticWall("huita-rock-wall") {{
             variants = 3;
