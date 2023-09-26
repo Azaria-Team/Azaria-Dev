@@ -14,6 +14,7 @@ public class HPLPlanets {
         aStar = new Planet("aStar", null, 6f){{
             bloom = true;
             accessible = false;
+            rotateTime = 20f * 60f;
 
             meshLoader = () -> new SunMesh(
                     this, 4,
@@ -30,14 +31,12 @@ public class HPLPlanets {
 
         bStar = new Planet("bStar", aStar, 5f){{
             bloom = true;
-            accessible = true;
+            accessible = false;
             orbitRadius = 130f;
-            camRadius = 6f;
             visible = true;
-            alwaysUnlocked = true;
             drawOrbit = false;
-            orbitTime = 10 * 60f * 60f * 60f * 60f;
-            rotateTime = 2 * 60f * 60f * 60f;
+            orbitTime = 20 * 60f * 60f;
+            rotateTime = 20f * 60f;
 
             meshLoader = () -> new SunMesh(
                     this, 4,
@@ -62,9 +61,9 @@ public class HPLPlanets {
 
             launchCapacityMultiplier = 0.5f;
             sectorSeed = 2;
-            tidalLock = true;
-            orbitTime = 2 * 60f * 60f * 60f * 60f;
-            rotateTime = 17 * 60f * 60f * 60f;
+            orbitTime = 2 * 60f * 60f;
+            rotateTime = 34f * 60f;
+            orbitSpacing = 10;
 
             allowLaunchToNumbered = false;
             allowWaves = true;

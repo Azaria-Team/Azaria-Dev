@@ -586,8 +586,10 @@ public class HPLBlocks {
             requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 25));
             researchCost = with(HPLItems.fors, 150, HPLItems.khylid, 70);
             health = 900;
-            shootEffect = HPLFx.shootForce;
-            smokeEffect = HPLFx.shootSmokeForce;
+            //shootEffect = HPLFx.shootForce;
+            //smokeEffect = HPLFx.shootSmokeForce;
+            shootEffect = Fx.none;
+            smokeEffect = Fx.none;
             reload = 100f;
             inaccuracy = 0f;
             shake = 4f;
@@ -604,7 +606,7 @@ public class HPLBlocks {
 
             shoot = new ShootSpread(11, 7);
 
-            shootType = HPLBullets.hornBullet;
+            shootType = HPLBullets.noneBullet;
             consumePower(1.5f);
 
             drawer = new DrawTurret("fortified-"){{
