@@ -278,6 +278,39 @@ public class HPLFx {
         });
     }),
 
+    hornBulletHit = new Effect(30, e -> {
+        color(HPLPal.craside);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+        });
+
+        color(HPLPal.craside);
+
+        randLenVectors(e.id, 10, 3f + 20f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.7f);
+            Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
+        });
+
+        color(HPLPal.craside, HPLPal.craside2, Color.orange, e.fin());
+        stroke(1.5f * e.fout());
+    }),
+
+    hornBulletDespawn = new Effect(30, e -> {
+        color(HPLPal.craside);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+        });
+
+        color(HPLPal.craside, HPLPal.craside2, Color.orange, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 1, 10, 1f + 30f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 3f);
+        });
+    }),
+
     lightning2 = new Effect(10f, 500f, e -> {
         if(!(e.data instanceof Seq)) return;
         Seq<Vec2> lines = e.data();

@@ -1,15 +1,25 @@
 package hpl.content;
 
+import arc.math.Interp;
 import hpl.graphics.HPLPal;
+import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.FlakBulletType;
 
 public class HPLBullets {
     public static BulletType
-            none, forceBullet;
+            noneBullet, forceBullet, hornBullet;
 
     public static void load() {
+
+        noneBullet = new BasicBulletType(0f, 0f){{
+            shrinkX = shrinkY = 0f;
+            width = 0f;
+            height = 0f;
+            lifetime = 0;
+            despawnEffect = hitEffect = Fx.none;
+        }};
         forceBullet = new BasicBulletType(6f, 60f){{
            sprite = "hpl-dagger-missile";
            trailInterval = 0.5f;
@@ -35,5 +45,31 @@ public class HPLBullets {
             splashDamage = 40f;
             splashDamageRadius = 25f;
         }};
+
+        hornBullet = new BasicBulletType(5f, 40f){{
+            hitEffect = HPLFx.hornBulletHit;
+            despawnEffect = HPLFx.hornBulletDespawn;
+            width = 100f;
+            height = 6;
+            shrinkY = -2f;
+            shrinkX = 0.1f;
+            hitSize = 10;
+            knockback = 3.3f;
+            ammoMultiplier = 0;
+
+            shrinkInterp = Interp.reverse;
+            lifetime = 40;
+            collidesGround = true;
+            collidesAir = true;
+            impact = true;
+            pierce = true;
+            pierceCap = 3;
+
+            backColor = HPLPal.craside;
+            frontColor = HPLPal.craside2;
+
+        }};
+
+
     }
 }

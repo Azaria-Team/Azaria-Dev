@@ -16,6 +16,7 @@ import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.UnitTypes;
 import mindustry.entities.part.RegionPart;
+import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
 import mindustry.graphics.Layer;
@@ -25,6 +26,7 @@ import mindustry.type.UnitType;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
+import mindustry.world.blocks.defense.turrets.PowerTurret;
 import mindustry.world.blocks.distribution.DuctBridge;
 import mindustry.world.blocks.distribution.Junction;
 import mindustry.world.blocks.distribution.Router;
@@ -79,7 +81,7 @@ public class HPLBlocks {
     //defense
     repairTurret,
     forsWall, forsWallLarge,
-    forceTurret,
+    forceTurret, hornTurret,
 
     //storage
     coreLegion, caseI,
@@ -265,7 +267,6 @@ public class HPLBlocks {
         huitaRock = new Floor("huita-rock") {{
             itemDrop = HPLItems.volcanicSerrid;
             variants = 4;
-            mapColor = Color.valueOf("ffffff");
         }};
         huitaRockWall = new StaticWall("huita-rock-wall") {{
             variants = 3;
@@ -370,10 +371,10 @@ public class HPLBlocks {
         //region production
         //TODO
         crasideBrewer = new GenericCrafter("craside-brewer") {{
-            requirements(Category.crafting, with(HPLItems.fors, 50, HPLItems.khylid, 20));
+            requirements(Category.crafting, with(HPLItems.fors, 60, HPLItems.khylid, 40));
             outputItem = new ItemStack(HPLItems.craside, 1);
-            consumeItems(with(HPLItems.fors, 2, HPLItems.volcanicSerrid, 1));
-            craftTime = 40f;
+            consumeItems(with(HPLItems.fors, 1, HPLItems.volcanicSerrid, 1));
+            craftTime = 65f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             size = 3;
@@ -546,7 +547,7 @@ public class HPLBlocks {
             recoil = 2f;
             range = 24 * Vars.tilesize;
             shootCone = 10f;
-            rotateSpeed = 3.4f;
+            rotateSpeed = 4f;
 
             shootSound = Sounds.cannon;
             squareSprite = false;
@@ -574,6 +575,64 @@ public class HPLBlocks {
                             under = false;
                             moveX = 0f;
                             moveY = -1f;
+                            moveRot = 0f;
+                            x = 0;
+                            y = 0;
+                        }});
+            }};
+        }};
+
+        hornTurret = new PowerTurret("horn"){{
+            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 25));
+            researchCost = with(HPLItems.fors, 150, HPLItems.khylid, 70);
+            health = 900;
+            //shootEffect = HPLFx.shootForce;
+            //smokeEffect = HPLFx.shootSmokeForce;
+            shootEffect = Fx.none;
+            smokeEffect = Fx.none;
+            reload = 100f;
+            inaccuracy = 0f;
+            shake = 4f;
+            shootY = -2;
+            outlineColor = HPLPal.aureliaOutline;
+            size = 2;
+            recoil = 4f;
+            range = 24 * Vars.tilesize;
+            shootCone = 35f;
+            rotateSpeed = 3.4f;
+
+            shootSound = Sounds.cannon;
+            squareSprite = false;
+
+            shoot = new ShootSpread(11, 7);
+
+            shootType = HPLBullets.noneBullet;
+            consumePower(1.5f);
+
+            drawer = new DrawTurret("fortified-"){{
+                parts.add(
+                        new RegionPart("-blade-r"){{
+                            progress = PartProgress.warmup;
+                            mirror = false;
+                            under = false;
+                            moveY = -2;
+                            moves.add(new PartMove(PartProgress.reload, 0f, 6f, 0f));
+                        }},
+
+                        new RegionPart("-blade-l"){{
+                            progress = PartProgress.warmup;
+                            mirror = false;
+                            under = false;
+                            moveY = -2;
+                            moves.add(new PartMove(PartProgress.reload, 0f, 6f, 0f));
+                        }},
+
+                        new RegionPart("-piston"){{
+                            progress = PartProgress.recoil;
+                            mirror = false;
+                            under = false;
+                            moveX = 0f;
+                            moveY = -3f;
                             moveRot = 0f;
                             x = 0;
                             y = 0;
