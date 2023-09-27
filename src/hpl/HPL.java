@@ -14,6 +14,8 @@ import hpl.content.*;
 public class HPL extends Mod{
 
     public HPL(){
+        Events.on(EventType.FileTreeInitEvent.class, e -> HPLSounds.load());
+
         Log.info("Loaded ExampleJavaMod constructor.");
 
         Events.on(EventType.ClientLoadEvent.class, e -> {
@@ -46,6 +48,7 @@ public class HPL extends Mod{
         HPLLoadouts.load();
         HPLPlanets.load();
         HPLSectorPreset.load();
+        HPLWheather.load();
         HPLTechTree.load();
     }
 }
