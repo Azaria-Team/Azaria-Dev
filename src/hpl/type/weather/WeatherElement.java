@@ -31,8 +31,8 @@ public class WeatherElement{
         public Sound lightningSound = HPLSounds.thunder_blast;
         public Color lightningColor = Pal.lancerLaser;
 
-        public Thunder(){
-            super("thunder");
+        public Thunder(String name){
+            super(name);
         }
 
         public void effects(float x, float y) {

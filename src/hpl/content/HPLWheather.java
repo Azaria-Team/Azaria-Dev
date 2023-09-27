@@ -23,7 +23,7 @@ public class HPLWheather {
             duration = 5 * Time.toMinutes;
             padding = 45f;
             force = 0.8f;
-            element = new Element[]{new WeatherElement.Thunder()};
+            element = new Element[]{new WeatherElement.Thunder("")};
         }};
     }
 }

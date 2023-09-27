@@ -25,7 +25,7 @@ public class StormWeather extends ElementWeather {
     public Sound lightningSound = HPLSounds.thunder_blast;
 
     public StormWeather(String name) {
-        super(name);
+        super("thunder");
     }
 
     @Override
