@@ -28,7 +28,7 @@ public class Rotor{
     /** How fast does the blur region rotates, multiplied by default rotatespeed */
     public float rotorBlurSpeedMultiplier = 0.25f;
     /** Multiplier for rotor blurs alpha */
-    public float rotorGlowSpeedMultiplier = 0f;
+    public float rotorGlowSpeedMultiplier = 0.17f;
     public float rotorBlurAlphaMultiplier = 0.9f;
     /** Whenever to draw the rotor top sprite */
     public float rotorGlowAlphaMultiplier = 1f;
