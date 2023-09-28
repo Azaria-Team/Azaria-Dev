@@ -49,29 +49,29 @@ import static mindustry.type.ItemStack.with;
 
 public class HPLBlocks {
     public static Block
-    //environment
+            //environment
             //forest biome
             forsite, forsiteWall, fir, firWall, forenite, foreniteWall, theFlower,
             kust, bigKust, swampShine, swampShineBoulder,
-            //sea biome
-            serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
-            //crystal biome
-            crystalIce, crystalIceWall, lamprosMineral, lamprosMineralWall, lamprosCrystals,
-            //other
-            darkSerrid, darkSerridWall, huitaRock, huitaRockWall,
-            //liquids
-            oxylite, deepOxylite, serridOxylite, darkSerridOxylite,
+    //sea biome
+    serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
+    //crystal biome
+    crystalIce, crystalIceWall, lamprosMineral, lamprosMineralWall, lamprosCrystals,
+    //other
+    darkSerrid, darkSerridWall, huitaRock, huitaRockWall,
+    //liquids
+    oxylite, deepOxylite, serridOxylite, darkSerridOxylite,
 
     //prop
     ancientSus, crabStoneBoulder, serridBoulder, serridicBoulder, huitaBoulder,
-    foreniteBoulder, firBoulder, darkSerridBoulder, forsiteBoulder, forsBoulder,
-    lamprosBoulder, crystalIceBoulder,
+            foreniteBoulder, firBoulder, darkSerridBoulder, forsiteBoulder, forsBoulder,
+            lamprosBoulder, crystalIceBoulder,
     //ores
     forsOre, forsRock, khylidOre,
 
     //power
     plasmaNode, plasmaNodeLarge,
-    plasmaDistributor, plasmaDistributorLarge, thermalEvaporator, oxyliteTurbine,
+            plasmaDistributor, plasmaDistributorLarge, thermalEvaporator, oxyliteTurbine,
 
     //drills
     waveDrill, forsDrill, pumpDrill,
@@ -84,8 +84,8 @@ public class HPLBlocks {
 
     //defense
     repairTurret,
-    forsWall, forsWallLarge,
-    forceTurret, hornTurret,
+            forsWall, forsWallLarge,
+            forceTurret, hornTurret,
 
     //storage
     coreLegion, caseI,
@@ -138,7 +138,7 @@ public class HPLBlocks {
             fir.asFloor().decoration = this;
         }};
         kust = new TreeBlock("kust") {{
-           variants = 2;
+            variants = 2;
         }};
         bigKust = new TallBlock("big-kust") {{
             variants = 3;
@@ -208,9 +208,9 @@ public class HPLBlocks {
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.9f;
-			drownTime = 140f;
+            drownTime = 140f;
         }};
-        serridOxylite = new Floor("serrid-oxylite") {{  
+        serridOxylite = new Floor("serrid-oxylite") {{
             variants = 4;
             liquidDrop = HPLLiquids.oxyliteLiq;
             cacheLayer = CacheLayer.water;
@@ -312,7 +312,7 @@ public class HPLBlocks {
         plasmaNode = new LightningPowerNode("plasma-node", 0) {{
             requirements(Category.power, with(HPLItems.fors, 3  ));
             researchCost = with(HPLItems.fors, 25);
-    
+
             consumePowerBuffered(1000f);
             lightningRange = 17 * 8f;
             thresholdPerTile = 0.1f / 8f;
@@ -338,7 +338,7 @@ public class HPLBlocks {
         }};
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
-              //todo crafting
+            //todo crafting
             requirements(Category.power, with(HPLItems.khylid, 20));
             consumePowerBuffered(5000f);
             size = 3;
@@ -387,11 +387,13 @@ public class HPLBlocks {
             consumeItems(with(HPLItems.khylid, 2f));
 
             drawer = new DrawMulti(
-                    new DrawLiquidTile(HPLLiquids.oxyliteLiq),
+
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(HPLLiquids.oxyliteLiq){{
+                        padLeft = 2; padRight = 2; padTop = 2; padBottom = 2;
+                    }},
                     new DrawDefault(),
-                    new DrawRegion("-rotor"){{
-                        rotateSpeed = 3f;
-                    }}
+                    new DrawBlurSpin("-rotor", 5f)
             );
         }};
         //endregion power
