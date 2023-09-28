@@ -379,6 +379,7 @@ public class HPLBlocks {
             consumeLiquid(HPLLiquids.oxyliteLiq, 5f / 60f);
             hasLiquids = true;
             size = 3;
+            squareSprite = false;
             generateEffect = HPLFx.smokeEvaporatorSmall;
 
             ambientSound = Sounds.smelter;
@@ -393,7 +394,7 @@ public class HPLBlocks {
                         padLeft = 2; padRight = 2; padTop = 2; padBottom = 2;
                     }},
                     new DrawDefault(),
-                    new DrawBlurSpin("-rotor", 7.5f)
+                    new DrawBlurSpin("-rotor", 12f)
             );
         }};
         //endregion power
