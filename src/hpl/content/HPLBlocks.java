@@ -14,6 +14,7 @@ import hpl.world.draw.DrawDrillPart;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.Items;
+import mindustry.content.Liquids;
 import mindustry.content.UnitTypes;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
@@ -31,6 +32,7 @@ import mindustry.world.blocks.distribution.DuctBridge;
 import mindustry.world.blocks.distribution.Junction;
 import mindustry.world.blocks.distribution.Router;
 import mindustry.world.blocks.environment.*;
+import mindustry.world.blocks.power.ConsumeGenerator;
 import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.production.GenericCrafter;
@@ -38,6 +40,8 @@ import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.blocks.units.RepairTurret;
 import mindustry.world.blocks.units.UnitFactory;
+import mindustry.world.consumers.ConsumeItemExplode;
+import mindustry.world.consumers.ConsumeItemFlammable;
 import mindustry.world.draw.*;
 import mindustry.world.meta.BlockGroup;
 
@@ -67,7 +71,7 @@ public class HPLBlocks {
 
     //power
     plasmaNode, plasmaNodeLarge,
-    plasmaDistributor, plasmaDistributorLarge, thermalEvaporator,
+    plasmaDistributor, plasmaDistributorLarge, thermalEvaporator, oxyliteTurbine,
 
     //drills
     waveDrill, forsDrill, pumpDrill,
@@ -367,6 +371,29 @@ public class HPLBlocks {
                     }}
             );
         }};
+
+        oxyliteTurbine = new ConsumeGenerator("oxylite-turbine"){{
+            requirements(Category.power, with(HPLItems.fors, 100, HPLItems.khylid, 90, HPLItems.craside, 50));
+            powerProduction = 4f;
+            itemDuration = 100f;
+            consumeLiquid(HPLLiquids.oxyliteLiq, 5f / 60f);
+            hasLiquids = true;
+            size = 2;
+            generateEffect = HPLFx.smokeEvaporatorSmall;
+
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.06f;
+
+            consumeItems(with(HPLItems.khylid, 2f));
+
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawLiquidRegion(),
+                    new DrawRegion("-turbine"){{
+                        rotateSpeed = 2f;
+                    }}
+            );
+        }};
         //endregion power
         //region production
         //TODO
@@ -606,7 +633,7 @@ public class HPLBlocks {
 
             shoot = new ShootSpread(11, 7);
 
-            shootType = HPLBullets.noneBullet;
+            shootType = HPLBullets.hornBullet;
             consumePower(1.5f);
 
             drawer = new DrawTurret("fortified-"){{
