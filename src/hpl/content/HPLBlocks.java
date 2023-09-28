@@ -378,7 +378,7 @@ public class HPLBlocks {
             itemDuration = 100f;
             consumeLiquid(HPLLiquids.oxyliteLiq, 5f / 60f);
             hasLiquids = true;
-            size = 2;
+            size = 3;
             generateEffect = HPLFx.smokeEvaporatorSmall;
 
             ambientSound = Sounds.smelter;
@@ -387,10 +387,10 @@ public class HPLBlocks {
             consumeItems(with(HPLItems.khylid, 2f));
 
             drawer = new DrawMulti(
+                    new DrawLiquidTile(HPLLiquids.oxyliteLiq),
                     new DrawDefault(),
-                    new DrawLiquidRegion(),
-                    new DrawRegion("-turbine"){{
-                        rotateSpeed = 2f;
+                    new DrawRegion("-rotor"){{
+                        rotateSpeed = 3f;
                     }}
             );
         }};
@@ -643,7 +643,7 @@ public class HPLBlocks {
                             mirror = false;
                             under = false;
                             moveY = -2;
-                            moves.add(new PartMove(PartProgress.reload, 0f, 6f, 0f));
+                            moves.add(new PartMove(PartProgress.warmup, 0f, 6f, 0f));
                         }},
 
                         new RegionPart("-blade-l"){{
@@ -651,7 +651,7 @@ public class HPLBlocks {
                             mirror = false;
                             under = false;
                             moveY = -2;
-                            moves.add(new PartMove(PartProgress.reload, 0f, 6f, 0f));
+                            moves.add(new PartMove(PartProgress.warmup, 0f, 6f, 0f));
                         }},
 
                         new RegionPart("-piston"){{
