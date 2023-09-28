@@ -393,7 +393,7 @@ public class HPLBlocks {
                         padLeft = 2; padRight = 2; padTop = 2; padBottom = 2;
                     }},
                     new DrawDefault(),
-                    new DrawBlurSpin("-rotor", 5f)
+                    new DrawBlurSpin("-rotor", 7.5f)
             );
         }};
         //endregion power
