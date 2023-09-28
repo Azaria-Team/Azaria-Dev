@@ -643,7 +643,7 @@ public class HPLBlocks {
                             mirror = false;
                             under = false;
                             moveY = -2;
-                            moves.add(new PartMove(PartProgress.warmup, 0f, 6f, 0f));
+                            moves.add(new PartMove(PartProgress.reload, 0f, 6f, 0f));
                         }},
 
                         new RegionPart("-blade-l"){{
@@ -651,7 +651,7 @@ public class HPLBlocks {
                             mirror = false;
                             under = false;
                             moveY = -2;
-                            moves.add(new PartMove(PartProgress.warmup, 0f, 6f, 0f));
+                            moves.add(new PartMove(PartProgress.reload, 0f, 6f, 0f));
                         }},
 
                         new RegionPart("-piston"){{
