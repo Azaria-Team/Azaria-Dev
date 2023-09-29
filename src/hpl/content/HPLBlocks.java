@@ -107,7 +107,7 @@ public class HPLBlocks {
 
     public static void load() {
         //region environment
-        //region biomes
+
         //region forest biome
         forsite = new Floor("forsite-plates") {{
             variants = 4;
@@ -800,7 +800,6 @@ public class HPLBlocks {
         }};
 
         //endregion
-        //endregion storage
         //region sandbox
 
         indestructibleWall = new IndestructibleWall("indestructible-wall") {{
