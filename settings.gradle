@@ -5,6 +5,6 @@ pluginManagement{
     }
 }
 
-if(JavaVersion.current().ordinal() < JavaVersion.VERSION_17.ordinal()){
-    throw new GradleException("JDK 17 is a required minimum version. Yours: ${System.getProperty('java.version')}")
-}
+/*if(JavaVersion.current().ordinal() < JavaVersion.VERSION_17.ordinal()){
+ throw new GradleException("JDK 17 is a required minimum version. Yours: ${System.getProperty('java.version')}")
+}*/
