@@ -44,6 +44,12 @@ dependencies {
     // Use the entity generation annotation processor.
     compileOnly "com.github.GlennFolker.EntityAnno:entity:$entVersion"
     kapt "com.github.GlennFolker.EntityAnno:entity:$entVersion"
+    implementation "com.github.Zelaux.ZelauxModCore:core:$zelauxCoreVersion"
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+    compileOnly 'org.jetbrains:annotations:23.0.0'
+    compileOnly "com.github.Zelaux.ZelauxModCore:annotations:$zelauxCoreVersion"
+
 }
 
 entityAnno{

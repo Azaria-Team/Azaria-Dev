@@ -4,6 +4,7 @@ import arc.Core;
 import arc.Events;
 import arc.util.Log;
 import arc.util.Time;
+import hpl.gen.entities.EntityRegistry;
 import hpl.utils.ManyPlanetSystems;
 import mindustry.game.EventType;
 import mindustry.mod.*;
@@ -39,6 +40,7 @@ public class HPL extends Mod{
 
     @Override
     public void loadContent(){
+        EntityRegistry.register();
         HPLItems.load();
         HPLLiquids.load();
         HPLStatusEffects.load();
