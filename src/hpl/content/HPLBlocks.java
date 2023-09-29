@@ -21,6 +21,7 @@ import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
 import mindustry.graphics.Layer;
+import mindustry.graphics.Pal;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.type.UnitType;
@@ -28,14 +29,20 @@ import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
+import mindustry.world.blocks.distribution.DirectionLiquidBridge;
 import mindustry.world.blocks.distribution.DuctBridge;
 import mindustry.world.blocks.distribution.Junction;
 import mindustry.world.blocks.distribution.Router;
 import mindustry.world.blocks.environment.*;
+import mindustry.world.blocks.liquid.ArmoredConduit;
+import mindustry.world.blocks.liquid.Conduit;
+import mindustry.world.blocks.liquid.LiquidJunction;
+import mindustry.world.blocks.liquid.LiquidRouter;
 import mindustry.world.blocks.power.ConsumeGenerator;
 import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.production.GenericCrafter;
+import mindustry.world.blocks.production.Pump;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.blocks.units.RepairTurret;
@@ -49,10 +56,10 @@ import static mindustry.type.ItemStack.with;
 
 public class HPLBlocks {
     public static Block
-            //environment
-            //forest biome
-            forsite, forsiteWall, fir, firWall, forenite, foreniteWall, theFlower,
-            kust, bigKust, swampShine, swampShineBoulder,
+    //environment
+    //forest biome
+    forsite, forsiteWall, fir, firWall, forenite, foreniteWall, theFlower,
+    kust, bigKust, swampShine, swampShineBoulder,
     //sea biome
     serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
     //crystal biome
@@ -64,14 +71,14 @@ public class HPLBlocks {
 
     //prop
     ancientSus, crabStoneBoulder, serridBoulder, serridicBoulder, huitaBoulder,
-            foreniteBoulder, firBoulder, darkSerridBoulder, forsiteBoulder, forsBoulder,
-            lamprosBoulder, crystalIceBoulder,
+    foreniteBoulder, firBoulder, darkSerridBoulder, forsiteBoulder, forsBoulder,
+    lamprosBoulder, crystalIceBoulder,
     //ores
     forsOre, forsRock, khylidOre,
 
     //power
     plasmaNode, plasmaNodeLarge,
-            plasmaDistributor, plasmaDistributorLarge, thermalEvaporator, oxyliteTurbine,
+    plasmaDistributor, plasmaDistributorLarge, thermalEvaporator, oxyliteTurbine,
 
     //drills
     waveDrill, forsDrill, pumpDrill,
@@ -79,13 +86,16 @@ public class HPLBlocks {
     //distribution
     impulseConveyor, impulseJunction, impulseRouter, impulseBridge,
 
+    //liquid
+    impulsePump, liquidPipe, liquidPipeJunction, pipeBridgeConduit, liquidPipeRouter,
+
     //production
     crasideBrewer,
 
     //defense
     repairTurret,
-            forsWall, forsWallLarge,
-            forceTurret, hornTurret,
+    forsWall, forsWallLarge,
+    forceTurret, hornTurret,
 
     //storage
     coreLegion, caseI,
@@ -541,6 +551,54 @@ public class HPLBlocks {
             squareSprite = false;
         }};
         //endregion distribution
+        //region liquid
+        impulsePump = new Pump("impulse-pump"){{
+            requirements(Category.liquid, with(HPLItems.fors, 90, HPLItems.craside, 70, HPLItems.ferbium, 30));
+
+            pumpAmount = 10f / 60f;
+            liquidCapacity = 140f;
+            size = 2;
+        }};
+
+        liquidPipe = new ArmoredConduit("liquid-pipe"){{
+            requirements(Category.liquid, with(HPLItems.fors, 1, HPLItems.ferbium, 1));
+            botColor = Pal.darkestMetal;
+            leaks = true;
+            liquidCapacity = 25f;
+            liquidPressure = 1.1f;
+            health = 300;
+            researchCostMultiplier = 3;
+            underBullets = true;
+        }};
+        liquidPipeJunction = new LiquidJunction("liquid-pipe-junction"){{
+            requirements(Category.liquid, with(HPLItems.fors, 5, HPLItems.ferbium, 10));
+            buildCostMultiplier = 3f;
+            health = 320;
+            ((Conduit)liquidPipe).junctionReplacement = this;
+            researchCostMultiplier = 1;
+            solid = false;
+            underBullets = true;
+        }};
+
+        pipeBridgeConduit = new DirectionLiquidBridge("pipe-bridge-conduit"){{
+            requirements(Category.liquid, with(HPLItems.fors, 10, HPLItems.ferbium, 13));
+            range = 5;
+            hasPower = false;
+            researchCostMultiplier = 1;
+            underBullets = true;
+
+            ((Conduit)liquidPipe).rotBridgeReplacement = this;
+        }};
+
+        liquidPipeRouter = new LiquidRouter("liquid-pipe-router"){{
+            requirements(Category.liquid, with(HPLItems.fors, 10, HPLItems.ferbium, 5));
+            liquidCapacity = 35f;
+            liquidPadding = 4f/4f;
+            researchCostMultiplier = 3;
+            underBullets = true;
+            solid = false;
+        }};
+        //endregion liquid
         //region production
         //endregion production
         //region defense
