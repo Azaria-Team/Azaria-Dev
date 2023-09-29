@@ -12,7 +12,6 @@ import hpl.graphics.HPLPal;
 import hpl.world.meta.HPLStat;
 import hpl.world.meta.HPLStatUnit;
 import mindustry.*;
-import mindustry.annotations.Annotations;
 import mindustry.core.*;
 import mindustry.entities.*;
 import mindustry.gen.*;

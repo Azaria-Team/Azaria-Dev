@@ -6,7 +6,6 @@ import arc.util.Time;
 import hpl.content.HPLUnits;
 import hpl.entities.units.StriCopterUnitType;
 import hpl.world.draw.Blade;
-import mindustry.annotations.Annotations;
 import mindustry.content.Fx;
 import mindustry.gen.UnitEntity;
 import mindustry.type.UnitType;
