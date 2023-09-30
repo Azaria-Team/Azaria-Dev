@@ -29,7 +29,6 @@ public class NavalMine extends Block {
     public float tileDamage = 10f;
     public float damage = 13;
     public int length = 10;
-    public @Nullable BulletType bullet;
     public float teamAlpha = 0.3f;
     public TextureRegion teamRegion;
 
