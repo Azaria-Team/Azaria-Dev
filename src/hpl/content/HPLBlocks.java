@@ -749,8 +749,8 @@ public class HPLBlocks {
             size = 2;
             requirements(Category.effect, with(HPLItems.ognium, 50));
             hasShadow = false;
-            health = 1250;
-            damage = 2000;
+            health = 150;
+            damage = 150;
             tileDamage = 150;
         }};
         //endregion traps
