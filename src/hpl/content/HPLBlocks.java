@@ -555,6 +555,7 @@ public class HPLBlocks {
         impulsePump = new Pump("impulse-pump"){{
             requirements(Category.liquid, with(HPLItems.fors, 90, HPLItems.craside, 70, HPLItems.ferbium, 30));
 
+            squareSprite = false;
             pumpAmount = 10f / 60f;
             liquidCapacity = 140f;
             size = 2;
@@ -562,7 +563,7 @@ public class HPLBlocks {
 
         liquidPipe = new ArmoredConduit("liquid-pipe"){{
             requirements(Category.liquid, with(HPLItems.fors, 1, HPLItems.ferbium, 1));
-            botColor = Pal.darkestMetal;
+            botColor = HPLPal.aureliaOutline;
             leaks = true;
             liquidCapacity = 25f;
             liquidPressure = 1.1f;
