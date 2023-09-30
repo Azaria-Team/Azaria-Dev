@@ -609,6 +609,7 @@ public class HPLBlocks {
         liquidCanister = new LiquidRouter("liquid-canister") {{
             requirements(Category.liquid, with(HPLItems.ferbium, 10));
             liquidCapacity = 3545f;
+            size = 2;
             liquidPadding = 4f/4f;
             researchCostMultiplier = 2;
             underBullets = true;
