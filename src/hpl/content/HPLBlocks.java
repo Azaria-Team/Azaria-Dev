@@ -51,6 +51,7 @@ import mindustry.world.blocks.units.UnitFactory;
 import mindustry.world.consumers.ConsumeItemExplode;
 import mindustry.world.consumers.ConsumeItemFlammable;
 import mindustry.world.draw.*;
+import mindustry.world.meta.Attribute;
 import mindustry.world.meta.BlockGroup;
 
 import static mindustry.type.ItemStack.with;

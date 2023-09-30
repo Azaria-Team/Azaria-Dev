@@ -16,6 +16,7 @@ public class NavalMine extends Block {
     public float damage = 50f;
     public float tileDamage = 50;
     public float teamAlpha = 0.3f;
+    public float activateRange = 50;
     public float explosionShake = 6f;
     public float explosionShakeDuration = 16f;
     public float explosionRadius = 19;
@@ -55,8 +56,5 @@ public class NavalMine extends Block {
             }
         }
 
-        public void triggered() {
-
-        }
     }
 }
