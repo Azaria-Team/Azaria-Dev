@@ -2,6 +2,7 @@ package hpl.content;
 
 import arc.graphics.Color;
 import arc.util.Time;
+import hpl.HPL;
 import hpl.graphics.HPLPal;
 import hpl.world.blocks.defense.traps.NavalMine;
 import hpl.world.blocks.defense.turret.BlockRepairTurret;
@@ -747,6 +748,8 @@ public class HPLBlocks {
         //region traps
         navalMine = new NavalMine("naval-mine") {{
             size = 2;
+            floating = true;
+            outlineColor = HPLPal.aureliaOutline;
             requirements(Category.effect, with(HPLItems.ognium, 50));
             hasShadow = false;
             health = 1250;
