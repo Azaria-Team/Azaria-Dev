@@ -3,6 +3,7 @@ package hpl.content;
 import arc.graphics.Color;
 import arc.util.Time;
 import hpl.graphics.HPLPal;
+import hpl.world.blocks.defense.traps.NavalMine;
 import hpl.world.blocks.defense.turret.BlockRepairTurret;
 import hpl.world.blocks.defense.wall.IndestructibleWall;
 import hpl.world.blocks.distribution.ModDuct;
@@ -96,6 +97,9 @@ public class HPLBlocks {
     repairTurret,
     forsWall, forsWallLarge,
     forceTurret, hornTurret,
+
+    //traps
+    navalMine, directionalMine,
 
     //storage
     coreLegion, caseI,
@@ -739,6 +743,16 @@ public class HPLBlocks {
             size= 2;
         }};
         //endregion defense
+        //region traps
+        navalMine = new NavalMine("naval-mine") {{
+            size = 2;
+            requirements(Category.effect, with(HPLItems.ognium, 50));
+            hasShadow = false;
+            health = 1250;
+            damage = 2000;
+            tileDamage = 150;
+        }};
+        //endregion traps
         //region storage
         coreLegion = new CoreBlock("core-legion") {{
             requirements(Category.effect, with(HPLItems.fors, 1200, HPLItems.khylid, 800));
