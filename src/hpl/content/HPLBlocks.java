@@ -9,6 +9,7 @@ import hpl.world.blocks.defense.wall.IndestructibleWall;
 import hpl.world.blocks.distribution.ModDuct;
 import hpl.world.blocks.environment.ModOverlayFloor;
 import hpl.world.blocks.power.LightningPowerNode;
+import hpl.world.blocks.power.ThermalEvaporator;
 import hpl.world.blocks.production.HPLBurstDrill;
 import hpl.world.draw.DrawCrasideSmelt;
 import hpl.world.draw.DrawDrillPart;
@@ -362,7 +363,7 @@ public class HPLBlocks {
             thresholdPerTile = 0.1f / 8f;
         }};
 
-        thermalEvaporator = new ThermalGenerator("thermal-evaporator") {{
+        thermalEvaporator = new ThermalEvaporator("thermal-evaporator") {{
             requirements(Category.power, with(HPLItems.fors, 40));
             researchCost = with(HPLItems.fors, 65);
 
@@ -691,14 +692,14 @@ public class HPLBlocks {
             outlineColor = HPLPal.aureliaOutline;
             size = 2;
             recoil = 4f;
-            range = 24 * Vars.tilesize;
+            range = 16 * Vars.tilesize;
             shootCone = 35f;
             rotateSpeed = 3.4f;
 
             shootSound = Sounds.cannon;
             squareSprite = false;
 
-            shoot = new ShootSpread(11, 7);
+            shoot = new ShootSpread(7, 6);
 
             shootType = HPLBullets.hornBullet;
             consumePower(1.5f);
