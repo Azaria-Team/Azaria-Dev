@@ -2,6 +2,7 @@ package hpl.content;
 
 import arc.graphics.Color;
 import arc.util.Time;
+import hpl.HPL;
 import hpl.graphics.HPLPal;
 import hpl.world.blocks.defense.traps.NavalMine;
 import hpl.world.blocks.defense.turret.BlockRepairTurret;
@@ -90,7 +91,7 @@ public class HPLBlocks {
     impulseConveyor, impulseJunction, impulseRouter, impulseBridge,
 
     //liquid
-    impulsePump, liquidPipe, liquidPipeJunction, pipeBridgeConduit, liquidPipeRouter,
+    impulsePump, liquidPipe, liquidPipeJunction, pipeBridgeConduit, liquidPipeRouter, liquidCanister,
 
     //production
     crasideBrewer,
@@ -100,8 +101,8 @@ public class HPLBlocks {
     forsWall, forsWallLarge,
     forceTurret, hornTurret,
 
-    //traps
-    navalMine, directionalMine,
+    //complex
+    complexSurprise, complexChameleon,
 
     //storage
     coreLegion, caseI,
@@ -605,6 +606,15 @@ public class HPLBlocks {
             underBullets = true;
             solid = false;
         }};
+
+        liquidCanister = new LiquidRouter("liquid-canister") {{
+            requirements(Category.liquid, with(HPLItems.ferbium, 10));
+            liquidCapacity = 3545f;
+            size = 2;
+            liquidPadding = 4f/4f;
+            researchCostMultiplier = 2;
+            underBullets = true;
+        }};
         //endregion liquid
         //region production
         //endregion production
@@ -746,8 +756,10 @@ public class HPLBlocks {
         }};
         //endregion defense
         //region traps
-        navalMine = new NavalMine("naval-mine") {{
+        complexSurprise = new NavalMine("complex-surprise") {{
             size = 2;
+            floating = true;
+            outlineColor = HPLPal.aureliaOutline;
             requirements(Category.effect, with(HPLItems.ognium, 50));
             hasShadow = false;
             health = 150;
