@@ -15,7 +15,7 @@ public class NavalMine extends Block {
 
     public float damage = 50f;
     public float tileDamage = 50;
-    public float teamAlpha = 0.3f;
+    public float teamAlpha = 0.1f;
     public float activateRange = 5;
     public float explosionShake = 6f;
     public float explosionShakeDuration = 16f;
@@ -24,6 +24,7 @@ public class NavalMine extends Block {
 
     public Effect explodeEffect = Fx.reactorExplosion;
     public Sound explodeSound = Sounds.explosionbig;
+    public boolean targetGround = true;
 
     public NavalMine(String name) {
         super(name);
@@ -31,9 +32,17 @@ public class NavalMine extends Block {
         destructible = true;
         solid = false;
         targetable = false;
+        explodeEffect = Fx.reactorExplosion;
+        explodeSound = Sounds.explosionbig;
+        explosionDamage = 1250 * 4;
+        activateRange = 5;
+        explosionShake = 6f;
+        explosionShakeDuration = 16f;
+        explosionRadius = 19;
     }
 
     public class NavalMineBuild extends Building {
+
         @Override
         public void drawTeam() {
             //no(because anuk said so)
@@ -50,7 +59,6 @@ public class NavalMine extends Block {
         @Override
         public void unitOn(Unit unit) {
             if(enabled && unit.team != team) {
-                Events.fire(EventType.Trigger.thoriumReactorOverheat);
                 damage(tileDamage);
                 kill();
             }

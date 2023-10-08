@@ -100,8 +100,8 @@ public class HPLBlocks {
     forsWall, forsWallLarge,
     forceTurret, hornTurret,
 
-    //complex
-    complexSurprise, complexChameleon,
+    //traps
+    navalMine, complexChameleon,
 
     //storage
     coreLegion, caseI,
@@ -755,7 +755,7 @@ public class HPLBlocks {
         }};
         //endregion defense
         //region traps
-        complexSurprise = new NavalMine("complex-surprise") {{
+        navalMine = new NavalMine("naval-mine") {{
             size = 2;
             floating = true;
             outlineColor = HPLPal.aureliaOutline;
