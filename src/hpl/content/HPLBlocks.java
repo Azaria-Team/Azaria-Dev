@@ -2,9 +2,8 @@ package hpl.content;
 
 import arc.graphics.Color;
 import arc.util.Time;
-import hpl.HPL;
 import hpl.graphics.HPLPal;
-import hpl.world.blocks.defense.traps.NavalMine;
+import hpl.world.blocks.defense.NavalMine;
 import hpl.world.blocks.defense.turret.BlockRepairTurret;
 import hpl.world.blocks.defense.wall.IndestructibleWall;
 import hpl.world.blocks.distribution.ModDuct;
@@ -17,43 +16,31 @@ import hpl.world.draw.DrawDrillPart;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.Items;
-import mindustry.content.Liquids;
-import mindustry.content.UnitTypes;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
 import mindustry.graphics.CacheLayer;
 import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
-import mindustry.type.UnitType;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
-import mindustry.world.blocks.distribution.DirectionLiquidBridge;
-import mindustry.world.blocks.distribution.DuctBridge;
-import mindustry.world.blocks.distribution.Junction;
-import mindustry.world.blocks.distribution.Router;
+import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.liquid.ArmoredConduit;
 import mindustry.world.blocks.liquid.Conduit;
 import mindustry.world.blocks.liquid.LiquidJunction;
 import mindustry.world.blocks.liquid.LiquidRouter;
 import mindustry.world.blocks.power.ConsumeGenerator;
-import mindustry.world.blocks.power.ThermalGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.blocks.production.Pump;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
-import mindustry.world.blocks.units.RepairTurret;
 import mindustry.world.blocks.units.UnitFactory;
-import mindustry.world.consumers.ConsumeItemExplode;
-import mindustry.world.consumers.ConsumeItemFlammable;
 import mindustry.world.draw.*;
-import mindustry.world.meta.Attribute;
 import mindustry.world.meta.BlockGroup;
 
 import static mindustry.type.ItemStack.with;
@@ -88,7 +75,7 @@ public class HPLBlocks {
     waveDrill, forsDrill, pumpDrill,
 
     //distribution
-    impulseConveyor, impulseJunction, impulseRouter, impulseBridge,
+    impulseConveyor, impulseJunction, impulseRouter, impulseSorter, impulseGate, impulseBridge,
 
     //liquid
     impulsePump, liquidPipe, liquidPipeJunction, pipeBridgeConduit, liquidPipeRouter, liquidCanister,
@@ -548,6 +535,14 @@ public class HPLBlocks {
             buildCostMultiplier = 4f;
             squareSprite = false;
         }};
+        impulseSorter = new Sorter("impulse-sorter"){{
+            requirements(Category.distribution, with(HPLItems.fors, 4));
+            buildCostMultiplier = 3f;
+        }};
+        impulseGate = new OverflowGate("impulse-gate"){{
+            requirements(Category.distribution, with(HPLItems.fors, 6));
+            buildCostMultiplier = 3f;
+        }};
         impulseBridge = new DuctBridge("impulse-bridge"){{
             requirements(Category.distribution, with(HPLItems.fors, 10));
             researchCost = with(HPLItems.fors, 20);
@@ -718,6 +713,7 @@ public class HPLBlocks {
                 parts.add(
                         new RegionPart("-blade-r"){{
                             progress = PartProgress.warmup;
+
                             mirror = false;
                             under = false;
                             moveY = -2;
@@ -756,7 +752,7 @@ public class HPLBlocks {
         }};
         //endregion defense
         //region traps
-        complexSurprise = new NavalMine("complex-surprise") {{
+        complexSurprise = new NavalMine("complex-surprise1") {{
             size = 2;
             floating = true;
             outlineColor = HPLPal.aureliaOutline;
@@ -764,7 +760,7 @@ public class HPLBlocks {
             hasShadow = false;
             health = 150;
             damage = 150;
-            tileDamage = 150;
+            tileDamage = 50;
         }};
         //endregion traps
         //region storage
