@@ -413,6 +413,7 @@ public class HPLBlocks {
             ambientSoundVolume = 0.06f;
             size = 3;
             craftEffect = HPLFx.crasideBrewerSmoke;
+            consumePower(1f);
             squareSprite = false;
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"){{
