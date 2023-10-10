@@ -752,7 +752,7 @@ public class HPLBlocks {
         }};
         //endregion defense
         //region traps
-        complexSurprise = new NavalMine("complex-surprise1") {{
+        complexSurprise = new NavalMine("complex-surprise") {{
             size = 2;
             floating = true;
             outlineColor = HPLPal.aureliaOutline;
