@@ -1,33 +1,24 @@
 package hpl.world.blocks.defense;
 
-import arc.Core;
 import arc.graphics.g2d.Draw;
-import arc.graphics.g2d.TextureRegion;
-import arc.math.Mathf;
 import hpl.content.HPLStatusEffects;
 import mindustry.content.Fx;
-import mindustry.entities.Damage;
 import mindustry.entities.Effect;
 import mindustry.entities.Units;
-import mindustry.gen.*;
+import mindustry.gen.Building;
+import mindustry.gen.Posc;
+import mindustry.gen.Unitc;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Pal;
 import mindustry.logic.Ranged;
 import mindustry.type.StatusEffect;
 import mindustry.world.Block;
-import mindustry.world.Tile;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
 
 import static mindustry.Vars.tilesize;
 
 public class NavalMine extends Block{
-    public final int timerDamage = timers++;
-
-    public float splashDamageRadius = 80f;
-    public boolean collidesAir = false, collidesGround = true;
-    /** If true, splash damage pierces through tiles. */
-    public boolean splashDamagePierce = false;
 
     public float tileDamage = 10f;
     public float range = 40f;
