@@ -2,18 +2,72 @@ package hpl;
 //SEX!
 import arc.Core;
 import arc.Events;
+import arc.scene.ui.layout.Table;
 import arc.util.Log;
 import arc.util.Time;
 import hpl.utils.ManyPlanetSystems;
 import mindustry.game.EventType;
 import mindustry.mod.*;
+import mindustry.type.Item;
 import mindustry.type.SectorPreset;
+import mindustry.type.UnitType;
 import mindustry.ui.dialogs.BaseDialog;
 import hpl.content.*;
+import mindustry.world.Block;
+
+import static arc.Core.settings;
+import static mindustry.Vars.ui;
 
 public class HPL extends Mod{
+    private static boolean show = false;
+    public static String text(String str){
+        return Core.bundle.format(str);
+    }
+
+    public static void dialog(){
+        BaseDialog dialog = new BaseDialog("Project HPL"){
+            private float leave = 5f * 60;
+            private boolean canClose = false;
+            {
+                update(() -> {
+                    leave -= Time.delta;
+                    if(leave < 0 && !canClose) {
+                        canClose = true;
+                    }
+                });
+                cont.add("Project-HPL").row();
+                cont.add(text("h-attention")).row();
+                cont.image(Core.atlas.find("hpl-title")).pad(3f).height(150).width(400).row();
+                cont.add(Core.bundle.format("h.name")).row();
+                cont.add(Core.bundle.format("h.description")).row();
+                buttons.check(text("not-show-next"), !Core.settings.getBool("first-load"), b -> {
+                    Core.settings.put("first-load", !b);
+                }).center();
+                buttons.button("",this::hide).update(b -> {
+                    b.setDisabled(!canClose);
+                    b.setText(canClose ? text("h-understand"):text("log-pls-read") + "[accent]" + Math.floor(leave/60) + "[]s");
+                }).size(140f, 50f).center();
+            }
+        };
+        dialog.show();
+    }
+
+    public static void dialogShow(){
+        if(show) return;
+        show = true;
+        if(Core.settings.getBool("first-load")){
+            dialog();
+        }
+    }
+    @Override
+    public void init() {
+        super.init();
+        ManyPlanetSystems.init();
+        HPLTeam.load();
+    }
 
     public HPL(){
+        Events.on(EventType.ClientLoadEvent.class, e -> Time.runTask(10f, HPL::dialogShow));
         Events.on(EventType.FileTreeInitEvent.class, e -> HPLSounds.load());
 
         Log.info("Loaded ExampleJavaMod constructor.");
@@ -29,12 +83,6 @@ public class HPL extends Mod{
                 dialog.show();
             });
         });
-
-    }
-    @Override
-    public void init() {
-        super.init();
-        ManyPlanetSystems.init();
     }
 
     @Override

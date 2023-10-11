@@ -83,7 +83,7 @@ public class HPLPlanets {
             landCloudColor = Color.valueOf("24b95a");
             hiddenItems.addAll(Items.erekirItems).addAll(Items.serpuloItems).removeAll(HPLItems.aurionaItems);
             ruleSetter = r -> {
-                r.waveTeam = Team.crux;
+                r.waveTeam = HPLTeam.testteam;
                 r.placeRangeCheck = false;
                 r.showSpawns = true;
                 r.fog = true;

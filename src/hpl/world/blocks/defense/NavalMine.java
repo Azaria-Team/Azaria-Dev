@@ -1,6 +1,7 @@
 package hpl.world.blocks.defense;
 
 import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.TextureRegion;
 import hpl.content.HPLStatusEffects;
 import mindustry.content.Fx;
 import mindustry.entities.Effect;
@@ -82,7 +83,7 @@ public class NavalMine extends Block{
 
             if(validateTarget()){
                 if(targetHost) {
-                    blast();
+                    explosion();
                 }
             }
 
@@ -91,11 +92,10 @@ public class NavalMine extends Block{
             }
         }
 
-        protected void blast() {
+        protected void explosion() {
             Units.nearbyEnemies(team, x, y, range, unit -> {
                 if(!unit.isFlying() && !unit.hovering) {
                     unit.apply(status, statusDuration);
-                    //unit.impulse(Tmp.v3.set(unit).sub(x, y).nor().scl(knockback * 40.0f));
                     acceptEffect.at(unit);
                     unit.damage(damage);
                     damage(tileDamage);
