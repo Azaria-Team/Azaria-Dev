@@ -16,6 +16,7 @@ import hpl.content.*;
 import mindustry.world.Block;
 
 import static arc.Core.settings;
+import static mindustry.Vars.mobile;
 import static mindustry.Vars.ui;
 
 public class HPL extends Mod{
@@ -25,38 +26,44 @@ public class HPL extends Mod{
     }
 
     public static void dialog(){
-        BaseDialog dialog = new BaseDialog("Project HPL"){
-            private float leave = 5f * 60;
-            private boolean canClose = false;
-            {
-                update(() -> {
-                    leave -= Time.delta;
-                    if(leave < 0 && !canClose) {
-                        canClose = true;
-                    }
-                });
-                cont.add("Project-HPL").row();
-                cont.add(text("h-attention")).row();
-                cont.image(Core.atlas.find("hpl-title")).pad(3f).height(150).width(400).row();
-                cont.add(Core.bundle.format("h.name")).row();
-                cont.add(Core.bundle.format("h.description")).row();
-                buttons.check(text("not-show-next"), !Core.settings.getBool("first-load"), b -> {
-                    Core.settings.put("first-load", !b);
-                }).center();
-                buttons.button("",this::hide).update(b -> {
-                    b.setDisabled(!canClose);
-                    b.setText(canClose ? text("h-understand"):text("log-pls-read") + "[accent]" + Math.floor(leave/60) + "[]s");
-                }).size(140f, 50f).center();
-            }
-        };
-        dialog.show();
+        if(!mobile) {
+
+            BaseDialog dialog = new BaseDialog("Project HPL") {
+                private float leave = 5f * 60;
+                private boolean canClose = false;
+
+                {
+                    update(() -> {
+                        leave -= Time.delta;
+                        if (leave < 0 && !canClose) {
+                            canClose = true;
+                        }
+                    });
+                    cont.add("Project-HPL").row();
+                    cont.add(text("h-attention")).row();
+                    cont.image(Core.atlas.find("hpl-title")).pad(3f).height(80).width(700).row();
+                    cont.add(Core.bundle.format("h.name")).row();
+                    cont.add(Core.bundle.format("h.description")).row();
+                    buttons.check(text("not-show-next"), !Core.settings.getBool("first-load"), b -> {
+                        Core.settings.put("first-load", !b);
+                    }).center();
+                    buttons.button("", this::hide).update(b -> {
+                        b.setDisabled(!canClose);
+                        b.setText(canClose ? text("h-understand") : text("log-pls-read") + "[accent]" + Math.floor(leave / 60) + "[]s");
+                    }).size(140f, 50f).center();
+                }
+            };
+            dialog.show();
+        }
     }
 
     public static void dialogShow(){
-        if(show) return;
-        show = true;
-        if(Core.settings.getBool("first-load")){
-            dialog();
+        if(!mobile) {
+            if (show) return;
+            show = true;
+            if (Core.settings.getBool("first-load")) {
+                dialog();
+            }
         }
     }
     @Override
@@ -67,22 +74,12 @@ public class HPL extends Mod{
     }
 
     public HPL(){
-        Events.on(EventType.ClientLoadEvent.class, e -> Time.runTask(10f, HPL::dialogShow));
+        if(!mobile) {
+            Events.on(EventType.ClientLoadEvent.class, e -> Time.runTask(100f, HPL::dialogShow));
+        }
         Events.on(EventType.FileTreeInitEvent.class, e -> HPLSounds.load());
 
         Log.info("Loaded ExampleJavaMod constructor.");
-
-        Events.on(EventType.ClientLoadEvent.class, e -> {
-            Time.runTask(10f, () -> {
-
-                BaseDialog dialog = new BaseDialog("ATTENTION!");
-                dialog.cont.add("THIS IS A BETA VERSION OF THE MOD WHICH MAY NOT DISPLAY THE FINAL QUALITY OF THE PROJECT\nTHIS MOD CONTAINS \"DIFFERENT\" CONTENT PLEASE READ THE DESCRIPTION OF THE BLOCKS, ITEMS, UNITS ETC.").row();
-
-                dialog.cont.image(Core.atlas.find("hpl-fors")).pad(20f).row();
-                dialog.cont.button("OK", dialog::hide).size(100f, 50f);
-                dialog.show();
-            });
-        });
     }
 
     @Override
