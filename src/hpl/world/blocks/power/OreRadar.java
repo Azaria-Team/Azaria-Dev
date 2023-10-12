@@ -32,16 +32,14 @@ public class OreRadar extends Block {
     public int range = 13 * 8;
     public float radarSpeed = 1f;
     public float radarCone = 9f;
-    public float circleAlpha = 0.3f;
-    public float coneAlpha = 0.5f;
+    public float circleAlpha = 1f;
+    public float coneAlpha = 0.6f;
     public float moveCircleAlpha = 1f;
 
     public OreRadar(String name) {
         super(name);
         solid = true;
         update = true;
-        canOverdrive = false;
-        //buildType = OreRadarBuild::new;
     }
 
     @Override
