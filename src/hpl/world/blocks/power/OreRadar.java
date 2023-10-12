@@ -121,7 +121,7 @@ public class OreRadar extends Block {
                     if (ore.block() != null) {
                         Draw.z(Layer.max);
                         Draw.alpha(1f);
-                        Draw.rect(u.itemDrop.uiIcon, ore.x * 8, ore.y * 8 + 8);
+                        Draw.rect(u.itemDrop.uiIcon, ore.x * 2, ore.y * 2 + 2);
                     }
                 }
             });
