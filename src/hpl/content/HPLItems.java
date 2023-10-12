@@ -26,6 +26,7 @@ public class HPLItems {
         }};
         ferbium = new Item("ferbium", Color.valueOf("87d7bf")) {{
             cost = 1f;
+            hardness = 2;
         }};
         superdenseAlloy = new Item("superdense-alloy", Color.valueOf("313442")) {{
             cost = 1f;

@@ -119,7 +119,7 @@ public class HPLUnits {
             drag = 0.05f;
 
             mineSpeed = 8f;
-            mineTier = 2;
+            mineTier = 1;
             buildSpeed = 0.4f;
 
             health = 300f;

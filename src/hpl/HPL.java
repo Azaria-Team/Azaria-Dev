@@ -41,7 +41,7 @@ public class HPL extends Mod{
                     });
                     cont.add("Project-HPL").row();
                     cont.add(text("h-attention")).row();
-                    cont.image(Core.atlas.find("hpl-title")).pad(3f).height(80).width(700).row();
+                    cont.image(Core.atlas.find("hpl-title")).pad(3f).height(70).width(700).row();
                     cont.add(Core.bundle.format("h.name")).row();
                     cont.add(Core.bundle.format("h.description")).row();
                     buttons.check(text("not-show-next"), !Core.settings.getBool("first-load"), b -> {

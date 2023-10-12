@@ -49,8 +49,8 @@ public class HPLBullets {
         hornBullet = new BasicBulletType(5f, 40f){{
             hitEffect = HPLFx.hornBulletHit;
             despawnEffect = HPLFx.hornBulletDespawn;
-            width = 72f;
-            height = 6;
+            width = 52f;
+            height = 5;
             shrinkY = -2f;
             shrinkX = 0.1f;
             hitSize = 9;
@@ -58,7 +58,7 @@ public class HPLBullets {
             ammoMultiplier = 0;
 
             shrinkInterp = Interp.reverse;
-            lifetime = 29;
+            lifetime = 26;
             collidesGround = true;
             collidesAir = true;
             impact = true;

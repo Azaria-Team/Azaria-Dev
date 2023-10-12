@@ -8,7 +8,9 @@ import hpl.world.blocks.defense.turret.BlockRepairTurret;
 import hpl.world.blocks.defense.wall.IndestructibleWall;
 import hpl.world.blocks.distribution.ModDuct;
 import hpl.world.blocks.environment.ModOverlayFloor;
+import hpl.world.blocks.environment.UndergroundOre;
 import hpl.world.blocks.power.LightningPowerNode;
+import hpl.world.blocks.power.OreRadar;
 import hpl.world.blocks.power.ThermalEvaporator;
 import hpl.world.blocks.production.HPLBurstDrill;
 import hpl.world.draw.DrawCrasideSmelt;
@@ -65,14 +67,14 @@ public class HPLBlocks {
     foreniteBoulder, firBoulder, darkSerridBoulder, forsiteBoulder, forsBoulder,
     lamprosBoulder, crystalIceBoulder,
     //ores
-    forsOre, forsRock, khylidOre,
+    forsOre, ferbiumOre, forsRock, khylidOre,
 
     //power
     plasmaNode, plasmaNodeLarge,
     plasmaDistributor, plasmaDistributorLarge, thermalEvaporator, oxyliteTurbine,
 
     //drills
-    waveDrill, forsDrill, pumpDrill,
+    waveDrill, forsDrill, pumpDrill, oreDetector,
 
     //distribution
     impulseConveyor, impulseJunction, impulseRouter, impulseSorter, impulseGate, impulseBridge,
@@ -300,6 +302,11 @@ public class HPLBlocks {
             oreThreshold = 0.81f;
             oreScale = 23.47619f;
         }};
+        ferbiumOre = new UndergroundOre(HPLItems.ferbium){{
+            oreDefault = true;
+            oreThreshold = 0.81f;
+            oreScale = 23.47619f;
+        }};
         forsRock = new ModOverlayFloor("fors-rock") {{
             parent = blendGroup = forsite;
             variants = 2;
@@ -509,6 +516,12 @@ public class HPLBlocks {
                         layer = Layer.blockOver + 0.1f;
                     }}
             );
+        }};
+
+        oreDetector = new OreRadar("ore-detector") {{
+            requirements(Category.production, with(HPLItems.fors, 1));
+            size = 3;
+            consumePower(1.2f);
         }};
         //endregion drills
         //region distribution
