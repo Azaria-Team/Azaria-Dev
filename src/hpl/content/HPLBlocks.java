@@ -2,6 +2,7 @@ package hpl.content;
 
 import arc.graphics.Color;
 import arc.util.Time;
+import hpl.HPL;
 import hpl.graphics.HPLPal;
 import hpl.world.blocks.defense.NavalMine;
 import hpl.world.blocks.defense.turret.BlockRepairTurret;
@@ -87,7 +88,7 @@ public class HPLBlocks {
 
     //defense
     repairTurret,
-    forsWall, forsWallLarge,
+    forsWall, forsWallLarge, compositeWall, compositeWallLarge,
     forceTurret, hornTurret,
 
     //complex
@@ -626,6 +627,7 @@ public class HPLBlocks {
         }};
         //endregion liquid
         //region production
+
         //endregion production
         //region defense
 
@@ -644,6 +646,19 @@ public class HPLBlocks {
             size = 2;
             armor = 3f;
             buildCostMultiplier = 8f;
+        }};
+
+        compositeWall = new Wall("composite-wall") {{
+            requirements (Category.defense, with(HPLItems.craside, 4, HPLItems.khylid, 2));
+            health = 800;
+            buildCostMultiplier = 2f;
+        }};
+
+        compositeWallLarge = new Wall("composite-wall-large"){{
+            requirements (Category.defense, with(HPLItems.craside, 20, HPLItems.khylid, 4));
+            size = 2;
+            buildCostMultiplier = 2f;
+
         }};
 
         forceTurret = new ItemTurret("force"){{
