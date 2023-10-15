@@ -2,7 +2,6 @@ package hpl.content;
 
 import arc.graphics.Color;
 import arc.util.Time;
-import hpl.HPL;
 import hpl.graphics.HPLPal;
 import hpl.world.blocks.defense.NavalMine;
 import hpl.world.blocks.defense.turret.BlockRepairTurret;
@@ -11,14 +10,13 @@ import hpl.world.blocks.distribution.ModDuct;
 import hpl.world.blocks.environment.ModOverlayFloor;
 import hpl.world.blocks.environment.UndergroundOre;
 import hpl.world.blocks.power.LightningPowerNode;
-import hpl.world.blocks.power.OreRadar;
+import hpl.world.blocks.production.OreRadar;
 import hpl.world.blocks.power.ThermalEvaporator;
 import hpl.world.blocks.production.HPLBurstDrill;
 import hpl.world.draw.DrawCrasideSmelt;
 import hpl.world.draw.DrawDrillPart;
 import mindustry.Vars;
 import mindustry.content.Fx;
-import mindustry.content.Items;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
@@ -303,7 +301,8 @@ public class HPLBlocks {
             oreThreshold = 0.81f;
             oreScale = 23.47619f;
         }};
-        ferbiumOre = new UndergroundOre(HPLItems.ferbium){{
+        ferbiumOre = new UndergroundOre("ore-ferbium"){{
+            drop = HPLItems.ferbium;
             oreDefault = true;
             oreThreshold = 0.81f;
             oreScale = 23.47619f;

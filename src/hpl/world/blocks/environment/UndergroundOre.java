@@ -6,22 +6,18 @@ import mindustry.graphics.Layer;
 import mindustry.type.Item;
 import mindustry.world.Tile;
 import mindustry.world.blocks.environment.OreBlock;
+import mindustry.world.blocks.environment.OverlayFloor;
 
-public class UndergroundOre extends OreBlock {
+public class UndergroundOre extends OverlayFloor {
     public boolean shouldDrawBase = false;
+    public Item drop;
 
-    public UndergroundOre(String name, Item ore) {
+    public UndergroundOre(String name) {
         super(name);
-        this.itemDrop = ore;
-        this.variants = 3;
         //hide an ore from the minimap
         useColor = false;
         playerUnmineable = true;
         variants = 1;
-    }
-    public UndergroundOre(Item ore){
-        this("ore-" + ore.name, ore);
-
     }
 
     @Override
@@ -37,7 +33,13 @@ public class UndergroundOre extends OreBlock {
     }
 
     @Override
-    public String getDisplayName(Tile tile){
-        return null;
+    public void load() {
+        super.load();
+
+        //just in case somebody decides to declare itemDrop
+        if (itemDrop != null) {
+            drop = itemDrop;
+            itemDrop = null;
+        }
     }
 }

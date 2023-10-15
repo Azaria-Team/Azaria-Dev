@@ -1,4 +1,4 @@
-package hpl.world.blocks.power;
+package hpl.world.blocks.production;
 
 import arc.Core;
 import arc.graphics.Color;
@@ -121,7 +121,7 @@ public class OreRadar extends Block {
                     if (ore.block() != null) {
                         Draw.z(Layer.max);
                         Draw.alpha(1f);
-                        Draw.rect(u.itemDrop.uiIcon, ore.x * 2, ore.y * 2 + 2);
+                        Draw.rect(u.drop.uiIcon, ore.x * 2, ore.y * 2 + 2);
                     }
                 }
             });
