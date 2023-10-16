@@ -1,6 +1,8 @@
 package hpl.world.blocks.environment;
 
+import arc.Core;
 import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.TextureRegion;
 import mindustry.Vars;
 import mindustry.graphics.Layer;
 import mindustry.type.Item;
@@ -10,7 +12,6 @@ import mindustry.world.blocks.environment.OverlayFloor;
 
 public class UndergroundOre extends OverlayFloor {
     public boolean shouldDrawBase = false;
-    public Item drop;
 
     public UndergroundOre(String name) {
         super(name);
@@ -19,7 +20,6 @@ public class UndergroundOre extends OverlayFloor {
         playerUnmineable = true;
         variants = 1;
     }
-
     @Override
     public void drawBase(Tile tile) {
         if (shouldDrawBase || Vars.state.isEditor()) {
@@ -29,17 +29,6 @@ public class UndergroundOre extends OverlayFloor {
             super.drawBase(tile);
 
             Draw.z(l);
-        }
-    }
-
-    @Override
-    public void load() {
-        super.load();
-
-        //just in case somebody decides to declare itemDrop
-        if (itemDrop != null) {
-            drop = itemDrop;
-            itemDrop = null;
         }
     }
 }

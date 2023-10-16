@@ -302,7 +302,8 @@ public class HPLBlocks {
             oreScale = 23.47619f;
         }};
         ferbiumOre = new UndergroundOre("ore-ferbium"){{
-            drop = HPLItems.ferbium;
+            itemDrop = HPLItems.ferbium;
+            generateIcons = false;
             oreDefault = true;
             oreThreshold = 0.81f;
             oreScale = 23.47619f;
@@ -493,7 +494,7 @@ public class HPLBlocks {
             drillTime = 60f * 12f;
             size = 3;
             hasPower = true;
-            tier = 2;
+            tier = 3;
             //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
             shake = 3f;
             itemCapacity = 20;
