@@ -8,6 +8,7 @@ public class HPLSectorPreset {
     public static SectorPreset
             abandonedShoreline, caveEntrance;
 
+    //testshitcomment
     public static void load(){
         abandonedShoreline = new SectorPreset("abandoned-shoreline", auriona, 15){{
             alwaysUnlocked = true;
