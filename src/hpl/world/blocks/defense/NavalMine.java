@@ -35,6 +35,7 @@ public class NavalMine extends Block{
         destructible = true;
         solid = false;
         targetable = false;
+        outlinedIcon = 1;
     }
 
     @Override

@@ -332,7 +332,7 @@ public class HPLBlocks {
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
             //todo crafting
-            requirements(Category.power, with(HPLItems.khylid, 20));
+            requirements(Category.power, with(HPLItems.khylid, 20, HPLItems.craside, 20));
             consumePowerBuffered(5000f);
             size = 2;
             lightningRange = 28 * 8f;
@@ -351,7 +351,7 @@ public class HPLBlocks {
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
             //todo crafting
-            requirements(Category.power, with(HPLItems.khylid, 20));
+            requirements(Category.power, with(HPLItems.khylid, 20, HPLItems.craside, 20));
             consumePowerBuffered(5000f);
             size = 3;
             lightningRange = 15 * 8f;
@@ -385,7 +385,7 @@ public class HPLBlocks {
         }};
 
         oxyliteTurbine = new ConsumeGenerator("oxylite-turbine"){{
-            requirements(Category.power, with(HPLItems.fors, 100, HPLItems.khylid, 90, HPLItems.craside, 50));
+            requirements(Category.power, with(HPLItems.fors, 100, HPLItems.khylid, 35, HPLItems.craside, 55));
             powerProduction = 4f;
             itemDuration = 100f;
             consumeLiquid(HPLLiquids.oxyliteLiq, 5f / 60f);
@@ -415,7 +415,7 @@ public class HPLBlocks {
         crasideBrewer = new GenericCrafter("craside-brewer") {{
             requirements(Category.crafting, with(HPLItems.fors, 60, HPLItems.khylid, 40));
             outputItem = new ItemStack(HPLItems.craside, 1);
-            consumeItems(with(HPLItems.fors, 1, HPLItems.volcanicSerrid, 1));
+            consumeItems(with(HPLItems.khylid, 1, HPLItems.volcanicSerrid, 1));
             craftTime = 65f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
@@ -490,7 +490,7 @@ public class HPLBlocks {
             squareSprite = false;
         }};
         waveDrill = new HPLBurstDrill("wave-drill"){{
-            requirements(Category.production, with(HPLItems.fors, 20));
+            requirements(Category.production, with(HPLItems.fors, 35, HPLItems.craside, 15));
             drillTime = 60f * 12f;
             size = 3;
             hasPower = true;
@@ -520,7 +520,7 @@ public class HPLBlocks {
         }};
 
         oreDetector = new OreRadar("ore-detector") {{
-            requirements(Category.production, with(HPLItems.fors, 1));
+            requirements(Category.production, with(HPLItems.fors, 20, HPLItems.khylid, 20, HPLItems.craside, 35));
             size = 3;
             consumePower(1.2f);
         }};
@@ -772,7 +772,7 @@ public class HPLBlocks {
 
         repairTurret = new BlockRepairTurret("repair-turret"){{
             requirements(Category.units, with(HPLItems.fors, 120, HPLItems.khylid, 80, HPLItems.craside, 30));
-            repairSpeed = 0.45f;
+            repairSpeed = 0.85f; //it was 0.45
             repairRadius = 180f;
             outlineColor = HPLPal.aureliaOutline;
             beamWidth = 1f;
@@ -785,11 +785,11 @@ public class HPLBlocks {
             size = 2;
             floating = true;
             outlineColor = HPLPal.aureliaOutline;
-            requirements(Category.effect, with(HPLItems.ognium, 50));
+            requirements(Category.effect, with(HPLItems.ognium, 50, HPLItems.ferbium, 35));
             hasShadow = false;
-            health = 150;
+            health = 1850;
             damage = 150;
-            tileDamage = 50;
+            tileDamage = 450;
         }};
         //endregion traps
         //region storage
