@@ -626,14 +626,25 @@ public class HPLUnits {
         }};
         //endregion vectorTree
         craber = new ShieldUnitType("craber"){{
-            aiController = DistanceGroundAI::new;
             speed = 0.3f;
             health = 730;
             armor = 10f;
             hitSize = 16f;
             hovering = true;
 
-            abilities.add(new ShieldAbility(4, 0.1f, 20f, 600f, 2.3f, 1.3f, 32.2f));
+            weapons.add(new Weapon(){{
+                new Weapon("unity-scar-missile-launcher"){{
+                    reload = 50f;
+                    rotate = true;
+                    bullet = new MissileBulletType(5f, 1f){{
+                        speed = 5f;
+                        width = 7f;
+                        height = 12f;
+                    }};
+                }};
+            }});
+
+            abilities.add(new ShieldAbility(4, 0.1f, 20f, 600f, 1f, 0.3f, 32.2f));
         }};
     }
 }
