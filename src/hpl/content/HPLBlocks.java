@@ -658,7 +658,7 @@ public class HPLBlocks {
             requirements (Category.defense, with(HPLItems.craside, 20, HPLItems.khylid, 4));
             size = 2;
             buildCostMultiplier = 2f;
-
+            health = 800 * 4;
         }};
 
         forceTurret = new ItemTurret("force"){{
