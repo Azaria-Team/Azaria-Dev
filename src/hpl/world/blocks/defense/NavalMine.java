@@ -121,7 +121,7 @@ public class NavalMine extends Block{
         /*
         @Override
         public void unitOn(Unit unit){
-            if(enabled && unit.team != team && timer(timerDamage, cooldown)){
+            if(enabled && unit.team != team && timer(timerDamage, cool down)){
                 damage(tileDamage);
             }
         }

@@ -50,7 +50,7 @@ public class HPLBlocks {
     public static Block
     //environment
     //forest biome
-    forsite, forsiteWall, fir, firWall, forenite, foreniteWall, theFlower,
+    forsite, forsiteWall, fir, firWall, forenite, foreniteWall,
     kust, bigKust, swampShine, swampShineBoulder,
     //sea biome
     serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
@@ -90,7 +90,7 @@ public class HPLBlocks {
     forceTurret, hornTurret,
 
     //complex
-    complexSurprise, complexChameleon,
+    complexSurprise,
 
     //storage
     coreLegion, caseI,
@@ -507,7 +507,7 @@ public class HPLBlocks {
                     new DrawDefault(),
                     new DrawDrillPart(11f / 4f){{
                         shadowOffset = 1f;
-                        baseOffset = 4f / 4f;
+                        baseOffset = 1.0f; //you're fucking genius to write 4.0f/4.0f;
                         layer = Layer.blockOver;
                         angleOffset = 135;
                         drawPlan = false;
@@ -611,7 +611,7 @@ public class HPLBlocks {
         liquidPipeRouter = new LiquidRouter("liquid-pipe-router"){{
             requirements(Category.liquid, with(HPLItems.fors, 10, HPLItems.ferbium, 5));
             liquidCapacity = 35f;
-            liquidPadding = 4f/4f;
+            liquidPadding = 1.0f;
             researchCostMultiplier = 3;
             underBullets = true;
             solid = false;
@@ -621,7 +621,7 @@ public class HPLBlocks {
             requirements(Category.liquid, with(HPLItems.ferbium, 10));
             liquidCapacity = 3545f;
             size = 2;
-            liquidPadding = 4f/4f;
+            liquidPadding = 1.0f;
             researchCostMultiplier = 2;
             underBullets = true;
         }};
