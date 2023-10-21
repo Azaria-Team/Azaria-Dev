@@ -12,8 +12,10 @@ import arc.struct.Seq;
 import arc.util.Interval;
 import arc.util.Time;
 import arc.util.Tmp;
-import hpl.entities.units.AmphibiaUnitType;
+import hpl.content.HPLBullets;
+import hpl.entities.units.ShieldUnitType;
 import hpl.graphics.AbilityTextures;
+import hpl.utils.Utils;
 import mindustry.content.Fx;
 import mindustry.entities.abilities.Ability;
 import mindustry.entities.bullet.BulletType;
@@ -79,9 +81,7 @@ public class ShieldAbility extends Ability{
         instance.healthBarColor = healthBarColor;
         return instance;
     }
-    public static float getBulletDamage(BulletType type){
-        return type.damage + type.splashDamage + (Math.max(type.lightningDamage / 2f, 0f) * type.lightning * type.lightningLength);
-    }
+
     protected void updateShields(Unit unit){
         Tmp.r1.setCentered(unit.x, unit.y, shieldSize);
         Seq<ShieldNode> nodes = new Seq<>();
@@ -101,7 +101,7 @@ public class ShieldAbility extends Ability{
         }
         if(timer.get(1.5f)){
             Groups.bullet.intersect(Tmp.r1.x, Tmp.r1.y, Tmp.r1.width, Tmp.r1.height, b -> {
-                if(b.team != unit.team && !(b.type instanceof ContinuousLaserBulletType || b.type instanceof LaserBulletType) && !b.type.keepVelocity && b.vel().len() > 0.1f){
+                if(b.team != unit.team && !(b.type instanceof ContinuousLaserBulletType || b.type instanceof LaserBulletType) && b.vel().len() > 0.1f){
                     b.hitbox(Tmp.r2);
                     Tmp.r3.set(Tmp.r2).grow(shieldWidth).move(b.vel.x / 2f, b.vel.y / 2f);
                     Tmp.r2.grow(shieldWidth);
@@ -109,7 +109,7 @@ public class ShieldAbility extends Ability{
                         if(!available[n.id]) return;
 
                         if(Geometry.raycastRect(n.nodeA.x, n.nodeA.y, n.nodeB.x, n.nodeB.y, Tmp.r2) != null || Geometry.raycastRect(n.nodeA.x, n.nodeA.y, n.nodeB.x, n.nodeB.y, Tmp.r3) != null){
-                            float d = getBulletDamage(b.type) * (b.damage() / (b.type.damage * b.damageMultiplier()));
+                            float d = Utils.getBulletDamage(b.type) * (b.damage() / (b.type.damage * b.damageMultiplier()));
                             healths[n.id] -= d;
                             b.damage(b.damage() / 1.5f);
                             float angC = (((shieldAngles[n.id] + 90f) * 2f) - b.rotation()) + Mathf.range(15f);
@@ -118,7 +118,7 @@ public class ShieldAbility extends Ability{
                                 for(int i = 0; i < 3; i++){
                                     float off = (i * 20f - (3 - 1) * 20f / 2f);
 
-                                    //UnityBullets.scarShrapnel.create(unit, unit.team, b.x, b.y, angC + off, d * explosiveReflectDamageMultiplier, 1f, 1f, null);
+                                    //HPLBullets.shrapnelBullet.create(unit, unit.team, b.x, b.y, angC + off, d * explosiveReflectDamageMultiplier, 1f, 1f, null);
                                 }
                             }
                             hitTimes[n.id] = blinkTime;
@@ -174,8 +174,8 @@ public class ShieldAbility extends Ability{
     @Override
     public void draw(Unit unit){
         float z = Draw.z();
-        if(!(unit.type instanceof AmphibiaUnitType)) return;
-        AmphibiaUnitType type = (AmphibiaUnitType)unit.type;
+        if(!(unit.type instanceof ShieldUnitType)) return;
+        ShieldUnitType type = (ShieldUnitType)unit.type;
         TextureRegion region = type.abilityRegions[AbilityTextures.shield.ordinal()];
         float size = (Math.max(region.width, region.height) * Draw.scl) * 1.3f;
         Lines.stroke(1.5f);

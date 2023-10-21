@@ -6,10 +6,11 @@ import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.FlakBulletType;
+import mindustry.entities.bullet.ShrapnelBulletType;
 
 public class HPLBullets {
     public static BulletType
-            noneBullet, forceBullet, hornBullet;
+            noneBullet, forceBullet, hornBullet, shrapnelBullet;
 
     public static void load() {
 
@@ -70,6 +71,9 @@ public class HPLBullets {
 
         }};
 
-
+        shrapnelBullet = new ShrapnelBulletType(){{
+            damage = 1f;
+            length = 110f;
+        }};
     }
 }

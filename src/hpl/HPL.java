@@ -6,6 +6,7 @@ import arc.scene.ui.layout.Table;
 import arc.util.Log;
 import arc.util.Time;
 import hpl.utils.ManyPlanetSystems;
+import hpl.utils.Utils;
 import mindustry.game.EventType;
 import mindustry.mod.*;
 import mindustry.type.Item;
@@ -16,8 +17,7 @@ import hpl.content.*;
 import mindustry.world.Block;
 
 import static arc.Core.settings;
-import static mindustry.Vars.mobile;
-import static mindustry.Vars.ui;
+import static mindustry.Vars.*;
 
 public class HPL extends Mod{
     private static boolean show = false;
@@ -81,6 +81,9 @@ public class HPL extends Mod{
         Events.on(EventType.FileTreeInitEvent.class, e -> HPLSounds.load());
 
         Log.info("Loaded ExampleJavaMod constructor.");
+        if(!headless){
+            Utils.init();
+        }
     }
 
     @Override

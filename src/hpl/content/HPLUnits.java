@@ -2,9 +2,12 @@ package hpl.content;
 
 import arc.graphics.Color;
 import arc.util.Time;
+import hpl.ai.ground.DistanceGroundAI;
+import hpl.entities.ability.ShieldAbility;
 import hpl.entities.bullets.AimBulletType;
 import hpl.entities.bullets.ModEmpBulletType;
 import hpl.entities.units.DroneUnitType;
+import hpl.entities.units.ShieldUnitType;
 import hpl.entities.units.StriCopterUnitType;
 import hpl.gen.Dronec;
 import hpl.gen.HPLEntityMapping;
@@ -16,11 +19,13 @@ import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.annotations.Annotations;
 import mindustry.content.Fx;
+import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.*;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
+import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
@@ -44,8 +49,10 @@ public class HPLUnits {
     testHealUnit;
     public static @Annotations.EntityDef(value = {StriCopterc.class}) UnitType unmaker, eliminator, exterminator, blighter, dragonfly;
     public static @Annotations.EntityDef(value = {Dronec.class}) UnitType vector, zephyr, vortex, whirlwind;
+    // global unit + legs + transform
+    public static @Annotations.EntityDef({Unitc.class})
+    UnitType craber;
     //supportDrone, torpedoNaval, bigKaboom
-    // Steal from Progressed Material which stole from Unlimited-Armament-Works which stole from  Endless Rusting which stole from Progressed Materials in the past which stole from BetaMindy
     public static void load() {
         HPLEntityMapping.init();
         //region aureliaCoreUnits
@@ -618,5 +625,15 @@ public class HPLUnits {
             }});
         }};
         //endregion vectorTree
+        craber = new ShieldUnitType("craber"){{
+            aiController = DistanceGroundAI::new;
+            speed = 0.3f;
+            health = 730;
+            armor = 10f;
+            hitSize = 16f;
+            hovering = true;
+
+            abilities.add(new ShieldAbility(4, 0.1f, 20f, 600f, 2.3f, 1.3f, 32.2f));
+        }};
     }
 }

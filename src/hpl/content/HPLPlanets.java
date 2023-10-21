@@ -51,7 +51,7 @@ public class HPLPlanets {
             );
         }};
 
-        auriona = new Planet("auriona", aStar, 1.2f, 4){{
+        auriona = new Planet("auriona", aStar, 1.2f, 3){{
             generator = new AurionaPlanetGenerator();
             meshLoader = () -> new HexMesh(this, 7);
             cloudMeshLoader = () -> new MultiMesh( // 81ffd7 old color > 5de7a3
