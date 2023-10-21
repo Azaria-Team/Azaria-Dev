@@ -74,6 +74,7 @@ public class HPL extends Mod{
     }
 
     public HPL(){
+        super();
         if(!mobile) {
             Events.on(EventType.ClientLoadEvent.class, e -> Time.runTask(100f, HPL::dialogShow));
         }

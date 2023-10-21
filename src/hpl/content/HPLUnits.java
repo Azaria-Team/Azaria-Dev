@@ -1,35 +1,29 @@
 package hpl.content;
 
-import arc.func.Prov;
 import arc.graphics.Color;
 import arc.util.Time;
 import hpl.entities.bullets.AimBulletType;
 import hpl.entities.bullets.ModEmpBulletType;
-import hpl.entities.entity.DroneUnitEntity;
-import hpl.entities.entity.StriCopterUnitEntity;
 import hpl.entities.units.DroneUnitType;
 import hpl.entities.units.StriCopterUnitType;
+import hpl.gen.Dronec;
+import hpl.gen.HPLEntityMapping;
+import hpl.gen.StriCopterc;
 import hpl.graphics.HPLPal;
 import hpl.world.draw.Blade;
 import hpl.world.draw.Rotor;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
-import mindustry.ai.types.RepairAI;
+import mindustry.annotations.Annotations;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.entities.part.RegionPart;
-import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-import mindustry.type.unit.ErekirUnitType;
 import mindustry.type.unit.MissileUnitType;
-import arc.struct.*;
-import arc.struct.ObjectMap.Entry;
-import mindustry.type.weapons.RepairBeamWeapon;
 
 import static mindustry.Vars.tilesize;
 
@@ -40,9 +34,7 @@ public class HPLUnits {
     //angelshark unit tree
     angelshark, glaucus, aurora, dunkleosteus,
     //unmaker tree
-    unmaker, eliminator, exterminator, blighter, dragonfly,
     //vector tree
-    vector, zephyr, vortex, whirlwind,
     //fire support
     source, quantum, diffraction, interference,
     //amphibia
@@ -50,59 +42,12 @@ public class HPLUnits {
     //off the tree
     shell, bastion, citadel,
     testHealUnit;
+    public static @Annotations.EntityDef(value = {StriCopterc.class}) UnitType unmaker, eliminator, exterminator, blighter, dragonfly;
+    public static @Annotations.EntityDef(value = {Dronec.class}) UnitType vector, zephyr, vortex, whirlwind;
     //supportDrone, torpedoNaval, bigKaboom
     // Steal from Progressed Material which stole from Unlimited-Armament-Works which stole from  Endless Rusting which stole from Progressed Materials in the past which stole from BetaMindy
-    private static final Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new Entry[]{
-            prov(DroneUnitEntity.class, DroneUnitEntity::new),
-            prov(StriCopterUnitEntity.class, StriCopterUnitEntity::new)
-    };
-
-    private static final ObjectIntMap<Class<? extends Entityc>> idMap = new ObjectIntMap<>();
-
-    /**
-     * Internal function to flatmap {@code Class -> Prov} into an {@link Entry}.
-     * @author GlennFolker
-     */
-    private static <T extends Entityc> Entry<Class<T>, Prov<T>> prov(Class<T> type, Prov<T> prov) {
-        Entry<Class<T>, Prov<T>> entry = new Entry<>();
-        entry.key = type;
-        entry.value = prov;
-        return entry;
-    }
-
-    /**
-     * Setups all entity IDs and maps them into {@link EntityMapping}.
-     * <p>
-     * Put this inside load()
-     * </p>
-     * @author GlennFolker
-     */
-    private static void setupID() {
-        for (
-                int i = 0,
-                j = 0,
-                len = EntityMapping.idMap.length;
-                i < len;
-                i++
-        ) {
-            if (EntityMapping.idMap[i] == null) {
-                idMap.put(types[j].key, i);
-                EntityMapping.idMap[i] = types[j].value;
-                if (++j >= types.length) break;
-            }
-        }
-    }
-
-    /**
-     * Retrieves the class ID for a certain entity type.
-     * @author GlennFolker
-     */
-    public static <T extends Entityc> int classID(Class<T> type) {
-        return idMap.get(type, -1);
-    }
-
     public static void load() {
-        setupID();
+        HPLEntityMapping.init();
         //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
             constructor = UnitEntity::create;
