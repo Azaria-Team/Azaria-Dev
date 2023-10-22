@@ -504,7 +504,7 @@ public class HPLBlocks {
 
             fogRadius = 4;
 
-            consumePower(2f / 60f);
+            consumePower(5f / 60f);
             drawer = new DrawMulti(
                     new DrawDefault(),
                     new DrawDrillPart(11f / 4f){{
@@ -524,7 +524,7 @@ public class HPLBlocks {
         oreDetector = new OreRadar("ore-detector") {{
             requirements(Category.production, with(HPLItems.fors, 20, HPLItems.khylid, 20, HPLItems.craside, 35));
             size = 3;
-            consumePower(1.2f);
+            consumePower(30f/60f);
         }};
         //endregion drills
         //region distribution
@@ -628,9 +628,10 @@ public class HPLBlocks {
             underBullets = true;
         }};
         //endregion liquid
-        //region production
 
+        //region production
         //endregion production
+
         //region defense
 
         forsWall = new Wall("fors-wall") {{
