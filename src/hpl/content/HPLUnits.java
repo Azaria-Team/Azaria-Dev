@@ -1,17 +1,19 @@
 package hpl.content;
 
+import arc.func.Prov;
 import arc.graphics.Color;
+import arc.struct.ObjectIntMap;
+import arc.struct.ObjectMap;
 import arc.util.Time;
 import hpl.ai.ground.DistanceGroundAI;
 import hpl.entities.ability.ShieldAbility;
 import hpl.entities.bullets.AimBulletType;
 import hpl.entities.bullets.ModEmpBulletType;
+import hpl.entities.entity.DroneUnitEntity;
+import hpl.entities.entity.StriCopterUnitEntity;
 import hpl.entities.units.DroneUnitType;
 import hpl.entities.units.ShieldUnitType;
 import hpl.entities.units.StriCopterUnitType;
-import hpl.gen.Dronec;
-import hpl.gen.HPLEntityMapping;
-import hpl.gen.StriCopterc;
 import hpl.graphics.HPLPal;
 import hpl.world.draw.Blade;
 import hpl.world.draw.Rotor;
@@ -39,7 +41,9 @@ public class HPLUnits {
     //angelshark unit tree
     angelshark, glaucus, aurora, dunkleosteus,
     //unmaker tree
+    unmaker, eliminator, exterminator, blighter, dragonfly,
     //vector tree
+    vector, zephyr, vortex, whirlwind,
     //fire support
     source, quantum, diffraction, interference,
     //amphibia
@@ -49,9 +53,57 @@ public class HPLUnits {
     testHealUnit;
     UnitType craber;
     //supportDrone, torpedoNaval, bigKaboom
+    private static final ObjectMap.Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new ObjectMap.Entry[]{
+            prov(DroneUnitEntity.class, DroneUnitEntity::new),
+            prov(StriCopterUnitEntity.class, StriCopterUnitEntity::new)
+    };
+
+    private static final ObjectIntMap<Class<? extends Entityc>> idMap = new ObjectIntMap<>();
+
+    /**
+     * Internal function to flatmap {@code Class -> Prov} into an {@link ObjectMap.Entry}.
+     * @author GlennFolker
+     */
+    private static <T extends Entityc> ObjectMap.Entry<Class<T>, Prov<T>> prov(Class<T> type, Prov<T> prov) {
+        ObjectMap.Entry<Class<T>, Prov<T>> entry = new ObjectMap.Entry<>();
+        entry.key = type;
+        entry.value = prov;
+        return entry;
+    }
+
+    /**
+     * Setups all entity IDs and maps them into {@link EntityMapping}.
+     * <p>
+     * Put this inside load()
+     * </p>
+     * @author GlennFolker
+     */
+    private static void setupID() {
+        for (
+                int i = 0,
+                j = 0,
+                len = EntityMapping.idMap.length;
+                i < len;
+                i++
+        ) {
+            if (EntityMapping.idMap[i] == null) {
+                idMap.put(types[j].key, i);
+                EntityMapping.idMap[i] = types[j].value;
+                if (++j >= types.length) break;
+            }
+        }
+    }
+
+    /**
+     * Retrieves the class ID for a certain entity type.
+     * @author GlennFolker
+     */
+    public static <T extends Entityc> int classID(Class<T> type) {
+        return idMap.get(type, -1);
+    }
+
     public static void load() {
-        HPLEntityMapping.init();
-        //region aureliaCoreUnits
+        setupID();
         gyurza = new UnitType("gyurza") {{
             constructor = UnitEntity::create;
 
@@ -621,26 +673,5 @@ public class HPLUnits {
             }});
         }};
         //endregion vectorTree
-        craber = new ShieldUnitType("craber"){{
-            speed = 0.3f;
-            health = 730;
-            armor = 10f;
-            hitSize = 16f;
-            hovering = true;
-
-            weapons.add(new Weapon(){{
-                new Weapon("unity-scar-missile-launcher"){{
-                    reload = 50f;
-                    rotate = true;
-                    bullet = new MissileBulletType(5f, 1f){{
-                        speed = 5f;
-                        width = 7f;
-                        height = 12f;
-                    }};
-                }};
-            }});
-
-            abilities.add(new ShieldAbility(4, 0.1f, 20f, 600f, 1f, 0.3f, 32.2f));
-        }};
     }
 }
