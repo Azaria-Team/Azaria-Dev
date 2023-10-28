@@ -30,10 +30,7 @@ import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
 import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.environment.*;
-import mindustry.world.blocks.liquid.ArmoredConduit;
-import mindustry.world.blocks.liquid.Conduit;
-import mindustry.world.blocks.liquid.LiquidJunction;
-import mindustry.world.blocks.liquid.LiquidRouter;
+import mindustry.world.blocks.liquid.*;
 import mindustry.world.blocks.power.ConsumeGenerator;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.production.GenericCrafter;
@@ -602,12 +599,13 @@ public class HPLBlocks {
             underBullets = true;
         }};
 
-        pipeBridgeConduit = new DirectionLiquidBridge("pipe-bridge-conduit"){{
+        pipeBridgeConduit = new LiquidBridge("pipe-bridge-conduit"){{
             requirements(Category.liquid, with(HPLItems.fors, 3, HPLItems.ferbium, 8));
             range = 5;
             hasPower = false;
             researchCostMultiplier = 1;
             underBullets = true;
+            arrowSpacing = 6f;
 
             ((Conduit)liquidPipe).rotBridgeReplacement = this;
         }};
