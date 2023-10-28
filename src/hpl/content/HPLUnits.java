@@ -47,10 +47,6 @@ public class HPLUnits {
     //off the tree
     shell, bastion, citadel,
     testHealUnit;
-    public static @Annotations.EntityDef(value = {StriCopterc.class}) UnitType unmaker, eliminator, exterminator, blighter, dragonfly;
-    public static @Annotations.EntityDef(value = {Dronec.class}) UnitType vector, zephyr, vortex, whirlwind;
-    // global unit + legs + transform
-    public static @Annotations.EntityDef({Unitc.class})
     UnitType craber;
     //supportDrone, torpedoNaval, bigKaboom
     public static void load() {

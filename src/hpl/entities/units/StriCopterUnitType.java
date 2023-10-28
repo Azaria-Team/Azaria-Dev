@@ -5,7 +5,7 @@ import arc.graphics.g2d.Draw;
 import arc.math.Angles;
 import arc.math.Mathf;
 import arc.struct.Seq;
-import hpl.gen.StriCopterc;
+import hpl.entities.entity.StriCopterUnitEntity;
 import hpl.world.draw.Blade;
 import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
@@ -21,16 +21,17 @@ public class StriCopterUnitType extends UnitType {
     public StriCopterUnitType(String name) {
         super(name);
         engineSize = 0f;
+        constructor = StriCopterUnitEntity::new;
     }
 
     // Drawing Rotors
     public void drawRotor(Unit unit) {
         float z = unit.elevation > 0.5f ? (lowAltitude ? Layer.flyingUnitLow : Layer.flyingUnit) : groundLayer + Mathf.clamp(hitSize / 4000f, 0, 0.01f);
-
         applyColor(unit);
-        if(unit instanceof StriCopterc stri){
+        if (unit instanceof StriCopterUnitEntity stri) {
+            long seedOffset = 0;
             for(int sign : Mathf.signs){
-                for (Blade.BladeMount mount : stri.blades()) {
+                for (Blade.BladeMount mount : stri.blades) {
                     Blade blade = mount.blade;
                     float rx = unit.x + Angles.trnsx(unit.rotation - 90, blade.x * sign, blade.y);
                     float ry = unit.y + Angles.trnsy(unit.rotation - 90, blade.x * sign, blade.y);
@@ -39,18 +40,18 @@ public class StriCopterUnitType extends UnitType {
 
                     if(blade.bladeRegion.found()){
                         Draw.z(z + blade.bladeLayer);
-                        Draw.alpha(blade.blurRegion.found() ? 1 - (stri.bladeMoveSpeedScl() / 0.8f) : 1);
+                        Draw.alpha(blade.blurRegion.found() ? 1 - (stri.bladeMoveSpeedScl / 0.8f) : 1);
                         Draw.rect(
                                 blade.bladeOutlineRegion, rx, ry,
                                 blade.bladeOutlineRegion.width * bladeScl * sign,
                                 blade.bladeOutlineRegion.height * bladeScl,
-                                unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed(), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                         );
                         Draw.mixcol(Color.white, unit.hitTime);
                         Draw.rect(blade.bladeRegion, rx, ry,
                                 blade.bladeRegion.width * bladeScl * sign,
                                 blade.bladeRegion.height * bladeScl,
-                                unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed(), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                         );
 
                         if(blade.doubleBlade){
@@ -58,13 +59,13 @@ public class StriCopterUnitType extends UnitType {
                                     blade.bladeOutlineRegion, rx, ry,
                                     blade.bladeOutlineRegion.width * bladeScl * sign,
                                     blade.bladeOutlineRegion.height * bladeScl,
-                                    -unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed(), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                    -unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                             );
                             Draw.mixcol(Color.white, unit.hitTime);
                             Draw.rect(blade.bladeRegion, rx, ry,
                                     blade.bladeRegion.width * bladeScl * sign,
                                     blade.bladeRegion.height * bladeScl,
-                                    -unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed(), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                    -unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                             );
                         }
                         Draw.reset();
@@ -73,12 +74,12 @@ public class StriCopterUnitType extends UnitType {
 
                     if(blade.blurRegion.found()){
                         Draw.z(z + blade.bladeLayer);
-                        Draw.alpha(stri.bladeMoveSpeedScl() * blade.bladeBlurAlphaMultiplier * (stri.dead() ? stri.bladeMoveSpeedScl() * 0.5f : 1));
+                        Draw.alpha(stri.bladeMoveSpeedScl * blade.bladeBlurAlphaMultiplier * (stri.dead ? stri.bladeMoveSpeedScl * 0.5f : 1));
                         Draw.rect(
                                 blade.blurRegion, rx, ry,
                                 blade.blurRegion.width * bladeScl * sign,
                                 blade.blurRegion.height * bladeScl,
-                                unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed(), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                         );
 
                         // Double Rotor Blur
@@ -87,7 +88,7 @@ public class StriCopterUnitType extends UnitType {
                                     blade.blurRegion, rx, ry,
                                     blade.blurRegion.width * bladeScl * sign,
                                     blade.blurRegion.height * bladeScl,
-                                    unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed(), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                    unit.rotation - 90 + sign*Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                             );
                         }
                         Draw.reset();
@@ -96,21 +97,21 @@ public class StriCopterUnitType extends UnitType {
                     Draw.reset();
                     if(blade.shadeRegion.found()) {
                         Draw.z(z + blade.bladeLayer + 0.001f);
-                        Draw.alpha(stri.bladeMoveSpeedScl() * blade.bladeBlurAlphaMultiplier * (stri.dead() ? stri.bladeMoveSpeedScl() * 0.5f : 1));
+                        Draw.alpha(stri.bladeMoveSpeedScl * blade.bladeBlurAlphaMultiplier * (stri.dead ? stri.bladeMoveSpeedScl * 0.5f : 1));
                         Draw.rect(
                                 blade.shadeRegion, rx, ry,
                                 blade.shadeRegion.width * shadeScl * sign,
                                 blade.shadeRegion.height * shadeScl,
-                                unit.rotation - 90 + sign * Mathf.randomSeed(stri.drawSeed(), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                unit.rotation - 90 + sign * Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                         );
                         Draw.mixcol(Color.white, unit.hitTime);
                         if (blade.dounbleBlur) {
-                            Draw.alpha(stri.bladeMoveSpeedScl() * blade.bladeBlurAlphaMultiplier * (stri.dead() ? stri.bladeMoveSpeedScl() * 0.5f : 1));
+                            Draw.alpha(stri.bladeMoveSpeedScl * blade.bladeBlurAlphaMultiplier * (stri.dead ? stri.bladeMoveSpeedScl * 0.5f : 1));
                             Draw.rect(
                                     blade.shadeRegion, rx, ry,
                                     blade.shadeRegion.width * shadeScl * sign,
                                     blade.shadeRegion.height * shadeScl,
-                                    unit.rotation - 90 + sign * Mathf.randomSeed(stri.drawSeed(), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
+                                    unit.rotation - 90 + sign * Mathf.randomSeed(stri.drawSeed + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
                             );
                             Draw.reset();
                         }
