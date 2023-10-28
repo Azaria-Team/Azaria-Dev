@@ -50,7 +50,7 @@ public class HPLBlocks {
     public static Block
     //environment
     //forest biome
-    forsite, forsiteWall, fir, firWall, forenite, foreniteWall, theFlower,
+    forsite, forsiteWall, fir, firWall, forenite, foreniteWall,
     kust, bigKust, swampShine, swampShineBoulder,
     //sea biome
     serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
@@ -90,7 +90,7 @@ public class HPLBlocks {
     forceTurret, hornTurret,
 
     //complex
-    complexSurprise, complexChameleon,
+    complexSurprise,
 
     //storage
     coreLegion, caseI,
@@ -307,6 +307,7 @@ public class HPLBlocks {
             oreDefault = true;
             oreThreshold = 0.81f;
             oreScale = 23.47619f;
+            variants = 3;
         }};
         forsRock = new ModOverlayFloor("fors-rock") {{
             parent = blendGroup = forsite;
@@ -322,7 +323,7 @@ public class HPLBlocks {
         //endregion environment
         //region power
         plasmaNode = new LightningPowerNode("plasma-node", 0) {{
-            requirements(Category.power, with(HPLItems.fors, 3  ));
+            requirements(Category.power, with(HPLItems.fors, 3));
             researchCost = with(HPLItems.fors, 25);
 
             consumePowerBuffered(1000f);
@@ -332,7 +333,7 @@ public class HPLBlocks {
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
             //todo crafting
-            requirements(Category.power, with(HPLItems.khylid, 20));
+            requirements(Category.power, with(HPLItems.khylid, 20, HPLItems.craside, 20));
             consumePowerBuffered(5000f);
             size = 2;
             lightningRange = 28 * 8f;
@@ -340,23 +341,25 @@ public class HPLBlocks {
         }};
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
-            requirements(Category.power, with(HPLItems.fors, 10));
+            requirements(Category.power, with(HPLItems.fors, 45));
             researchCost = with(HPLItems.fors, 40);
             size = 2;
             consumePowerBuffered(300f);
             lightningRange = 5 * 8f;
             laserRange = 7;
             thresholdPerTile = 0.1f / 8f;
+            buildCostMultiplier = 8f;
         }};
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
             //todo crafting
-            requirements(Category.power, with(HPLItems.khylid, 20));
+            requirements(Category.power, with(HPLItems.khylid, 20, HPLItems.craside, 20));
             consumePowerBuffered(5000f);
             size = 3;
             lightningRange = 15 * 8f;
             laserRange = 16;
             thresholdPerTile = 0.1f / 8f;
+            buildCostMultiplier = 8f;
         }};
 
         thermalEvaporator = new ThermalEvaporator("thermal-evaporator") {{
@@ -385,8 +388,8 @@ public class HPLBlocks {
         }};
 
         oxyliteTurbine = new ConsumeGenerator("oxylite-turbine"){{
-            requirements(Category.power, with(HPLItems.fors, 100, HPLItems.khylid, 90, HPLItems.craside, 50));
-            powerProduction = 4f;
+            requirements(Category.power, with(HPLItems.fors, 100, HPLItems.khylid, 35, HPLItems.craside, 55));
+            powerProduction = 2.5f;
             itemDuration = 100f;
             consumeLiquid(HPLLiquids.oxyliteLiq, 5f / 60f);
             hasLiquids = true;
@@ -413,9 +416,9 @@ public class HPLBlocks {
         //region production
         //TODO
         crasideBrewer = new GenericCrafter("craside-brewer") {{
-            requirements(Category.crafting, with(HPLItems.fors, 60, HPLItems.khylid, 40));
+            requirements(Category.crafting, with(HPLItems.fors, 60, HPLItems.khylid, 35));
             outputItem = new ItemStack(HPLItems.craside, 1);
-            consumeItems(with(HPLItems.fors, 1, HPLItems.volcanicSerrid, 1));
+            consumeItems(with(HPLItems.khylid, 1, HPLItems.volcanicSerrid, 1));
             craftTime = 65f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
@@ -490,7 +493,7 @@ public class HPLBlocks {
             squareSprite = false;
         }};
         waveDrill = new HPLBurstDrill("wave-drill"){{
-            requirements(Category.production, with(HPLItems.fors, 20));
+            requirements(Category.production, with(HPLItems.fors, 35, HPLItems.craside, 15));
             drillTime = 60f * 12f;
             size = 3;
             hasPower = true;
@@ -502,12 +505,12 @@ public class HPLBlocks {
 
             fogRadius = 4;
 
-            consumePower(2f / 60f);
+            consumePower(5f / 60f);
             drawer = new DrawMulti(
                     new DrawDefault(),
                     new DrawDrillPart(11f / 4f){{
                         shadowOffset = 1f;
-                        baseOffset = 4f / 4f;
+                        baseOffset = 1.0f; //you're fucking genius to write 4.0f/4.0f;
                         layer = Layer.blockOver;
                         angleOffset = 135;
                         drawPlan = false;
@@ -520,9 +523,9 @@ public class HPLBlocks {
         }};
 
         oreDetector = new OreRadar("ore-detector") {{
-            requirements(Category.production, with(HPLItems.fors, 1));
+            requirements(Category.production, with(HPLItems.fors, 20, HPLItems.khylid, 20, HPLItems.craside, 35));
             size = 3;
-            consumePower(1.2f);
+            consumePower(30f/60f);
         }};
         //endregion drills
         //region distribution
@@ -589,7 +592,7 @@ public class HPLBlocks {
             underBullets = true;
         }};
         liquidPipeJunction = new LiquidJunction("liquid-pipe-junction"){{
-            requirements(Category.liquid, with(HPLItems.fors, 5, HPLItems.ferbium, 10));
+            requirements(Category.liquid, with(HPLItems.fors, 3, HPLItems.ferbium, 5));
             buildCostMultiplier = 3f;
             health = 320;
             ((Conduit)liquidPipe).junctionReplacement = this;
@@ -599,7 +602,7 @@ public class HPLBlocks {
         }};
 
         pipeBridgeConduit = new DirectionLiquidBridge("pipe-bridge-conduit"){{
-            requirements(Category.liquid, with(HPLItems.fors, 10, HPLItems.ferbium, 13));
+            requirements(Category.liquid, with(HPLItems.fors, 3, HPLItems.ferbium, 8));
             range = 5;
             hasPower = false;
             researchCostMultiplier = 1;
@@ -609,26 +612,27 @@ public class HPLBlocks {
         }};
 
         liquidPipeRouter = new LiquidRouter("liquid-pipe-router"){{
-            requirements(Category.liquid, with(HPLItems.fors, 10, HPLItems.ferbium, 5));
+            requirements(Category.liquid, with(HPLItems.fors, 3, HPLItems.ferbium, 5));
             liquidCapacity = 35f;
-            liquidPadding = 4f/4f;
+            liquidPadding = 1.0f;
             researchCostMultiplier = 3;
             underBullets = true;
             solid = false;
         }};
 
         liquidCanister = new LiquidRouter("liquid-canister") {{
-            requirements(Category.liquid, with(HPLItems.ferbium, 10));
+            requirements(Category.liquid, with(HPLItems.fors, 15, HPLItems.ferbium, 35));
             liquidCapacity = 3545f;
             size = 2;
-            liquidPadding = 4f/4f;
+            liquidPadding = 1.0f;
             researchCostMultiplier = 2;
             underBullets = true;
         }};
         //endregion liquid
-        //region production
 
+        //region production
         //endregion production
+
         //region defense
 
         forsWall = new Wall("fors-wall") {{
@@ -636,7 +640,7 @@ public class HPLBlocks {
             researchCost = with(HPLItems.fors, 100);
             health = 160 * 4;
             armor = 3f;
-            buildCostMultiplier = 8f;
+            buildCostMultiplier = 6f;
         }};
 
         forsWallLarge = new Wall("fors-wall-large") {{
@@ -645,19 +649,19 @@ public class HPLBlocks {
             health = 160 * 16;
             size = 2;
             armor = 3f;
-            buildCostMultiplier = 8f;
+            buildCostMultiplier = 6f;
         }};
 
         compositeWall = new Wall("composite-wall") {{
             requirements (Category.defense, with(HPLItems.craside, 4, HPLItems.khylid, 2));
             health = 800;
-            buildCostMultiplier = 2f;
+            buildCostMultiplier = 6f;
         }};
 
         compositeWallLarge = new Wall("composite-wall-large"){{
             requirements (Category.defense, with(HPLItems.craside, 20, HPLItems.khylid, 4));
             size = 2;
-            buildCostMultiplier = 2f;
+            buildCostMultiplier = 6f;
             health = 800 * 4;
         }};
 
@@ -712,7 +716,7 @@ public class HPLBlocks {
         }};
 
         hornTurret = new PowerTurret("horn"){{
-            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.khylid, 25));
+            requirements(Category.turret, with(HPLItems.fors, 70, HPLItems.craside, 25));
             researchCost = with(HPLItems.fors, 150, HPLItems.khylid, 70);
             health = 900;
             //shootEffect = HPLFx.shootForce;
@@ -771,8 +775,8 @@ public class HPLBlocks {
         }};
 
         repairTurret = new BlockRepairTurret("repair-turret"){{
-            requirements(Category.units, with(HPLItems.fors, 120, HPLItems.khylid, 80, HPLItems.craside, 30));
-            repairSpeed = 0.45f;
+            requirements(Category.units, with(HPLItems.fors, 120, HPLItems.khylid, 30, HPLItems.craside, 80));
+            repairSpeed = 0.75f;
             repairRadius = 180f;
             outlineColor = HPLPal.aureliaOutline;
             beamWidth = 1f;
@@ -785,11 +789,11 @@ public class HPLBlocks {
             size = 2;
             floating = true;
             outlineColor = HPLPal.aureliaOutline;
-            requirements(Category.effect, with(HPLItems.ognium, 50));
+            requirements(Category.effect, with(HPLItems.ognium, 50, HPLItems.ferbium, 35));
             hasShadow = false;
-            health = 150;
+            health = 1850;
             damage = 150;
-            tileDamage = 50;
+            tileDamage = 450;
         }};
         //endregion traps
         //region storage

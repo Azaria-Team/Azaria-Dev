@@ -1,7 +1,6 @@
 package hpl.world.blocks.defense;
 
 import arc.graphics.g2d.Draw;
-import arc.graphics.g2d.TextureRegion;
 import hpl.content.HPLStatusEffects;
 import mindustry.content.Fx;
 import mindustry.entities.Effect;
@@ -22,7 +21,7 @@ import static mindustry.Vars.tilesize;
 public class NavalMine extends Block{
 
     public float tileDamage = 10f;
-    public float range = 40f;
+    public float range = 35f;
     public float statusDuration = 60f;
     public StatusEffect status = HPLStatusEffects.decomposition;
     public Effect acceptEffect = Fx.none;
@@ -35,6 +34,7 @@ public class NavalMine extends Block{
         destructible = true;
         solid = false;
         targetable = false;
+        outlinedIcon = 1;
     }
 
     @Override
@@ -120,7 +120,7 @@ public class NavalMine extends Block{
         /*
         @Override
         public void unitOn(Unit unit){
-            if(enabled && unit.team != team && timer(timerDamage, cooldown)){
+            if(enabled && unit.team != team && timer(timerDamage, cool down)){
                 damage(tileDamage);
             }
         }
