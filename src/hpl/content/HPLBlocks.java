@@ -366,7 +366,7 @@ public class HPLBlocks {
             requirements(Category.power, with(HPLItems.fors, 40));
             researchCost = with(HPLItems.fors, 65);
 
-            powerProduction = 0.5f / 3;
+            powerProduction = 1.5f / 3;
             displayEfficiency = true;
             size = 2;
             floating = true;
@@ -390,7 +390,7 @@ public class HPLBlocks {
         oxyliteTurbine = new ConsumeGenerator("oxylite-turbine"){{
             requirements(Category.power, with(HPLItems.fors, 100, HPLItems.khylid, 35, HPLItems.craside, 55));
             powerProduction = 2.5f;
-            itemDuration = 100f;
+            itemDuration = 130f;
             consumeLiquid(HPLLiquids.oxyliteLiq, 5f / 60f);
             hasLiquids = true;
             size = 3;
@@ -494,7 +494,7 @@ public class HPLBlocks {
         }};
         waveDrill = new HPLBurstDrill("wave-drill"){{
             requirements(Category.production, with(HPLItems.fors, 35, HPLItems.craside, 15));
-            drillTime = 60f * 12f;
+            drillTime = 60f * 10f;
             size = 3;
             hasPower = true;
             tier = 3;
@@ -579,6 +579,7 @@ public class HPLBlocks {
             pumpAmount = 10f / 60f;
             liquidCapacity = 140f;
             size = 2;
+            consumePower(1.5f / 3f);
         }};
 
         liquidPipe = new ArmoredConduit("liquid-pipe"){{

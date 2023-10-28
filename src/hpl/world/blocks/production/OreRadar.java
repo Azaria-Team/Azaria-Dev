@@ -29,9 +29,9 @@ import static mindustry.Vars.*;
 import static mindustry.content.Blocks.air;
 
 public class OreRadar extends Block {
-    public int range = 13 * 8;
+    public int range = 20 * 8;
     public float radarSpeed = 1f;
-    public float radarCone = 9f;
+    public float radarCone = 15f;
     public float circleAlpha = 1f;
     public float coneAlpha = 0.6f;
     public float moveCircleAlpha = 1f;
