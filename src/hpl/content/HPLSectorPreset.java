@@ -6,7 +6,7 @@ import static hpl.content.HPLPlanets.auriona;
 
 public class HPLSectorPreset {
     public static SectorPreset
-            abandonedShoreline, caveEntrance, theSea;
+            abandonedShoreline, caveEntrance, theSea, theOutskirts;
 
     //testshitcomment
     public static void load(){
@@ -27,6 +27,12 @@ public class HPLSectorPreset {
         theSea = new SectorPreset("the-sea", auriona, 46) {{
             alwaysUnlocked = false;
             difficulty = 2;
+        }};
+
+        theOutskirts = new SectorPreset("the-outskirts", auriona, 12) {{
+            alwaysUnlocked = false;
+            difficulty = 3;
+            captureWave = 20;
         }};
     }
 }
