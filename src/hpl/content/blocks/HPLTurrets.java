@@ -21,7 +21,8 @@ import static mindustry.type.ItemStack.with;
 public class HPLTurrets {
     
     public static Block
-    forceTurret, hornTurret, repairTurret;
+    forceTurret, hornTurret, repairTurret,
+    raze;
 
     public static void load() {
         forceTurret = new ItemTurret("force"){{
@@ -131,6 +132,11 @@ public class HPLTurrets {
                             y = 0;
                         }});
             }};
+        }};
+
+        raze = new PowerTurret("raze") {{
+            size = 3;
+            requirements(Category.turret, with(HPLItems.superdenseAlloy, 300));
         }};
 
         repairTurret = new BlockRepairTurret("repair-turret"){{
