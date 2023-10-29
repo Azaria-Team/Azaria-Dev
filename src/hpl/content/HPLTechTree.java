@@ -1,6 +1,6 @@
 package hpl.content;
 
-import static hpl.content.HPLBlocks.*;
+import static hpl.content.HPLDistribution.*;
 import static hpl.content.blocks.HPLPower.*;
 import static hpl.content.blocks.HPLWalls.*;
 import static hpl.content.blocks.HPLDrills.*;

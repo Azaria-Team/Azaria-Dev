@@ -2,21 +2,15 @@ package hpl;
 //SEX!
 import arc.Core;
 import arc.Events;
-import arc.scene.ui.layout.Table;
 import arc.util.Log;
 import arc.util.Time;
 import hpl.utils.ManyPlanetSystems;
 import hpl.utils.Utils;
 import mindustry.game.EventType;
 import mindustry.mod.*;
-import mindustry.type.Item;
-import mindustry.type.SectorPreset;
-import mindustry.type.UnitType;
 import mindustry.ui.dialogs.BaseDialog;
 import hpl.content.*;
-import mindustry.world.Block;
 
-import static arc.Core.settings;
 import static mindustry.Vars.*;
 
 public class HPL extends Mod{
@@ -93,7 +87,7 @@ public class HPL extends Mod{
         HPLStatusEffects.load();
         HPLBullets.load();
         HPLUnits.load();
-        HPLBlocks.load();
+        HPLDistribution.load();
         HPLLoadouts.load();
         HPLPlanets.load();
         HPLSectorPreset.load();

@@ -1,7 +1,5 @@
 package hpl.content.blocks;
 
-import hpl.content.HPLBlocks;
-import hpl.content.blocks.HPLDistribution.*;
 import hpl.content.HPLItems;
 import hpl.world.blocks.distribution.ModDuct;
 import mindustry.type.Category;
