@@ -51,23 +51,26 @@ public class HPLEnvironment {
             //probably there were no parent floor & you will place this block with your kutty paws uwu
         }};
         forenite = new Floor("forenite") {{
+            mapColor = Color.valueOf("313a3b");
             variants = 4;
         }};
         foreniteWall = new StaticWall("forenite-wall") {{
             variants = 3;
             forenite.asFloor().wall = this;
+            mapColor = Color.valueOf("869985");
         }};
         foreniteBoulder = new Prop("forenite-boulder") {{
             variants = 3;
             forenite.asFloor().decoration = this;
         }};
         fir = new Floor("fir") {{
+            mapColor = Color.valueOf("222625");
             variants = 4;
         }};
         firWall = new StaticWall("fir-wall") {{
             variants = 3;
             fir.asFloor().wall = this;
-            mapColor = Color.valueOf("3f4f45");
+            mapColor = Color.valueOf("54685e");
         }};
         firBoulder = new Prop("fir-boulder") {{
             variants = 3;
