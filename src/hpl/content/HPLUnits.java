@@ -122,7 +122,7 @@ public class HPLUnits {
             mineTier = 1;
             buildSpeed = 0.4f;
 
-            health = 300f;
+            health = 500f;
             hitSize = 8f;
             itemCapacity = 50;
 
@@ -147,7 +147,7 @@ public class HPLUnits {
                             spawnUnit = new MissileUnitType("gyurza-missile"){{
                                 engineSize = 1.75f;
                                 engineLayer = Layer.effect;
-                                speed = 3.4f;
+                                speed = 4.2f;
                                 maxRange = 16f;
                                 trailWidth = 1;
 
@@ -155,16 +155,16 @@ public class HPLUnits {
                                 outlineColor = HPLPal.aureliaOutline;
                                 health = 25;
                                 lowAltitude = true;
-                                hitSize = 3;
+                                hitSize = 2.5f;
 
                                 weapons.add(new Weapon(){{
                                     shootCone = 360f;
                                     mirror = false;
                                     reload = 1f;
                                     shootOnDeath = true;
-                                    bullet = new ExplosionBulletType(75f, 20f){{
+                                    bullet = new ExplosionBulletType(95f, 35f){{
                                         shootEffect = Fx.massiveExplosion;
-                                        buildingDamageMultiplier = 0.40f;
+                                        buildingDamageMultiplier = 0.5f;
                                     }};
                                 }});
                             }};
