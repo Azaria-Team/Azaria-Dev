@@ -74,7 +74,7 @@ public class HPLPlanets {
             allowLaunchLoadout = true;
             iconColor = Color.valueOf("24b95a");
             atmosphereColor = Color.valueOf("24b95a");
-			defaultCore = HPLBlocks.coreLegion;
+			defaultCore = HPLBlocks.complexSurprise; //kakogo khuya?
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
             startSector = 15;

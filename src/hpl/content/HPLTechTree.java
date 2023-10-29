@@ -1,8 +1,13 @@
 package hpl.content;
 
+import static hpl.content.HPLBlocks.*;
+import static hpl.content.blocks.HPLPower.*;
+import static hpl.content.blocks.HPLWalls.*;
+import static hpl.content.blocks.HPLDrills.*;
 import static mindustry.content.TechTree.*;
 import static hpl.content.HPLItems.*;
-import static hpl.content.HPLBlocks.*;
+import static hpl.content.blocks.HPLDistribution.*;
+import static hpl.content.blocks.HPLTurrets.*;
 
 public class HPLTechTree {
 

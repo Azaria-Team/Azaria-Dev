@@ -17,8 +17,9 @@ import arc.util.Tmp;
 import arc.util.noise.Noise;
 import arc.util.noise.Ridged;
 import arc.util.noise.Simplex;
-import hpl.content.HPLBlocks;
+
 import hpl.content.HPLLiquids;
+import hpl.content.blocks.HPLEnvironment;
 import hpl.world.blocks.environment.ModOverlayFloor;
 import mindustry.ai.Astar;
 import mindustry.ai.BaseRegistry;
@@ -43,6 +44,8 @@ import mindustry.world.meta.Attribute;
 import static mindustry.Vars.*;
 import static mindustry.Vars.state;
 
+import static hpl.content.blocks.HPLEnvironment.*;
+
 public class AurionaPlanetGenerator extends PlanetGenerator {
     public static boolean alt = false;
 
@@ -57,19 +60,19 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
     Block[][] arr =
             {
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.serridDust, HPLBlocks.serridDust, HPLBlocks.crabStone, HPLBlocks.huitaRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.serridicRock, HPLBlocks.forsite},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.serridDust, HPLBlocks.serridDust, HPLBlocks.crabStone, HPLBlocks.huitaRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.serridicRock, HPLBlocks.forsite},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.huitaRock, HPLBlocks.huitaRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.crabStone, HPLBlocks.serridicRock},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.huitaRock, HPLBlocks.huitaRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.huitaRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.crabStone},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.serridDust, HPLBlocks.huitaRock, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.crabStone, HPLBlocks.crabStone, HPLBlocks.crabStone},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.crabStone, HPLBlocks.crabStone, HPLBlocks.forenite, HPLBlocks.serridicRock, HPLBlocks.crabStone, HPLBlocks.forenite, HPLBlocks.forenite, HPLBlocks.forsite},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.crabStone, HPLBlocks.forsite, HPLBlocks.fir, HPLBlocks.fir, HPLBlocks.fir, HPLBlocks.forenite, HPLBlocks.fir, HPLBlocks.forsite},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.huitaRock, HPLBlocks.fir, HPLBlocks.forsite, HPLBlocks.forsite, HPLBlocks.forenite, HPLBlocks.fir, HPLBlocks.fir},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.oxylite, HPLBlocks.serridDust, HPLBlocks.serridicRock, HPLBlocks.forenite, HPLBlocks.forenite, HPLBlocks.forsite, HPLBlocks.forsite, HPLBlocks.forenite, HPLBlocks.darkSerrid, HPLBlocks.fir},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.oxylite, HPLBlocks.serridOxylite, HPLBlocks.darkSerrid, HPLBlocks.fir, HPLBlocks.fir, HPLBlocks.crystalIce, HPLBlocks.forenite, HPLBlocks.forenite, HPLBlocks.fir, HPLBlocks.forenite, HPLBlocks.lamprosMineral},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.darkSerridOxylite, HPLBlocks.fir, HPLBlocks.fir, HPLBlocks.lamprosMineral, HPLBlocks.serridicRock, HPLBlocks.serridicRock, HPLBlocks.lamprosMineral, HPLBlocks.forsite, HPLBlocks.crystalIce, HPLBlocks.crystalIce},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.darkSerridOxylite, HPLBlocks.darkSerrid, HPLBlocks.lamprosMineral, HPLBlocks.forsite, HPLBlocks.lamprosMineral, HPLBlocks.lamprosMineral, HPLBlocks.darkSerrid, HPLBlocks.lamprosMineral, HPLBlocks.crystalIce, HPLBlocks.crystalIce},
-                    {HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.deepOxylite, HPLBlocks.darkSerridOxylite, HPLBlocks.darkSerrid, HPLBlocks.darkSerrid, HPLBlocks.forsite, HPLBlocks.lamprosMineral, HPLBlocks.darkSerrid, HPLBlocks.crystalIce, HPLBlocks.crystalIce, HPLBlocks.crystalIce, HPLBlocks.crystalIce}
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.serridOxylite, HPLEnvironment.serridDust, HPLEnvironment.serridDust, HPLEnvironment.serridDust, HPLEnvironment.crabStone, HPLEnvironment.huitaRock, HPLEnvironment.huitaRock, HPLEnvironment.crabStone, HPLEnvironment.serridicRock, HPLEnvironment.forsite},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.serridOxylite, HPLEnvironment.serridDust, HPLEnvironment.serridDust, HPLEnvironment.serridDust, HPLEnvironment.crabStone, HPLEnvironment.huitaRock, HPLEnvironment.huitaRock, HPLEnvironment.crabStone, HPLEnvironment.serridicRock, HPLEnvironment.forsite},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.oxylite, HPLEnvironment.serridOxylite, HPLEnvironment.serridDust, HPLEnvironment.huitaRock, HPLEnvironment.huitaRock, HPLEnvironment.huitaRock, HPLEnvironment.crabStone, HPLEnvironment.huitaRock, HPLEnvironment.crabStone, HPLEnvironment.crabStone, HPLEnvironment.serridicRock},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.oxylite, HPLEnvironment.serridOxylite, HPLEnvironment.serridDust, HPLEnvironment.huitaRock, HPLEnvironment.huitaRock, HPLEnvironment.huitaRock, HPLEnvironment.crabStone, HPLEnvironment.huitaRock, HPLEnvironment.huitaRock, HPLEnvironment.crabStone, HPLEnvironment.crabStone},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.oxylite, HPLEnvironment.serridOxylite, HPLEnvironment.serridDust, HPLEnvironment.huitaRock, HPLEnvironment.serridicRock, HPLEnvironment.huitaRock, HPLEnvironment.serridicRock, HPLEnvironment.huitaRock, HPLEnvironment.crabStone, HPLEnvironment.crabStone, HPLEnvironment.crabStone},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.oxylite, HPLEnvironment.oxylite, HPLEnvironment.serridDust, HPLEnvironment.crabStone, HPLEnvironment.crabStone, HPLEnvironment.forenite, HPLEnvironment.serridicRock, HPLEnvironment.crabStone, HPLEnvironment.forenite, HPLEnvironment.forenite, HPLEnvironment.forsite},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.oxylite, HPLEnvironment.oxylite, HPLEnvironment.serridDust, HPLEnvironment.crabStone, HPLEnvironment.forsite, HPLEnvironment.fir, HPLEnvironment.fir, HPLEnvironment.fir, HPLEnvironment.forenite, HPLEnvironment.fir, HPLEnvironment.forsite},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.oxylite, HPLEnvironment.oxylite, HPLEnvironment.serridDust, HPLEnvironment.serridicRock, HPLEnvironment.huitaRock, HPLEnvironment.fir, HPLEnvironment.forsite, HPLEnvironment.forsite, HPLEnvironment.forenite, HPLEnvironment.fir, HPLEnvironment.fir},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.oxylite, HPLEnvironment.oxylite, HPLEnvironment.serridDust, HPLEnvironment.serridicRock, HPLEnvironment.forenite, HPLEnvironment.forenite, HPLEnvironment.forsite, HPLEnvironment.forsite, HPLEnvironment.forenite, HPLEnvironment.darkSerrid, HPLEnvironment.fir},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.oxylite, HPLEnvironment.serridOxylite, HPLEnvironment.darkSerrid, HPLEnvironment.fir, HPLEnvironment.fir, HPLEnvironment.crystalIce, HPLEnvironment.forenite, HPLEnvironment.forenite, HPLEnvironment.fir, HPLEnvironment.forenite, HPLEnvironment.lamprosMineral},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.darkSerridOxylite, HPLEnvironment.fir, HPLEnvironment.fir, HPLEnvironment.lamprosMineral, HPLEnvironment.serridicRock, HPLEnvironment.serridicRock, HPLEnvironment.lamprosMineral, HPLEnvironment.forsite, HPLEnvironment.crystalIce, HPLEnvironment.crystalIce},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.darkSerridOxylite, HPLEnvironment.darkSerrid, HPLEnvironment.lamprosMineral, HPLEnvironment.forsite, HPLEnvironment.lamprosMineral, HPLEnvironment.lamprosMineral, HPLEnvironment.darkSerrid, HPLEnvironment.lamprosMineral, HPLEnvironment.crystalIce, HPLEnvironment.crystalIce},
+                    {HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.deepOxylite, HPLEnvironment.darkSerridOxylite, HPLEnvironment.darkSerrid, HPLEnvironment.darkSerrid, HPLEnvironment.forsite, HPLEnvironment.lamprosMineral, HPLEnvironment.darkSerrid, HPLEnvironment.crystalIce, HPLEnvironment.crystalIce, HPLEnvironment.crystalIce, HPLEnvironment.crystalIce}
             };
             /*
             {
@@ -158,7 +161,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
     public Color getColor(Vec3 position) {
         Block block = getBlock(position);
 
-        if(block == HPLBlocks.crystalIce) return Color.valueOf("f6e9ff");
+        if(block == HPLEnvironment.crystalIce) return Color.valueOf("f6e9ff");
         return Tmp.c1.set(block.mapColor).a(1f - block.albedo);
     }
 
@@ -256,7 +259,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                                 if(Mathf.within(x, y, rad - 1) && !other.floor().isLiquid){
                                     Floor floor = other.floor();
                                     //TODO does not respect tainted floors
-                                    other.setFloor((Floor)(floor == HPLBlocks.serridDust || floor == HPLBlocks.huitaRock ? HPLBlocks.serridOxylite : HPLBlocks.deepOxylite));
+                                    other.setFloor((Floor)(floor == serridDust || floor == huitaRock ? serridOxylite : deepOxylite));
                                 }
                             }
                         }
@@ -393,14 +396,14 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
             if(value > 0.17f && !Mathf.within(x, y, fspawn.x, fspawn.y, 12 + rrscl)){
                 boolean deep = value > 0.17f + 0.1f && !Mathf.within(x, y, fspawn.x, fspawn.y, 15 + rrscl);
-                boolean spore = floor != HPLBlocks.serridDust && floor != HPLBlocks.darkSerrid;
+                boolean spore = floor != HPLEnvironment.serridDust && floor != HPLEnvironment.darkSerrid;
                 //do not place rivers on ice, they're frozen
                 //ignore pre-existing liquids
-                if(!(floor == HPLBlocks.crystalIce ||  floor.asFloor().isLiquid)){
+                if(!(floor == HPLEnvironment.crystalIce ||  floor.asFloor().isLiquid)){
                     floor = spore ?
-                            (deep ? HPLBlocks.serridDust : HPLBlocks.deepOxylite) :
-                            (deep ? HPLBlocks.oxylite :
-                                    (floor == HPLBlocks.serridDust || floor == HPLBlocks.huitaRock ? HPLBlocks.serridOxylite : HPLBlocks.deepOxylite));
+                            (deep ? HPLEnvironment.serridDust : HPLEnvironment.deepOxylite) :
+                            (deep ? HPLEnvironment.oxylite :
+                                    (floor == HPLEnvironment.serridDust || floor == HPLEnvironment.huitaRock ? HPLEnvironment.serridOxylite : HPLEnvironment.deepOxylite));
                 }
             }
         });
@@ -425,7 +428,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                     }
                 }
 
-                floor = floor == HPLBlocks.deepOxylite ? HPLBlocks.serridOxylite : HPLBlocks.oxylite;
+                floor = floor == HPLEnvironment.deepOxylite ? HPLEnvironment.serridOxylite : HPLEnvironment.oxylite;
             }
         });
 
@@ -450,7 +453,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                         }
                     }
 
-                    floor = floor == HPLBlocks.oxylite ? HPLBlocks.deepOxylite : HPLBlocks.serridOxylite;
+                    floor = floor == HPLEnvironment.oxylite ? HPLEnvironment.deepOxylite : HPLEnvironment.serridOxylite;
                 }
             });
         }
@@ -462,7 +465,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
         float addscl = 1.3f;
 
         if(Simplex.noise3d(seed, 2, 0.5, scl, sector.tile.v.x, sector.tile.v.y, sector.tile.v.z)*nmag + poles > 0.4f*addscl){
-            ores.add(HPLBlocks.forsOre);
+            ores.add(HPLEnvironment.forsOre);
         }
 
         FloatSeq frequencies = new FloatSeq();
@@ -536,7 +539,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                         for(int y = -rad1us; y <= rad1us; y++){
                             Tile other = tiles.get(x + tile.x, y + tile.y);
                             //skip solids / other vents / arkycite / slag
-                            if(other == null || other.block().solid || other.floor().attributes.get(Attribute.steam) != 0 || other.floor() == Blocks.slag || other.floor() == Blocks.arkyciteFloor || other.floor() == HPLBlocks.oxylite){
+                            if(other == null || other.block().solid || other.floor().attributes.get(Attribute.steam) != 0 || other.floor() == Blocks.slag || other.floor() == Blocks.arkyciteFloor || other.floor() == HPLEnvironment.oxylite){
                                 continue outer;
                             }
                         }
@@ -545,13 +548,13 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                     Block
                             floor,
                             secondFloor,
-                            vent = HPLBlocks.forsite;
+                            vent = HPLEnvironment.forsite;
 
                     int xDir = 1;
                     //set target material depending on what's encountered
-                    if(tile.floor() == HPLBlocks.forsite){
-                        floor = secondFloor = HPLBlocks.forsite;
-                        vent = HPLBlocks.forsRock;
+                    if(tile.floor() == HPLEnvironment.forsite){
+                        floor = secondFloor = HPLEnvironment.forsite;
+                        vent = HPLEnvironment.forsRock;
                     }
 
 
@@ -575,20 +578,20 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
             //random moss
 
             //tar
-            if(floor == HPLBlocks.darkSerridOxylite){
+            if(floor == HPLEnvironment.darkSerridOxylite){
                 if(Math.abs(0.5f - noise(x - 40, y, 2, 0.7, 80)) > 0.25f &&
                         Math.abs(0.5f - noise(x, y + sector.id*10, 1, 1, 60)) > 0.41f && !(roomseq.contains(r -> Mathf.within(x, y, r.x, r.y, 30)))){
-                    floor = HPLBlocks.darkSerridOxylite;
+                    floor = HPLEnvironment.darkSerridOxylite;
                 }
             }
 
-            if(genLakes && floor != HPLBlocks.huitaRock && floor != HPLBlocks.crystalIce && floor.asFloor().hasSurface()){
+            if(genLakes && floor != HPLEnvironment.huitaRock && floor != HPLEnvironment.crystalIce && floor.asFloor().hasSurface()){
                 float noise = noise(x + 782, y, 5, 0.75f, 260f, 1f);
                 if(noise > 0.67f && !roomseq.contains(e -> Mathf.within(x, y, e.x, e.y, 14))){
                     if(noise > 0.72f){
-                        floor = noise > 0.78f ? HPLBlocks.oxylite : (floor == HPLBlocks.serridDust ? HPLBlocks.serridOxylite : HPLBlocks.darkSerridOxylite);
+                        floor = noise > 0.78f ? HPLEnvironment.oxylite : (floor == HPLEnvironment.serridDust ? HPLEnvironment.serridOxylite : HPLEnvironment.darkSerridOxylite);
                     }else{
-                        floor = (floor == HPLBlocks.serridDust ? floor : HPLBlocks.darkSerrid);
+                        floor = (floor == HPLEnvironment.serridDust ? floor : HPLEnvironment.darkSerrid);
                     }
                 }
             }
@@ -605,8 +608,8 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                         all = false;
                     }
                 }
-                if(any && ((block == HPLBlocks.crystalIce) || (all && block == Blocks.air && floor == HPLBlocks.crystalIce && rand.chance(0.03)))){
-                    block = rand.chance(0.5) ? HPLBlocks.crystalIceBoulder : HPLBlocks.lamprosBoulder;
+                if(any && ((block == HPLEnvironment.crystalIce) || (all && block == Blocks.air && floor == HPLEnvironment.crystalIce && rand.chance(0.03)))){
+                    block = rand.chance(0.5) ? HPLEnvironment.crystalIceBoulder : HPLEnvironment.lamprosBoulder;
                 }
             }
 

@@ -10,8 +10,8 @@ public class HPLWheather {
     public static Weather
             storm;
 
-    public static void load(){
-        storm = new StormWeather("storm"){{
+    public static void load() {
+        storm = new StormWeather("storm") {{
             density = 400f;
             sizeMin = 20f;
             sizeMax = 30f;
