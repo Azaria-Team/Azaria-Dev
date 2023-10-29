@@ -1,6 +1,8 @@
 package hpl.content;
 
 import arc.graphics.Color;
+import hpl.content.HPLBlocks.*;
+import hpl.content.blocks.HPLCoreRelatedBlocks;
 import hpl.maps.generators.AurionaPlanetGenerator;
 import mindustry.content.*;
 import mindustry.graphics.g3d.*;
@@ -73,7 +75,7 @@ public class HPLPlanets {
             allowLaunchLoadout = true;
             iconColor = Color.valueOf("24b95a");
             atmosphereColor = Color.valueOf("24b95a");
-			defaultCore = HPLDistribution.complexSurprise; //kakogo khuya?
+			defaultCore = HPLCoreRelatedBlocks.complexSurprise;
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
             startSector = 15;

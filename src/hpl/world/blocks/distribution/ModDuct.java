@@ -6,7 +6,6 @@ import arc.math.geom.Geometry;
 import arc.math.geom.Point2;
 import arc.struct.Seq;
 import arc.util.Nullable;
-import hpl.content.HPLDistribution.*;
 import hpl.content.blocks.HPLDistribution;
 import mindustry.entities.units.BuildPlan;
 import mindustry.input.Placement;

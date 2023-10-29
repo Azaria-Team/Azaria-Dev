@@ -4,6 +4,7 @@ import arc.Core;
 import arc.Events;
 import arc.util.Log;
 import arc.util.Time;
+import hpl.content.blocks.HPLCoreRelatedBlocks;
 import hpl.utils.ManyPlanetSystems;
 import hpl.utils.Utils;
 import mindustry.game.EventType;
@@ -87,7 +88,7 @@ public class HPL extends Mod{
         HPLStatusEffects.load();
         HPLBullets.load();
         HPLUnits.load();
-        HPLDistribution.load();
+        HPLCoreRelatedBlocks.load();
         HPLLoadouts.load();
         HPLPlanets.load();
         HPLSectorPreset.load();
