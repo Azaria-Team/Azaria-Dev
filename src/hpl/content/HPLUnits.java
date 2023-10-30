@@ -559,6 +559,7 @@ public class HPLUnits {
         //endregion unmakerTree
         //region vectorTree
         vector = new DroneUnitType("vector") {{
+            hovering = true;
             isEnemy = true;
 
             lowAltitude = true;
