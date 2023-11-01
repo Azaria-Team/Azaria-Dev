@@ -21,7 +21,7 @@ import static mindustry.type.ItemStack.with;
 public class HPLTurrets {
     
     public static Block
-    forceTurret, hornTurret, repairTurret,
+    forceTurret, hornTurret,
     raze;
 
     public static void load() {
@@ -141,14 +141,5 @@ public class HPLTurrets {
             requirements(Category.turret, with(HPLItems.superdenseAlloy, 300));
         }};
 
-        repairTurret = new BlockRepairTurret("repair-turret"){{
-            requirements(Category.units, with(HPLItems.fors, 120, HPLItems.khylid, 30, HPLItems.craside, 80));
-            repairSpeed = 0.75f;
-            repairRadius = 180f;
-            outlineColor = HPLPal.aureliaOutline;
-            beamWidth = 1f;
-            powerUse = 1f;
-            size= 2;
-        }};
     }
 }
