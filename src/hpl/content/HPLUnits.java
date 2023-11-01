@@ -559,11 +559,10 @@ public class HPLUnits {
         //endregion unmakerTree
         //region vectorTree
         vector = new DroneUnitType("vector") {{
-            hovering = true;
-            isEnemy = true;
 
-            lowAltitude = true;
-            flying = true;
+            hovering = true;
+            useEngineElevation = false;
+            flying = false;
             drag = 0.07f;
             speed = 2.3f;
             rotateSpeed = 16f;
@@ -572,6 +571,8 @@ public class HPLUnits {
             health = 450f;
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
+
+            shadowElevation = 0.1f;
 
             rotors.add(
                     new Rotor(name + "-rotor"){{
@@ -608,7 +609,6 @@ public class HPLUnits {
             }});
         }};
         zephyr = new DroneUnitType("zephyr") {{
-            isEnemy = true;
 
             lowAltitude = true;
             flying = true;

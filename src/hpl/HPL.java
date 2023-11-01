@@ -88,7 +88,7 @@ public class HPL extends Mod{
         HPLStatusEffects.load();
         HPLBullets.load();
         HPLUnits.load();
-        HPLCoreRelatedBlocks.load();
+        HPLBlocks.load();
         HPLLoadouts.load();
         HPLPlanets.load();
         HPLSectorPreset.load();
