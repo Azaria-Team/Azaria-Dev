@@ -15,18 +15,6 @@ public class HPLCoreRelatedBlocks {
     public static Block
             complexSurprise, coreLegion, caseI;
     public static void load() {
-
-        hpl.content.blocks.HPLDistribution.load();
-        HPLDrills.load();
-        HPLEnvironment.load();
-        HPLLiquidBlocks.load();
-        HPLPower.load();
-        HPLProduction.load();
-        HPLSandbox.load();
-        HPLTurrets.load();
-        HPLUnitRelatedBlocks.load();
-        HPLWalls.load();
-
         //region traps
         coreLegion = new CoreBlock("core-legion") {{
             requirements(Category.effect, with(HPLItems.fors, 1200, HPLItems.khylid, 800));
