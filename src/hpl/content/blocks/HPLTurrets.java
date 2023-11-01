@@ -3,10 +3,12 @@ package hpl.content.blocks;
 import hpl.content.HPLBullets;
 import hpl.content.HPLFx;
 import hpl.content.HPLItems;
+import hpl.content.HPLLiquids;
 import hpl.graphics.HPLPal;
 import hpl.world.blocks.defense.turret.BlockRepairTurret;
 import mindustry.Vars;
 import mindustry.content.Fx;
+import mindustry.content.Liquids;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
@@ -14,6 +16,8 @@ import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
+import mindustry.world.consumers.ConsumeLiquid;
+import mindustry.world.consumers.ConsumeLiquids;
 import mindustry.world.draw.DrawTurret;
 
 import static mindustry.type.ItemStack.with;
@@ -45,9 +49,11 @@ public class HPLTurrets {
             shootSound = Sounds.cannon;
             squareSprite = false;
             itemCapacity = 20;
-            coolant = consumeCoolant(0.1f/60f);
+            coolantMultiplier = 2f;
+            coolant = consume(new ConsumeLiquid(HPLLiquids.oxyliteLiq, 10f / 60f));
 
             ammo(HPLItems.fors, HPLBullets.forceBullet);
+
 
             drawer = new DrawTurret("fortified-"){{
                 parts.add(
@@ -102,7 +108,8 @@ public class HPLTurrets {
 
             shootType = HPLBullets.hornBullet;
             consumePower(1.5f);
-            coolant = consumeCoolant(0.3f/60);
+            coolantMultiplier = 2f;
+            coolant = consume(new ConsumeLiquid(HPLLiquids.oxyliteLiq, 12f / 60f));
 
             drawer = new DrawTurret("fortified-"){{
                 parts.add(

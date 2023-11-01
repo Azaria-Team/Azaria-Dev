@@ -573,7 +573,7 @@ public class HPLUnits {
             outlineColor = HPLPal.aureliaOutline;
 
             shadowElevation = 0.1f;
-
+            hover = true;
             rotors.add(
                     new Rotor(name + "-rotor"){{
                         rotorLayer = -0.1f;

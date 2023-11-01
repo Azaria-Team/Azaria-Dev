@@ -33,8 +33,8 @@ public class OreRadar extends Block {
     public float radarSpeed = 1f;
     public float radarCone = 15f;
     public float circleAlpha = 1f;
-    public float coneAlpha = 0.6f;
-    public float moveCircleAlpha = 0.5f;
+    public float coneAlpha = 0.4f;
+    public float moveCircleAlpha = 0.4f;
 
     public OreRadar(String name) {
         super(name);

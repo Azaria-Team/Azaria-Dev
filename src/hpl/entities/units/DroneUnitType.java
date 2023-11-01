@@ -18,6 +18,7 @@ public class DroneUnitType extends UnitType {
     public float spinningFallSpeed = 0;
     public float rotorDeathSlowdown = 0.01f;
     public float fallSmokeX = 0f, fallSmokeY = -5f, fallSmokeChance = 0.1f;
+    public boolean hover = false;
 
     public DroneUnitType(String name) {
         super(name);

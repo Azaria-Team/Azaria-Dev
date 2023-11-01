@@ -136,7 +136,7 @@ public class HPLEnvironment {
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
-            albedo = 0.9f;
+            albedo = 0.7f;
             attributes.set(HPLAttribute.mainlheatattr, 0.25f);
             mapColor = Color.valueOf("50a9a8");
         }};
@@ -146,7 +146,7 @@ public class HPLEnvironment {
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
-            albedo = 0.9f;
+            albedo = 0.7f;
             drownTime = 140f;
         }};
         serridOxylite = new Floor("serrid-oxylite") {{
@@ -155,7 +155,7 @@ public class HPLEnvironment {
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
-            albedo = 0.9f;
+            albedo = 0.7f;
         }};
         darkSerridOxylite = new Floor("dark-serrid-oxylite") {{
             variants = 4;
@@ -163,7 +163,7 @@ public class HPLEnvironment {
             cacheLayer = CacheLayer.water;
             liquidMultiplier = 1f;
             isLiquid = true;
-            albedo = 0.9f;
+            albedo = 0.7f;
         }};
         //endregion sea biome
 

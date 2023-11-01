@@ -8,6 +8,7 @@ import hpl.entities.units.DroneUnitType;
 import hpl.world.draw.Blade;
 import hpl.world.draw.Rotor;
 import mindustry.content.Fx;
+import mindustry.entities.EntityCollisions;
 import mindustry.gen.UnitEntity;
 import hpl.world.draw.Rotor.RotorMount;
 import hpl.world.draw.Rotor;
@@ -37,6 +38,17 @@ public class DroneUnitEntity extends UnitEntity {
                 Rotor rotorType = drone.rotors.get(i);
                 rotors[i] = new RotorMount(rotorType);
             }
+        }
+    }
+
+    @Override
+    public EntityCollisions.SolidPred solidity(){
+        DroneUnitType type = (DroneUnitType) this.type;
+        if(type.hover){
+            return isFlying() ? null : EntityCollisions::solid;
+        }
+        else {
+            return null;
         }
     }
 

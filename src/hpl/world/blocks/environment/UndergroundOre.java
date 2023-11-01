@@ -31,4 +31,9 @@ public class UndergroundOre extends OverlayFloor {
             Draw.z(l);
         }
     }
+
+    @Override
+    public String getDisplayName(Tile tile) {
+        return null;
+    }
 }
