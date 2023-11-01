@@ -44,6 +44,7 @@ public class HPLTurrets {
             shootSound = Sounds.cannon;
             squareSprite = false;
             itemCapacity = 20;
+            coolant = consumeCoolant(0.1f/60f);
 
             ammo(HPLItems.fors, HPLBullets.forceBullet);
 
@@ -100,6 +101,7 @@ public class HPLTurrets {
 
             shootType = HPLBullets.hornBullet;
             consumePower(1.5f);
+            coolant = consumeCoolant(0.3f/60);
 
             drawer = new DrawTurret("fortified-"){{
                 parts.add(

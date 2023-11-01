@@ -560,7 +560,7 @@ public class HPLUnits {
         //region vectorTree
         vector = new DroneUnitType("vector") {{
 
-            lowAltitude = true;
+            hovering = true;
             useEngineElevation = false;
             flying = false;
             drag = 0.07f;
@@ -571,7 +571,7 @@ public class HPLUnits {
             health = 450f;
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
-            hovering = true;
+
             shadowElevation = 0.1f;
 
             rotors.add(
