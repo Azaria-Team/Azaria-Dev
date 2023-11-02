@@ -24,7 +24,7 @@ public class HPL extends Mod{
         if(!mobile) {
 
             BaseDialog dialog = new BaseDialog("Project HPL") {
-                private float leave = 5f * 60;
+                private float leave = 3f * 60;
                 private boolean canClose = false;
 
                 {
@@ -34,18 +34,18 @@ public class HPL extends Mod{
                             canClose = true;
                         }
                     });
-                    cont.add("Project-HPL").row();
-                    cont.add(text("h-attention")).row();
+                    //cont.add("m-project-hpl").row();
                     cont.image(Core.atlas.find("hpl-title")).pad(3f).height(70).width(700).row();
-                    cont.add(Core.bundle.format("h.name")).row();
-                    cont.add(Core.bundle.format("h.description")).row();
-                    buttons.check(text("not-show-next"), !Core.settings.getBool("first-load"), b -> {
+                    cont.add(text("m-attention")).row();
+                    //cont.add(Core.bundle.format("h.name")).row();
+                    cont.add(Core.bundle.format("m.description")).row();
+                    buttons.check(text("m-not-show-next"), !Core.settings.getBool("first-load"), b -> {
                         Core.settings.put("first-load", !b);
                     }).center();
                     buttons.button("", this::hide).update(b -> {
                         b.setDisabled(!canClose);
-                        b.setText(canClose ? text("h-understand") : text("log-pls-read") + "[accent]" + Math.floor(leave / 60) + "[]s");
-                    }).size(140f, 50f).center();
+                        b.setText(canClose ? text("m-got-it ") : "[accent]" + Math.floor(leave / 60) + text("m-seconds"));
+                    }).size(150f, 50f).center();
                 }
             };
             dialog.show();
