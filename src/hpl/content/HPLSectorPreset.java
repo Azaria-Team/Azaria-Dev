@@ -25,7 +25,7 @@ public class HPLSectorPreset {
 
         seaOutpost = new SectorPreset("sea-outpost", auriona, 200) {{
             alwaysUnlocked = false;
-            difficulty = 2;
+            difficulty = 3;
         }};
 
         theOutskirts = new SectorPreset("the-outskirts", auriona, 68) {{
