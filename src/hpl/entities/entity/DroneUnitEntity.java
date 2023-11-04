@@ -74,7 +74,7 @@ public class DroneUnitEntity extends UnitEntity {
         for (RotorMount rotor : rotors) {
             rotor.rotorRot += ((rotor.rotor.rotorSpeed * rotSpeedScl) + rotor.rotor.minimumRotorSpeed) * Time.delta;
         }
-        //type.fallSpeed = 0.006f;
+        type.fallSpeed = 0.006f;
     }
 }
 
