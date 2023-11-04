@@ -31,6 +31,8 @@ import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
+import mindustry.world.Block;
+import mindustry.world.meta.BlockFlag;
 
 import static mindustry.Vars.tilesize;
 
@@ -559,6 +561,7 @@ public class HPLUnits {
         //endregion unmakerTree
         //region vectorTree
         vector = new DroneUnitType("vector") {{
+            targetFlags = new BlockFlag[] {BlockFlag.turret, BlockFlag.drill, null};
 
             hovering = true;
             useEngineElevation = false;
