@@ -567,7 +567,7 @@ public class HPLUnits {
             useEngineElevation = false;
             flying = false;
             drag = 0.07f;
-            speed = 2.3f;
+            speed = 1.65f;
             rotateSpeed = 16f;
             accel = 0.1f;
             itemCapacity = 20;
@@ -616,7 +616,7 @@ public class HPLUnits {
             lowAltitude = true;
             flying = true;
             drag = 0.05f;
-            speed = 2f;
+            speed = 1.5f;
             rotateSpeed = 14f;
             accel = 0.1f;
             itemCapacity = 30;
