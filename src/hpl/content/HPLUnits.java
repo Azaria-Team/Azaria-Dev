@@ -395,7 +395,7 @@ public class HPLUnits {
         unmaker = new StriCopterUnitType("unmaker") {{
             flying = true;
 
-            speed = 4f;
+            speed = 3f;
             rotateSpeed = 10f;
             accel = 0.1f;
             drag = 0.05f;
@@ -433,7 +433,7 @@ public class HPLUnits {
                         bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 25f;
                             sprite = "hpl-dagbul";
-                            statusDuration = 2f * Time.toSeconds;
+                            statusDuration = 1f * Time.toSeconds;
                             status = HPLStatusEffects.weakness;
                             width = 10f;
                             height = 12f;
@@ -452,7 +452,7 @@ public class HPLUnits {
         eliminator = new StriCopterUnitType("eliminator") {{
             flying = true;
 
-            speed = 1.95f;
+            speed = 2.5f;
             rotateSpeed = 7f;
             accel = 0.2f;
             drag = 0.05f;
@@ -472,16 +472,17 @@ public class HPLUnits {
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         bullet = new ModEmpBulletType() {{
-                            lifetime = 45;
+                            lifetime = 40;
                             hitSize = 5;
-                            speed = 4.5f;
+                            speed = 5f;
                             damage = 40;
                             powerDamageScl = 0.2f;
                             powerSclDecrease = 0.1f;
-                            statusDuration = 0.9f * Time.toSeconds;
+                            statusDuration = 2f * Time.toSeconds;
                             status = HPLStatusEffects.weakness;
                             pierce = true;
                             pierceCap = 2;
+                            trailEffect = HPLFx.unmakerBulletTrail;
                             radius = 5 * tilesize;
                             chainEffect = Fx.none;
                             timeDuration = 60f * 4f;
@@ -567,7 +568,7 @@ public class HPLUnits {
             useEngineElevation = false;
             flying = false;
             drag = 0.07f;
-            speed = 1.65f;
+            speed = 1.4f;
             rotateSpeed = 16f;
             accel = 0.1f;
             itemCapacity = 20;
