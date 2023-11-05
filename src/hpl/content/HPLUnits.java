@@ -576,6 +576,7 @@ public class HPLUnits {
             hitSize = 7f;
             outlineColor = HPLPal.aureliaOutline;
 
+            researchCostMultiplier = 0f;
             shadowElevation = 0.1f;
             hover = true;
             rotors.add(
@@ -597,7 +598,7 @@ public class HPLUnits {
                 alternate = true;
                 shootY = 1.7f;
                 shootSound = Sounds.shootAlt;
-                bullet = new BasicBulletType(6f, 13) {{
+                bullet = new BasicBulletType(6f, 15) {{
                     sprite = "hpl-grenade";
                     backColor = HPLPal.droneBulletBack;
                     frontColor = HPLPal.droneBullet;
