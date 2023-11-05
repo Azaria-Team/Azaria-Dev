@@ -2,13 +2,20 @@ package hpl;
 //SEX!
 import arc.Core;
 import arc.Events;
+import arc.scene.ui.ImageButton;
+import arc.scene.ui.layout.Table;
+import arc.scene.ui.layout.WidgetGroup;
 import arc.util.Log;
 import arc.util.Time;
 import hpl.content.blocks.HPLCoreRelatedBlocks;
 import hpl.utils.ManyPlanetSystems;
 import hpl.utils.Utils;
+import mindustry.Vars;
 import mindustry.game.EventType;
+import mindustry.game.Team;
+import mindustry.gen.Tex;
 import mindustry.mod.*;
+import mindustry.ui.Styles;
 import mindustry.ui.dialogs.BaseDialog;
 import hpl.content.*;
 
@@ -66,6 +73,27 @@ public class HPL extends Mod{
         super.init();
         ManyPlanetSystems.init();
         HPLTeam.load();
+        Vars.ui.editor.shown(this::addEditorTeams);
+    }
+    public void addEditorTeams() {
+        WidgetGroup teambuttons = (WidgetGroup) Vars.ui.editor.getChildren().get(0);
+        teambuttons = (WidgetGroup)teambuttons.getChildren().get(0);
+        teambuttons = (WidgetGroup)teambuttons.getChildren().get(0);
+
+        ((Table)teambuttons).row();
+
+        for (int i = 69; i <= 70; i++) {
+            Team team = Team.get(i);
+
+            ImageButton button = new ImageButton(Tex.whiteui, Styles.clearNoneTogglei);
+            button.margin(4f);
+            button.getImageCell().grow();
+            button.getStyle().imageUpColor = team.color;
+            button.clicked(() -> Vars.editor.drawTeam = team);
+            button.update(() -> button.setChecked(Vars.editor.drawTeam == team));
+
+            ((Table)teambuttons).add(button);
+        }
     }
 
     public HPL(){
