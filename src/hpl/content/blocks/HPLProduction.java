@@ -21,9 +21,9 @@ public class HPLProduction {
         //TODO
         crasideBrewer = new GenericCrafter("craside-brewer") {{
             requirements(Category.crafting, with(HPLItems.fors, 60, HPLItems.khylid, 35));
-            outputItem = new ItemStack(HPLItems.craside, 1);
+            outputItem = new ItemStack(HPLItems.craside, 2);
             consumeItems(with(HPLItems.khylid, 1, HPLItems.volcanicSerrid, 1));
-            craftTime = 65f;
+            craftTime = 60f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             size = 3;
