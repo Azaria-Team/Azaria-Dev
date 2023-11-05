@@ -8,6 +8,10 @@ import mindustry.content.*;
 import mindustry.graphics.g3d.*;
 import mindustry.type.*;
 
+import static hpl.content.HPLItems.aurionaItems;
+import static mindustry.content.Planets.erekir;
+import static mindustry.content.Planets.serpulo;
+
 public class HPLPlanets {
     public static Planet aStar, bStar, auriona;
 
@@ -81,7 +85,12 @@ public class HPLPlanets {
             clearSectorOnLose = true;
             alwaysUnlocked = true;
             landCloudColor = Color.valueOf("24b95a");
-            hiddenItems.addAll(Items.serpuloItems).addAll(Items.erekirItems).addAll(Items.erekirOnlyItems).removeAll(HPLItems.aurionaItems);
+            serpulo.hiddenItems.addAll(aurionaItems).removeAll(Items.serpuloItems);
+            erekir.hiddenItems.addAll(aurionaItems).removeAll(Items.erekirItems);
+            itemWhitelist = aurionaItems;
+           // hiddenItems.addAll(Items.erekirItems).removeAll(aurionaItems);
+          //  hiddenItems.addAll(Items.serpuloItems).removeAll(aurionaItems);
+            //hiddenItems.addAll(Items.serpuloItems).addAll(Items.erekirItems).addAll(Items.erekirOnlyItems).removeAll(aurionaItems);
             ruleSetter = r -> {
                 r.waveTeam = HPLTeam.testteam;
                 r.placeRangeCheck = false;

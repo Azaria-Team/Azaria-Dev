@@ -23,6 +23,7 @@ import hpl.content.blocks.HPLEnvironment;
 import hpl.world.blocks.environment.ModOverlayFloor;
 import mindustry.ai.Astar;
 import mindustry.content.Blocks;
+import mindustry.game.Schematics;
 import mindustry.game.Waves;
 import mindustry.graphics.g3d.PlanetGrid;
 import mindustry.maps.generators.BaseGenerator;
@@ -45,7 +46,7 @@ import static hpl.content.blocks.HPLEnvironment.*;
 public class AurionaPlanetGenerator extends PlanetGenerator {
     public static boolean alt = false;
 
-    BaseGenerator basegen = new BaseGenerator();
+    //BaseGenerator basegen = new BaseGenerator();
     float scl = 5f;
     float waterOffset = 0.07f;
     boolean genLakes = false;
@@ -715,12 +716,21 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
         }
         */
 
+        for(Tile tile : tiles){
+            if(tile.overlay().needsSurface && !tile.floor().hasSurface()){
+                tile.setOverlay(Blocks.air);
+            }
+        }
+        state.rules.placeRangeCheck = true;
+
         decoration(0.017f);
+        Schematics.placeLaunchLoadout(spawnX, spawnY);
 
         state.rules.env = sector.planet.defaultEnv;
-        state.rules.enemyCoreBuildRadius = 600f;
+        //state.rules.enemyCoreBuildRadius = 600f;
     }
 
+    /*
     @Override
     public void postGenerate(Tiles tiles){
         if(sector.hasEnemyBase()){
@@ -732,4 +742,6 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
             }
         }
     }
+
+     */
 }
