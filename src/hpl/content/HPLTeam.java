@@ -17,7 +17,7 @@ public class HPLTeam {
     public static Team testteam;
 
     public static void load() {
-        testteam = newTeam(7, "test-team", Color.valueOf("68FFF8"));
+        testteam = newTeam(7, "auriona", Color.valueOf("68FFF8"));
     }
 
     private static Team newTeam(int id, String name, Color color) {

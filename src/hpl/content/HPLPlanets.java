@@ -72,17 +72,17 @@ public class HPLPlanets {
             allowSectorInvasion = true;
             allowLaunchSchematics = true;
             enemyCoreSpawnReplace = true;
-            allowLaunchLoadout = true;
             iconColor = Color.valueOf("24b95a");
             atmosphereColor = Color.valueOf("24b95a");
-			defaultCore = HPLCoreRelatedBlocks.complexSurprise;
+			defaultCore = HPLBlocks.coreLegion;
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
             startSector = 15;
             orbitRadius = 60f;
+            clearSectorOnLose = true;
             alwaysUnlocked = true;
             landCloudColor = Color.valueOf("24b95a");
-            hiddenItems.addAll(Items.erekirItems).addAll(Items.serpuloItems).removeAll(HPLItems.aurionaItems);
+            hiddenItems.addAll(Items.serpuloItems).addAll(Items.erekirItems).addAll(Items.erekirOnlyItems).removeAll(HPLItems.aurionaItems);
             ruleSetter = r -> {
                 r.waveTeam = HPLTeam.testteam;
                 r.placeRangeCheck = false;
@@ -91,6 +91,7 @@ public class HPLPlanets {
                 r.staticFog = true;
                 r.lighting = true;
                 r.coreDestroyClear = true;
+                r.onlyDepositCore = true;
             };
         }};
     }

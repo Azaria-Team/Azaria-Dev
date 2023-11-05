@@ -24,7 +24,7 @@ public class HPL extends Mod{
         if(!mobile) {
 
             BaseDialog dialog = new BaseDialog("Project HPL") {
-                private float leave = 3f * 60;
+                private float leave = 4f * 60;
                 private boolean canClose = false;
 
                 {
@@ -44,7 +44,7 @@ public class HPL extends Mod{
                     }).center();
                     buttons.button("", this::hide).update(b -> {
                         b.setDisabled(!canClose);
-                        b.setText(canClose ? text("m-got-it ") : "[accent]" + Math.floor(leave / 60) + text("m-seconds"));
+                        b.setText(canClose ? text("m-got-it") : "[accent]" + Math.floor(leave / 60) + text("m-seconds"));
                     }).size(150f, 50f).center();
                 }
             };

@@ -45,7 +45,7 @@ public class HPLPower {
             lightningRange = 5 * 8f;
             laserRange = 7;
             thresholdPerTile = 0.1f / 8f;
-            buildCostMultiplier = 8f;
+            //buildCostMultiplier = 8f;
         }};
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
