@@ -75,35 +75,32 @@ public class HPLTechTree {
             //endregion liquid
             //region power
             node(plasmaNode, () -> {
+                node(thermalEvaporator, () -> {
+                    node(oxyliteTurbine, Seq.with(new Objectives.OnSector(theOutskirts), new Objectives.Research(impulsePump)), () -> {
+
+                    });
+                });
                 node(plasmaDistributor, () -> {
 
                 });
             });
 
-            node(thermalEvaporator, () -> {
-                node(thermalEvaporator, Seq.with(new Objectives.OnSector(theOutskirts), new Objectives.Research(impulsePump)), () -> {
 
-                });
-            });
             //endregion power
             //region defense
-            node(forsWall, () -> {
-                node(forsWallLarge, () -> {
-
-                });
-            });
-            //endregion defense
-            //region turrets
             node(forceTurret, () -> {
+                node(forsWall, () -> {
+                    node(forsWallLarge, () -> {
+
+                    });
+                });
                 node(hornTurret, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
 
                 });
             });
-
             node(repairTurret, Seq.with(new Objectives.SectorComplete(caveEntrance)), () -> {
-
             });
-            //endregion turrets
+            //endregion defense
             //endregion blocks
             //region units
             node(vectorFabricator, Seq.with(new Objectives.OnSector(seaOutpost)), () -> {

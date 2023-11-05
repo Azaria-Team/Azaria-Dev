@@ -71,9 +71,9 @@ public class HPLPlanets {
             orbitSpacing = 10;
 
             allowLaunchToNumbered = false;
-            // allowWaves = true;
-           // allowWaveSimulation = true;
-            // allowSectorInvasion = true;
+            allowWaves = true;
+            allowWaveSimulation = true;
+            allowSectorInvasion = true;
             allowLaunchSchematics = false;
             iconColor = Color.valueOf("24b95a");
             atmosphereColor = Color.valueOf("24b95a");
