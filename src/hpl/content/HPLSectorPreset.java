@@ -20,7 +20,7 @@ public class HPLSectorPreset {
             alwaysUnlocked = false;
             difficulty = 2;
             captureWave = 15;
-            startWaveTimeMultiplier = 2.75f;
+            startWaveTimeMultiplier = 3.2f;
         }};
 
         seaOutpost = new SectorPreset("sea-outpost", auriona, 200) {{
@@ -32,6 +32,7 @@ public class HPLSectorPreset {
             alwaysUnlocked = false;
             difficulty = 3;
             captureWave = 20;
+            startWaveTimeMultiplier = 2f;
         }};
     }
 }

@@ -78,18 +78,17 @@ public class HPLDrills {
         }};
         waveDrill = new HPLBurstDrill("wave-drill"){{
             requirements(Category.production, with(HPLItems.fors, 35, HPLItems.craside, 15));
-            drillTime = 60f * 10f;
+            drillTime = 60f * 5f;
             size = 3;
             hasPower = true;
             tier = 3;
             //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
             shake = 3f;
             itemCapacity = 20;
-            researchCost = with(HPLItems.fors, 5);
+            researchCost = with(HPLItems.fors, 50);
 
             fogRadius = 4;
-            researchCostMultiplier = 0.9f;
-            consumePower(5f / 60f);
+            consumePower(15f / 60f);
             drawer = new DrawMulti(
                     new DrawDefault(),
                     new DrawDrillPart(11f / 4f){{
