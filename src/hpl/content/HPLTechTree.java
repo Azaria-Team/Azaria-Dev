@@ -22,7 +22,7 @@ import static hpl.content.HPLUnits.*;
 public class HPLTechTree {
 
     public static void load(){
-        HPLPlanets.auriona.techTree = nodeRoot("auriona", coreLegion, () -> {
+        HPLPlanets.auriona.techTree = nodeRoot("Auriona", coreLegion, () -> {
             //region distribution
             node(impulseConveyor, () -> {
                 node(impulseJunction, () -> {

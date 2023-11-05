@@ -67,11 +67,10 @@ public class HPLPlanets {
             orbitSpacing = 10;
 
             allowLaunchToNumbered = false;
-            allowWaves = true;
-            allowWaveSimulation = true;
-            allowSectorInvasion = true;
-            allowLaunchSchematics = true;
-            enemyCoreSpawnReplace = true;
+            // allowWaves = true;
+           // allowWaveSimulation = true;
+            // allowSectorInvasion = true;
+            allowLaunchSchematics = false;
             iconColor = Color.valueOf("24b95a");
             atmosphereColor = Color.valueOf("24b95a");
 			defaultCore = HPLCoreRelatedBlocks.coreLegion;
@@ -92,6 +91,7 @@ public class HPLPlanets {
                 r.lighting = true;
                 r.coreDestroyClear = true;
                 r.onlyDepositCore = true;
+                unlockedOnLand.add(HPLCoreRelatedBlocks.coreLegion);
             };
         }};
     }

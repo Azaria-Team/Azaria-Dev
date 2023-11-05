@@ -17,16 +17,19 @@ public class HPLSectorPreset {
         }};
 
         caveEntrance = new SectorPreset("cave-entrance", auriona, 220) {{
+            alwaysUnlocked = false;
             difficulty = 2;
             captureWave = 15;
             startWaveTimeMultiplier = 2.75f;
         }};
 
         seaOutpost = new SectorPreset("sea-outpost", auriona, 200) {{
+            alwaysUnlocked = false;
             difficulty = 3;
         }};
 
         theOutskirts = new SectorPreset("the-outskirts", auriona, 68) {{
+            alwaysUnlocked = false;
             difficulty = 3;
             captureWave = 20;
         }};
