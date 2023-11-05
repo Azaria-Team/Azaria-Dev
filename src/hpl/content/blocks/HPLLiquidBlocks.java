@@ -19,6 +19,7 @@ public class HPLLiquidBlocks {
             squareSprite = false;
             pumpAmount = 10f / 60f;
             liquidCapacity = 140f;
+            researchCostMultiplier = 0.3f;
             size = 2;
             consumePower(1.5f / 3f);
         }};
@@ -47,7 +48,7 @@ public class HPLLiquidBlocks {
             requirements(Category.liquid, with(HPLItems.fors, 3, HPLItems.ferbium, 8));
             range = 5;
             hasPower = false;
-            researchCostMultiplier = 1;
+            researchCostMultiplier = 3;
             underBullets = true;
             arrowSpacing = 6f;
 
@@ -68,7 +69,7 @@ public class HPLLiquidBlocks {
             liquidCapacity = 3545f;
             size = 2;
             liquidPadding = 1.0f;
-            researchCostMultiplier = 2;
+            researchCostMultiplier = 3;
             underBullets = true;
         }};
     }

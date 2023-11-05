@@ -88,7 +88,7 @@ public class HPLDrills {
             researchCost = with(HPLItems.fors, 5);
 
             fogRadius = 4;
-
+            researchCostMultiplier = 0.9f;
             consumePower(5f / 60f);
             drawer = new DrawMulti(
                     new DrawDefault(),

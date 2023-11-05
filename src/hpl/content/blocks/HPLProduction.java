@@ -29,6 +29,7 @@ public class HPLProduction {
             size = 3;
             craftEffect = HPLFx.crasideBrewerSmoke;
             consumePower(1f);
+            researchCostMultiplier = 0.2f;
             squareSprite = false;
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"){{

@@ -35,6 +35,7 @@ public class HPLUnitRelatedBlocks {
             researchCost = with(HPLItems.fors, 220, HPLItems.craside, 80);
             regionSuffix = "-hpl";
             fogRadius = 3;
+            researchCostMultiplier = 0.2f;
             consumePower(2f);
         }};
         unmakerFabricator = new UnitFactory("unmaker-fabricator") {{

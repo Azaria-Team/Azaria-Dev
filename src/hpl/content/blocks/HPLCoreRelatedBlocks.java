@@ -38,6 +38,7 @@ public class HPLCoreRelatedBlocks {
             itemCapacity = 100;
             scaledHealth = 80;
             squareSprite = false;
+            researchCostMultiplier = 0.7f;
         }};
         complexSurprise = new NavalMine("complex-surprise") {{
             size = 2;
@@ -58,6 +59,7 @@ public class HPLCoreRelatedBlocks {
             beamWidth = 1f;
             powerUse = 1f;
             size= 2;
+            researchCostMultiplier = 0.9f;
         }};
     }
 }
