@@ -99,7 +99,7 @@ public class HPLPlanets {
                 r.staticFog = true;
                 r.lighting = true;
                 r.coreDestroyClear = true;
-                r.onlyDepositCore = true;
+                r.onlyDepositCore = false;
                 unlockedOnLand.add(HPLCoreRelatedBlocks.coreLegion);
             };
         }};
