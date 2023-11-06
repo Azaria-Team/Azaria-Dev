@@ -10,17 +10,19 @@ import static mindustry.type.ItemStack.with;
 
 public class HPLDistribution {
     public static Block
-    impulseConveyor, impulseRouter, impulseSorter, impulseGate, impulseJunction, impulseBridge;
+            hardenedConveyor, hardenedJunction, hardenedRouter, hardenedBridgeConveyor,
+            impulseSorter, impulseGate;
+
     public static void load() {
-        impulseConveyor = new ModDuct("impulse-conveyor") {{
+        hardenedConveyor = new ModDuct("impulse-conveyor") {{
             requirements(Category.distribution, with(HPLItems.fors, 1));
             health = 130;
             speed = 5f;
             researchCost = with(HPLItems.fors, 5);
-            junctionReplacement = HPLDistribution.impulseJunction;
-            bridgeReplacement = HPLDistribution.impulseBridge;
+            junctionReplacement = HPLDistribution.hardenedJunction;
+            bridgeReplacement = HPLDistribution.hardenedBridgeConveyor;
         }};
-        impulseJunction = new Junction("impulse-junction") {{
+        hardenedJunction = new Junction("impulse-junction") {{
             requirements(Category.distribution, with(HPLItems.fors, 2));
             researchCost = with(HPLItems.fors, 10);
             speed = 6;
@@ -29,7 +31,7 @@ public class HPLDistribution {
             buildCostMultiplier = 6f;
             squareSprite = false;
         }};
-        impulseRouter = new Router("impulse-router") {{
+        hardenedRouter = new Router("impulse-router") {{
             requirements(Category.distribution, with(HPLItems.fors, 3));
             researchCost = with(HPLItems.fors, 15);
             speed = 16;
@@ -42,7 +44,7 @@ public class HPLDistribution {
             requirements(Category.distribution, with(HPLItems.fors, 6));
             buildCostMultiplier = 3f;
         }};
-        impulseBridge = new DuctBridge("impulse-bridge"){{
+        hardenedBridgeConveyor = new DuctBridge("impulse-bridge"){{
             requirements(Category.distribution, with(HPLItems.fors, 10));
             researchCost = with(HPLItems.fors, 20);
             health = 90;

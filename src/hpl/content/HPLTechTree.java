@@ -24,13 +24,13 @@ public class HPLTechTree {
     public static void load(){
         HPLPlanets.auriona.techTree = nodeRoot("Auriona", coreLegion, () -> {
             //region distribution
-            node(impulseConveyor, () -> {
-                node(impulseJunction, () -> {
-                    node(impulseRouter, () -> {
+            node(hardenedConveyor, () -> {
+                node(hardenedJunction, () -> {
+                    node(hardenedRouter, () -> {
                     });
 
                 });
-                node(impulseBridge, () -> {
+                node(hardenedBridgeConveyor, () -> {
                 });
                 node(impulseSorter, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
                     node(impulseGate, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {

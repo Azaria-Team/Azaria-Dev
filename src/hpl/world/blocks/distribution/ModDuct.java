@@ -24,8 +24,8 @@ public class ModDuct extends Duct {
     public void init(){
         super.init();
 
-        if(junctionReplacement == null) junctionReplacement = hpl.content.blocks.HPLDistribution.impulseJunction;
-        if(bridgeReplacement == null || !(bridgeReplacement instanceof DuctBridge)) bridgeReplacement = HPLDistribution.impulseBridge;
+        if(junctionReplacement == null) junctionReplacement = hpl.content.blocks.HPLDistribution.hardenedJunction;
+        if(bridgeReplacement == null || !(bridgeReplacement instanceof DuctBridge)) bridgeReplacement = HPLDistribution.hardenedBridgeConveyor;
     }
 
     @Override
