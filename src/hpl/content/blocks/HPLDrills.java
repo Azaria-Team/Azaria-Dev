@@ -62,7 +62,6 @@ public class HPLDrills {
             craftTime = 160;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
-            consumePower(0.5f);
             displayEfficiency = false;
             size = 2;
             drawer = new DrawMulti(
