@@ -72,28 +72,6 @@ public class HPL extends Mod{
     public void init() {
         super.init();
         ManyPlanetSystems.init();
-        HPLTeam.load();
-        Vars.ui.editor.shown(this::addEditorTeams);
-    }
-    public void addEditorTeams() {
-        WidgetGroup teambuttons = (WidgetGroup) Vars.ui.editor.getChildren().get(0);
-        teambuttons = (WidgetGroup)teambuttons.getChildren().get(0);
-        teambuttons = (WidgetGroup)teambuttons.getChildren().get(0);
-
-        ((Table)teambuttons).row();
-
-        for (int i = 69; i <= 70; i++) {
-            Team team = Team.get(i);
-
-            ImageButton button = new ImageButton(Tex.whiteui, Styles.clearNoneTogglei);
-            button.margin(4f);
-            button.getImageCell().grow();
-            button.getStyle().imageUpColor = team.color;
-            button.clicked(() -> Vars.editor.drawTeam = team);
-            button.update(() -> button.setChecked(Vars.editor.drawTeam == team));
-
-            ((Table)teambuttons).add(button);
-        }
     }
 
     public HPL(){
