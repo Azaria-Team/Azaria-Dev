@@ -14,7 +14,7 @@ public class HPLDistribution {
             impulseSorter, impulseGate;
 
     public static void load() {
-        hardenedConveyor = new ModDuct("impulse-conveyor") {{
+        hardenedConveyor = new ModDuct("hardened-conveyor") {{
             requirements(Category.distribution, with(HPLItems.fors, 1));
             health = 130;
             speed = 5f;
@@ -22,7 +22,7 @@ public class HPLDistribution {
             junctionReplacement = HPLDistribution.hardenedJunction;
             bridgeReplacement = HPLDistribution.hardenedBridgeConveyor;
         }};
-        hardenedJunction = new Junction("impulse-junction") {{
+        hardenedJunction = new Junction("hardened-junction") {{
             requirements(Category.distribution, with(HPLItems.fors, 2));
             researchCost = with(HPLItems.fors, 10);
             speed = 6;
@@ -31,7 +31,7 @@ public class HPLDistribution {
             buildCostMultiplier = 6f;
             squareSprite = false;
         }};
-        hardenedRouter = new Router("impulse-router") {{
+        hardenedRouter = new Router("hardened-router") {{
             requirements(Category.distribution, with(HPLItems.fors, 3));
             researchCost = with(HPLItems.fors, 15);
             speed = 16;
@@ -44,7 +44,7 @@ public class HPLDistribution {
             requirements(Category.distribution, with(HPLItems.fors, 6));
             buildCostMultiplier = 3f;
         }};
-        hardenedBridgeConveyor = new DuctBridge("impulse-bridge"){{
+        hardenedBridgeConveyor = new DuctBridge("impulse-bridge-conveyor"){{
             requirements(Category.distribution, with(HPLItems.fors, 10));
             researchCost = with(HPLItems.fors, 20);
             health = 90;
