@@ -433,7 +433,6 @@ public class HPLUnits {
                         bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 25f;
                             sprite = "hpl-dagbul";
-                            statusDuration = 1f * Time.toSeconds;
                             status = HPLStatusEffects.weakness;
                             width = 10f;
                             height = 12f;
@@ -545,7 +544,6 @@ public class HPLUnits {
                         bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 20f;
                             sprite = "hpl-dagbul";
-                            statusDuration = 0.99f * Time.toSeconds;
                             status = HPLStatusEffects.decomposition;
                             width = 9f;
                             height = 11f;

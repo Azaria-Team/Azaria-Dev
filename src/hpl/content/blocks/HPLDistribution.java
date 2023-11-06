@@ -44,7 +44,7 @@ public class HPLDistribution {
             requirements(Category.distribution, with(HPLItems.fors, 6));
             buildCostMultiplier = 3f;
         }};
-        hardenedBridgeConveyor = new DuctBridge("impulse-bridge-conveyor"){{
+        hardenedBridgeConveyor = new DuctBridge("hardened-bridge-conveyor"){{
             requirements(Category.distribution, with(HPLItems.fors, 10));
             researchCost = with(HPLItems.fors, 20);
             health = 90;
