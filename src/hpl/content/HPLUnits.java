@@ -545,6 +545,7 @@ public class HPLUnits {
                             lifetime = 20f;
                             sprite = "hpl-dagbul";
                             status = HPLStatusEffects.decomposition;
+                            statusDuration = 20f * Time.toSeconds;
                             width = 9f;
                             height = 11f;
                             shrinkX = 0;
