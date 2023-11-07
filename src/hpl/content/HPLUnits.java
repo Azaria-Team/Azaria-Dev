@@ -34,6 +34,7 @@ import mindustry.type.unit.MissileUnitType;
 import mindustry.world.Block;
 import mindustry.world.meta.BlockFlag;
 
+import static mindustry.Vars.content;
 import static mindustry.Vars.tilesize;
 
 public class HPLUnits {
@@ -512,6 +513,7 @@ public class HPLUnits {
 
         }};
         dragonfly = new StriCopterUnitType("dragonfly") {{
+
             flying = true;
 
             speed = 4.5f;
