@@ -58,7 +58,7 @@ public class AZDrills {
         }};
 
         pumpDrill = new AttributeCrafter("pump-drill") {{
-            researchCost = with(Category.production, AZItems.fors, 35);
+            requirements = with(Category.production, AZItems.fors, 35);
             researchCost = with(AZItems.fors, 50);
 
             attribute = AZAttribute.khylidattr;
