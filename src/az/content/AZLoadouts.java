@@ -12,7 +12,7 @@ public class AZLoadouts {
 
     public static void load(){
        // basicLegion = Schematics.readBase64("bXNjaAF4nGNgZmBmZmDJS8xNZeBOSizOTPZJTc/Mz2PgTkktTi7KLCgBcRgY2HISk1JzihmYomMZGfgzCnJ0k/OLUnVzIIoZGBhBiJGBGQBPIhPX");
-        basicLegion = loadSchem("hpl-coreLegion");
+        basicLegion = loadSchem("az-coreLegion");
     }
 
         private static Schematic loadSchem(String name) {

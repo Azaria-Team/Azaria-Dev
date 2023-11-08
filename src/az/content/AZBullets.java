@@ -21,7 +21,7 @@ public class AZBullets {
             despawnEffect = hitEffect = Fx.none;
         }};
         forceBullet = new BasicBulletType(6f, 60f){{
-           sprite = "hpl-dagger-missile";
+           sprite = "az-dagger-missile";
            trailInterval = 0.5f;
            trailEffect = AZFx.forceBulletTrail;
            hitEffect = AZFx.forceBulletHit;
