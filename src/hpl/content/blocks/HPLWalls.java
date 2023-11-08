@@ -16,20 +16,24 @@ public class HPLWalls {
         forsWall = new Wall("fors-wall") {{
             requirements(Category.defense, with(HPLItems.fors, 6));
             researchCost = with(HPLItems.fors, 100);
-            health = 160 * 4;
+
+            health = 420;
             armor = 3f;
             buildCostMultiplier = 6f;
         }};
 
         forsWallLarge = new Wall("fors-wall-large") {{
             requirements (Category.defense, with(HPLItems.fors, 24));
-            researchCost = with(HPLItems.fors, 450);
-            health = 160 * 16;
+            researchCost = with(HPLItems.fors, 400);
+
+            health = forsWall.health * 4;
             size = 2;
             armor = 3f;
+
             buildCostMultiplier = 6f;
         }};
 
+        //later
         compositeWall = new Wall("composite-wall") {{
             requirements (Category.defense, with(HPLItems.craside, 4, HPLItems.khylid, 2));
             health = 800;

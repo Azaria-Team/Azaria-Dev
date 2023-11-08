@@ -23,23 +23,28 @@ import static mindustry.type.ItemStack.with;
 
 public class HPLDrills {
     public static Block
-    forsDrill, pumpDrill, waveDrill, oreDetector;
+            forsDrill, pumpDrill,
+            waveDrill, oreDetector;
     public static void load() {
+
+        //sec1
         forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(HPLItems.fors, 20));
-            researchCost = with(HPLItems.fors, 5);
+            researchCost = with(Category.production, HPLItems.fors, 25);
+
             attribute = HPLAttribute.forsattr;
+            outputItem = new ItemStack(HPLItems.fors, 4);
+            ambientSound = Sounds.hum;
+
+            health = 280;
+            size = 2;
+            craftTime = 240f;
+
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
-            outputItem = new ItemStack(HPLItems.fors, 4);
-            craftTime = 240f;
-            ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
-            displayEfficiency = false;
-            size = 2;
             craftEffect = HPLFx.forsDrillEffect;
-            squareSprite = false;
             drawer = new DrawMulti(
                     new DrawRegion(),
                     new DrawGlowRegion() {{
@@ -49,21 +54,27 @@ public class HPLDrills {
                         glowScale = 11f;
                     }}
             );
+            squareSprite = false;
+            displayEfficiency = false;
         }};
+
         pumpDrill = new AttributeCrafter("pump-drill") {{
-            requirements(Category.production, with(HPLItems.fors, 40));
-            researchCost = with(HPLItems.fors, 7);
+            researchCost = with(Category.production, HPLItems.fors, 35);
+            researchCost = with(HPLItems.fors, 50);
+
             attribute = HPLAttribute.khylidattr;
             group = BlockGroup.liquids;
+            outputItem = new ItemStack(HPLItems.khylid, 4);
+            ambientSound = Sounds.hum;
+
+            health = 280;
+            size = 2;
+            craftTime = 160;
+
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
-            outputItem = new ItemStack(HPLItems.khylid, 4);
-            craftTime = 160;
-            ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
-            displayEfficiency = false;
-            size = 2;
             drawer = new DrawMulti(
                     new DrawRegion(),
                     new DrawGlowRegion() {{
@@ -74,7 +85,10 @@ public class HPLDrills {
                     }}
             );
             squareSprite = false;
+            displayEfficiency = false;
         }};
+
+        //later
         waveDrill = new HPLBurstDrill("wave-drill"){{
             requirements(Category.production, with(HPLItems.fors, 35, HPLItems.craside, 15));
             drillTime = 60f * 5f;
