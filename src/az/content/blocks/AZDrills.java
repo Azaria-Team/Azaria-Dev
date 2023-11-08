@@ -23,23 +23,27 @@ import static mindustry.type.ItemStack.with;
 
 public class AZDrills {
     public static Block
-    forsDrill, pumpDrill, waveDrill, oreDetector;
+            forsDrill, pumpDrill,
+            waveDrill, oreDetector;
     public static void load() {
+        //sec1
         forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(AZItems.fors, 20));
-            researchCost = with(AZItems.fors, 5);
+            researchCost = with(Category.production, AZItems.fors, 25);
+
             attribute = AZAttribute.forsattr;
+            outputItem = new ItemStack(AZItems.fors, 4);
+            ambientSound = Sounds.hum;
+
+            health = 280;
+            size = 2;
+            craftTime = 240f;
+
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
-            outputItem = new ItemStack(AZItems.fors, 4);
-            craftTime = 240f;
-            ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
-            displayEfficiency = false;
-            size = 2;
             craftEffect = AZFx.forsDrillEffect;
-            squareSprite = false;
             drawer = new DrawMulti(
                     new DrawRegion(),
                     new DrawGlowRegion() {{
@@ -49,21 +53,27 @@ public class AZDrills {
                         glowScale = 11f;
                     }}
             );
+            squareSprite = false;
+            displayEfficiency = false;
         }};
+
         pumpDrill = new AttributeCrafter("pump-drill") {{
-            requirements(Category.production, with(AZItems.fors, 40));
-            researchCost = with(AZItems.fors, 7);
+            researchCost = with(Category.production, AZItems.fors, 35);
+            researchCost = with(AZItems.fors, 50);
+
             attribute = AZAttribute.khylidattr;
             group = BlockGroup.liquids;
+            outputItem = new ItemStack(AZItems.khylid, 4);
+            ambientSound = Sounds.hum;
+
+            health = 280;
+            size = 2;
+            craftTime = 160;
+
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
-            outputItem = new ItemStack(AZItems.khylid, 4);
-            craftTime = 160;
-            ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
-            displayEfficiency = false;
-            size = 2;
             drawer = new DrawMulti(
                     new DrawRegion(),
                     new DrawGlowRegion() {{
@@ -74,7 +84,10 @@ public class AZDrills {
                     }}
             );
             squareSprite = false;
+            displayEfficiency = false;
         }};
+
+        //later
         waveDrill = new HPLBurstDrill("wave-drill"){{
             requirements(Category.production, with(AZItems.fors, 35, AZItems.craside, 15));
             drillTime = 60f * 5f;
