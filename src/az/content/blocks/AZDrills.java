@@ -29,7 +29,7 @@ public class AZDrills {
         //sec1
         forsDrill = new AttributeCrafter("fors-block") {{
             requirements(Category.production, with(AZItems.fors, 20));
-            researchCost = with(Category.production, AZItems.fors, 25);
+            researchCost = with( AZItems.fors, 25);
 
             attribute = AZAttribute.forsattr;
             outputItem = new ItemStack(AZItems.fors, 4);

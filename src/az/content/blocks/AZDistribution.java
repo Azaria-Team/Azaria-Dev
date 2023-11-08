@@ -17,7 +17,7 @@ public class AZDistribution {
         //sec1
         hardenedConveyor = new ModDuct("hardened-conveyor") {{
             requirements(Category.distribution, with(AZItems.fors, 1));
-            researchCost = with(Category.distribution, AZItems.fors, 5);
+            researchCost = with(AZItems.fors, 5);
 
             health = 210;
             speed = 5f;
