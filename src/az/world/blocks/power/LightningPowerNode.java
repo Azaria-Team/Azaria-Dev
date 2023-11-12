@@ -150,7 +150,7 @@ public class LightningPowerNode extends PowerNode {
                 }
                 nodes.clear();
             }
-            Log.warn(debugSb.toString());
+            //Log.warn(debugSb.toString());
         }
 
         @Override
