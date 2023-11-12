@@ -56,7 +56,7 @@ public class AZPlanets {
             );
         }};
 
-        auriona = new Planet("auriona", aStar, 1.2f, 3){{
+        auriona = new Planet("auriona", aStar, 1.2f, 4){{
             generator = new AurionaPlanetGenerator();
             meshLoader = () -> new HexMesh(this, 7);
             cloudMeshLoader = () -> new MultiMesh( // 81ffd7 old color > 5de7a3
