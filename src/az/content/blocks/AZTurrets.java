@@ -155,12 +155,13 @@ public class AZTurrets {
             recoil = 2f;
             range = 24 * Vars.tilesize;
             shootCone = 10f;
-            rotateSpeed = 4f;
+            rotateSpeed = 3f;
 
             shootSound = Sounds.cannon;
             squareSprite = false;
             itemCapacity = 20;
             coolantMultiplier = 2f;
+            consumePower(1f);
             ammo(AZItems.superdenseAlloy, AZBullets.antiMissileBullet);
         }};
 

@@ -76,12 +76,15 @@ public class AZBullets {
         antiMissileBullet = new AntiMissileBulletType(6f, 60f, 10 * Vars.tilesize){{
             sprite = "az-dagger-missile";
             shrinkX = shrinkY = 0f;
+            speed = 6;
+            damage = 60;
             width = 8f;
             height = 12f;
             lifetime = 35;
             collidesGround = true;
             collidesAir = true;
             hitSize = 3;
+            homingPower = 0.3f;
 
             hitEffect = AZFx.hitExplosion;
             despawnEffect = AZFx.explosionSmall2;

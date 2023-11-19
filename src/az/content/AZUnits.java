@@ -150,14 +150,14 @@ public class AZUnits {
                                 outlineColor = AZPal.aureliaOutline;
                                 health = 25;
                                 lowAltitude = true;
-                                hitSize = 2.5f;
+                                hitSize = 2f;
 
                                 weapons.add(new Weapon(){{
                                     shootCone = 360f;
                                     mirror = false;
                                     reload = 1f;
                                     shootOnDeath = true;
-                                    bullet = new ExplosionBulletType(95f, 35f){{
+                                    bullet = new ExplosionBulletType(95f, 3f * tilesize){{
                                         shootEffect = Fx.massiveExplosion;
                                         buildingDamageMultiplier = 0.5f;
                                     }};
