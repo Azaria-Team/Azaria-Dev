@@ -50,7 +50,7 @@ public class AirDefenceTurret extends ItemTurret {
         @Override
         public void updateTile() {
             super.updateTile();
-            if(power.status < 0.01f) return;
+            //if(power.status < 0.01f) return;
             if(target != null) reRot = 0;
             if(target == null && (reRot += Time.delta) > 60) rotation += Time.delta * loadSpeed * power.status;
         }
