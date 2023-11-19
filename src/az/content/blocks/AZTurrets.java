@@ -5,6 +5,7 @@ import az.content.AZFx;
 import az.content.AZItems;
 import az.content.AZLiquids;
 import az.graphics.AZPal;
+import az.world.blocks.defense.turret.AirDefenceTurret;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.part.RegionPart;
@@ -23,7 +24,7 @@ public class AZTurrets {
     
     public static Block
     forceTurret, hornTurret,
-    raze;
+    antiAirTurret, raze;
 
     public static void load() {
         forceTurret = new ItemTurret("force"){{
@@ -139,6 +140,31 @@ public class AZTurrets {
                         }});
             }};
         }};
+
+        antiAirTurret = new AirDefenceTurret("anti-air") {{
+            size = 3;
+            requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
+            health = 700;
+            shootEffect = AZFx.shootForce;
+            smokeEffect = AZFx.shootSmokeForce;
+            reload = 70f;
+            inaccuracy = 2f;
+            shake = 2f;
+            shootY = -2;
+            outlineColor = AZPal.aureliaOutline;
+            recoil = 2f;
+            range = 24 * Vars.tilesize;
+            shootCone = 10f;
+            rotateSpeed = 4f;
+
+            shootSound = Sounds.cannon;
+            squareSprite = false;
+            itemCapacity = 20;
+            coolantMultiplier = 2f;
+            ammo(AZItems.superdenseAlloy, AZBullets.antiMissileBullet);
+        }};
+
+
 /*
         raze = new PowerTurret("raze") {{
             size = 3;

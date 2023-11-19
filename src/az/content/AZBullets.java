@@ -1,7 +1,9 @@
 package az.content;
 
 import arc.math.Interp;
+import az.entities.bullets.AntiMissileBulletType;
 import az.graphics.AZPal;
+import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
@@ -9,7 +11,7 @@ import mindustry.entities.bullet.ShrapnelBulletType;
 
 public class AZBullets {
     public static BulletType
-            noneBullet, forceBullet, hornBullet, shrapnelBullet;
+            noneBullet, forceBullet, hornBullet, antiMissileBullet, shrapnelBullet;
 
     public static void load() {
 
@@ -34,6 +36,7 @@ public class AZBullets {
            collidesGround = true;
            collidesAir = true;
            hitSize = 3;
+           homingPower = 0.3f;
 
            trailColor = AZPal.vogPinkBack;
            backColor = AZPal.vogPinkBack;
@@ -68,6 +71,26 @@ public class AZBullets {
             backColor = AZPal.craside;
             frontColor = AZPal.craside2;
 
+        }};
+
+        antiMissileBullet = new AntiMissileBulletType(6f, 60f, 10 * Vars.tilesize){{
+            sprite = "az-dagger-missile";
+            shrinkX = shrinkY = 0f;
+            width = 8f;
+            height = 12f;
+            lifetime = 35;
+            collidesGround = true;
+            collidesAir = true;
+            hitSize = 3;
+
+            hitEffect = AZFx.hitExplosion;
+            despawnEffect = AZFx.explosionSmall2;
+            trailEffect = AZFx.vogTrail;
+            trailRotation = true;
+            trailInterval = 0.5f;
+
+            splashDamage = 40f;
+            splashDamageRadius = 25f;
         }};
 
         shrapnelBullet = new ShrapnelBulletType(){{
