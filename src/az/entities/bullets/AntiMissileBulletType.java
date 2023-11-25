@@ -59,11 +59,7 @@ public class AntiMissileBulletType extends BasicBulletType {
 
         if(target instanceof Unit ut && ut.type instanceof MissileUnitType){
             b.vel.setAngle(Angles.moveToward(b.rotation(), b.angleTo(target), 30 * Time.delta));
-            /*if(target.within(b.x, b.y, homingRange * Math.max(Time.delta, 1))){
 
-                ut.vel.setAngle(Angles.moveToward(ut.rotation(), target.angleTo(b), ut.type.rotateSpeed * Time.delta * 50));
-            }
-             */
             if(target.within(b.x, b.y, splashDamageRadius * Math.max(Time.delta, 1))){
                 ut.kill();
                 b.remove();
