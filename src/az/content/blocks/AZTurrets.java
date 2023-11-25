@@ -159,7 +159,7 @@ public class AZTurrets {
             shootCone = 10f;
             rotateSpeed = 3f;
 
-            shootSound = Sounds.cannon;
+            shootSound = Sounds.cannon; 
             squareSprite = false;
             itemCapacity = 20;
             coolantMultiplier = 2f;
