@@ -14,7 +14,7 @@ import static mindustry.type.ItemStack.with;
 
 public class AZCoreRelatedBlocks {
     public static Block
-            complexSurprise, coreLegion, caseI, repairTurret;
+            navalMine, coreLegion, caseI, repairTurret;
     public static void load() {
         //region traps
         coreLegion = new CoreBlock("core-legion") {{
@@ -40,7 +40,7 @@ public class AZCoreRelatedBlocks {
             squareSprite = false;
             researchCostMultiplier = 0.7f;
         }};
-        complexSurprise = new NavalMine("complex-surprise") {{
+        navalMine = new NavalMine("naval-mine") {{
             size = 2;
             floating = true;
             placeableOn = false;

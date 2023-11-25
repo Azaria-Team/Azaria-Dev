@@ -23,8 +23,8 @@ import static mindustry.type.ItemStack.with;
 public class AZTurrets {
     
     public static Block
-    forceTurret, hornTurret,
-    antiAirTurret, raze;
+            forceTurret, hornTurret,
+            complexShell, complexRage, complexAvalon;
 
     public static void load() {
         forceTurret = new ItemTurret("force"){{
@@ -141,7 +141,9 @@ public class AZTurrets {
             }};
         }};
 
-        antiAirTurret = new AirDefenceTurret("anti-air") {{
+
+        //region h-tur
+        complexShell = new AirDefenceTurret("complex-shell") {{
             size = 3;
             requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
             health = 700;
@@ -166,13 +168,16 @@ public class AZTurrets {
         }};
 
 
-/*
-        raze = new PowerTurret("raze") {{
+        complexRage = new PowerTurret("complex-rage") {{
             size = 3;
-            requirements(Category.turret, with(HPLItems.superdenseAlloy, 300));
+            requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
         }};
 
+        complexAvalon = new PowerTurret("complex-avalon") {{
+            size = 3;
+            requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
+        }};
 
- */
+        //endregion h-tur
     }
 }
