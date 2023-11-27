@@ -25,7 +25,7 @@ import static mindustry.type.ItemStack.with;
 public class AZTurrets {
     
     public static Block
-            forceTurret, hornTurret,
+            forceTurret, hornTurret, razeTurret,
             complexShell, complexRage, complexAvalon;
 
     public static void load() {
@@ -143,10 +143,10 @@ public class AZTurrets {
             }};
         }};
 
-        raze = new ItemTurret("major"){{
+        razeTurret = new ItemTurret("raze"){{
             requirements(Category.turret, with(AZItems.fors, 140, AZItems.craside, 80, AZItems.superdenseAlloy, 70));
             ammo(
-                    AZItems.superdenseAlloy, AZBullets.bigBlastBlast,
+                    AZItems.superdenseAlloy, AZBullets.forceBullet
             );
             shoot.shots = 2;
             shoot= new ShootMultiBarrel(){{
@@ -175,6 +175,7 @@ public class AZTurrets {
             ammoUseEffect = Fx.casing2;
             targetAir = false;
         }};
+
 
         //region h-tur
         complexShell = new AirDefenceTurret("complex-shell") {{
