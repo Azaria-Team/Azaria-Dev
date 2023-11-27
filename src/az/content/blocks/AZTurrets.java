@@ -1,9 +1,11 @@
 package az.content.blocks;
 
+import arc.math.geom.Vec2;
 import az.content.AZBullets;
 import az.content.AZFx;
 import az.content.AZItems;
 import az.content.AZLiquids;
+import az.entities.ShootMultiBarrel;
 import az.graphics.AZPal;
 import az.world.blocks.defense.turret.AirDefenceTurret;
 import mindustry.Vars;
@@ -141,6 +143,38 @@ public class AZTurrets {
             }};
         }};
 
+        raze = new ItemTurret("major"){{
+            requirements(Category.turret, with(AZItems.fors, 140, AZItems.craside, 80, AZItems.superdenseAlloy, 70));
+            ammo(
+                    AZItems.superdenseAlloy, AZBullets.bigBlastBlast,
+            );
+            shoot.shots = 2;
+            shoot= new ShootMultiBarrel(){{
+                shots=2;
+                shotDelay = 18f;//burstSpacing = 18f;
+                blockSize = 3;
+                barrelPoints(
+                        new Vec2(30f / 96f, 4f / 96f),
+                        new Vec2(66f / 96f, 4f / 96f)
+                );
+                ejectPoints(
+                        new Vec2(33f / 96f, 40f / 96f),
+                        new Vec2(63f / 96f, 40f / 96f)
+                );
+            }};
+            health = 1960;
+            size = 3;
+            reload = 80f;
+            range = 237f;
+            recoil = 3f;
+            inaccuracy = 4f;
+            rotateSpeed = 4f;
+            shootCone = 2f;
+            ammoPerShot = 2;
+            shootSound = Sounds.shootBig;
+            ammoUseEffect = Fx.casing2;
+            targetAir = false;
+        }};
 
         //region h-tur
         complexShell = new AirDefenceTurret("complex-shell") {{
