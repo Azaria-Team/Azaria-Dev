@@ -48,16 +48,15 @@ public class AZDistribution {
             squareSprite = false;
         }};
 
-        //@slish disable the arrows pls
         hardenedBridgeConveyor = new ItemBridge("hardened-bridge-conveyor"){{
             requirements(Category.distribution, with(AZItems.fors, 10));
             researchCost = with(AZItems.fors, 35);
 
             health = 170;
             range = 5;
-            drawArrow = false;
 
             buildCostMultiplier = 2f;
+            squareSprite = false;
         }};
 
         //sec2

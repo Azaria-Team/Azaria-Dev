@@ -25,14 +25,14 @@ public class ModDuct extends Duct {
         super.init();
 
         if(junctionReplacement == null) junctionReplacement = AZDistribution.hardenedJunction;
-        if(bridgeReplacement == null || !(bridgeReplacement instanceof DuctBridge)) bridgeReplacement = AZDistribution.hardenedBridgeConveyor;
+        if(bridgeReplacement == null || !(bridgeReplacement instanceof ItemBridge)) bridgeReplacement = AZDistribution.hardenedBridgeConveyor;
     }
 
     @Override
     public void handlePlacementLine(Seq<BuildPlan> plans){
         if(bridgeReplacement == null) return;
 
-        Placement.calculateBridges(plans, (DuctBridge)bridgeReplacement, true, b -> b instanceof Duct || b instanceof StackConveyor || b instanceof Conveyor);
+        Placement.calculateBridges(plans, (ItemBridge) bridgeReplacement);
     }
 
     @Override
