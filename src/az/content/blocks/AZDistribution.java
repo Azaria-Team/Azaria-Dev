@@ -5,13 +5,17 @@ import az.world.blocks.distribution.ModDuct;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.distribution.*;
+import mindustry.world.blocks.storage.Unloader;
+import mindustry.world.meta.BlockGroup;
 
 import static mindustry.type.ItemStack.with;
 
 public class AZDistribution {
     public static Block
             hardenedConveyor, hardenedJunction, hardenedRouter, hardenedBridgeConveyor,
-            impulseSorter, impulseGate;
+            impulseSorter, impulseGate,
+
+            hardenedUnloader;
 
     public static void load() {
         //sec1
@@ -67,6 +71,13 @@ public class AZDistribution {
         impulseGate = new OverflowGate("impulse-gate"){{
             requirements(Category.distribution, with(AZItems.fors, 6));
             buildCostMultiplier = 3;
+        }};
+
+        hardenedUnloader = new Unloader("hardened-unloader") {{
+            requirements(Category.distribution, with(AZItems.superdenseAlloy, 15, AZItems.fors, 5));
+            health = 300;
+            speed = 60.0f / 11.0f;
+            group = BlockGroup.transportation;
         }};
     }
 }
