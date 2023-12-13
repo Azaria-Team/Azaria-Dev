@@ -12,10 +12,12 @@ public class AZSandbox {
             size = 1;
             placeableLiquid = true;
         }};
-        indestructibleWallLarge = new IndestructibleWall("indestructible-wall-large") {{
-            size = 2;
-            placeableLiquid = true;
-        }};
+
+//        indestructibleWallLarge = new IndestructibleWall("indestructible-wall-large") {{
+//            size = 2;
+//            placeableLiquid = true;
+//        }};
+
         /*
         testBlock = new GenericCrafter("test-block") {{
             requirements(Category.crafting, with(HPLItems.fors, 50, HPLItems.khylid, 20));

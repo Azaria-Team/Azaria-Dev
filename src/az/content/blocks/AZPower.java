@@ -19,6 +19,7 @@ public class AZPower {
     public static Block
     plasmaNode, plasmaNodeLarge, plasmaDistributor, plasmaDistributorLarge, oxyliteTurbine, thermalEvaporator;
     public static void load() {
+        //nodes
         plasmaNode = new LightningPowerNode("plasma-node", 0) {{
             requirements(Category.power, with(AZItems.fors, 3));
             researchCost = with(AZItems.fors, 25);
@@ -58,11 +59,12 @@ public class AZPower {
             thresholdPerTile = 0.1f / 8f;
         }};
 
+        //generators
         thermalEvaporator = new ThermalEvaporator("thermal-evaporator") {{
             requirements(Category.power, with(AZItems.fors, 40));
             researchCost = with(AZItems.fors, 65);
 
-            powerProduction = 1.5f / 3;
+            powerProduction = 4.0f / 15f;
             displayEfficiency = true;
             size = 2;
             floating = true;

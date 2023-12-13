@@ -23,7 +23,7 @@ public class AZProduction {
             requirements(Category.crafting, with(AZItems.fors, 60, AZItems.khylid, 35));
             outputItem = new ItemStack(AZItems.craside, 2);
             consumeItems(with(AZItems.khylid, 1, AZItems.volcanicSerrid, 1));
-            craftTime = 60f;
+            craftTime = 110f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             size = 3;
