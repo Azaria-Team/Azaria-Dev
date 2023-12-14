@@ -77,7 +77,9 @@ public class AZDistribution {
             requirements(Category.distribution, with(AZItems.superdenseAlloy, 15, AZItems.fors, 5));
             health = 300;
             speed = 60.0f / 11.0f;
+
             group = BlockGroup.transportation;
+            squareSprite = false;
         }};
     }
 }
