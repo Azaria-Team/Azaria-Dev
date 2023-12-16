@@ -4,6 +4,7 @@ import arc.func.Prov;
 import arc.graphics.Color;
 import arc.struct.ObjectIntMap;
 import arc.struct.ObjectMap;
+import arc.struct.ObjectSet;
 import arc.util.Time;
 import az.entities.bullets.AimBulletType;
 import az.entities.bullets.ModEmpBulletType;
@@ -22,11 +23,13 @@ import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
+import mindustry.type.StatusEffect;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
 import mindustry.world.meta.BlockFlag;
 
+import static arc.input.KeyCode.r;
 import static mindustry.Vars.tilesize;
 
 public class AZUnits {
@@ -384,7 +387,6 @@ public class AZUnits {
         //endregion angelsharkTree
         //region unmakerTree
 
-
         unmaker = new StriCopterUnitType("unmaker") {{
             flying = true;
 
@@ -392,12 +394,17 @@ public class AZUnits {
             rotateSpeed = 10f;
             accel = 0.1f;
             drag = 0.05f;
+            engineSize = 0f;
 
             health = 360f;
             hitSize = 9f;
             itemCapacity = 5;
 
-            engineSize = 0f;
+            immunities = ObjectSet.with(
+                    AZStatusEffects.decomposition,
+                    AZStatusEffects.weakness
+            );
+
             alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
             blade.add(
@@ -426,8 +433,9 @@ public class AZUnits {
                         bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 25f;
                             sprite = "az-dagbul";
-                            statusDuration = 1f * Time.toSeconds;
                             status = AZStatusEffects.weakness;
+                            statusDuration = 1f;
+
                             width = 10f;
                             height = 12f;
                             shrinkX = 0;
@@ -454,6 +462,11 @@ public class AZUnits {
             hitSize = 12f;
             itemCapacity = 10;
             range = 15 * tilesize;
+
+            immunities = ObjectSet.with(
+                    AZStatusEffects.decomposition,
+                    AZStatusEffects.weakness
+            );
 
             engineSize = 3f;
             engineOffset = 9.5f;
@@ -517,6 +530,11 @@ public class AZUnits {
             hitSize = 5f;
             itemCapacity = 5;
 
+            immunities = ObjectSet.with(
+             AZStatusEffects.decomposition,
+             AZStatusEffects.weakness
+            );
+
             engineSize = 0f;
             alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
@@ -531,24 +549,24 @@ public class AZUnits {
                     new Weapon("aaa") {{
                         y = 4f;
                         x = 0;
-                        reload = 60;
+                        targetInterval = 5.0f;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         mirror = false;
-                        bullet = new BasicBulletType(5.5f, 15) {{
-                            lifetime = 20f;
-                            sprite = "az-dagbul";
-                            statusDuration = 0.99f * Time.toSeconds;
-                            status = AZStatusEffects.decomposition;
-                            width = 9f;
-                            height = 11f;
-                            shrinkX = 0;
-                            shrinkY = 0;
-                            trailEffect = AZFx.unmakerBulletTrail;
-                            hitEffect = AZFx.smallGreenExplosion;
-                            despawnEffect = hitEffect;
-                            frontColor = Color.valueOf("ffffff");
-                            backColor = AZPal.unmakerColor;
+
+                        bullet = new ContinuousFlameBulletType() {{
+                            damage = 35f;
+                            length = 100;
+                            knockback = 2.5f;
+                            pierceCap = 1;
+
+                            colors = new Color[]{Color.valueOf("46aab8").a(0.55f), Color.valueOf("66d2b2").a(0.7f), Color.valueOf("9ee889").a(0.8f), Color.valueOf("f5fcbe"), Color.white};
+                            flareColor = Color.valueOf("89e8b6");
+
+                            lightColor = hitColor = flareColor;
+
+                            statusDuration = 1f;
+                            status = AZStatusEffects.weakness;
                         }};
                     }});
         }};
