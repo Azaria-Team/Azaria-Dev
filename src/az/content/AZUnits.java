@@ -22,11 +22,13 @@ import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
+import mindustry.type.StatusEffect;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
 import mindustry.world.meta.BlockFlag;
 
+import static arc.input.KeyCode.r;
 import static mindustry.Vars.tilesize;
 
 public class AZUnits {
@@ -426,7 +428,7 @@ public class AZUnits {
                         bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 25f;
                             sprite = "az-dagbul";
-                            statusDuration = 1f * Time.toSeconds;
+                            statusDuration = 1f;
                             status = AZStatusEffects.weakness;
                             width = 10f;
                             height = 12f;
@@ -535,20 +537,20 @@ public class AZUnits {
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         mirror = false;
-                        bullet = new BasicBulletType(5.5f, 15) {{
-                            lifetime = 20f;
-                            sprite = "az-dagbul";
-                            statusDuration = 0.99f * Time.toSeconds;
-                            status = AZStatusEffects.decomposition;
-                            width = 9f;
-                            height = 11f;
-                            shrinkX = 0;
-                            shrinkY = 0;
-                            trailEffect = AZFx.unmakerBulletTrail;
-                            hitEffect = AZFx.smallGreenExplosion;
-                            despawnEffect = hitEffect;
-                            frontColor = Color.valueOf("ffffff");
-                            backColor = AZPal.unmakerColor;
+
+                        bullet = new ContinuousFlameBulletType() {{
+                            damage = 35f;
+                            length = 100;
+                            knockback = 2.5f;
+                            pierceCap = 1;
+
+                            colors = new Color[]{Color.valueOf("46aab8").a(0.55f), Color.valueOf("66d2b2").a(0.7f), Color.valueOf("9ee889").a(0.8f), Color.valueOf("f5fcbe"), Color.white};
+                            flareColor = Color.valueOf("89e8b6");
+
+                            lightColor = hitColor = flareColor;
+
+                            statusDuration = 1f;
+                            status = AZStatusEffects.weakness;
                         }};
                     }});
         }};
