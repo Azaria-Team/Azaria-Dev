@@ -85,8 +85,8 @@ public class AZBullets {
                 shrinkX = 0;
                 shrinkY = 0;
                 hitSound = Sounds.explosion;
-                hitEffect = AZFx.smallForceFerbiumBulletHit;
-                despawnEffect = AZFx.smallForceFerbiumBulletDespawn;
+                hitEffect = Fx.none;
+                despawnEffect = Fx.none;
                 lifetime = 5;
             }};
         }};
