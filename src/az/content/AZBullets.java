@@ -76,7 +76,7 @@ public class AZBullets {
             splashDamage = 45f;
             splashDamageRadius = 35f;
             fragBullets = 5;
-            fragBullet = new BasicBulletType(2f, 8) {{
+            fragBullet = new BasicBulletType(2f, 10) {{
                // sprite = "bullet";
                 backColor = AZPal.ferbiumBulletBack;
                 frontColor = AZPal.ferbiumBullet;
