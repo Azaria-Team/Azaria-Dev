@@ -8,10 +8,11 @@ import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.ShrapnelBulletType;
+import mindustry.gen.Sounds;
 
 public class AZBullets {
     public static BulletType
-            noneBullet, forceBullet, hornBullet, antiMissileBullet, shrapnelBullet;
+            noneBullet, forceBullet, forceFerbiumBullet, hornBullet, antiMissileBullet, shrapnelBullet;
 
     public static void load() {
 
@@ -47,6 +48,47 @@ public class AZBullets {
 
             splashDamage = 40f;
             splashDamageRadius = 25f;
+        }};
+
+        forceFerbiumBullet = new BasicBulletType(7f, 45f){{
+            sprite = "az-dagger-missile";
+            trailInterval = 0.4f;
+            trailEffect = AZFx.forceFerbiumBulletTrail;
+            hitEffect = AZFx.forceFerbiumBulletHit;
+            despawnEffect = AZFx.forceFerbiumBulletDespawn;
+            trailRotation = true;
+            shrinkX = shrinkY = 0f;
+            width = 8f;
+            height = 14f;
+            lifetime = 29;
+            collidesGround = true;
+            collidesAir = true;
+            hitSize = 3;
+            homingPower = 0.3f;
+
+            trailColor = AZPal.ferbiumBulletBack;
+            backColor = AZPal.ferbiumBulletBack;
+            frontColor = AZPal.ferbiumBullet;
+
+            trailLength = 20;
+            trailWidth = 1.7f;
+
+            splashDamage = 45f;
+            splashDamageRadius = 30f;
+            fragBullets = 5;
+            fragBullet = new BasicBulletType(2f, 5) {{
+               // sprite = "bullet";
+                backColor = AZPal.ferbiumBulletBack;
+                frontColor = AZPal.ferbiumBullet;
+                width = 3f;
+                height = 8f;
+                shrinkX = 0;
+                shrinkY = 0;
+                hitSound = Sounds.explosion;
+                hitEffect = AZFx.smallForceFerbiumBulletHit;
+                despawnEffect = AZFx.smallForceFerbiumBulletDespawn;
+                lifetime = 5;
+            }};
         }};
 
         hornBullet = new BasicBulletType(5f, 40f){{

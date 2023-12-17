@@ -245,6 +245,21 @@ public class AZFx {
 
     }),
 
+    forceFerbiumBulletTrail = new Effect(25, e -> {
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, e.fin());
+
+        stroke(0.6f + e.fout() * 0.9f);
+        rand.setSeed(e.id);
+
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, e.fin());
+        for(int i = 0; i < 1; i++){
+            float rot = e.rotation + rand.range(25f) + 180f;
+            v.trns(rot, rand.random(e.fin() * 22f));
+            lineAngle(e.x + v.x, e.y + v.y, rot, e.fout() * rand.random(1f, 3f) + 1f);
+        }
+
+    }),
+
     forceBulletHit = new Effect(30, e -> {
         color(AZPal.fors);
         e.scaled(10, i -> {
@@ -263,6 +278,42 @@ public class AZFx {
         stroke(1.5f * e.fout());
     }),
 
+    forceFerbiumBulletHit = new Effect(30, e -> {
+        color(AZPal.ferbiumBullet);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+        });
+
+        color(AZPal.ferbiumBulletBack);
+
+        randLenVectors(e.id, 10, 3f + 20f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.7f);
+            Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
+        });
+
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, Color.purple, e.fin());
+        stroke(1.5f * e.fout());
+    }),
+
+    smallForceFerbiumBulletHit = new Effect(30, e -> {
+        color(AZPal.ferbiumBullet);
+        e.scaled(6, i -> {
+            stroke(2f * i.fout());
+            Lines.circle(e.x, e.y, 3f + i.fin() * 7f);
+        });
+
+        color(AZPal.ferbiumBulletBack);
+
+        randLenVectors(e.id, 5, 1f + 10f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 1.1f + 0.7f);
+            Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
+        });
+
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, Color.purple, e.fin());
+        stroke(1.1f * e.fout());
+    }),
+
     forceBulletDespawn = new Effect(30, e -> {
         color(AZPal.fors);
         e.scaled(10, i -> {
@@ -275,6 +326,36 @@ public class AZFx {
 
         randLenVectors(e.id + 1, 10, 1f + 30f * e.finpow(), (x, y) -> {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 3f);
+        });
+    }),
+
+    forceFerbiumBulletDespawn = new Effect(30, e -> {
+        color(AZPal.ferbiumBullet);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+        });
+
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, Color.purple, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 1, 10, 1f + 30f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 3f);
+        });
+    }),
+
+    smallForceFerbiumBulletDespawn = new Effect(30, e -> {
+        color(AZPal.ferbiumBullet);
+        e.scaled(5, i -> {
+            stroke(2f * i.fout());
+            Lines.circle(e.x, e.y, 3f + i.fin() * 5f);
+        });
+
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, Color.purple, e.fin());
+        stroke(1.1f * e.fout());
+
+        randLenVectors(e.id + 1, 5, 1f + 15f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1.2f + e.fout() * 3f);
         });
     }),
 
