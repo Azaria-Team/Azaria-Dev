@@ -74,7 +74,7 @@ public class AZBullets {
             trailWidth = 1.7f;
 
             splashDamage = 45f;
-            splashDamageRadius = 35f;
+            splashDamageRadius = 40f;
             fragBullets = 5;
             fragBullet = new BasicBulletType(2f, 10) {{
                // sprite = "bullet";
