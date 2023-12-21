@@ -600,7 +600,7 @@ public class AZUnits {
                         rotorRadial = true;
                         bladeCount = 3;
                     }});
-            weapons.add(new Weapon("az-vector-gun") {{
+            weapons.add(new Weapon("az-vector-gun") {{  
                 reload = 10f;
                 rotate = false;
                 x = -4;
