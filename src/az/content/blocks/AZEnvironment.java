@@ -14,122 +14,42 @@ import mindustry.world.blocks.environment.*;
 
 public class AZEnvironment {
     public static Block
-            forsite, forsiteWall, fir, firWall, forenite, foreniteWall,
-            kust, bigKust, swampShine, swampShineBoulder,
-    //sea biome
-    serridDust, serridDustWall, crabStone, crabStoneWall, serridicRock, serridicRockWall,
-    //crystal biome
-    crystalIce, crystalIceWall, lamprosMineral, lamprosMineralWall, lamprosCrystals,
+            //sea-biome
+    oxylite, deepOxylite,
+    serridDust, serridDustWall, serridicBoulder,
+    crabStone, crabStoneWall, crabStoneBoulder,
+    serridicRock, serridicRockWall, serridBoulder, serridOxylite,
+    coral,
+
+            //forest-biome
+    fir, firWall, firBoulder,
+    forenite, foreniteWall, foreniteBoulder,
+    darkSerrid, darkSerridWall, darkSerridBoulder, darkSerridOxylite,
+    forsite, forsiteWall, forsiteBoulder, forsBoulder,
+    bigKust,
+
+            //crystal-biome
+    lamprosMineral, lamprosMineralWall, lamprosBoulder, lamprosCrystals,
+    crystalIce, crystalIceWall, crystalIceBoulder,
+    spectralite, spectraliteWall, spectraliteBoulder, spectraliaWall,
+    nerephyte, nerephyteWall, nerephyteBoulder,
+
+    //volcanic-biome
+    huitaRock, huitaRockWall, huitaBoulder,
+    volcanicSerrid, volcanicSerridWall, volcanicSerridBoulder,
+
     //other
-    darkSerrid, darkSerridWall, huitaRock, huitaRockWall,
-    //liquids
-    oxylite, deepOxylite, serridOxylite, darkSerridOxylite,
 
     //prop
-    ancientSus, crabStoneBoulder, serridBoulder, serridicBoulder, huitaBoulder,
-            foreniteBoulder, firBoulder, darkSerridBoulder, forsiteBoulder, forsBoulder,
-            lamprosBoulder, crystalIceBoulder,
+    ancientSus,
+
     //ores
     forsOre, ferbiumOre, forsRock, khylidOre;
 
     public static void load() {
-
-        //region forest biome
-        forsite = new Floor("forsite-plates") {{
-            variants = 4;
-        }};
-        forsiteWall = new StaticWall("forsite-wall") {{
-            variants = 3;
-            forsite.asFloor().wall = this;
-        }};
-        forsiteBoulder = new Prop("forsite-boulder") {{
-            variants = 2;
-            forsite.asFloor().decoration = this;
-        }};
-        forsBoulder = new Prop("fors-boulder") {{
-            variants = 2;
-            //probably there were no parent floor & you will place this block with your kutty paws uwu
-        }};
-        forenite = new Floor("forenite") {{
-            mapColor = Color.valueOf("313a3b");
-            variants = 4;
-        }};
-        foreniteWall = new StaticWall("forenite-wall") {{
-            variants = 3;
-            forenite.asFloor().wall = this;
-            mapColor = Color.valueOf("869985");
-        }};
-        foreniteBoulder = new Prop("forenite-boulder") {{
-            variants = 3;
-            forenite.asFloor().decoration = this;
-        }};
-        fir = new Floor("fir") {{
-            mapColor = Color.valueOf("222625");
-            variants = 4;
-        }};
-        firWall = new StaticWall("fir-wall") {{
-            variants = 3;
-            fir.asFloor().wall = this;
-            mapColor = Color.valueOf("54685e");
-        }};
-        firBoulder = new Prop("fir-boulder") {{
-            variants = 3;
-            fir.asFloor().decoration = this;
-        }};
-        kust = new TreeBlock("kust") {{
-            variants = 2;
-        }};
-        bigKust = new TallBlock("big-kust") {{
-            variants = 3;
-        }};
-        swampShine = new TallBlock("swamp-shine") {{
-            variants = 3;
-            emitLight = true;
-            lightColor = AZPal.forestLight;
-            lightRadius = 7 * Vars.tilesize;
-        }};
-        swampShineBoulder = new Prop("swamp-shine-boulder") {{
-            variants = 3;
-            emitLight = true;
-            lightColor = AZPal.forestLight;
-            lightRadius = 3 * Vars.tilesize;
-        }};
-        //endregion forest biome
-
-        //region sea biome
-        serridDust = new Floor("serrid-dust") {{
-            variants = 4;
-        }};
-        serridDustWall = new StaticWall("serrid-dust-wall") {{
-            variants = 3;
-            serridDust.asFloor().wall = this;
-        }};
-        serridBoulder = new Prop("serrid-boulder") {{
-            variants = 3;
-            serridDust.asFloor().decoration = this;
-        }};
-        crabStone = new Floor("crab-stone") {{
-            variants = 4;
-        }};
-        crabStoneWall = new StaticWall("crab-stone-wall") {{
-            variants = 3;
-            crabStone.asFloor().wall = this;
-        }};
-        crabStoneBoulder = new Prop("crab-stone-boulder") {{
-            variants = 3;
-            crabStone.asFloor().decoration = this;
-        }};
-        serridicRock = new Floor("serridic-rock") {{
-            variants = 4;
-        }};
-        serridicRockWall = new StaticWall("serridic-stone-wall") {{
-            variants = 3;
-            serridicRock.asFloor().wall = this;
-        }};
-        serridicBoulder = new Prop("serridic-boulder") {{
-            variants = 3;
-            serridicRock.asFloor().decoration = this;
-        }};
+        //region Auriona
+        //region sea-biome
+        //oxylite
         oxylite = new Floor("oxylite") {{
             variants = 4;
             liquidDrop = AZLiquids.oxyliteLiq;
@@ -149,13 +69,99 @@ public class AZEnvironment {
             albedo = 0.7f;
             drownTime = 140f;
         }};
-        serridOxylite = new Floor("serrid-oxylite") {{
+        //serridDust
+        serridDust = new Floor("serrid-dust") {{
             variants = 4;
-            liquidDrop = AZLiquids.oxyliteLiq;
-            cacheLayer = CacheLayer.water;
-            liquidMultiplier = 1f;
-            isLiquid = true;
-            albedo = 0.7f;
+        }};
+        serridDustWall = new StaticWall("serrid-dust-wall") {{
+            variants = 3;
+            serridDust.asFloor().wall = this;
+        }};
+        serridBoulder = new Prop("serrid-boulder") {{
+            variants = 3;
+            serridDust.asFloor().decoration = this;
+        }};
+        //crabStone
+        crabStone = new Floor("crab-stone") {{
+            variants = 4;
+        }};
+        crabStoneWall = new StaticWall("crab-stone-wall") {{
+            variants = 3;
+            crabStone.asFloor().wall = this;
+        }};
+        crabStoneBoulder = new Prop("crab-stone-boulder") {{
+            variants = 3;
+            crabStone.asFloor().decoration = this;
+        }};
+        //serridic rock
+        serridicRock = new Floor("serridic-rock") {{
+            variants = 4;
+        }};
+        serridicRockWall = new StaticWall("serridic-stone-wall") {{
+            variants = 3;
+            serridicRock.asFloor().wall = this;
+        }};
+        serridicBoulder = new Prop("serridic-boulder") {{
+            variants = 3;
+            serridicRock.asFloor().decoration = this;
+        }};
+        //endregion sea-biome
+
+        //region forest-biome
+        //fir
+        fir = new Floor("fir") {{
+            mapColor = Color.valueOf("222625");
+            variants = 4;
+        }};
+        firWall = new StaticWall("fir-wall") {{
+            variants = 3;
+            fir.asFloor().wall = this;
+            mapColor = Color.valueOf("54685e");
+        }};
+        firBoulder = new Prop("fir-boulder") {{
+            variants = 3;
+            fir.asFloor().decoration = this;
+        }};
+        //forenite
+        forenite = new Floor("forenite") {{
+            mapColor = Color.valueOf("313a3b");
+            variants = 4;
+        }};
+        foreniteWall = new StaticWall("forenite-wall") {{
+            variants = 3;
+            forenite.asFloor().wall = this;
+            mapColor = Color.valueOf("869985");
+        }};
+        foreniteBoulder = new Prop("forenite-boulder") {{
+            variants = 3;
+            forenite.asFloor().decoration = this;
+        }};
+        //forsite
+        forsite = new Floor("forsite-plates") {{
+            variants = 4;
+        }};
+        forsiteWall = new StaticWall("forsite-wall") {{
+            variants = 3;
+            forsite.asFloor().wall = this;
+        }};
+        forsiteBoulder = new Prop("forsite-boulder") {{
+            variants = 2;
+            forsite.asFloor().decoration = this;
+        }};
+        forsBoulder = new Prop("fors-boulder") {{
+            variants = 2;
+        }};
+        //darkSerrid
+        darkSerrid = new Floor("dark-serrid") {{
+            variants = 4;
+        }} ;
+        darkSerridWall = new StaticWall("dark-serrid-wall") {{
+            variants = 3;
+            darkSerrid.asFloor().wall = this;
+        }};
+        darkSerridBoulder = new Prop("dark-serrid-boulder") {{
+            variants = 3;
+            darkSerrid.asFloor().decoration = this;
         }};
         darkSerridOxylite = new Floor("dark-serrid-oxylite") {{
             variants = 4;
@@ -165,20 +171,14 @@ public class AZEnvironment {
             isLiquid = true;
             albedo = 0.7f;
         }};
-        //endregion sea biome
-
-        //region crystal biome
-        crystalIce = new Floor("crystal-ice") {{
-            variants = 4;
-        }};
-        crystalIceWall = new StaticWall("crystal-ice-wall") {{
-            variants = 2;
-            crystalIce.asFloor().wall = this;
-        }};
-        crystalIceBoulder = new Prop("crystal-ice-boulder") {{
+        //plants
+        bigKust = new TallBlock("big-kust") {{
             variants = 3;
-            crystalIce.asFloor().decoration = this;
         }};
+        //endregion forest-biome
+
+        //region crystal-biome
+        //lamprosMineral
         lamprosMineral = new Floor("lampros-mineral") {{
             variants = 4;
         }};
@@ -193,20 +193,52 @@ public class AZEnvironment {
             variants = 3;
             lamprosMineral.asFloor().decoration = this;
         }};
-        //endregion crystal biome
-
-        //region other
-        darkSerrid = new Floor("dark-serrid") {{
+        //crystalIce
+        crystalIce = new Floor("crystal-ice") {{
             variants = 4;
-        }} ;
-        darkSerridWall = new StaticWall("dark-serrid-wall") {{
-            variants = 3;
-            darkSerrid.asFloor().wall = this;
         }};
-        darkSerridBoulder = new Prop("dark-serrid-boulder") {{
-            variants = 3;
-            darkSerrid.asFloor().decoration = this;
+        crystalIceWall = new StaticWall("crystal-ice-wall") {{
+            variants = 2;
+            crystalIce.asFloor().wall = this;
         }};
+        crystalIceBoulder = new Prop("crystal-ice-boulder") {{
+            variants = 3;
+            crystalIce.asFloor().decoration = this;
+        }};
+        //spectralite
+        spectralite = new Floor("spectralite") {{
+            variants = 4;
+
+        }};
+        spectraliaWall = new StaticWall("spectralite-wall") {{
+            variants = 2;
+            spectralite.asFloor().decoration = this;
+        }};
+        spectraliteBoulder = new Prop("spectralite-boulder") {{
+            variants = 3;
+            spectralite.asFloor().decoration = this;
+        }};
+        //spectralia
+        spectraliaWall = new StaticWall("spectralia-wall") {{
+            variants = 2;
+            spectralite.asFloor().decoration = this;
+        }};
+        //nerephyte
+        nerephyte = new Floor("nerephyte") {{
+            variants = 5;
+        }};
+        nerephyteWall = new StaticWall("nerephyte-wall") {{
+            variants = 3;
+            nerephyte.asFloor().decoration = this;
+        }};
+        nerephyteBoulder  = new Prop("nerephyte-boulder") {{
+            variants = 3;
+            nerephyte.asFloor().decoration = this;
+        }};
+        //endregion crystal-biome
+
+        //region volcanic-biome
+        //huitaRock
         huitaRock = new Floor("huita-rock") {{
             itemDrop = AZItems.volcanicSerrid;
             variants = 4;
@@ -219,17 +251,34 @@ public class AZEnvironment {
             variants = 2;
             huitaRock.asFloor().decoration = this;
         }};
-        //endregion other
-        //region prop
+        //volcanicSerrid
+        volcanicSerrid = new Floor("volcanic-serrid") {{
+            variants = 4;
+        }};
+        volcanicSerridWall = new StaticWall("volcanic-serrid-wall") {{
+            variants = 3;
+            volcanicSerrid.asFloor().decoration = this;
+        }};
+        volcanicSerridBoulder = new Prop("volcanic-serrid-boulder") {{
+            variants = 3;
+            volcanicSerrid.asFloor().decoration = this;
+        }};
+        //endregion volcanic-biome
+
+        //region not-in-biome
+
+        //endregion not-in-biome
+
+        //region decorations
         ancientSus = new Prop("ancient-sus") {{
             breakable = false;
             size = 1;
             solid = true;
 
         }};
-        //endregion prop
+        //endregion decorations
 
-        //ores
+        //region ores
         forsOre = new OreBlock(AZItems.fors){{
             oreDefault = true;
             oreThreshold = 0.81f;
@@ -254,5 +303,8 @@ public class AZEnvironment {
             cacheLayer = CacheLayer.water;
             attributes.set(AZAttribute.khylidattr, 1f);
         }};
+        //endregion ores
+        //endregion Auriona
+
     }
 }
