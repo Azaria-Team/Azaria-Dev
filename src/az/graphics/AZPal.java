@@ -20,6 +20,9 @@ public static final Color
 
         forceBullet = Color.valueOf("ffffff"),
         forceBulletBack = Color.valueOf("f27c98"),
+
+        ferbiumBullet = Color.valueOf("aeb9e4"),
+        ferbiumBulletBack = Color.valueOf("847bb1"),
         aurionaCloud = Color.valueOf("94debc"),
 
         khylid = Color.valueOf("87d7bf"),

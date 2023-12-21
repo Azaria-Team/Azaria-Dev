@@ -4,7 +4,6 @@ import arc.func.Prov;
 import arc.graphics.Color;
 import arc.struct.ObjectIntMap;
 import arc.struct.ObjectMap;
-import arc.struct.ObjectSet;
 import arc.util.Time;
 import az.entities.bullets.AimBulletType;
 import az.entities.bullets.ModEmpBulletType;
@@ -387,6 +386,7 @@ public class AZUnits {
         //endregion angelsharkTree
         //region unmakerTree
 
+
         unmaker = new StriCopterUnitType("unmaker") {{
             flying = true;
 
@@ -394,17 +394,12 @@ public class AZUnits {
             rotateSpeed = 10f;
             accel = 0.1f;
             drag = 0.05f;
-            engineSize = 0f;
 
             health = 360f;
             hitSize = 9f;
             itemCapacity = 5;
 
-            immunities = ObjectSet.with(
-                    AZStatusEffects.decomposition,
-                    AZStatusEffects.weakness
-            );
-
+            engineSize = 0f;
             alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
             blade.add(
@@ -433,9 +428,8 @@ public class AZUnits {
                         bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 25f;
                             sprite = "az-dagbul";
-                            status = AZStatusEffects.weakness;
                             statusDuration = 1f;
-
+                            status = AZStatusEffects.weakness;
                             width = 10f;
                             height = 12f;
                             shrinkX = 0;
@@ -462,11 +456,6 @@ public class AZUnits {
             hitSize = 12f;
             itemCapacity = 10;
             range = 15 * tilesize;
-
-            immunities = ObjectSet.with(
-                    AZStatusEffects.decomposition,
-                    AZStatusEffects.weakness
-            );
 
             engineSize = 3f;
             engineOffset = 9.5f;
@@ -530,11 +519,6 @@ public class AZUnits {
             hitSize = 5f;
             itemCapacity = 5;
 
-            immunities = ObjectSet.with(
-             AZStatusEffects.decomposition,
-             AZStatusEffects.weakness
-            );
-
             engineSize = 0f;
             alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
@@ -549,7 +533,7 @@ public class AZUnits {
                     new Weapon("aaa") {{
                         y = 4f;
                         x = 0;
-                        targetInterval = 5.0f;
+                        reload = 60;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         mirror = false;
@@ -600,7 +584,7 @@ public class AZUnits {
                         rotorRadial = true;
                         bladeCount = 3;
                     }});
-            weapons.add(new Weapon("az-vector-gun") {{  
+            weapons.add(new Weapon("az-vector-gun") {{
                 reload = 10f;
                 rotate = false;
                 x = -4;

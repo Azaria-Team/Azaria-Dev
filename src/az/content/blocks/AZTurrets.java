@@ -52,7 +52,10 @@ public class AZTurrets {
             coolantMultiplier = 2f;
             coolant = consume(new ConsumeLiquid(AZLiquids.oxyliteLiq, 10f / 60f));
 
-            ammo(AZItems.fors, AZBullets.forceBullet);
+            ammo(
+                    AZItems.fors, AZBullets.forceBullet,
+                    AZItems.ferbium, AZBullets.forceFerbiumBullet
+            );
 
 
             drawer = new DrawTurret("fortified-"){{
