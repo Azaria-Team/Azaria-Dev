@@ -69,6 +69,14 @@ public class AZEnvironment {
             albedo = 0.7f;
             drownTime = 140f;
         }};
+        serridOxylite = new Floor("serrid-oxylite") {{
+            variants = 4;
+            liquidDrop = AZLiquids.oxyliteLiq;
+            cacheLayer = CacheLayer.water;
+            liquidMultiplier = 1f;
+            isLiquid = true;
+            albedo = 0.7f;
+        }};
         //serridDust
         serridDust = new Floor("serrid-dust") {{
             variants = 4;
