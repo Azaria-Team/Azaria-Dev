@@ -18,6 +18,7 @@ import mindustry.graphics.Layer;
 import static arc.graphics.g2d.Draw.color;
 import static arc.graphics.g2d.Lines.lineAngle;
 import static arc.graphics.g2d.Lines.stroke;
+import static arc.input.KeyCode.e;
 import static arc.math.Angles.randLenVectors;
 
 public class AZFx {
@@ -410,6 +411,27 @@ public class AZFx {
         for(Vec2 p : lines){
             Fill.circle(p.x, p.y, Lines.getStroke() / 2f);
         }
+    }),
+
+    cursedFireTrailSmall = new Effect(16.0f, 50.0f, e -> {
+        color(AZPal.unmakerColor, Color.valueOf("96d66a"), Color.valueOf("487364"), e.fin() * e.fin());
+        randLenVectors(e.id, 4, 1.0f + e.finpow() * 30, e.rotation + 180, 7.0f, (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, 0.9f + e.fout() * 1.1f);
+        });
+    }),
+    cursedFireDisableSmall= new Effect(30, e -> {
+        color(Color.valueOf("96d66a"));
+        e.scaled(8, i -> {
+            stroke(5.0f * i.fout());
+            Lines.circle(e.x, e.y, 5.0f + i.fin() * 10.0f);
+        });
+    }),
+
+    cursedFire = new Effect(35.0f, e -> {
+        color(Color.valueOf("53dc54"), Color.valueOf("00401c"), e.fin());
+        randLenVectors(e.id, 3, 2.0f + e.fin() * 7.0f, (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, 0.1f + e.fout() * 1.4f);
+        });
     });
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {

@@ -22,6 +22,7 @@ import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
+import mindustry.type.Liquid;
 import mindustry.type.StatusEffect;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
@@ -385,8 +386,6 @@ public class AZUnits {
         }};
         //endregion angelsharkTree
         //region unmakerTree
-
-
         unmaker = new StriCopterUnitType("unmaker") {{
             flying = true;
 
@@ -462,37 +461,29 @@ public class AZUnits {
             alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
             weapons.add(
-                    new Weapon("eliminator-emp") {{
-                        reload = 50;
+                    new Weapon("eliminator-gun") {{
+                        reload = 25;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
-                        bullet = new ModEmpBulletType() {{
-                            lifetime = 40;
-                            hitSize = 5;
-                            speed = 5f;
-                            damage = 40;
-                            powerDamageScl = 0.2f;
-                            powerSclDecrease = 0.1f;
-                            statusDuration = 2f * Time.toSeconds;
-                            status = AZStatusEffects.weakness;
-                            pierce = true;
-                            pierceCap = 2;
-                            trailEffect = AZFx.unmakerBulletTrail;
-                            radius = 5 * tilesize;
-                            chainEffect = Fx.none;
-                            timeDuration = 60f * 4f;
-                            lightningLength = 15;
 
-                            width = 17f;
-                            height = 12f;
-                            shrinkX = 0;
-                            shrinkY = 0;
+                        bullet = new LiquidBulletType(AZLiquids.ssaninaBomzha) {{
+                        damage = 5;
+                        speed = 4.0f;
+                        lifetime = 35.0f;
+                        drag = 0.0012f;
 
-                            frontColor = AZPal.unmakerColor;
-                            backColor = Color.valueOf("ffffff");
-                            sprite = "az-emp-wave";
+                        shootEffect = Fx.shootLiquid;
+                        trailEffect = AZFx.cursedFireTrailSmall;
+                        trailInterval = 0.5f;
+                        despawnEffect = AZFx.cursedFireDisableSmall;
+
+                        splashDamage = 25;
+                        splashDamageRadius = 35.0f;
+
+                        range = 125.0f;
                         }};
                     }});
+
             blade.add(
                     new Blade(name + "-blade-big"){{
                         y = 1.5f; x = 1.3f;

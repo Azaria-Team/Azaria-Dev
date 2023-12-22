@@ -1,11 +1,14 @@
 package az.content;
 
 import arc.graphics.Color;
+import jdk.jshell.execution.JdiExecutionControl;
 import mindustry.type.Liquid;
 
 public class AZLiquids {
     public static Liquid
-            oxyliteLiq, spectralia;
+            oxyliteLiq, spectralia,
+
+            ssaninaBomzha;
 
     public static void load() {
 
@@ -17,6 +20,14 @@ public class AZLiquids {
         spectralia = new Liquid("spectralia", Color.valueOf("f4c0f4")) {{
             viscosity = 0.65f;
             heatCapacity = 0.3f;
+        }};
+
+        ssaninaBomzha = new Liquid("cursedLiquid", Color.valueOf("96d66a")) {{
+            temperature = 1.0f;
+            viscosity = 0.45f;
+            effect = AZStatusEffects.decomposition;
+            lightColor = Color.valueOf("b4d997").a(0.4f);
+            hidden = true;
         }};
     }
 }
