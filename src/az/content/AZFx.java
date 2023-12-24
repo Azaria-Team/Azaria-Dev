@@ -18,7 +18,6 @@ import mindustry.graphics.Layer;
 import static arc.graphics.g2d.Draw.color;
 import static arc.graphics.g2d.Lines.lineAngle;
 import static arc.graphics.g2d.Lines.stroke;
-import static arc.input.KeyCode.e;
 import static arc.math.Angles.randLenVectors;
 
 public class AZFx {
@@ -28,9 +27,8 @@ public class AZFx {
 
     forsDrillEffect = new Effect(30, e -> {
         color(Color.white, AZPal.fors, e.fin());
-        randLenVectors(e.id, 5, 2f + 14f * e.finpow(), (x, y) -> {
-            Fill.circle(e.x + x, e.y + y, e.fout() * 2.5f + 0.5f);
-        });
+        randLenVectors(e.id, 5, 2f + 14f * e.finpow(), (x, y) ->
+                Fill.circle(e.x + x, e.y + y, e.fout() * 2.5f + 0.5f));
     }),
 
     smokeEvaporatorSmall = new Effect(50, e -> {
