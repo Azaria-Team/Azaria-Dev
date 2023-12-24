@@ -70,7 +70,7 @@ task jarAndroid{
 
 jar{
     archiveFileName = "${project.archivesBaseName}Desktop.jar"
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDEk
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     from{
         configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
