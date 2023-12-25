@@ -17,7 +17,7 @@ public class AZStatusEffects {
             reloadMultiplier = 1f / 3 * 2;
         }};
 
-        decomposition = new StatusEffect("burning"){{
+        decomposition = new StatusEffect("decomposition") {{
             damage = 1.4f;
             healthMultiplier = 0.7f;
             buildSpeedMultiplier = 0.8f;
