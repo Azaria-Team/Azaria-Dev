@@ -7,9 +7,14 @@ import mindustry.type.Item;
 public class AZItems {
     public static Item
     //items
-    fors, craside, khylid, volcanicSerrid, ferbium, superdenseAlloy, ognium, neuroCrystal, hyperliosAlloy, arcanite;
+    fors, craside, khylid, volcanicSerrid, ferbium, superdenseAlloy, ognium, neuroCrystal, hyperliosAlloy, arcanite,
+    //
+    sussyum;
     public static final Seq<Item> aurionaItems = new Seq<>();
     public static void load() {
+        sussyum = new Item("sussyum", Color.valueOf("ff3838")) {{
+            cost = 1000000f;
+        }};
         fors = new Item("fors", Color.valueOf("f3b2c1")) {{
         cost = 0.75f;
         hardness = 1;
