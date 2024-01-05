@@ -417,6 +417,13 @@ public class AZFx {
             Fill.circle(e.x + x, e.y + y, 0.9f + e.fout() * 1.1f);
         });
     }),
+
+    gyurzaMissileTrail = new Effect(35.0f, 200.0f, e -> {
+       color(Color.darkGray, Color.gray, Color.lightGray, e.fin() * e.fin());
+       randLenVectors(e.id, 3, 1.0f + e.finpow() * 30, e.rotation + 180, 6.5f, (x, y) -> {
+           Fill.circle(e.x + x, e.y + y, 1.4f + e.fout() * 1.1f);
+       });
+    }),
     cursedFireDisableSmall= new Effect(30, e -> {
         color(Color.valueOf("96d66a"));
         e.scaled(8, i -> {
@@ -431,6 +438,8 @@ public class AZFx {
             Fill.circle(e.x + x, e.y + y, 0.1f + e.fout() * 1.4f);
         });
     });
+
+
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {
         Seq<Vec2> lines = new Seq<>();

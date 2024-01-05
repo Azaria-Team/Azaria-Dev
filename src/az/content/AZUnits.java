@@ -4,9 +4,8 @@ import arc.func.Prov;
 import arc.graphics.Color;
 import arc.struct.ObjectIntMap;
 import arc.struct.ObjectMap;
-import arc.util.Time;
+
 import az.entities.bullets.AimBulletType;
-import az.entities.bullets.ModEmpBulletType;
 import az.entities.entity.DroneUnitEntity;
 import az.entities.entity.StriCopterUnitEntity;
 import az.entities.units.DroneUnitType;
@@ -14,6 +13,7 @@ import az.entities.units.StriCopterUnitType;
 import az.graphics.AZPal;
 import az.world.draw.Blade;
 import az.world.draw.Rotor;
+
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
@@ -21,17 +21,11 @@ import mindustry.entities.bullet.*;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
-import mindustry.graphics.Layer;
-import mindustry.type.Liquid;
-import mindustry.type.StatusEffect;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-import mindustry.type.unit.MissileUnitType;
 import mindustry.world.meta.BlockFlag;
 
-import static arc.input.KeyCode.r;
 import static mindustry.Vars.tilesize;
-
 public class AZUnits {
     public static UnitType
             //aurelia core units
@@ -102,6 +96,8 @@ public class AZUnits {
 
     public static void load() {
         setupID();
+
+        //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
             constructor = UnitEntity::create;
 
@@ -112,13 +108,13 @@ public class AZUnits {
             flying = true;
 
             speed = 3.3f;
-            rotateSpeed = 17f;
+            rotateSpeed = 13f;
             accel = 0.1f;
             drag = 0.05f;
 
             mineSpeed = 8f;
             mineTier = 1;
-            buildSpeed = 0.4f;
+            buildSpeed = 0.9f;
 
             health = 500f;
             hitSize = 8f;
@@ -130,46 +126,35 @@ public class AZUnits {
             outlineColor = AZPal.aureliaOutline;
 
             weapons.add(
-                    new Weapon(){{
+                    new Weapon() {{
                         x = y = 0f;
                         mirror = false;
-                        reload = 80f;
-                        soundPitchMin = 1f;
+                        reload = 80.0f;
+                        cooldownTime = 0.35f;
+                        soundPitchMin = 1.0f;
                         shootSound = Sounds.missileSmall;
-                        bullet = new BulletType(){{
-                            shake = 2f;
-                            speed = 0f;
+                        bullet = new BasicBulletType(2.9f, 0, "az-gyurza-missile") {{
                             keepVelocity = false;
-                            inaccuracy = 2f;
+                            inaccuracy = 2.0f;
+                            drag = 0.037f;
+                            despawnEffect = Fx.none;
 
-                            spawnUnit = new MissileUnitType("gyurza-missile"){{
-                                engineSize = 1.75f;
-                                engineLayer = Layer.effect;
-                                speed = 4.2f;
-                                maxRange = 16f;
-                                trailWidth = 1;
+                            fragBullets = 1;
 
-                                lifetime = 60;
-                                outlineColor = AZPal.aureliaOutline;
-                                health = 25;
-                                lowAltitude = true;
-                                hitSize = 2f;
+                            fragBullet = new BasicBulletType(4.5f, 45, "az-gyurza-missile") {{
+                                shake = 2.0f;
+                                lifetime = 35f;
+                                fragRandomSpread = 0.0f;
+                                keepVelocity = false;
+                                drag = -0.05f;
 
-                                weapons.add(new Weapon(){{
-                                    shootCone = 360f;
-                                    mirror = false;
-                                    reload = 1f;
-                                    shootOnDeath = true;
-                                    bullet = new ExplosionBulletType(95f, 3f * tilesize){{
-                                        shootEffect = Fx.massiveExplosion;
-                                        buildingDamageMultiplier = 0.5f;
-                                    }};
-                                }});
-                            }};
-                        }};
+                                despawnEffect = Fx.flakExplosionBig; //I'll test all these I g.
+                                trailEffect = AZFx.gyurzaMissileTrail;
+                            }}; //fragBullet
+                        }}; //bullet
                     }});
-            parts.add(
 
+            parts.add(
                     new RegionPart("-blade") {{
                         moveRot = -10;
                         moves.add(new PartMove(PartProgress.reload, 0f, 1.5f, -5f));
@@ -401,18 +386,17 @@ public class AZUnits {
             engineSize = 0f;
             alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
-            blade.add(
-                    new Blade(name + "-blade"){{
-                        y = 1f; x = 1.3f;
-                        bladeMoveSpeed = 40f;
-                        bladeBlurAlphaMultiplier = 0.5f;
-                    }},
 
-                    new Blade(name + "-blade"){{
-                        y = -1f; x = 1.3f;
-                        bladeMoveSpeed = -40f;
-                        bladeBlurAlphaMultiplier = 0.5f;
-                    }});
+            for(int i = -1; i < 2; i+=2) {
+                int finalI = i;
+                blade.add(
+                new Blade(name + "-blade") {{
+                            y = 1f * finalI;
+                            x = 1.3f;
+                            bladeMoveSpeed = 40 * finalI;
+                            bladeBlurAlphaMultiplier = 0.5f;
+                        }});
+            }
 
             weapons.add(
                     new Weapon("az-unmaker-teeth") {{
