@@ -140,6 +140,7 @@ public class AZUnits {
                             despawnEffect = Fx.none;
                             
                             fragBullets = 1;
+                            fragAngle = 0.001f;
                             fragBullet = new BasicBulletType(4.5f, 45, "az-gyurza-missile") {{
                                 shake = 2.0f;
                                 lifetime = 35f;
@@ -149,6 +150,8 @@ public class AZUnits {
 
                                 despawnEffect = Fx.flakExplosionBig; //I'll test all these I g.
                                 trailEffect = AZFx.gyurzaMissileTrail;
+                                trailRotation = true;
+                                trailInterval = 0.5f;
                             }}; //fragBullet
                         }}; //bullet
                     }});
