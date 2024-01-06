@@ -103,6 +103,7 @@ public class AZUnits {
 
             aiController = BuilderAI::new;
             isEnemy = false;
+            range = 230;
 
             lowAltitude = true;
             flying = true;
@@ -129,7 +130,7 @@ public class AZUnits {
                     new Weapon() {{
                         x = y = 0f;
                         mirror = false;
-                        reload = 80.0f;
+                        reload = 150.f;
                         cooldownTime = 0.35f;
                         soundPitchMin = 1.0f;
 
@@ -142,9 +143,10 @@ public class AZUnits {
 
                             despawnEffect = Fx.none;
                             hitEffect = Fx.none;
-                          
-                            height = 25;
-                            width = 13;
+                            layerOffset += 0.02f;
+
+                            height = 17;
+                            width = 9;
                             shrinkX = shrinkY = 0;
                             
                             fragBullets = 1;
@@ -156,11 +158,15 @@ public class AZUnits {
                                 keepVelocity = false;
                                 drag = -0.047f;
 
-                                height = 25;
-                                width = 13;
+                                splashDamage = 270;
+                                splashDamageRadius = 3.3f;
+                                layerOffset += 0.02f;
+
+                                height = 17;
+                                width = 9;
                                 shrinkX = shrinkY = 0;
 
-                                despawnEffect = Fx.massiveExplosion;
+                                hitEffect = Fx.massiveExplosion;
                                 trailEffect = AZFx.gyurzaMissileTrail;
                                 waveTrailY = -2f;
                                 trailRotation = true;
