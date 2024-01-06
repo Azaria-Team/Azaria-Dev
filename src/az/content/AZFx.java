@@ -418,13 +418,13 @@ public class AZFx {
         });
     }),
 
-    gyurzaMissileTrail = new Effect(35.0f, 200.0f, e -> {
-       color(Color.darkGray, Color.gray, Color.lightGray, e.fin() * e.fin());
+    gyurzaMissileTrail = new Effect(23.0f, 200.0f, e -> {
+       color(Color.valueOf("d4816b"), Color.valueOf("4f4f4f"), e.fin() * e.fin());
        randLenVectors(e.id, 3, 1.0f + e.finpow() * 30, e.rotation + 180, 6.5f, (x, y) -> {
            Fill.circle(e.x + x, e.y + y, 1.4f + e.fout() * 1.1f);
        });
     }),
-    cursedFireDisableSmall= new Effect(30, e -> {
+    cursedFireHit = new Effect(30, e -> {
         color(Color.valueOf("96d66a"));
         e.scaled(8, i -> {
             stroke(5.0f * i.fout());
@@ -434,8 +434,8 @@ public class AZFx {
 
     cursedFire = new Effect(35.0f, e -> {
         color(Color.valueOf("53dc54"), Color.valueOf("00401c"), e.fin());
-        randLenVectors(e.id, 3, 2.0f + e.fin() * 7.0f, (x, y) -> {
-            Fill.circle(e.x + x, e.y + y, 0.1f + e.fout() * 1.4f);
+        randLenVectors(e.id, 3, 4.0f + e.fin() * 7.0f, (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, 0.57f + e.fout() * 1.4f);
         });
     });
 

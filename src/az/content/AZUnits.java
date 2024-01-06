@@ -132,23 +132,37 @@ public class AZUnits {
                         reload = 80.0f;
                         cooldownTime = 0.35f;
                         soundPitchMin = 1.0f;
+
                         shootSound = Sounds.missileSmall;
+
                         bullet = new BasicBulletType(2.9f, 0, "az-gyurza-missile") {{
                             keepVelocity = false;
                             inaccuracy = 2.0f;
                             drag = 0.037f;
+
                             despawnEffect = Fx.none;
+                            hitEffect = Fx.none;
+                          
+                            height = 25;
+                            width = 13;
+                            shrinkX = shrinkY = 0;
                             
                             fragBullets = 1;
                             fragRandomSpread = 0;
-                            fragBullet = new BasicBulletType(4.5f, 45, "az-gyurza-missile") {{
+                            fragVelocityMin = 1.0f;
+                            fragBullet = new BasicBulletType(4.0f, 45, "az-gyurza-missile") {{
                                 shake = 2.0f;
-                                lifetime = 35f;
+                                lifetime = 25.75f;
                                 keepVelocity = false;
-                                drag = -0.05f;
+                                drag = -0.047f;
 
-                                despawnEffect = Fx.flakExplosionBig; //I'll test all these I g.
+                                height = 25;
+                                width = 13;
+                                shrinkX = shrinkY = 0;
+
+                                despawnEffect = Fx.massiveExplosion;
                                 trailEffect = AZFx.gyurzaMissileTrail;
+                                waveTrailY = -2f;
                                 trailRotation = true;
                                 trailInterval = 0.5f;
                             }}; //fragBullet
@@ -441,8 +455,7 @@ public class AZUnits {
             itemCapacity = 10;
             range = 15 * tilesize;
 
-            engineSize = 3f;
-            engineOffset = 9.5f;
+            engineSize = 0f;
             alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
             weapons.add(
@@ -451,21 +464,26 @@ public class AZUnits {
                         layerOffset = -0.002f;
                         recoil = 3.5f;
 
-                        bullet = new LiquidBulletType(AZLiquids.ssaninaBomzha) {{
-                        damage = 5;
-                        speed = 4.0f;
-                        lifetime = 35.0f;
-                        drag = 0.0012f;
+                        bullet = new BasicBulletType(4.f, 35) {{
+                            lifetime = 35.0f;
+                            drag = 0.0012f;
+                            shootEffect = Fx.shootLiquid;
 
-                        shootEffect = Fx.shootLiquid;
-                        trailEffect = AZFx.cursedFireTrailSmall;
-                        trailInterval = 0.5f;
-                        despawnEffect = AZFx.cursedFireDisableSmall;
+                            frontColor = backColor = AZPal.unmakerColor;
 
-                        splashDamage = 25;
-                        splashDamageRadius = 35.0f;
+                            width = height *= 2.5f;
+                            trailEffect = AZFx.cursedFireTrailSmall;
+                            trailRotation = true;
+                            trailInterval = 0.5f;
 
-                        range = 125.0f;
+                            hitEffect = AZFx.cursedFireHit;
+                            status = AZStatusEffects.decomposition;
+                            statusDuration = 140f;
+
+                            splashDamage = 25;
+                            splashDamageRadius = 35.0f;
+
+                            range = 125.0f;
                         }};
                     }});
 

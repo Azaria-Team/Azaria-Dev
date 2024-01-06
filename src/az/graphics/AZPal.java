@@ -28,7 +28,7 @@ public static final Color
         khylid = Color.valueOf("87d7bf"),
         lightningNodeColor = Color.valueOf("f6738d"),
 //units
-        unmakerColor = Color.valueOf("88f99a"),
+        unmakerColor = Color.valueOf("8deb87"),
         zephyrLight = Color.valueOf("d8f7f8"),
         zephyrDark = Color.valueOf("2dd5d9"),
 //other
