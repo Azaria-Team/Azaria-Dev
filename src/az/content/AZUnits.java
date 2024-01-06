@@ -138,9 +138,8 @@ public class AZUnits {
                             inaccuracy = 2.0f;
                             drag = 0.037f;
                             despawnEffect = Fx.none;
-
+                            
                             fragBullets = 1;
-
                             fragBullet = new BasicBulletType(4.5f, 45, "az-gyurza-missile") {{
                                 shake = 2.0f;
                                 lifetime = 35f;
@@ -446,7 +445,7 @@ public class AZUnits {
             outlineColor = AZPal.aureliaOutline;
             weapons.add(
                     new Weapon("eliminator-gun") {{
-                        reload = 25;
+                        reload = 15;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
 
