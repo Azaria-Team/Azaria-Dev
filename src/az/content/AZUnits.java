@@ -469,7 +469,8 @@ public class AZUnits {
                             drag = 0.0012f;
                             shootEffect = Fx.shootLiquid;
 
-                            frontColor = backColor = AZPal.unmakerColor;
+                            frontColor = Color.white;
+                            backColor = AZPal.unmakerColor;
 
                             width = height *= 2.5f;
                             trailEffect = AZFx.cursedFireTrailSmall;
