@@ -140,7 +140,7 @@ public class AZUnits {
                             despawnEffect = Fx.none;
                             
                             fragBullets = 1;
-                            fragAngle = 0.001f;
+                            fragRandomSpread = 0.00001f;
                             fragBullet = new BasicBulletType(4.5f, 45, "az-gyurza-missile") {{
                                 shake = 2.0f;
                                 lifetime = 35f;
