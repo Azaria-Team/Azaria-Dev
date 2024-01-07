@@ -266,7 +266,7 @@ public class AZUnits {
                         }});
 
                 weapons.add(
-                        new Weapon("hpl-plasma-pointer") {{
+                        new Weapon("az-plasma-pointer") {{
                             reload = 60f;
                             shootY = 2f;
                             rotate = false;
@@ -282,7 +282,7 @@ public class AZUnits {
                             bullet = new AimBulletType(3f, 25) {{
                                 backColor = AZPal.vogPinkBack;
                                 frontColor = AZPal.vogPink;
-                                sprite = "hpl-dagger-missile";
+                                sprite = "az-dagger-missile";
                                 maxRange = 240;
                                 homingPower = 0.07f;
                                 homingRange = 0;
@@ -613,6 +613,7 @@ public class AZUnits {
 
                 shoot = new AZBurstShoot(2, 5, 4.0f);
                 inaccuracy = 7.0f;
+                xRand = tilesize * 1.5f;
                 bullet = new BasicBulletType(6f, 15) {{
                     sprite = "az-grenade";
                     backColor = AZPal.droneBulletBack;
