@@ -563,7 +563,7 @@ public class AZUnits {
                     }});
             weapons.add(new Weapon("az-vector-gun")
             {{
-                reload = 25f; //10
+                reload = 27.5f; //10
                 rotate = false;
                 x = -4;
                 y = -3;
@@ -572,7 +572,7 @@ public class AZUnits {
                 shootY = 1.7f;
                 shootSound = Sounds.shootAlt;
 
-                shoot = new AZBurstShoot(2, 5, 4.5f);
+                shoot = new AZBurstShoot(2, 5, 4.0f);
                 inaccuracy = 7.0f;
                 bullet = new BasicBulletType(6f, 15) {{
                     sprite = "az-grenade";

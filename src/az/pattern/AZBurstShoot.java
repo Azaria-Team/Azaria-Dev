@@ -36,7 +36,7 @@ public class AZBurstShoot extends ShootPattern {
         Random randNum = new Random();
 
         for (int i = 1; i <= randNum.nextInt(burstRange) + burstOffset; i++) {
-            handler.shoot(0, 0, 0, (firstShotDelay + shotDelay)* i);
+            handler.shoot(0, 0, 0, firstShotDelay + shotDelay * i);
         }
     }
 }
