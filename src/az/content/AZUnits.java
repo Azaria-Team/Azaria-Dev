@@ -133,8 +133,8 @@ public class AZUnits {
                     new Weapon() {{
                         x = y = 0f;
                         mirror = false;
-                        reload = 150.f;
-                        cooldownTime = 0.35f;
+                        reload = 150f;
+                       // cooldownTime = 0.35f;
                         soundPitchMin = 1.0f;
 
                         shootSound = Sounds.missileSmall;
