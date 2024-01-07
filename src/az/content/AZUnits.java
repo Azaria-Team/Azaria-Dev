@@ -155,6 +155,8 @@ public class AZUnits {
                             fragBullets = 1;
                             fragRandomSpread = 0;
                             fragVelocityMin = 1.0f;
+                            buildingDamageMultiplier = 0.09f;
+
                             fragBullet = new BasicBulletType(4.0f, 45, "az-gyurza-missile") {{
                                 shake = 2.0f;
                                 lifetime = 25.75f;
@@ -174,6 +176,7 @@ public class AZUnits {
                                 waveTrailY = -2f;
                                 trailRotation = true;
                                 trailInterval = 0.5f;
+                                buildingDamageMultiplier = 0.09f;
                             }}; //fragBullet
                         }}; //bullet
                     }});
