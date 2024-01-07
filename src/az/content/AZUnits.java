@@ -613,8 +613,7 @@ public class AZUnits {
                 shootSound = Sounds.shootAlt;
 
                 shoot = new AZBurstShoot(2, 5, 4.0f);
-                inaccuracy = 7.0f;
-                xRand = tilesize * 1.5f;
+                inaccuracy = 5.65f;
                 bullet = new BasicBulletType(6f, 15) {{
                     sprite = "az-grenade";
                     backColor = AZPal.droneBulletBack;
@@ -627,6 +626,7 @@ public class AZUnits {
                     hitEffect = AZFx.blueHitExplosion1;
                     despawnEffect = AZFx.smallBlueExplosion;
                     lifetime = 25;
+                    velocityRnd = 0.2f;
                 }};
             }});
         }};
@@ -664,7 +664,7 @@ public class AZUnits {
                 mirror = true;
                 alternate = true;
                 shootSound = Sounds.shootAlt;
-                bullet = new BasicBulletType(5.5f, 30) {{
+                bullet = new BasicBulletType(5.5f, 10) {{
                     sprite = "az-grenade";
                     backColor = AZPal.droneBulletBack;
                     frontColor = AZPal.droneBullet;
@@ -679,7 +679,7 @@ public class AZUnits {
                     splashDamage = 10f;
                     splashDamageRadius = 2f * Vars.tilesize;
                     fragBullets = 4;
-                    fragBullet = new BasicBulletType(4f, 15) {{
+                    fragBullet = new BasicBulletType(4f, 35) {{
                         sprite = "az-grenade";
                         backColor = AZPal.droneBulletBack;
                         frontColor = AZPal.droneBullet;
