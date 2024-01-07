@@ -727,8 +727,6 @@ public class AZUnits {
                     }});
             }
 /*            weapons.add(new Weapon("") {{
-                //xRand
-                //linear warmup
             }});*/
         }};
         //endregion vectorTree
