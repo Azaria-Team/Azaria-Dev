@@ -1,11 +1,9 @@
 package az.content.blocks;
 
-import arc.math.geom.Vec2;
 import az.content.AZBullets;
 import az.content.AZFx;
 import az.content.AZItems;
 import az.content.AZLiquids;
-import az.entities.ShootMultiBarrel;
 import az.graphics.AZPal;
 import az.world.blocks.defense.turret.AirDefenceTurret;
 import mindustry.Vars;
@@ -152,19 +150,6 @@ public class AZTurrets {
                     AZItems.superdenseAlloy, AZBullets.forceBullet
             );
             shoot.shots = 2;
-            shoot= new ShootMultiBarrel(){{
-                shots=2;
-                shotDelay = 18f;//burstSpacing = 18f;
-                blockSize = 3;
-                barrelPoints(
-                        new Vec2(30f / 96f, 4f / 96f),
-                        new Vec2(66f / 96f, 4f / 96f)
-                );
-                ejectPoints(
-                        new Vec2(33f / 96f, 40f / 96f),
-                        new Vec2(63f / 96f, 40f / 96f)
-                );
-            }};
             health = 1960;
             size = 3;
             reload = 80f;
