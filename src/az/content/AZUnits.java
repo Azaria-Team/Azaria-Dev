@@ -151,7 +151,7 @@ public class AZUnits {
                             height = 17;
                             width = 9;
                             shrinkX = shrinkY = 0;
-                            
+
                             fragBullets = 1;
                             fragRandomSpread = 0;
                             fragVelocityMin = 1.0f;
@@ -392,13 +392,6 @@ public class AZUnits {
             constructor = UnitWaterMove::create;
             outlineColor = AZPal.aureliaOutline;
 
-            weapons.add (
-                    new Weapon("kpa") {{
-
-                        new RegionPart("shaft") {{
-
-                        }};
-                    }});
         }};
         //endregion angelsharkTree
         //region unmakerTree
