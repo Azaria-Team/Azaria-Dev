@@ -138,8 +138,6 @@ public class AZUnits {
                         soundPitchMin = 1.0f;
 
                         shootSound = Sounds.missileSmall;
-                        linearWarmup = true;
-                        minWarmup = 1.3f;
 
                         bullet = new BasicBulletType(2.9f, 0, "az-gyurza-missile") {{
                             keepVelocity = false;
