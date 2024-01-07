@@ -100,6 +100,7 @@ public class AZUnits {
         setupID();
 
         //region aureliaCoreUnits
+        //TODO fix gyurza frag bullet gamade
         gyurza = new UnitType("gyurza") {{
             constructor = UnitEntity::create;
 
@@ -138,7 +139,7 @@ public class AZUnits {
 
                         shootSound = Sounds.missileSmall;
                         linearWarmup = true;
-                        minWarmup = 35.0f;
+                        minWarmup = 1.3f;
 
                         bullet = new BasicBulletType(2.9f, 0, "az-gyurza-missile") {{
                             keepVelocity = false;
