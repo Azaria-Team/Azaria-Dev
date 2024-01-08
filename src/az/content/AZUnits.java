@@ -25,6 +25,7 @@ import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
+import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.BlockFlag;
 
 import static mindustry.Vars.tilesize;
