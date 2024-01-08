@@ -714,14 +714,12 @@ public class AZUnits {
 
             itemCapacity = 45;
 
-            for(int i = -1; i < 2; i += 2) {
-                int diffPos = i;
+
             weapons.add(
                     new Weapon("az-vortex-emp") {{
                         rotate = true;
-                        mirror = false;
                         rotateSpeed /= 2.0f;
-                        x = 13 * diffPos;
+                        x = 13;
                         y = -7;
 
                         reload = 45.0f;
@@ -735,7 +733,7 @@ public class AZUnits {
             }
 /*            weapons.add(new Weapon("") {{
             }});*/
-        }};
+        };
         //endregion vectorTree
 
         //region source
