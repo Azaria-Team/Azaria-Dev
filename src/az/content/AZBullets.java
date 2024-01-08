@@ -41,7 +41,7 @@ public class AZBullets {
 
            trailColor = AZPal.vogPinkBack;
            backColor = AZPal.vogPinkBack;
-           frontColor = AZPal.forceBullet;
+           frontColor = AZPal.vogPink;
 
            trailLength = 18;
            trailWidth = 1.7f;

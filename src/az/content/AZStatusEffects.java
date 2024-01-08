@@ -14,7 +14,8 @@ public class AZStatusEffects {
             damage = 0.3f;
             healthMultiplier = 0.8f;
             speedMultiplier =  0.5f;
-            reloadMultiplier = 1f / 3 * 2;
+            damageMultiplier = 0.65f;
+            reloadMultiplier = 1f/3 * 2;
         }};
 
         decomposition = new StatusEffect("decomposition") {{

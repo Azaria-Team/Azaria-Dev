@@ -12,7 +12,6 @@ public class AZBurstShoot extends ShootPattern {
     public void burstFireInterval(int from, int to) {
         burstRange = 1 + to - from;
         burstOffset = from;
-
         //(from - to) -> (range, offset)
     }
 
