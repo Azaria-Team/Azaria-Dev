@@ -102,7 +102,7 @@ public class AZTurrets {
             shootCone = 35f;
             rotateSpeed = 3.4f;
 
-            shootSound = Sounds.cannon;
+            shootSound = Sounds.shockBlast;
             squareSprite = false;
 
             shoot = new ShootSpread(7, 6);

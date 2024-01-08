@@ -164,8 +164,8 @@ public class AZUnits {
                                 keepVelocity = false;
                                 drag = -0.047f;
 
-                                splashDamage = 270;
-                                splashDamageRadius = 3.3f;
+                                splashDamage = 200;
+                                splashDamageRadius = 8f;
                                 layerOffset += 0.02f;
 
                                 height = 17;

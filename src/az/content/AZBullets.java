@@ -91,7 +91,7 @@ public class AZBullets {
             }};
         }};
 
-        hornBullet = new BasicBulletType(5f, 40f){{
+        hornBullet = new BasicBulletType(5f, 50f){{
             hitEffect = AZFx.hornBulletHit;
             despawnEffect = AZFx.hornBulletDespawn;
             width = 52f;
@@ -99,7 +99,7 @@ public class AZBullets {
             shrinkY = -2f;
             shrinkX = 0.1f;
             hitSize = 9;
-            knockback = 3.3f;
+            knockback = 3.5f;
             ammoMultiplier = 0;
 
             shrinkInterp = Interp.reverse;
