@@ -305,7 +305,7 @@ public class AZUnits {
                                 splashDamageRadius = 20;
                             }};
                         }},
-                        new Weapon("hpl-plasma-pointer") {
+                        new Weapon("az-plasma-pointer") {
                             {
                                 reload = 60f;
                                 shootY = 2f;
@@ -323,7 +323,7 @@ public class AZUnits {
                                     {
                                         backColor = AZPal.vogPinkBack;
                                         frontColor = AZPal.vogPink;
-                                        sprite = "hpl-dagger-missile";
+                                        sprite = "az-dagger-missile";
                                         maxRange = 240;
                                         homingPower = 0.07f;
                                         homingRange = 0;
@@ -361,7 +361,7 @@ public class AZUnits {
                                 shoot = new AZBurstShoot(2, 4, 6.0f);
                                 bullet = new MissileBulletType(6f, 10, "az-vog") {{
                                     backColor = AZPal.vogPinkBack;
-                                    frontColor = AZPal.forceBullet;
+                                    frontColor = AZPal.vogPink;
                                     width = 13f;
                                     height = 15f;
                                     shrinkX = 0;
@@ -439,10 +439,11 @@ public class AZUnits {
                         bullet = new BasicBulletType(5.5f, 15) {{
                             lifetime = 25f;
                             sprite = "az-dagbul";
-                            statusDuration = 1f;
+                            statusDuration = 100.0f;
                             status = AZStatusEffects.weakness;
-                            width = 10f;
-                            height = 12f;
+
+                            width = 12f;
+                            height = 15f;
                             shrinkX = 0;
                             shrinkY = 0;
                             trailChance = 0.7f;
@@ -477,8 +478,9 @@ public class AZUnits {
                         reload = 15;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
+                        inaccuracy = 3.0f;
 
-                        bullet = new BasicBulletType(4.f, 35) {{
+                        bullet = new BasicBulletType(4.f, 15) {{
                             lifetime = 35.0f;
                             drag = 0.0012f;
                             shootEffect = Fx.shootLiquid;
@@ -566,6 +568,7 @@ public class AZUnits {
                     }});
         }};
         //endregion unmakerTree
+
         //region vectorTree
         vector = new DroneUnitType("vector") {{
             targetFlags = new BlockFlag[] {BlockFlag.turret, BlockFlag.drill, null};
@@ -608,7 +611,7 @@ public class AZUnits {
 
                 shoot = new AZBurstShoot(2, 5, 4.0f);
                 inaccuracy = 5.65f;
-                bullet = new BasicBulletType(6f, 15) {{
+                bullet = new BasicBulletType(6f, 10) {{
                     sprite = "az-grenade";
                     backColor = AZPal.droneBulletBack;
                     frontColor = AZPal.droneBullet;
@@ -714,11 +717,11 @@ public class AZUnits {
             for(int i = -1; i < 2; i += 2) {
                 int diffPos = i;
             weapons.add(
-                    new Weapon("vortex-emp") {{
+                    new Weapon("az-vortex-emp") {{
                         rotate = true;
                         rotateSpeed /= 2.0f;
-                        x = tilesize * 2 * diffPos;
-                        y -= tilesize * 2;
+                        x = tilesize * 1.7f * diffPos;
+                        y -= tilesize * 1.7f;
 
                         reload = 45.0f;
                         inaccuracy = 22.5f;

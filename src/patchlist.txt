@@ -1,0 +1,9 @@
+#before release
+- fix gyurza missile damage
+- fix vector AI
+
+#after release
+- nerf vector, too powerful :skull:
+
+#done
+-в make burst fire
