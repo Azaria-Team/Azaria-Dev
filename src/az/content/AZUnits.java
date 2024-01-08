@@ -499,7 +499,7 @@ public class AZUnits {
                             status = AZStatusEffects.decomposition;
                             statusDuration = 140f;
 
-                            splashDamage = 25;
+                            splashDamage = 20;
                             splashDamageRadius = 35.0f;
 
                             range = 125.0f;
@@ -719,9 +719,10 @@ public class AZUnits {
             weapons.add(
                     new Weapon("az-vortex-emp") {{
                         rotate = true;
+                        mirror = false;
                         rotateSpeed /= 2.0f;
-                        x = tilesize * 1.7f * diffPos;
-                        y -= tilesize * 1.7f;
+                        x = 13 * diffPos;
+                        y = -7;
 
                         reload = 45.0f;
                         inaccuracy = 22.5f;
