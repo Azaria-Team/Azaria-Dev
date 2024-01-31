@@ -15,9 +15,10 @@ import static mindustry.type.ItemStack.with;
 
 public class AZProduction {
     public static Block
-    crasideBrewer;
+    crasideBrewer, superdenseKiln;
 
     public static void load() {
+
         //TODO
         crasideBrewer = new GenericCrafter("craside-brewer") {{
             requirements(Category.crafting, with(AZItems.fors, 60, AZItems.khylid, 35));
@@ -42,6 +43,20 @@ public class AZProduction {
                         layer = Layer.block + 0.2f;
                     }}
             );
+        }};
+
+        superdenseKiln = new GenericCrafter("superdense-kiln") {{
+            requirements(Category.crafting, with(AZItems.fors, 200, AZItems.khylid, 150, AZItems.craside, 100));
+            outputItem = new ItemStack(AZItems.superdenseAlloy, 4);
+            consumeItems(with(AZItems.fors, 3, AZItems.volcanicSerrid, 2, AZItems.ferbium, 1));
+            craftTime = 150f;
+            ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
+            size = 4;
+           // craftEffect = AZFx.crasideBrewerSmoke;
+            consumePower(1f);
+           // researchCostMultiplier = 0.2f;
+            squareSprite = false;
         }};
     }
 }
