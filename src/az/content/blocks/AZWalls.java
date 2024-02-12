@@ -1,6 +1,9 @@
 package az.content.blocks;
 
 import az.content.AZItems;
+import az.content.AZLiquids;
+
+import az.world.blocks.defense.wall.AZHealingWall;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
@@ -38,10 +41,15 @@ public class AZWalls {
         }};
 
         //later
-        compositeWall = new Wall("composite-wall") {{
+        compositeWall = new AZHealingWall("composite-wall") {{
             requirements (Category.defense, with(AZItems.craside, 4, AZItems.khylid, 2));
             health = 800;
             buildCostMultiplier = 6f;
+
+            hasLiquids = true;
+            liquidCapacity = 25f;
+            consumeLiquid(AZLiquids.oxyliteLiq, 0.09f);
+            healAmount = 0.3f;
         }};
 
         compositeWallLarge = new Wall("composite-wall-large"){{
