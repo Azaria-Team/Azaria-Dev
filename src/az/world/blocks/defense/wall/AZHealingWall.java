@@ -1,5 +1,6 @@
 package az.world.blocks.defense.wall;
 
+import arc.func.Cons;
 import mindustry.type.Liquid;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.consumers.ConsumeLiquid;
@@ -17,7 +18,7 @@ public class AZHealingWall extends Wall {
 
     @Override
     public ConsumeLiquid consumeLiquid(Liquid liquid, float amount) {
-        if(health < )  {
+        if(true)  {
             return super.consumeLiquid(liquid, amount);
             }
             return super.consumeLiquid(liquid, 0);
