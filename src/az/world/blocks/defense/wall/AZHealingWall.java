@@ -1,6 +1,5 @@
 package az.world.blocks.defense.wall;
 
-import arc.func.Cons;
 import mindustry.type.Liquid;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.consumers.ConsumeLiquid;
@@ -9,7 +8,7 @@ public class AZHealingWall extends Wall {
     /** amount of health regeneration at a time*/
     public float healAmount = 1f;
     /** used to calculate if the health is not max*/
-    //TODO shit code?
+    //TODO  code?
     public AZHealingWall(String name) {
         super(name);
         update = true;
@@ -18,10 +17,7 @@ public class AZHealingWall extends Wall {
 
     @Override
     public ConsumeLiquid consumeLiquid(Liquid liquid, float amount) {
-        if(true)  {
             return super.consumeLiquid(liquid, amount);
-            }
-            return super.consumeLiquid(liquid, 0);
     }
 
     public class AZHealWallBuild extends WallBuild {
