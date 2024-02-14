@@ -1,6 +1,5 @@
 package az.world.blocks.defense.wall;
 
-
 import mindustry.type.Liquid;
 import mindustry.world.blocks.defense.Wall;
 import mindustry.world.consumers.ConsumeLiquid;
