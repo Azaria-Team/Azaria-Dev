@@ -8,7 +8,7 @@ public class AZHealingWall extends Wall {
     /** amount of health regeneration at a time*/
     public float healAmount = 1f;
     /** used to calculate if the health is not max*/
-    //TODO  code?
+    //TODO bad code?
     public AZHealingWall(String name) {
         super(name);
         update = true;
@@ -17,7 +17,10 @@ public class AZHealingWall extends Wall {
 
     @Override
     public ConsumeLiquid consumeLiquid(Liquid liquid, float amount) {
+        if(this.newBuilding().health() < this.newBuilding().maxHealth()) {
             return super.consumeLiquid(liquid, amount);
+        }
+        return super.consumeLiquid(liquid, 0);
     }
 
     public class AZHealWallBuild extends WallBuild {
@@ -26,6 +29,7 @@ public class AZHealingWall extends Wall {
         public void updateTile() {
             super.updateTile();
 
+            //TODO isn't it better to put it in consume?
             if (health < maxHealth) {
                 float liq = liquids.currentAmount();
                 if (liq > 0) {

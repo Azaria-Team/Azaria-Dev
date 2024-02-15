@@ -8,6 +8,7 @@ import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
 
+import static arc.input.KeyCode.f;
 import static mindustry.type.ItemStack.with;
 
 public class AZWalls {
@@ -48,15 +49,20 @@ public class AZWalls {
 
             hasLiquids = true;
             liquidCapacity = 25f;
-            consumeLiquid(AZLiquids.oxyliteLiq, 0.09f);
-            healAmount = 0.3f;
+            consumeLiquid(AZLiquids.oxyliteLiq, 0.05f);
+            healAmount = 0.175f;
         }};
 
-        compositeWallLarge = new Wall("composite-wall-large"){{
+        compositeWallLarge = new AZHealingWall("composite-wall-large"){{
             requirements (Category.defense, with(AZItems.craside, 20, AZItems.khylid, 4));
+            health = 800 * 4;
             size = 2;
             buildCostMultiplier = 6f;
-            health = 800 * 4;
+
+            hasLiquids = true;
+            liquidCapacity = 50f;
+            consumeLiquid(AZLiquids.oxyliteLiq, 0.175f);
+            healAmount = 0.7f;
         }};
     }
 }
