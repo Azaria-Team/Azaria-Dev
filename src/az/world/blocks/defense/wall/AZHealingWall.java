@@ -29,7 +29,6 @@ public class AZHealingWall extends Wall {
         public void updateTile() {
             super.updateTile();
 
-            //TODO isn't it better to put it in consume?
             if (health < maxHealth) {
                 float liq = liquids.currentAmount();
                 if (liq > 0) {
