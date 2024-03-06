@@ -12,7 +12,7 @@ import mindustry.world.draw.DrawFlame;
 
 public class MultiDrawFlame extends DrawFlame {
     public FlamePoint[] flamePoints = {};
-    public boolean drawTopOnce=false;
+    public boolean drawTopOnce=true;
 
     public void flamePoints(FlamePoint... flamePoints){
         this.flamePoints = flamePoints;

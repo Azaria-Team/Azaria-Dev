@@ -63,14 +63,27 @@ public class AZProduction {
                     new DrawDefault(),
                     new MultiDrawFlame(){{
                         flamePoints(
-                                new FlamePoint(64f/128f,64f/128f),
-                                new FlamePoint(64f/128f,32f/128f)
+                                new FlamePoint(63.5f/128f,33.4f/128f),
+                                new FlamePoint(63.5f/128f,93.5f/128f),
+                                new FlamePoint(40.5f/128f,86.5f/128f),
+                                new FlamePoint(40.5f/128f,40.5f/128f),
+                                new FlamePoint(86.5f/128f,86.5f/128f),
+                                new FlamePoint(86.5f/128f,40.5f/128f),
+                                new FlamePoint(33.5f/128f,63.5f/128f),
+                                new FlamePoint(93.5f/128f,63.5f/128f)
+
                         );
-                        flameRadius = 1;
+                        flameRadius = 1.3f;
+                        flameRadiusIn = 0.5f;
+                        flameRadiusScl = 3f;
+                        flameRadiusMag = 0.5f;
+                        flameRadiusInMag = 0.5f;
+                        flameColor = Color.valueOf("313442");
                     }},
                     new DrawFlame(){{
                         flameColor = Color.valueOf("313442");
-                        flameRadius = 2;
+                        flameRadius = 3f;
+
                     }}
             );
             // researchCostMultiplier = 0.2f;
