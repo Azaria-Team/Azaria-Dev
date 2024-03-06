@@ -87,8 +87,6 @@ public class AZTurrets {
             requirements(Category.turret, with(AZItems.fors, 70, AZItems.craside, 25));
             researchCost = with(AZItems.fors, 150, AZItems.khylid, 70);
             health = 900;
-            //shootEffect = HPLFx.shootForce;
-            //smokeEffect = HPLFx.shootSmokeForce;
             shootEffect = Fx.none;
             smokeEffect = Fx.none;
             reload = 100f;

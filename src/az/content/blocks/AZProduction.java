@@ -48,8 +48,8 @@ public class AZProduction {
         superdenseKiln = new GenericCrafter("superdense-kiln") {{
             requirements(Category.crafting, with(AZItems.fors, 200, AZItems.khylid, 150, AZItems.craside, 100));
             outputItem = new ItemStack(AZItems.superdenseAlloy, 4);
-            consumeItems(with(AZItems.fors, 3, AZItems.volcanicSerrid, 2, AZItems.ferbium, 1));
-            craftTime = 150f;
+            consumeItems(with(AZItems.fors, 2, AZItems.volcanicSerrid, 2, AZItems.ferbium, 1));
+            craftTime = 160f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             size = 4;
