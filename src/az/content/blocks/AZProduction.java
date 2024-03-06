@@ -1,13 +1,17 @@
 package az.content.blocks;
 
+import arc.graphics.Color;
 import az.content.AZFx;
 import az.content.AZItems;
+import az.world.draw.MultiDrawFlame;
 import mindustry.gen.Sounds;
 import mindustry.graphics.Layer;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.production.GenericCrafter;
+import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawFlame;
 import mindustry.world.draw.DrawMulti;
 import mindustry.world.draw.DrawRegion;
 
@@ -53,9 +57,23 @@ public class AZProduction {
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             size = 4;
-           // craftEffect = AZFx.crasideBrewerSmoke;
+            // craftEffect = AZFx.crasideBrewerSmoke;
             consumePower(1f);
-           // researchCostMultiplier = 0.2f;
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new MultiDrawFlame(){{
+                        flamePoints(
+                                new FlamePoint(64f/128f,64f/128f),
+                                new FlamePoint(64f/128f,32f/128f)
+                        );
+                        flameRadius = 1;
+                    }},
+                    new DrawFlame(){{
+                        flameColor = Color.valueOf("313442");
+                        flameRadius = 2;
+                    }}
+            );
+            // researchCostMultiplier = 0.2f;
             squareSprite = false;
         }};
     }
