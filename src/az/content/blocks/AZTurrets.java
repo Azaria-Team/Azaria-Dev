@@ -9,6 +9,8 @@ import az.world.blocks.defense.turret.AirDefenceTurret;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.part.RegionPart;
+import mindustry.entities.pattern.ShootAlternate;
+import mindustry.entities.pattern.ShootBarrel;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
@@ -24,7 +26,7 @@ public class AZTurrets {
     
     public static Block
             forceTurret, hornTurret, razeTurret,
-            complexShell, complexRage, complexAvalon;
+            complexShell, complexAvalon;
 
     public static void load() {
         forceTurret = new ItemTurret("force"){{
@@ -147,19 +149,30 @@ public class AZTurrets {
             ammo(
                     AZItems.superdenseAlloy, AZBullets.forceBullet
             );
-            shoot.shots = 2;
+
+            shoot = new ShootBarrel(){{
+                barrels = new float[]{
+                        -5, -1f, 0,
+                        -9, -4f, 0,
+                        5, -1f, 0,
+                        9, -4f, 0
+                };
+                shots = 1;
+                shotDelay = 1f;
+            }};
+
             health = 1960;
             size = 3;
-            reload = 80f;
-            range = 237f;
-            recoil = 3f;
-            inaccuracy = 4f;
-            rotateSpeed = 4f;
+            reload = 20f;
+            range = 20f;
+            recoil = 2;
+            inaccuracy = 2f;
+            rotateSpeed = 3f;
             shootCone = 2f;
-            ammoPerShot = 2;
+            ammoPerShot = 1;
             shootSound = Sounds.shootBig;
             ammoUseEffect = Fx.casing2;
-            targetAir = false;
+            targetAir = true;
         }};
 
 
@@ -186,12 +199,6 @@ public class AZTurrets {
             coolantMultiplier = 2f;
             consumePower(1f);
             ammo(AZItems.superdenseAlloy, AZBullets.antiMissileBullet);
-        }};
-
-
-        complexRage = new PowerTurret("complex-rage") {{
-            size = 3;
-            requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
         }};
 
         complexAvalon = new PowerTurret("complex-avalon") {{
