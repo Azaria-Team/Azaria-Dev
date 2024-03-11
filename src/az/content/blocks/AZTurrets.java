@@ -163,7 +163,7 @@ public class AZTurrets {
 
             health = 1960;
             size = 3;
-            reload = 20f;
+            reload = 13f;
             range = 30f * Vars.tilesize;
             recoil = 2;
             inaccuracy = 2f;

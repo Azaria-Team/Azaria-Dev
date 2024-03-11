@@ -42,15 +42,13 @@ public class AZCoreRelatedBlocks {
         }};
         navalMine = new NavalMine("naval-mine") {{
             size = 2;
-            floating = true;
-            placeableOn = false;
             placeableLiquid = true;
             outlineColor = AZPal.aureliaOutline;
             requirements(Category.effect, with(AZItems.ognium, 50, AZItems.ferbium, 35));
             hasShadow = false;
             health = 1850;
             damage = 150;
-            tileDamage = 450;
+            tileDamage = 1850;
         }};
 
         repairTurret = new BlockRepairTurret("repair-turret"){{
