@@ -164,7 +164,7 @@ public class AZTurrets {
             health = 1960;
             size = 3;
             reload = 20f;
-            range = 20f;
+            range = 30f * Vars.tilesize;
             recoil = 2;
             inaccuracy = 2f;
             rotateSpeed = 3f;
