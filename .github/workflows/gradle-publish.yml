@@ -9,7 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up PATH
-        uses: android-actions/setup-android@v3
         run: |
           echo "${ANDROID_HOME}/build-tools/30.0.1" >> $GITHUB_PATH
       - name: Set up JDK 17
