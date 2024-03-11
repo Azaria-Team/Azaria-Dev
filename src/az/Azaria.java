@@ -6,6 +6,7 @@ import arc.util.Log;
 import arc.util.Time;
 import az.utils.ManyPlanetSystems;
 import az.utils.Utils;
+import azaria.gen.EntityRegistry;
 import mindustry.game.EventType;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.BaseDialog;
@@ -81,6 +82,7 @@ public class Azaria extends Mod{
 
     @Override
     public void loadContent(){
+        EntityRegistry.register();
         AZItems.load();
         AZLiquids.load();
         AZStatusEffects.load();
