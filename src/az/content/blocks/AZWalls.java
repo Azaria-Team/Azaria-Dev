@@ -67,7 +67,7 @@ public class AZWalls {
 
         superdenseWall = new Wall("superdense-wall") {{
            requirements(Category.defense, with(AZItems.superdenseAlloy, 8));
-           health = 1680;
+           health = 1500;
            buildCostMultiplier = 8f;
            armor = 5f;
         }};

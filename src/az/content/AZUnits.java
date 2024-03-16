@@ -119,7 +119,7 @@ public class AZUnits {
 
             mineSpeed = 8f;
             mineTier = 1;
-            buildSpeed = 0.9f;
+            buildSpeed = 0.6f;
 
             health = 500f;
             hitSize = 8f;
