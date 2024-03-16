@@ -73,6 +73,7 @@ public class AZWalls {
         }};
 
         superdenseWallLarge = new Wall("superdense-wall-large") {{
+            size = 2;
             requirements(Category.defense, with(AZItems.superdenseAlloy, 32));
             health = superdenseWall.health * 4;
             buildCostMultiplier = 8f;
