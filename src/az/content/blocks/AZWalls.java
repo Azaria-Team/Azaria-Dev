@@ -8,14 +8,14 @@ import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
 
-import static arc.input.KeyCode.f;
 import static mindustry.type.ItemStack.with;
 
 public class AZWalls {
 
     public static Block
             forsWall, forsWallLarge,
-            compositeWall, compositeWallLarge;
+            compositeWall,compositeWallLarge,
+            superdenseWall, superdenseWallLarge;
 
     public static void load() {
 
@@ -63,6 +63,20 @@ public class AZWalls {
             liquidCapacity = 50f;
             consumeLiquid(AZLiquids.oxyliteLiq, 0.175f);
             healAmount = 0.7f;
+        }};
+
+        superdenseWall = new Wall("superdense-wall") {{
+           requirements(Category.defense, with(AZItems.superdenseAlloy, 8));
+           health = 1680;
+           buildCostMultiplier = 8f;
+           armor = 5f;
+        }};
+
+        superdenseWallLarge = new Wall("superdense-wall-large") {{
+            requirements(Category.defense, with(AZItems.superdenseAlloy, 32));
+            health = superdenseWall.health * 4;
+            buildCostMultiplier = 8f;
+            armor = 7f;
         }};
     }
 }
