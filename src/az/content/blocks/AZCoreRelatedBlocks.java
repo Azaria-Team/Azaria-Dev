@@ -43,6 +43,7 @@ public class AZCoreRelatedBlocks {
         navalMine = new NavalMine("naval-mine") {{
             size = 2;
             placeableLiquid = true;
+            underBullets = true;
             outlineColor = AZPal.aureliaOutline;
             requirements(Category.effect, with(AZItems.ognium, 50, AZItems.ferbium, 35));
             hasShadow = false;
