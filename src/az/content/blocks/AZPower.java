@@ -26,7 +26,7 @@ public class AZPower {
 
             consumePowerBuffered(5000f);
             lightningRange = 17 * 8f;
-            thresholdPerTile = 0.001f / 8f;
+            thresholdPerTile = 0.0001f / 8f;
         }};
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
@@ -35,7 +35,7 @@ public class AZPower {
             consumePowerBuffered(15000f);
             size = 2;
             lightningRange = 28 * 8f;
-            thresholdPerTile = 0.001f / 8f;
+            thresholdPerTile = 0.0001f / 8f;
         }};
 
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
@@ -45,7 +45,7 @@ public class AZPower {
             consumePowerBuffered(4000f);
             lightningRange = 5 * 8f;
             laserRange = 7;
-            thresholdPerTile = 0.001f / 8f;
+            thresholdPerTile = 0.0001f / 8f;
             //buildCostMultiplier = 8f;
         }};
 
@@ -56,7 +56,7 @@ public class AZPower {
             size = 3;
             lightningRange = 15 * 8f;
             laserRange = 16;
-            thresholdPerTile = 0.001f / 8f;
+            thresholdPerTile = 0.0001f / 8f;
         }};
 
         //generators
