@@ -16,6 +16,7 @@ jobs:
         with:
           java-version: 17
       - name: Build mod jar
+        run: |
           sed -i 's/\r//' ./gradlew
           chmod +x ./gradlew
           ./gradlew clean dex -Pcommit=$(git rev-parse --short "$GITHUB_SHA")
