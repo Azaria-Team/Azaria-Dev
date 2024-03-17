@@ -1,9 +1,21 @@
 #before release
 - fix gyurza missile damage
 - fix vector AI
+- fix azHealingWall liquid consume
+- fix plus-floor "wrong folder" error
+- make naval mine work correctly (it must destroy itself, isn't it better just to add some delay between activation exploding and?)
+- fix sorter item color (doesn't display)
+- fix hardened conveyor icon
 
-#after release
+#after release(probably)
 - nerf vector, too powerful :skull:
 
 #done
--в make burst fire
+-new environment blocks
+-make burst fire
+-(unfinished)composite wall has new unique effect
+-superdense walls added
+-many blocks recolored, better block coloring system
+-impulse underflow gate added
+-reverse impulse sorter added
+-impulse unloader added

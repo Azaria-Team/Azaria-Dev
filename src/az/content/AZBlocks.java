@@ -6,6 +6,9 @@ import mindustry.world.Block;
 import mindustry.world.blocks.environment.Floor;
 
 public class AZBlocks {
+    public static Block
+            //sandbox stuff
+     plusFloor;
 
     public static void load() {
         AZCoreRelatedBlocks.load();
@@ -19,5 +22,7 @@ public class AZBlocks {
         AZTurrets.load();
         AZUnitRelatedBlocks.load();
         AZWalls.load();
+
+        plusFloor = new Floor("plus-floor");
     }
 }

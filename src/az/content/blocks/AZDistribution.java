@@ -13,7 +13,7 @@ import static mindustry.type.ItemStack.with;
 public class AZDistribution {
     public static Block
             hardenedConveyor, hardenedJunction, hardenedRouter, hardenedBridgeConveyor,
-            impulseSorter, impulseGate,
+            impulseSorter, impulseReverseSorter, impulseOverflorGate, impulseUnderflowGate,
 
             hardenedUnloader;
 
@@ -68,9 +68,16 @@ public class AZDistribution {
             requirements(Category.distribution, with(AZItems.fors, 4));
         }};
 
-        impulseGate = new OverflowGate("impulse-gate"){{
+        impulseReverseSorter = new Sorter("impulse-reverse-sorter") {{
+            requirements(Category.distribution, with(AZItems.fors, 4));
+        }};
+
+        impulseOverflorGate = new OverflowGate("impulse-overflow-gate"){{
             requirements(Category.distribution, with(AZItems.fors, 6));
             buildCostMultiplier = 3;
+        }};
+        impulseUnderflowGate = new OverflowGate("impulse-underflow-gate") {{
+            requirements(Category.distribution, with(AZItems.fors, 6));
         }};
 
         hardenedUnloader = new Unloader("hardened-unloader") {{

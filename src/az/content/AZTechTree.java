@@ -33,7 +33,7 @@ public class AZTechTree {
                 node(hardenedBridgeConveyor, () -> {
                 });
                 node(impulseSorter, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
-                    node(impulseGate, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
+                    node(impulseOverflorGate, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
 
                     });
                 });
