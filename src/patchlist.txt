@@ -1,11 +1,12 @@
 #before release
-- fix gyurza missile damage
+- fix gyurza missile
 - fix vector AI
 - fix azHealingWall liquid consume
 - fix plus-floor "wrong folder" error
 - make naval mine work correctly (it must destroy itself, isn't it better just to add some delay between activation exploding and?)
-- fix sorter item color (doesn't display)
+- fix sorter item color (doesn't display), reverse sorter too
 - fix hardened conveyor icon
+- fix bridge conveyor connection (the sprite is ok, but it doesn't display correctly)
 
 #after release(probably)
 - nerf vector, too powerful :skull:
