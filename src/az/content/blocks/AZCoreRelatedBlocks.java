@@ -48,7 +48,7 @@ public class AZCoreRelatedBlocks {
             requirements(Category.effect, with(AZItems.ognium, 50, AZItems.ferbium, 35));
             hasShadow = false;
             health = 1850;
-            damage = 150;
+            damage = 790;
             tileDamage = 1850;
         }};
 
