@@ -25,11 +25,11 @@ import static mindustry.Vars.net;
 import static mindustry.Vars.tilesize;
 
 public class NavalMine extends Block{
-
     public float tileDamage = 80f;
+
     public float range = 40f;
-    public float statusDuration = 60f;
-    public StatusEffect status = AZStatusEffects.decomposition;
+//    public float statusDuration = 60f;
+//    public StatusEffect status = AZStatusEffects.decomposition;
     public Effect acceptEffect = Fx.none;
 
     public float damage = 130;
@@ -37,6 +37,8 @@ public class NavalMine extends Block{
     public int explosionTime = 2 * 400;
 
     public final int timerToggle = timers++;
+
+    public float explosionDelay = 45;
 
     public NavalMine(String name){
         super(name);
@@ -107,7 +109,7 @@ public class NavalMine extends Block{
                 }
             }
 
-            if(timer(0, 20)){
+            if(timer(0, explosionDelay)) {
                 findTarget();
             }
         }
@@ -115,7 +117,7 @@ public class NavalMine extends Block{
         protected void explosion() {
             Units.nearbyEnemies(team, x, y, range, unit -> {
                 if(!unit.isFlying() && !unit.hovering) {
-                    unit.apply(status, statusDuration);
+//                    unit.apply(status, statusDuration);
                     acceptEffect.at(unit);
                     unit.damage(damage);
                     damage(tileDamage);
