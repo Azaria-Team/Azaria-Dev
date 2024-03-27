@@ -25,6 +25,7 @@ public class AZBlocks {
 
         plusFloor = new Floor("plus-floor") {{
             variants = 0;
+            isLiquid = true;
         }};
     }
 }
