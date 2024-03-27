@@ -91,6 +91,7 @@ public class AZDrills {
         //later
         waveDrill = new HPLBurstDrill("wave-drill"){{
             requirements(Category.production, with(AZItems.fors, 35, AZItems.craside, 15));
+            squareSprite = false;
             drillTime = 60f * 5f;
             size = 3;
             hasPower = true;
