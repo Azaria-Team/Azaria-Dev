@@ -2,13 +2,17 @@
 - fix gyurza missile
 - fix vector AI
 - fix azHealingWall liquid consume
-- fix plus-floor "wrong folder" error
-- make naval mine work correctly (it must destroy itself, isn't it better just to add some delay between activation exploding and?)
 - fix sorter item color (doesn't display), reverse sorter too
 - fix hardened conveyor icon
 - fix bridge conveyor connection (the sprite is ok, but it doesn't display correctly)
-- fix bridge conduit display
+- fix bridge conduit connection (same as conveyor)
 - fix ru localization
+- fix ferbium display
+
+#close to release
+- maps
+- electricity system balance
+
 #after release(probably)
 - nerf vector, too powerful :skull:
 
@@ -23,4 +27,26 @@
 -impulse unloader added
 -fors ore resprited
 -superdense wall add
--sandbox floor
+-naval mine bugfix (works correctly)
+-sandbox floor added
+-new liquid spectralia added
+
+#DON'T TOUCH ANY OF THEM!
+#TOTALLY
+-fors conveyor resprite
+-bridge conveyor resprite
+-blocks color identification changed
+-reverse sorters and gates added
+-unloader added
+-composite wall unique effect added
+-superdense wall added
+-superdense kiln added
+-naval mine finished
+-fors ore resprited
+-sandbox floor added
+-huge environment update
+-new status effects added
+-new fx effects added
+-unit eliminator remake
+-unit rector remake (new burst fire added)
+-new liquid spectralia added

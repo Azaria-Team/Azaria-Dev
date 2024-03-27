@@ -298,7 +298,7 @@ public class AZEnvironment {
             oreDefault = true;
             oreThreshold = 0.81f;
             oreScale = 23.47619f;
-            variants = 3;
+            variants = 2;
         }};
         forsRock = new ModOverlayFloor("fors-rock") {{
             parent = blendGroup = forsite;

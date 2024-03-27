@@ -60,6 +60,7 @@ public class AZDrills {
         pumpDrill = new AttributeCrafter("pump-drill") {{
             requirements(Category.production, with(AZItems.fors, 35));
             researchCost = with(AZItems.fors, 50);
+            squareSprite = false;
 
             attribute = AZAttribute.khylidattr;
             group = BlockGroup.liquids;
@@ -68,7 +69,7 @@ public class AZDrills {
 
             health = 280;
             size = 2;
-            craftTime = 160;
+            craftTime = 240f;
 
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
