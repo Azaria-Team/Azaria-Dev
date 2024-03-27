@@ -23,6 +23,8 @@ public class AZBlocks {
         AZUnitRelatedBlocks.load();
         AZWalls.load();
 
-        plusFloor = new Floor("plus-floor");
+        plusFloor = new Floor("plus-floor") {{
+            variants = 0;
+        }};
     }
 }

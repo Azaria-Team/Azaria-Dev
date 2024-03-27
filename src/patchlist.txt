@@ -7,7 +7,8 @@
 - fix sorter item color (doesn't display), reverse sorter too
 - fix hardened conveyor icon
 - fix bridge conveyor connection (the sprite is ok, but it doesn't display correctly)
-
+- fix bridge conduit display
+- fix ru localization
 #after release(probably)
 - nerf vector, too powerful :skull:
 
@@ -20,3 +21,6 @@
 -impulse underflow gate added
 -reverse impulse sorter added
 -impulse unloader added
+-fors ore resprited
+-superdense wall add
+-sandbox floor
