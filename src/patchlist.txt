@@ -4,8 +4,6 @@
 - fix azHealingWall liquid consume
 - fix sorter item color (doesn't display), reverse sorter too
 - fix hardened conveyor icon
-- fix bridge conveyor connection (the sprite is ok, but it doesn't display correctly)
-- fix bridge conduit connection (same as conveyor)
 - fix ru localization
 - fix ferbium display
 
@@ -30,6 +28,9 @@
 -naval mine bugfix (works correctly)
 -sandbox floor added
 -new liquid spectralia added
+- fix bridge conveyor connection (the sprite is ok, but it doesn't display correctly)
+- fix bridge conduit connection (same as conveyor)
+
 
 #DON'T TOUCH ANY OF THEM!
 #TOTALLY
@@ -50,3 +51,6 @@
 -unit eliminator remake
 -unit rector remake (new burst fire added)
 -new liquid spectralia added
+- fix bridge conveyor connection (the sprite is ok, but it doesn't display correctly)
+- fix bridge conduit connection (same as conveyor)
+

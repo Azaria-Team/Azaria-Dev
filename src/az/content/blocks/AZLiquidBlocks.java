@@ -47,6 +47,7 @@ public class AZLiquidBlocks {
         pipeBridgeConduit = new LiquidBridge("pipe-bridge-conduit"){{
             requirements(Category.liquid, with(AZItems.fors, 3, AZItems.ferbium, 8));
             range = 5;
+            bridgeWidth = 8F;
             hasPower = false;
             researchCostMultiplier = 0.3f;
             underBullets = true;

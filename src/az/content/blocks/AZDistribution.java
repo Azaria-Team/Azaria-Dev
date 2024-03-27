@@ -55,7 +55,7 @@ public class AZDistribution {
         hardenedBridgeConveyor = new ItemBridge("hardened-bridge-conveyor"){{
             requirements(Category.distribution, with(AZItems.fors, 10));
             researchCost = with(AZItems.fors, 35);
-
+            bridgeWidth = 8F;
             health = 170;
             range = 5;
 
