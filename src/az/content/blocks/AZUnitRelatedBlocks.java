@@ -3,15 +3,19 @@ package az.content.blocks;
 import arc.util.Time;
 import az.content.AZItems;
 import az.content.AZUnits;
+import mindustry.content.UnitTypes;
 import mindustry.type.Category;
+import mindustry.type.UnitType;
 import mindustry.world.Block;
+import mindustry.world.blocks.units.Reconstructor;
 import mindustry.world.blocks.units.UnitFactory;
 
 import static mindustry.type.ItemStack.with;
 
 public class AZUnitRelatedBlocks {
     public static Block
-    angelsharkFabricator, vectorFabricator, unmakerFabricator;
+            angelsharkFabricator, vectorFabricator, unmakerFabricator,
+            angelsharkRefabricator, vectorRefabricator, unmakerRefabricator;
 
     public static void load() {
         angelsharkFabricator = new UnitFactory("angelshark-fabricator"){{
@@ -48,6 +52,45 @@ public class AZUnitRelatedBlocks {
             regionSuffix = "-az";
             fogRadius = 3;
             consumePower(2f);
+        }};
+
+        vectorFabricator = new Reconstructor("vector-refabricator") {{
+            requirements(Category.units, with(AZItems.ferbium, 350));
+
+            size = 3;
+            consumePower(2.75f);
+            consumeItems(with(AZItems.ferbium, 120, AZItems.ferbium, 50));
+
+            constructTime = 35f * 45f;
+            upgrades.addAll(
+                    new UnitType[] {AZUnits.vector, AZUnits.zephyr}
+            );
+        }};
+
+        angelsharkRefabricator = new Reconstructor("angelshark-refabricator") {{
+            requirements(Category.units, with(AZItems.ferbium, 350));
+
+            size = 3;
+            consumePower(2.75f);
+            consumeItems(with(AZItems.ferbium, 120, AZItems.ferbium, 50));
+
+            constructTime = 35f * 45f;
+            upgrades.addAll(
+                    new UnitType[] {AZUnits.angelshark, AZUnits.glaucus}
+            );
+        }};
+
+        unmakerRefabricator = new Reconstructor("unmaker-refabricator") {{
+            requirements(Category.units, with(AZItems.ferbium, 350));
+
+            size = 3;
+            consumePower(2.75f);
+            consumeItems(with(AZItems.ferbium, 120, AZItems.ferbium, 50));
+
+            constructTime = 35f * 45f;
+            upgrades.addAll(
+                    new UnitType[] {AZUnits.unmaker, AZUnits.eliminator}
+            );
         }};
     }
 }
