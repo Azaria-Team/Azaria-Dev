@@ -8,7 +8,7 @@ import arc.struct.ObjectMap;
 import az.entities.bullets.AimBulletType;
 import az.entities.bullets.ModEmpBulletType;
 import az.entities.entity.DroneUnitEntity;
-import az.entities.entity.StriCopterUnitEntity;
+import az.entities.entity.StriCopterUnitEntityLegacy;
 import az.entities.units.DroneUnitType;
 import az.entities.units.StriCopterUnitType;
 import az.graphics.AZPal;
@@ -16,6 +16,9 @@ import az.pattern.AZBurstShoot;
 import az.world.draw.Blade;
 import az.world.draw.Rotor;
 
+import azaria.gen.StriCopterUnit;
+import azaria.gen.StriCopterc;
+import ent.anno.Annotations;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
@@ -25,7 +28,6 @@ import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.BlockFlag;
 
 import static mindustry.Vars.tilesize;
@@ -36,7 +38,7 @@ public class AZUnits {
     //angelshark unit tree
     angelshark, glaucus, aurora, dunkleosteus,
     //unmaker tree
-    unmaker, eliminator, exterminator, blighter, dragonfly,
+
     //vector tree
     vector, zephyr, vortex, whirlwind,
     //fire support
@@ -46,11 +48,11 @@ public class AZUnits {
     //off the tree
     shell, bastion, citadel,
     testHealUnit;
-    UnitType craber;
+    public static @Annotations.EntityDef({Unitc.class, StriCopterc.class})
+    UnitType unmaker, eliminator, exterminator, blighter, dragonfly;
     //supportDrone, torpedoNaval, bigKaboom
     private static final ObjectMap.Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new ObjectMap.Entry[]{
-            prov(DroneUnitEntity.class, DroneUnitEntity::new),
-            prov(StriCopterUnitEntity.class, StriCopterUnitEntity::new)
+            prov(DroneUnitEntity.class, DroneUnitEntity::new)
     };
 
     private static final ObjectIntMap<Class<? extends Entityc>> idMap = new ObjectIntMap<>();

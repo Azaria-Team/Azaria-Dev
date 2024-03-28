@@ -11,7 +11,7 @@ import mindustry.gen.UnitEntity;
 import mindustry.type.UnitType;
 
 import static az.world.draw.Blade.BladeMount;
-public class StriCopterUnitEntity extends UnitEntity {
+public class StriCopterUnitEntityLegacy extends UnitEntity {
     public BladeMount[] blades;
     public float bladeMoveSpeedScl = 1f;
     public long drawSeed = 0;
