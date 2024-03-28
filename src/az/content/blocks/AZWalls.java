@@ -49,20 +49,18 @@ public class AZWalls {
 
             hasLiquids = true;
             liquidCapacity = 25f;
-            consumeLiquid(AZLiquids.oxyliteLiq, 0.05f);
-            healAmount = 0.175f;
+            healAmount = 0.2f;
         }};
 
         compositeWallLarge = new AZHealingWall("composite-wall-large"){{
             requirements (Category.defense, with(AZItems.craside, 20, AZItems.khylid, 4));
-            health = 800 * 4;
+            health = compositeWall.health * 4;
             size = 2;
             buildCostMultiplier = 6f;
 
             hasLiquids = true;
             liquidCapacity = 50f;
-            consumeLiquid(AZLiquids.oxyliteLiq, 0.175f);
-            healAmount = 0.7f;
+            healAmount = 0.8f;
         }};
 
         superdenseWall = new Wall("superdense-wall") {{

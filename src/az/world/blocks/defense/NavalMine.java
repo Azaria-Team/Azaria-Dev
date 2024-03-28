@@ -27,7 +27,7 @@ import static mindustry.Vars.tilesize;
 public class NavalMine extends Block{
     public float tileDamage = 80f;
 
-    public float range = 40f;
+    public float range = 60f;
 //    public float statusDuration = 60f;
 //    public StatusEffect status = AZStatusEffects.decomposition;
     public Effect acceptEffect = Fx.none;

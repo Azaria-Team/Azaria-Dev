@@ -1,18 +1,17 @@
+#DON'T TOUCH ANY OF THEM!
 #before release
 - fix gyurza missile
-- fix vector AI
-- fix azHealingWall liquid consume
 - fix sorter item color (doesn't display), reverse sorter too
 - fix hardened conveyor icon
-- fix ru localization
-- fix ferbium display
+- fix vector AI
 
-#close to release
+#before release
+- nerf everything
 - maps
 - electricity system balance
+- fix ru localization
 
 #after release(probably)
-- nerf vector, too powerful :skull:
 
 #done
 -new environment blocks
@@ -28,11 +27,7 @@
 -naval mine bugfix (works correctly)
 -sandbox floor added
 -new liquid spectralia added
-- fix bridge conveyor connection (the sprite is ok, but it doesn't display correctly)
-- fix bridge conduit connection (same as conveyor)
 
-
-#DON'T TOUCH ANY OF THEM!
 #TOTALLY
 -fors conveyor resprite
 -bridge conveyor resprite
@@ -51,6 +46,6 @@
 -unit eliminator remake
 -unit rector remake (new burst fire added)
 -new liquid spectralia added
-- fix bridge conveyor connection (the sprite is ok, but it doesn't display correctly)
-- fix bridge conduit connection (same as conveyor)
-
+-fix bridge conveyors
+- fix ferbium display
+- fix azHealingWall liquid consume
