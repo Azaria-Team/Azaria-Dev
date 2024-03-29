@@ -23,11 +23,16 @@ import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
+import mindustry.entities.effect.MultiEffect;
+import mindustry.entities.effect.WaveEffect;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
+import mindustry.graphics.Layer;
+import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
+import mindustry.type.unit.MissileUnitType;
 import mindustry.world.meta.BlockFlag;
 
 import static mindustry.Vars.tilesize;
@@ -398,6 +403,75 @@ public class AZUnits {
             constructor = UnitWaterMove::create;
             outlineColor = AZPal.aureliaOutline;
 
+            weapons.add(
+                    new Weapon("az-laser-launcher") {{
+                        reload = 60f;
+                        mirror = false;
+                        rotateSpeed = 1.5f;
+                        bullet = new BasicBulletType() {{
+                            lifetime = 0f;
+                            hitEffect = Fx.none;
+                            spawnUnit = new MissileUnitType("az-heavy-missile") {{
+                                speed = 4.6f;
+                                maxRange = 6f;
+                                lifetime = 60f * 5.5f;
+                                outlineColor = AZPal.aureliaOutline;
+                                engineColor = AZPal.vogPink;
+                                engineLayer = Layer.effect;
+                                engineOffset = 9f;
+                                trailLength = 18;
+                                health = 200;
+
+                                weapons.add(new Weapon(){{
+                                    shootCone = 360f;
+                                    mirror = false;
+                                    reload = 1f;
+                                    deathExplosionEffect = Fx.massiveExplosion;
+                                    shootOnDeath = true;
+                                    shake = 10f;
+                                    bullet = new ExplosionBulletType(1500f, 65f){{
+                                        hitColor = Pal.redLight;
+                                        shootEffect = new MultiEffect(Fx.massiveExplosion, Fx.scatheExplosion, Fx.scatheLight, new WaveEffect(){{
+                                            lifetime = 10f;
+                                            strokeFrom = 4f;
+                                            sizeTo = 130f;
+                                        }});
+
+                                        collidesAir = false;
+                                        buildingDamageMultiplier = 0.25f;
+
+                                        ammoMultiplier = 1f;
+                                        fragLifeMin = 0.1f;
+                                        fragBullets = 7;
+                                        fragBullet = new ArtilleryBulletType(3.4f, 32){{
+                                            buildingDamageMultiplier = 0.3f;
+                                            drag = 0.02f;
+                                            hitEffect = Fx.massiveExplosion;
+                                            despawnEffect = Fx.scatheSlash;
+                                            knockback = 0.8f;
+                                            lifetime = 23f;
+                                            width = height = 18f;
+                                            collidesTiles = false;
+                                            splashDamageRadius = 40f;
+                                            splashDamage = 160f;
+                                            backColor = trailColor = hitColor = Pal.redLight;
+                                            frontColor = Color.white;
+                                            smokeEffect = Fx.shootBigSmoke2;
+                                            despawnShake = 7f;
+                                            lightRadius = 30f;
+                                            lightColor = Pal.redLight;
+                                            lightOpacity = 0.5f;
+
+                                            trailLength = 20;
+                                            trailWidth = 3.5f;
+                                            trailEffect = Fx.none;
+                                        }};
+                                    }};
+                                }});
+                            }};
+                        }};
+                    }}
+            );
         }};
         //endregion angelsharkTree
         //region unmakerTree
