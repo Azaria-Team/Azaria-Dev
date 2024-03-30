@@ -386,16 +386,15 @@ public class AZUnits {
                 );
         }};
 
-
         aurora = new UnitType("aurora") {{
-            speed = 0.7f;
+            speed = 1.3f;
             drag = 0.9f;
             hitSize = 17f;
             armor = 14;
             health = 4050;
             accel = 0.35f;
             faceTarget = false;
-            rotateSpeed = 3f;
+            rotateSpeed = 4f;
             trailLength = 30;
             waveTrailX = 6f;
             trailScl = 1.5f;
@@ -405,16 +404,20 @@ public class AZUnits {
 
             weapons.add(
                     new Weapon("az-laser-launcher") {{
-                        reload = 60f;
+                        reload = 300f;
+                        x = 1.5f;
+                        shootX = -4.5f;
                         mirror = false;
+                        rotate = true;
                         rotateSpeed = 1.5f;
                         bullet = new BasicBulletType() {{
                             lifetime = 0f;
                             hitEffect = Fx.none;
-                            spawnUnit = new MissileUnitType("az-heavy-missile") {{
+                            spawnUnit = new MissileUnitType("heavy-missile") {{
                                 speed = 4.6f;
                                 maxRange = 6f;
                                 lifetime = 60f * 5.5f;
+                                rotateSpeed = 1.5f;
                                 outlineColor = AZPal.aureliaOutline;
                                 engineColor = AZPal.vogPink;
                                 engineLayer = Layer.effect;
@@ -429,7 +432,7 @@ public class AZUnits {
                                     deathExplosionEffect = Fx.massiveExplosion;
                                     shootOnDeath = true;
                                     shake = 10f;
-                                    bullet = new ExplosionBulletType(1500f, 65f){{
+                                    bullet = new ExplosionBulletType(2450, 65f){{
                                         hitColor = Pal.redLight;
                                         shootEffect = new MultiEffect(Fx.massiveExplosion, Fx.scatheExplosion, Fx.scatheLight, new WaveEffect(){{
                                             lifetime = 10f;
@@ -438,13 +441,11 @@ public class AZUnits {
                                         }});
 
                                         collidesAir = false;
-                                        buildingDamageMultiplier = 0.25f;
 
                                         ammoMultiplier = 1f;
                                         fragLifeMin = 0.1f;
                                         fragBullets = 7;
                                         fragBullet = new ArtilleryBulletType(3.4f, 32){{
-                                            buildingDamageMultiplier = 0.3f;
                                             drag = 0.02f;
                                             hitEffect = Fx.massiveExplosion;
                                             despawnEffect = Fx.scatheSlash;
