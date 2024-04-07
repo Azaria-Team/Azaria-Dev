@@ -4,6 +4,8 @@
 - fix sorter item color (doesn't display), reverse sorter too
 - fix hardened conveyor icon
 - fix vector AI
+- add spectralia ore (liquid)
+
 
 #before release
 - nerf everything
