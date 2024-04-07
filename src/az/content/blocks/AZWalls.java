@@ -50,6 +50,7 @@ public class AZWalls {
             hasLiquids = true;
             liquidCapacity = 25f;
             healAmount = 0.2f;
+            placeableLiquid = true;
         }};
 
         compositeWallLarge = new AZHealingWall("composite-wall-large"){{
@@ -61,6 +62,7 @@ public class AZWalls {
             hasLiquids = true;
             liquidCapacity = 50f;
             healAmount = 0.8f;
+            placeableLiquid = true;
         }};
 
         superdenseWall = new Wall("superdense-wall") {{

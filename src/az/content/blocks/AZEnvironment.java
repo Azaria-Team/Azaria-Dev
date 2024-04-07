@@ -220,7 +220,6 @@ public class AZEnvironment {
         }};
         spectraliaWall = new StaticWall("spectralite-wall") {{
             variants = 2;
-            spectralite.asFloor().decoration = this;
         }};
         spectraliteBoulder = new Prop("spectralite-boulder") {{
             variants = 3;
