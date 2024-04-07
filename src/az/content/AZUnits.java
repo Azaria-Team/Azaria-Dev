@@ -410,6 +410,13 @@ public class AZUnits {
                         mirror = false;
                         rotate = true;
                         rotateSpeed = 1.5f;
+
+                        parts.add(
+                                new RegionPart("-top") {{
+                                    top = false;
+                                    layerOffset += 0.02f;
+                                }}
+                        );
                         bullet = new BasicBulletType() {{
                             lifetime = 0f;
                             hitEffect = Fx.none;
