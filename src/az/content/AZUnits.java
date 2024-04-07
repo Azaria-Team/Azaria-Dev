@@ -2,6 +2,7 @@ package az.content;
 
 import arc.func.Prov;
 import arc.graphics.Color;
+import arc.math.Interp;
 import arc.struct.ObjectIntMap;
 import arc.struct.ObjectMap;
 
@@ -406,25 +407,43 @@ public class AZUnits {
                     new Weapon("az-laser-launcher") {{
                         reload = 300f;
                         x = 1.5f;
-                        shootX = -4.5f;
+                        shootX = -6.7f;
                         mirror = false;
                         rotate = true;
-                        rotateSpeed = 1.5f;
+                        rotateSpeed = 1.8f;
+                        layerOffset = 0.01f;
+                        showStatSprite = false;
 
                         parts.add(
+                                new RegionPart("-lid") {{
+                                    mirror = true;
+                                    moves.add(new PartMove(PartProgress.warmup, 4f, 0f, 0f));
+                                }},
                                 new RegionPart("-top") {{
-                                    top = false;
-                                    layerOffset += 0.02f;
+                                    layerOffset += 0.01f;
+                                    under = true;
+                                }},
+                                new RegionPart("-missile") {{
+                                    y = 0.5f;
+                                    progress = PartProgress.reload.curve(Interp.pow2In);
+
+                                    colorTo = new Color(1f, 1f, 1f, 0f);
+                                    color = Color.white;
+                                    mixColorTo = Pal.accent;
+                                    mixColor = new Color(1f, 1f, 1f, 0f);
+                                    under = true;
+                                    x = -8f;
+                                    moves.add(new PartMove(PartProgress.reload,8f, 0f, 0f));
                                 }}
                         );
                         bullet = new BasicBulletType() {{
                             lifetime = 0f;
                             hitEffect = Fx.none;
                             spawnUnit = new MissileUnitType("heavy-missile") {{
-                                speed = 4.6f;
+                                speed = 8f;
                                 maxRange = 6f;
-                                lifetime = 60f * 5.5f;
-                                rotateSpeed = 1.5f;
+                                lifetime = 60f * 2.5f;
+                                rotateSpeed = 0.9f;
                                 outlineColor = AZPal.aureliaOutline;
                                 engineColor = AZPal.vogPink;
                                 engineLayer = Layer.effect;
