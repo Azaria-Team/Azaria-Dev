@@ -228,7 +228,7 @@ public class AZEnvironment {
         //spectralia
         spectraliaWall = new StaticWall("spectralia-wall") {{
             variants = 2;
-            spectralite.asFloor().decoration = this;
+            spectralite.asFloor().wall = this;
         }};
         //nerephyte
         nerephyte = new Floor("nerephyte") {{
