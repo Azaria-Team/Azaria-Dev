@@ -361,7 +361,7 @@ public class AZUnits {
                                 shootY = 3f;
                                 inaccuracy = 4;
                                 rotate = true;
-                                x = 0;  пе
+                                x = 0;
                                 y = -2.5f;
                                 mirror = false;
                                 shootSound = Sounds.shootAlt;
