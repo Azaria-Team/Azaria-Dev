@@ -68,6 +68,6 @@ public abstract class StriCopterComp implements Unitc, StriCopterc {
         for (Blade.BladeMount blade : blades) {
             blade.bladeRotation += ((blade.blade.bladeMoveSpeed * bladeMoveSpeedScl) + blade.blade.minimumBladeMoveSpeed) * Time.delta;
         }
-        type.fallSpeed = 0.01f;
+        type.fallSpeed = 0.006f;
     }
 }
