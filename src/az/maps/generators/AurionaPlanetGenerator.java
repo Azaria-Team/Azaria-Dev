@@ -21,9 +21,12 @@ import az.content.AZLiquids;
 import az.content.blocks.AZEnvironment;
 import az.world.blocks.environment.ModOverlayFloor;
 import mindustry.ai.Astar;
+import mindustry.ai.BaseRegistry;
 import mindustry.content.Blocks;
 import mindustry.game.Schematics;
+import mindustry.game.Team;
 import mindustry.graphics.g3d.PlanetGrid;
+import mindustry.maps.generators.BaseGenerator;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.type.Sector;
 import mindustry.world.Block;
@@ -112,7 +115,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
         //these always have bases
         if(sector.id == 154 || sector.id == 0){
-            sector.generateEnemyBase = true;
+            sector.generateEnemyBase = false;
             return;
         }
 
@@ -237,7 +240,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                 int rad = rand.random(7, 11);
                 int avoid = 2 + rad;
                 var path = pathfind(x1, y1, x2, y2, tile -> (tile.solid() || !tile.floor().isLiquid ? 70f : 0f) + noise(tile.x, tile.y, 2, 0.4f, 1f / nscl) * 500, Astar.manhattan);
-                path.each(t -> {
+                /*path.each(t -> {
                     //don't place liquid paths near the core
                     if(Mathf.dst2(t.x, t.y, x2, y2) <= avoid * avoid){
                         return;
@@ -252,12 +255,15 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                                 if(Mathf.within(x, y, rad - 1) && !other.floor().isLiquid){
                                     Floor floor = other.floor();
                                     //TODO does not respect tainted floors
-                                    other.setFloor((Floor)(floor == serridDust || floor == huitaRock ? serridOxylite : deepOxylite));
+                                    other.setFloor((Floor)(floor == serridDust || floor == huitaRock ? serridOxylite : oxylite));
                                 }
                             }
                         }
                     }
+
                 });
+
+                 */
             }
 
             void connectLiquid(Room to){
@@ -389,14 +395,14 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
             if(value > 0.17f && !Mathf.within(x, y, fspawn.x, fspawn.y, 12 + rrscl)){
                 boolean deep = value > 0.17f + 0.1f && !Mathf.within(x, y, fspawn.x, fspawn.y, 15 + rrscl);
-                boolean spore = floor != AZEnvironment.serridDust && floor != AZEnvironment.darkSerrid;
+                boolean spore = floor != AZEnvironment.serridDust && floor != crabStone;
                 //do not place rivers on ice, they're frozen
                 //ignore pre-existing liquids
                 if(!(floor == AZEnvironment.crystalIce ||  floor.asFloor().isLiquid)){
                     floor = spore ?
-                            (deep ? AZEnvironment.serridDust : AZEnvironment.deepOxylite) :
+                            (deep ? oxylite : darkSerridOxylite) :
                             (deep ? AZEnvironment.oxylite :
-                                    (floor == AZEnvironment.serridDust || floor == AZEnvironment.huitaRock ? AZEnvironment.serridOxylite : AZEnvironment.deepOxylite));
+                                    (floor == AZEnvironment.serridDust || floor == crabStone ? serridOxylite : darkSerridOxylite));
                 }
             }
         });
@@ -421,7 +427,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                     }
                 }
 
-                floor = floor == AZEnvironment.deepOxylite ? AZEnvironment.serridOxylite : AZEnvironment.oxylite;
+                floor = floor == AZEnvironment.serridOxylite ? deepOxylite : AZEnvironment.oxylite;
             }
         });
 
@@ -446,7 +452,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                         }
                     }
 
-                    floor = floor == AZEnvironment.oxylite ? AZEnvironment.deepOxylite : AZEnvironment.serridOxylite;
+                    floor = floor == darkSerridOxylite ? AZEnvironment.deepOxylite : oxylite;
                 }
             });
         }
@@ -491,21 +497,21 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
         outer:
         for(Tile tile : tiles){
             var floor = tile.floor();
-            if((floor == Blocks.rhyolite || floor == Blocks.roughRhyolite) && rand.chance(0.002)){
+            if((floor == forsite || floor == forenite) && rand.chance(0.002)){
                 int rad1us = 2;
                 for(int x = -rad1us; x <= rad1us; x++){
                     for(int y = -rad1us; y <= rad1us; y++){
                         Tile other = tiles.get(x + tile.x, y + tile.y);
-                        if(other == null || (other.floor() != Blocks.rhyolite && other.floor() != Blocks.roughRhyolite) || other.block().solid){
+                        if(other == null || (other.floor() != forsite && other.floor() != forenite) || other.block().solid){
                             continue outer;
                         }
                     }
                 }
 
                 ventCount ++;
-                for(var pos : SteamVent.offsets){
+                for(var pos : ModOverlayFloor.offsets){
                     Tile other = tiles.get(pos.x + tile.x + 1, pos.y + tile.y + 1);
-                    other.setFloor(Blocks.rhyoliteVent.asFloor());
+                    other.setFloor(forsRock.asFloor());
                 }
             }
         }
@@ -621,9 +627,9 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
         ints.clear();
         ints.ensureCapacity(width * height / 4);
 
-        /*
+/*
 
-        int ruinCount = rand.random(-2, 4);
+        int ruinCount = rand.random(0, 0);
         if(ruinCount > 0){
             int padding = 25;
 
@@ -640,7 +646,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
             ints.shuffle(rand);
 
             int placed = 0;
-            float diffRange = 0.4f;
+            float diffRange = 0f;
             //try each position
             for(int i = 0; i < ints.size && placed < ruinCount; i++){
                 int val = ints.items[i];
@@ -698,6 +704,8 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
             }
         }
 
+ */
+
         //remove invalid ores
         for(Tile tile : tiles){
             if(tile.overlay().needsSurface && !tile.floor().hasSurface()){
@@ -705,21 +713,21 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
             }
         }
 
-        Schematics.placeLaunchLoadout(spawn.x, spawn.y);
 
         for(Room espawn : enemies){
             tiles.getn(espawn.x, espawn.y).setOverlay(Blocks.spawn);
         }
-        */
+
 
         for(Tile tile : tiles){
             if(tile.overlay().needsSurface && !tile.floor().hasSurface()){
                 tile.setOverlay(Blocks.air);
             }
         }
-        state.rules.placeRangeCheck = true;
+
 
         decoration(0.017f);
+        state.rules.placeRangeCheck = true;
         Schematics.placeLaunchLoadout(spawnX, spawnY);
 
         state.rules.env = sector.planet.defaultEnv;
