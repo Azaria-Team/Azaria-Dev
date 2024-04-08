@@ -413,33 +413,30 @@ public class AZUnits {
                         rotateSpeed = 1.8f;
                         layerOffset = 0.01f;
                         showStatSprite = false;
+                        minWarmup = 1.5f;
 
                         parts.add(
-                                new RegionPart("-lid") {{
-                                    mirror = true;
-                                    moves.add(new PartMove(PartProgress.warmup, 4f, 0f, 0f));
-                                }},
-                                new RegionPart("-top") {{
-                                    layerOffset += 0.01f;
-                                    under = true;
-                                }},
                                 new RegionPart("-missile") {{
                                     y = 0.5f;
                                     progress = PartProgress.reload.curve(Interp.pow2In);
-
-                                    colorTo = new Color(1f, 1f, 1f, 0f);
-                                    color = Color.white;
-                                    mixColorTo = Pal.accent;
-                                    mixColor = new Color(1f, 1f, 1f, 0f);
                                     under = true;
                                     x = -8f;
                                     moves.add(new PartMove(PartProgress.reload,8f, 0f, 0f));
+                                }},
+                                new RegionPart("-lens") {{
+                                    under = true;
+                                }},
+                                new RegionPart("-lid") {{
+                                    under = true;
+                                    mirror = true;
+                                    moves.add(new PartMove(PartProgress.warmup, 4f, 0f, 0f));
                                 }}
+
                         );
                         bullet = new BasicBulletType() {{
                             lifetime = 0f;
                             hitEffect = Fx.none;
-                            spawnUnit = new MissileUnitType("heavy-missile") {{
+                            spawnUnit = new MissileUnitType("aurora-missile") {{
                                 speed = 8f;
                                 maxRange = 6f;
                                 lifetime = 60f * 2.5f;
