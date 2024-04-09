@@ -405,15 +405,17 @@ public class AZUnits {
 
             weapons.add(
                     new Weapon("az-laser-launcher") {{
-                        reload = 300f;
+                        reload = 600f;
                         x = 1.5f;
                         shootX = -6.7f;
+                        shootY = -8f;
                         mirror = false;
                         rotate = true;
-                        rotateSpeed = 1.8f;
+                        rotateSpeed = 1f;
                         layerOffset = 0.01f;
                         showStatSprite = false;
-                        minWarmup = 1.5f;
+                        shootSound = Sounds.missileLaunch;
+                       // minWarmup = 1.5f;
 
                         parts.add(
                                 new RegionPart("-missile") {{
@@ -434,62 +436,43 @@ public class AZUnits {
 
                         );
                         bullet = new BasicBulletType() {{
+                            shootEffect = Fx.none;
+                            smokeEffect = AZFx.shootSmokeAuroraMissile;
                             lifetime = 0f;
                             hitEffect = Fx.none;
+                            despawnEffect = Fx.none;
+
                             spawnUnit = new MissileUnitType("aurora-missile") {{
-                                speed = 8f;
+                                speed = 4f;
                                 maxRange = 6f;
-                                lifetime = 60f * 2.5f;
+                                lifetime = 60f * 2f;
                                 rotateSpeed = 0.9f;
                                 outlineColor = AZPal.aureliaOutline;
                                 engineColor = AZPal.vogPink;
                                 engineLayer = Layer.effect;
                                 engineOffset = 9f;
-                                trailLength = 18;
+                                trailLength = 14;
                                 health = 200;
+                                lowAltitude = true;
+                                loopSound = Sounds.missileTrail;
+                                loopSoundVolume = 0.6f;
+                                deathSound = Sounds.largeExplosion;
+                                hitEffect = Fx.none;
+                                despawnEffect = Fx.none;
 
                                 weapons.add(new Weapon(){{
                                     shootCone = 360f;
                                     mirror = false;
                                     reload = 1f;
-                                    deathExplosionEffect = Fx.massiveExplosion;
+                                    deathExplosionEffect = AZFx.massiveExplosionAurora2;
                                     shootOnDeath = true;
-                                    shake = 10f;
+                                    shake = 5f;
                                     bullet = new ExplosionBulletType(2450, 65f){{
-                                        hitColor = Pal.redLight;
-                                        shootEffect = new MultiEffect(Fx.massiveExplosion, Fx.scatheExplosion, Fx.scatheLight, new WaveEffect(){{
-                                            lifetime = 10f;
-                                            strokeFrom = 4f;
-                                            sizeTo = 130f;
-                                        }});
-
+                                        hitColor = AZPal.forceBullet;
+                                        hitEffect = Fx.none;
+                                        despawnEffect = Fx.none;
+                                        shootEffect = new MultiEffect(AZFx.massiveExplosionAurora, AZFx.scatheExplosionAurora, AZFx.scatheLightAurora);
                                         collidesAir = false;
-
-                                        ammoMultiplier = 1f;
-                                        fragLifeMin = 0.1f;
-                                        fragBullets = 7;
-                                        fragBullet = new ArtilleryBulletType(3.4f, 32){{
-                                            drag = 0.02f;
-                                            hitEffect = Fx.massiveExplosion;
-                                            despawnEffect = Fx.scatheSlash;
-                                            knockback = 0.8f;
-                                            lifetime = 23f;
-                                            width = height = 18f;
-                                            collidesTiles = false;
-                                            splashDamageRadius = 40f;
-                                            splashDamage = 160f;
-                                            backColor = trailColor = hitColor = Pal.redLight;
-                                            frontColor = Color.white;
-                                            smokeEffect = Fx.shootBigSmoke2;
-                                            despawnShake = 7f;
-                                            lightRadius = 30f;
-                                            lightColor = Pal.redLight;
-                                            lightOpacity = 0.5f;
-
-                                            trailLength = 20;
-                                            trailWidth = 3.5f;
-                                            trailEffect = Fx.none;
-                                        }};
                                     }};
                                 }});
                             }};

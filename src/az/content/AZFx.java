@@ -9,12 +9,15 @@ import arc.math.Rand;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
 import arc.util.Time;
+import arc.util.Tmp;
 import az.graphics.AZPal;
 import mindustry.core.Renderer;
 import mindustry.entities.Effect;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
+import mindustry.graphics.Pal;
 
+import static arc.graphics.g2d.Draw.alpha;
 import static arc.graphics.g2d.Draw.color;
 import static arc.graphics.g2d.Lines.lineAngle;
 import static arc.graphics.g2d.Lines.stroke;
@@ -94,6 +97,64 @@ public class AZFx {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 2f);
         });
     }),
+
+    massiveExplosionAurora = new Effect(30, e -> {
+        color(AZPal.forsBack);
+
+        e.scaled(7, i -> {
+            stroke(3f * i.fout());
+            Lines.circle(e.x, e.y, 4f + i.fin() * 30f);
+        });
+
+        color(AZPal.fors);
+
+        randLenVectors(e.id, 8, 2f + 30f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 4f + 0.5f);
+        });
+
+        color(AZPal.forceBullet);
+        stroke(e.fout());
+
+        randLenVectors(e.id + 1, 6, 1f + 29f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 4f);
+        });
+
+        Drawf.light(e.x, e.y, 50f, AZPal.forceBullet, 0.8f * e.fout());
+    }),
+
+    massiveExplosionAurora2 = new Effect(30, e -> {
+        color(AZPal.forsBack);
+
+        color(AZPal.fors);
+
+        randLenVectors(e.id, 8, 2f + 30f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 4f + 0.5f);
+        });
+
+        color(AZPal.forceBullet);
+        stroke(e.fout());
+
+        randLenVectors(e.id + 1, 6, 1f + 29f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 4f);
+        });
+
+        Drawf.light(e.x, e.y, 50f, AZPal.forceBullet, 0.8f * e.fout());
+    }),
+
+    scatheExplosionAurora = new Effect(60f, 160f, e -> {
+        color(AZPal.forceBullet);
+        stroke(e.fout() * 3f);
+        float circleRad = 3f + e.finpow() * 30f;
+        Lines.circle(e.x, e.y, circleRad);
+    }),
+
+    scatheLightAurora = new Effect(60f, 160f, e -> {
+        float circleRad = 3f + e.finpow() * 30f;
+
+        color(AZPal.forceBulletBack, e.foutpow());
+        Fill.circle(e.x, e.y, circleRad);
+    }).layer(Layer.bullet + 2f),
+
 
     blueHitExplosion1 = new Effect(30, e -> {
         color(AZPal.droneBullet);
@@ -228,6 +289,26 @@ public class AZFx {
             });
         }
     }),
+
+    shootSmokeAuroraMissile = new Effect(130f, 300f, e -> {
+        color(AZPal.forceBullet);
+        alpha(0.5f);
+        rand.setSeed(e.id);
+        for(int i = 0; i < 35; i++){
+            v.trns(e.rotation + 180f + rand.range(12f), rand.random(e.finpow() * 30f)).add(rand.range(0.8f), rand.range(0.6f));
+            e.scaled(e.lifetime * rand.random(0.1f, 1f), b -> {
+                Fill.circle(e.x + v.x, e.y + v.y, b.fout() * 2f + 0.2f);
+            });
+        }
+    }),
+
+    shootBigAurora = new Effect(9, e -> {
+        color(AZPal.forceBullet, AZPal.forceBulletBack, e.fin());
+        float w = 1.2f + 7 * e.fout();
+        Drawf.tri(e.x, e.y, w, 10f * e.fout(), e.rotation);
+        Drawf.tri(e.x, e.y, w, 2f * e.fout(), e.rotation + 180f);
+    }),
+
 
     forceBulletTrail = new Effect(25, e -> {
         color(AZPal.forceBullet, AZPal.forceBulletBack, e.fin());
