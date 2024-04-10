@@ -6,6 +6,7 @@ import arc.math.Interp;
 import arc.struct.ObjectIntMap;
 import arc.struct.ObjectMap;
 
+import arc.util.Time;
 import az.entities.bullets.AimBulletType;
 import az.entities.bullets.ModEmpBulletType;
 import az.entities.entity.DroneUnitEntity;
@@ -388,7 +389,7 @@ public class AZUnits {
         }};
 
         aurora = new UnitType("aurora") {{
-            speed = 1.3f;
+            speed = 0.67f;
             drag = 0.9f;
             hitSize = 17f;
             armor = 14;
@@ -405,7 +406,8 @@ public class AZUnits {
 
             weapons.add(
                     new Weapon("az-laser-launcher") {{
-                        reload = 600f;
+                        reload = 6f * Time.toSeconds;
+
                         x = 1.5f;
                         shootX = -6.7f;
                         shootY = -8f;
@@ -442,15 +444,15 @@ public class AZUnits {
                             despawnEffect = Fx.none;
 
                             spawnUnit = new MissileUnitType("aurora-missile") {{
-                                speed = 4f;
+                                speed = 3f;
                                 maxRange = 6f;
                                 lifetime = 60f * 2f;
-                                rotateSpeed = 0.9f;
+                                rotateSpeed = 0.7f;
                                 outlineColor = AZPal.aureliaOutline;
                                 engineColor = AZPal.vogPink;
                                 engineLayer = Layer.effect;
                                 engineOffset = 9f;
-                                trailLength = 14;
+                                trailLength = 12;
                                 health = 200;
                                 lowAltitude = true;
                                 loopSound = Sounds.missileTrail;
@@ -466,7 +468,7 @@ public class AZUnits {
                                     deathExplosionEffect = AZFx.massiveExplosionAurora2;
                                     shootOnDeath = true;
                                     shake = 5f;
-                                    bullet = new ExplosionBulletType(2450, 65f){{
+                                    bullet = new ExplosionBulletType(1450, 4f * tilesize){{
                                         hitColor = AZPal.forceBullet;
                                         hitEffect = Fx.none;
                                         despawnEffect = Fx.none;

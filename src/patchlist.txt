@@ -53,3 +53,4 @@
 -fix azHealingWall liquid consume
 -added unit refabricators
 -fixed planet gen
+- t3 naval "aurora"
