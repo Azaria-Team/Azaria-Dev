@@ -122,13 +122,13 @@ public class AZFx {
         Drawf.light(e.x, e.y, 50f, AZPal.forceBullet, 0.8f * e.fout());
     }),
 
-    massiveExplosionAurora2 = new Effect(30, e -> {
+    massiveExplosionAurora2 = new Effect(60, e -> {
         color(AZPal.forsBack);
 
         color(AZPal.fors);
 
-        randLenVectors(e.id, 12, 2f + 30f * e.finpow(), (x, y) -> {
-            Fill.circle(e.x + x, e.y + y, e.fout() * 4f + 0.5f);
+        randLenVectors(e.id, 10, 2f + 30f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 6f + 0.5f);
         });
 
         color(AZPal.forceBullet);
