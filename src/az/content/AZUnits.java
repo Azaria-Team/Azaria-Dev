@@ -415,7 +415,7 @@ public class AZUnits {
                         layerOffset = 0.01f;
                         showStatSprite = false;
                         shootSound = Sounds.missileLaunch;
-                        minWarmup = 0.99f;
+                        shoot.firstShotDelay = 90f;
                         parts.add(
                                 new RegionPart("-missile") {{
                                     y = 0.5f;
