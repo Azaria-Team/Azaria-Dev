@@ -24,6 +24,7 @@ import ent.anno.Annotations;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
+import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.effect.WaveEffect;
@@ -407,6 +408,7 @@ public class AZUnits {
                         showStatSprite = false;
                         shootSound = Sounds.missileLaunch;
                         targetAir = false;
+                        //shootStatus = StatusEffects.unmoving;
 //                        shoot.firstShotDelay = 90f;
                         parts.add(
                                 new RegionPart("-missile") {{

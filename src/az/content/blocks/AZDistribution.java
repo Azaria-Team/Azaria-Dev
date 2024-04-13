@@ -70,6 +70,7 @@ public class AZDistribution {
 
         impulseReverseSorter = new Sorter("impulse-reverse-sorter") {{
             requirements(Category.distribution, with(AZItems.fors, 4));
+            invert = true;
         }};
 
         impulseOverflorGate = new OverflowGate("impulse-overflow-gate"){{
@@ -78,6 +79,7 @@ public class AZDistribution {
         }};
         impulseUnderflowGate = new OverflowGate("impulse-underflow-gate") {{
             requirements(Category.distribution, with(AZItems.fors, 6));
+            invert = true;
         }};
 
         hardenedUnloader = new Unloader("hardened-unloader") {{
