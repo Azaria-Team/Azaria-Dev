@@ -436,9 +436,9 @@ public class AZUnits {
                             despawnEffect = Fx.none;
 
                             spawnUnit = new MissileUnitType("aurora-missile") {{
-                                speed = 3f;
+                                speed = 5f;
                                 //maxRange = 6f;
-                                lifetime = 60f * 2.2f;
+                                lifetime = 60f * 1.35f;
                                 rotateSpeed = 0.7f;
                                 outlineColor = AZPal.aureliaOutline;
                                 engineColor = AZPal.vogPink;

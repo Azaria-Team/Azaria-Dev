@@ -1,6 +1,18 @@
 #DON'T TOUCH ANY OF THEM!
 #before release
+
+- fix ferbium ore display
+
 - add spectralia ore (liquid)
+- add some ferbium blocks
+- add spectralia related blocks
+
+- add superdense alloy related blocks
+- new turrets
+
+- make aurora rocket faster
+- resprite sorter-item part
+- resprite unloader-item part
 
 
 #before release
