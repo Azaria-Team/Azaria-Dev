@@ -4,6 +4,7 @@ import acontent.world.meta.*;
 import arc.*;
 import arc.graphics.*;
 import arc.math.*;
+import arc.math.geom.Point2;
 import arc.struct.*;
 import arc.util.*;
 import az.content.AZFx;
@@ -18,8 +19,10 @@ import mindustry.graphics.*;
 import mindustry.ui.*;
 import mindustry.world.blocks.power.*;
 import mindustry.world.meta.*;
+import mindustry.world.modules.PowerModule;
 
 import static mindustry.Vars.tilesize;
+import static mindustry.Vars.world;
 
 public class LightningPowerNode extends PowerNode {
     public final int debugUpdateTimer = timers++;
@@ -44,6 +47,50 @@ public class LightningPowerNode extends PowerNode {
         stats = aStats.copy(stats);
         if(maxNodes == 0) configurable = false;
         laserColor2 = AZPal.lightningNodeColor;
+        config(Integer.class, (entity, value) -> {
+            PowerModule power = entity.power;
+            Building other = world.build(value);
+            boolean contains = power.links.contains(value), valid = other != null && other.power != null;
+
+            if(contains){
+                //unlink
+                power.links.removeValue(value);
+                if(valid) other.power.links.removeValue(entity.pos());
+
+                PowerGraph newgraph = new PowerGraph();
+
+                //reflow from this point, covering all tiles on this side
+                newgraph.reflow(entity);
+
+                if(valid && other.power.graph != newgraph){
+                    //create new graph for other end
+                    PowerGraph og = new PowerGraph();
+                    //reflow from other end
+                    og.reflow(other);
+                }
+            }else if(valid && power.links.size < maxNodes && !(other.block instanceof LightningPowerNode)){
+                power.links.addUnique(other.pos());
+                if(other.team == entity.team){
+                    other.power.links.addUnique(entity.pos());
+                }
+                power.graph.addGraph(other.power.graph);
+            }
+
+        });
+
+        config(Point2[].class, (tile, value) -> {
+            IntSeq old = new IntSeq(tile.power.links);
+
+            //clear old
+            for(int i = 0; i < old.size; i++){
+                configurations.get(Integer.class).get(tile, old.get(i));
+            }
+
+            //set new
+            for(Point2 p : value){
+                configurations.get(Integer.class).get(tile, Point2.pack(p.x + tile.tileX(), p.y + tile.tileY()));
+            }
+        });
     }
 
     @Override
