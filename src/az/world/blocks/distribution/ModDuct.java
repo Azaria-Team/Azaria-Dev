@@ -1,6 +1,8 @@
 package az.world.blocks.distribution;
 
+import arc.Core;
 import arc.func.Boolf;
+import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
 import arc.math.geom.Geometry;
 import arc.math.geom.Point2;
@@ -15,6 +17,7 @@ import mindustry.world.blocks.distribution.*;
 public class ModDuct extends Duct {
     public @Nullable
     Block junctionReplacement, bridgeReplacement;
+    public String botName = "az-hardened-conveyor-bottom";
 
     public ModDuct(String name) {
         super(name);
@@ -26,6 +29,11 @@ public class ModDuct extends Duct {
 
         if(junctionReplacement == null) junctionReplacement = AZDistribution.hardenedJunction;
         if(bridgeReplacement == null || !(bridgeReplacement instanceof ItemBridge)) bridgeReplacement = AZDistribution.hardenedBridgeConveyor;
+    }
+
+    @Override
+    public TextureRegion[] icons(){
+        return new TextureRegion[]{Core.atlas.find(botName), topRegions[0]};
     }
 
     @Override
