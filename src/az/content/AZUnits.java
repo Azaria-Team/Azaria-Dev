@@ -142,7 +142,7 @@ public class AZUnits {
                     new Weapon(){{
                         x = y = 0f;
                         mirror = false;
-                        reload = 80f;
+                        reload = 90f;
                         soundPitchMin = 1f;
                         shootSound = Sounds.missileSmall;
                         bullet = new BulletType(){{
@@ -158,12 +158,12 @@ public class AZUnits {
                                 maxRange = 16f;
                                 trailWidth = 1;
 
-                                lifetime = 60;
+                                lifetime = 55;
                                 outlineColor = AZPal.aureliaOutline;
                                 health = 25;
                                 lowAltitude = true;
-                                isEnemy = false;
                                 hittable = false;
+                                targetable = false;
                                 hitSize = 2f;
 
                                 weapons.add(new Weapon(){{
@@ -172,7 +172,7 @@ public class AZUnits {
                                     reload = 1f;
                                     shootOnDeath = true;
                                     bullet = new ExplosionBulletType(90f, 3f * tilesize){{
-                                        shootEffect = Fx.massiveExplosion;
+                                        shootEffect = Fx.explosion;
                                         buildingDamageMultiplier = 0.5f;
                                     }};
                                 }});
@@ -406,6 +406,7 @@ public class AZUnits {
                         layerOffset = 0.01f;
                         showStatSprite = false;
                         shootSound = Sounds.missileLaunch;
+                        targetAir = false;
 //                        shoot.firstShotDelay = 90f;
                         parts.add(
                                 new RegionPart("-missile") {{
@@ -449,6 +450,8 @@ public class AZUnits {
                                 deathSound = Sounds.largeExplosion;
                                 hitEffect = Fx.none;
                                 despawnEffect = Fx.none;
+                                collidesAir = false;
+                                targetAir = false;
 
                                 weapons.add(new Weapon(){{
                                     shootCone = 360f;
