@@ -1,10 +1,12 @@
 package az.world.blocks.production;
 
+import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Fill;
 import arc.graphics.g2d.Lines;
 import arc.math.Mathf;
+import arc.struct.Seq;
 import arc.util.Time;
 import az.world.blocks.environment.UndergroundOre;
 import az.world.meta.HPLStat;
@@ -13,6 +15,7 @@ import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.logic.Ranged;
 import mindustry.world.Block;
+import mindustry.world.Tile;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
 
@@ -49,6 +52,7 @@ public class OreRadar extends Block {
 
     public class OreRadarBuild extends Building implements Ranged {
         public float start;
+        public Seq<Tile> detectedOres = new Seq<>();
 
         @Override
         public float range() {
@@ -93,9 +97,10 @@ public class OreRadar extends Block {
         }
 
         public void locateOres(float radius) {
+            Tile hoverTile = world.tileWorld(Core.input.mouseWorld().x, Core.input.mouseWorld().y);
+
             tile.circle((int) (radius / tilesize), (ore) -> {
-                if (ore != null && ore.overlay() != null && ore.overlay() instanceof UndergroundOre u
-                        && ore.block() == air) {
+                if (ore != null && ore.overlay() != null && ore.overlay() instanceof UndergroundOre u) {
                     var angle = Mathf.angle(ore.x - tile.x, ore.y - tile.y);
                     var c1 = rot();
                     var c2 = rot() + radarCone;
@@ -103,19 +108,28 @@ public class OreRadar extends Block {
                         angle += 360;
                     }
 
-                    if (angle > c2 || angle < c1) return;
-
-                    u.shouldDrawBase = true;
-                    u.drawBase(ore);
-                    u.shouldDrawBase = false;
-
-                    if (ore.block() != null) {
-                        Draw.z(Layer.max);
-                        Draw.alpha(1f);
-                        Draw.rect(u.itemDrop.uiIcon, ore.x * 2, ore.y * 2 + 2);
+                    if (angle >= c1 && angle <= c2 && !detectedOres.contains(ore)) {
+                        detectedOres.add(ore);
                     }
                 }
             });
+
+            for (var ore : detectedOres) {
+                if (ore.block() != air) continue;
+
+                UndergroundOre u = (UndergroundOre)ore.overlay();
+                u.shouldDrawBase = true;
+                u.drawBase(ore);
+                u.shouldDrawBase = false;
+
+                //show an item icon above the cursor/finger
+                if (ore == hoverTile && ore.block() != null) {
+                    Draw.z(Layer.max);
+                    Draw.alpha(1f);
+                    Draw.rect(u.itemDrop.uiIcon, ore.x * 8, ore.y * 8 + 8);
+                }
+            }
         }
+
     }
 }
