@@ -110,7 +110,6 @@ public class AZUnits {
         setupID();
 
         //region aureliaCoreUnits
-        //TODO fix gyurza frag bullet gamade
         gyurza = new UnitType("gyurza") {{
             constructor = UnitEntity::create;
 
@@ -140,55 +139,45 @@ public class AZUnits {
             outlineColor = AZPal.aureliaOutline;
 
             weapons.add(
-                    new Weapon() {{
+                    new Weapon(){{
                         x = y = 0f;
                         mirror = false;
-                        reload = 150f;
-                       // cooldownTime = 0.35f;
-                        soundPitchMin = 1.0f;
-
+                        reload = 80f;
+                        soundPitchMin = 1f;
                         shootSound = Sounds.missileSmall;
-
-                        bullet = new BasicBulletType(2.9f, 0, "az-gyurza-missile") {{
+                        bullet = new BulletType(){{
+                            shake = 2f;
+                            speed = 0f;
                             keepVelocity = false;
-                            inaccuracy = 2.0f;
-                            drag = 0.037f;
+                            inaccuracy = 2f;
 
-                            despawnEffect = Fx.none;
-                            hitEffect = Fx.none;
-                            layerOffset += 0.02f;
+                            spawnUnit = new MissileUnitType("gyurza-missile"){{
+                                engineSize = 1.75f;
+                                engineLayer = Layer.effect;
+                                speed = 4.2f;
+                                maxRange = 16f;
+                                trailWidth = 1;
 
-                            height = 17;
-                            width = 9;
-                            shrinkX = shrinkY = 0;
+                                lifetime = 60;
+                                outlineColor = AZPal.aureliaOutline;
+                                health = 25;
+                                lowAltitude = true;
+                                isEnemy = false;
+                                hittable = false;
+                                hitSize = 2f;
 
-                            fragBullets = 1;
-                            fragRandomSpread = 0;
-                            fragVelocityMin = 1.0f;
-                            buildingDamageMultiplier = 0.09f;
-
-                            fragBullet = new BasicBulletType(4.0f, 45, "az-gyurza-missile") {{
-                                shake = 2.0f;
-                                lifetime = 25.75f;
-                                keepVelocity = false;
-                                drag = -0.047f;
-
-                                splashDamage = 200;
-                                splashDamageRadius = 8f;
-                                layerOffset += 0.02f;
-
-                                height = 17;
-                                width = 9;
-                                shrinkX = shrinkY = 0;
-
-                                hitEffect = Fx.massiveExplosion;
-                                trailEffect = AZFx.gyurzaMissileTrail;
-                                waveTrailY = -2f;
-                                trailRotation = true;
-                                trailInterval = 0.5f;
-                                buildingDamageMultiplier = 0.09f;
-                            }}; //fragBullet
-                        }}; //bullet
+                                weapons.add(new Weapon(){{
+                                    shootCone = 360f;
+                                    mirror = false;
+                                    reload = 1f;
+                                    shootOnDeath = true;
+                                    bullet = new ExplosionBulletType(90f, 3f * tilesize){{
+                                        shootEffect = Fx.massiveExplosion;
+                                        buildingDamageMultiplier = 0.5f;
+                                    }};
+                                }});
+                            }};
+                        }};
                     }});
 
             parts.add(

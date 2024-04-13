@@ -1,6 +1,5 @@
 #DON'T TOUCH ANY OF THEM!
 #before release
-- fix gyurza missile
 - fix sorter item color (doesn't display), reverse sorter too
 - fix hardened conveyor icon
 - fix vector AI
@@ -53,4 +52,5 @@
 -fix azHealingWall liquid consume
 -added unit refabricators
 -fixed planet gen
+- fixed gyurza missile
 - t3 naval "aurora"
