@@ -519,7 +519,7 @@ public class AZFx {
             Fill.circle(e.x + x, e.y + y, 0.57f + e.fout() * 1.4f);
         });
     });
-
+    
 
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {
