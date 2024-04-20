@@ -7,6 +7,7 @@ import mindustry.content.*;
 import mindustry.game.Team;
 import mindustry.graphics.g3d.*;
 import mindustry.type.*;
+import mindustry.ui.dialogs.PlanetDialog;
 
 import static az.content.AZItems.aurionaItems;
 import static mindustry.content.Planets.erekir;
@@ -16,6 +17,7 @@ public class AZPlanets {
     public static Planet aStar, bStar, auriona;
 
     public static void load() {
+        PlanetDialog.debugSelect = true;
         aStar = new Planet("aStar", null, 6f){{
             bloom = true;
             accessible = false;
@@ -34,7 +36,7 @@ public class AZPlanets {
             );
         }};
 
-        bStar = new Planet("bStar", aStar, 5f){{
+        bStar = new Planet("bStar", aStar, 4f){{
             bloom = true;
             accessible = false;
             orbitRadius = 130f;
