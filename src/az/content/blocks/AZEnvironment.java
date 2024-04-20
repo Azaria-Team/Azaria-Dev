@@ -21,18 +21,19 @@ public class AZEnvironment {
     serridicRock, serridicRockWall, serridBoulder, serridOxylite,
     coral,
 
-            //forest-biome
+    //forest-biome
     fir, firWall, firBoulder,
     forenite, foreniteWall, foreniteBoulder,
     darkSerrid, darkSerridWall, darkSerridBoulder, darkSerridOxylite,
     forsite, forsiteWall, forsiteBoulder, forsBoulder,
     bigKust,
 
-            //crystal-biome
+    //crystal-biome
     lamprosMineral, lamprosMineralWall, lamprosBoulder, lamprosCrystals,
     crystalIce, crystalIceWall, crystalIceBoulder,
     spectralite, spectraliteWall, spectraliteBoulder, spectraliaWall,
     nerephyte, nerephyteWall, nerephyteBoulder,
+    spectralia,
 
     //volcanic-biome
     huitaRock, huitaRockWall, huitaBoulder,
@@ -54,10 +55,10 @@ public class AZEnvironment {
             variants = 4;
             liquidDrop = AZLiquids.oxyliteLiq;
             cacheLayer = CacheLayer.water;
+            attributes.set(AZAttribute.mainlheatattr, 0.25f);
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.7f;
-            attributes.set(AZAttribute.mainlheatattr, 0.25f);
             mapColor = Color.valueOf("50a9a8");
         }};
         deepOxylite = new Floor("deep-oxylite") {{
@@ -269,6 +270,14 @@ public class AZEnvironment {
         volcanicSerridBoulder = new Prop("volcanic-serrid-boulder") {{
             variants = 3;
             volcanicSerrid.asFloor().decoration = this;
+        }};
+        //spectralia
+        spectralia = new Floor("spectralia") {{
+            variants = 4;
+            isLiquid = true;
+            liquidDrop = AZLiquids.spectralia;
+            cacheLayer = CacheLayer.water;
+            attributes.set(AZAttribute.mainlheatattr, 0.25f);
         }};
         //endregion volcanic-biome
 

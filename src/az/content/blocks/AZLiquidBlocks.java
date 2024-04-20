@@ -11,7 +11,8 @@ import static mindustry.type.ItemStack.with;
 
 public class AZLiquidBlocks {
     public static Block
-    impulsePump, liquidPipe, liquidPipeJunction, liquidCanister, liquidPipeRouter, pipeBridgeConduit;
+            impulsePump, liquidPipe, liquidPipeJunction, liquidCanister, liquidPipeRouter, pipeBridgeConduit,
+            advancedPump;
     public static void load() {
         impulsePump = new Pump("impulse-pump"){{
             requirements(Category.liquid, with(AZItems.fors, 90, AZItems.craside, 70, AZItems.ferbium, 30));
@@ -72,6 +73,16 @@ public class AZLiquidBlocks {
             liquidPadding = 1.0f;
             researchCostMultiplier = 0.3f;
             underBullets = true;
+        }};
+        advancedPump = new Pump("advanced-pump"){{
+            requirements(Category.liquid, with(AZItems.fors, 90, AZItems.craside, 70, AZItems.superdenseAlloy, 30));
+
+            squareSprite = false;
+            pumpAmount = 10f / 60f;
+            liquidCapacity = 140f;
+            researchCostMultiplier = 0.3f;
+            size = 3;
+            consumePower(1.5f / 3f);
         }};
     }
 }

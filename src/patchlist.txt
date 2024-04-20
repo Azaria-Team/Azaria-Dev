@@ -3,7 +3,6 @@
 
 - fix ferbium ore display
 
-- add spectralia ore (liquid)
 - add some ferbium blocks
 - add spectralia related blocks
 - add superdense alloy related blocks
@@ -63,3 +62,4 @@
 -fixed planet gen
 - fixed gyurza missile
 - t3 naval "aurora"
+- new liquid Spectralia added
