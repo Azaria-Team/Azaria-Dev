@@ -13,6 +13,7 @@ import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.production.AttributeCrafter;
+import mindustry.world.blocks.production.Fracker;
 import mindustry.world.draw.DrawDefault;
 import mindustry.world.draw.DrawGlowRegion;
 import mindustry.world.draw.DrawMulti;
@@ -23,7 +24,7 @@ import static mindustry.type.ItemStack.with;
 
 public class AZDrills {
     public static Block
-            forsDrill, pumpDrill,
+            forsDrill, pumpDrill, vacuumCollector,
             waveDrill, oreDetector;
     public static void load() {
         //sec1
