@@ -372,7 +372,7 @@ public class AZFx {
             Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
         });
 
-        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, Color.purple, e.fin());
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, e.fin());
         stroke(1.5f * e.fout());
     }),
 
@@ -394,6 +394,25 @@ public class AZFx {
         stroke(1.1f * e.fout());
     }),
 
+    superdanseBulletHit = new Effect(30, e -> {
+        color(AZPal.superdenseAlloy);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 3f + i.fin() * 10f);
+        });
+
+        color(AZPal.superdenseAlloy);
+        randLenVectors(e.id, 7, 8f + 28f * e.finpow(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 4f + 1f);
+            Fill.circle(e.x + x / 3f, e.y + y / 3f, e.fout());
+        });
+
+        color(AZPal.superdenseBullet, AZPal.superdenseBulletBack, Color.gray, e.fin());
+        randLenVectors(e.id + 1, 10, 1f + 25f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 3f + e.fout() * 3f);
+        });
+    }),
+
     forceBulletDespawn = new Effect(30, e -> {
         color(AZPal.fors);
         e.scaled(10, i -> {
@@ -409,6 +428,22 @@ public class AZFx {
         });
     }),
 
+    superdanseBulletDespawn = new Effect(30, e -> {
+        color(AZPal.superdenseAlloy);
+        e.scaled(10, i -> {
+            stroke(4f * i.fout());
+            Lines.circle(e.x, e.y, 8f + i.fin() * 15f);
+        });
+
+        color(AZPal.superdenseBullet, AZPal.superdenseBulletBack, Color.gray, e.fin());
+        stroke(2f * e.fout());
+
+        randLenVectors(e.id + 1, 5, 1f + 20f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 3f);
+        });
+    }),
+
+
     forceFerbiumBulletDespawn = new Effect(30, e -> {
         color(AZPal.ferbiumBullet);
         e.scaled(10, i -> {
@@ -416,7 +451,7 @@ public class AZFx {
             Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
         });
 
-        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, Color.purple, e.fin());
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, e.fin());
         stroke(1.5f * e.fout());
 
         randLenVectors(e.id + 1, 10, 1f + 30f * e.finpow(), (x, y) -> {

@@ -147,7 +147,7 @@ public class AZTurrets {
         razeTurret = new ItemTurret("raze"){{
             requirements(Category.turret, with(AZItems.fors, 140, AZItems.craside, 80, AZItems.superdenseAlloy, 70));
             ammo(
-                    AZItems.superdenseAlloy, AZBullets.forceBullet
+                    AZItems.superdenseAlloy, AZBullets.razeBullet
             );
 
             shoot = new ShootBarrel(){{
@@ -161,10 +161,10 @@ public class AZTurrets {
                 shotDelay = 1f;
             }};
 
-            health = 1960;
+            health = 1460;
             size = 3;
             reload = 13f;
-            range = 30f * Vars.tilesize;
+            range = 35f * Vars.tilesize;
             recoil = 2;
             inaccuracy = 2f;
             rotateSpeed = 3f;

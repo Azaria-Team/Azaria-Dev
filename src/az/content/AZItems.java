@@ -33,7 +33,7 @@ public class AZItems {
             cost = 1f;
             hardness = 2;
         }};
-            superdenseAlloy = new Item("superdense-alloy", Color.valueOf("313442")) {{
+        superdenseAlloy = new Item("superdense-alloy", Color.valueOf("313442")) {{
             cost = 1f;
         }};
         ognium = new Item("ognium", Color.valueOf("5e3143")) {{

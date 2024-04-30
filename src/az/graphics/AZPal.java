@@ -21,7 +21,7 @@ public static final Color
         forsBack = Color.valueOf("c28392"),
         craside = Color.valueOf("d9fa96"),
         craside2 = Color.valueOf("d47f6a"),
-        superdenseAlloy = Color.valueOf("5eff8f"),
+        superdenseAlloy = Color.valueOf("313442"),
         khylid = Color.valueOf("313442"),
 
 //units
