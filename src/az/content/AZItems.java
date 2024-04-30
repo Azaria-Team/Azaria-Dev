@@ -40,6 +40,7 @@ public class AZItems {
             cost = 1f;
         }};
         neuroCrystal = new Item("neuro-crystal", Color.valueOf("4f2e6c")) {{
+            frames = 4;
             cost = 1f;
         }};
         hyperliosAlloy = new Item("hyperlios-alloy", Color.valueOf("54686a")) {{

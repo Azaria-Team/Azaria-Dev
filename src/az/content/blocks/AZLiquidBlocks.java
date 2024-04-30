@@ -74,10 +74,10 @@ public class AZLiquidBlocks {
             researchCostMultiplier = 0.3f;
             underBullets = true;
         }};
+
         advancedPump = new Pump("advanced-pump"){{
             requirements(Category.liquid, with(AZItems.fors, 90, AZItems.craside, 70, AZItems.superdenseAlloy, 30));
-
-            squareSprite = false;
+            squareSprite = true;
             pumpAmount = 10f / 60f;
             liquidCapacity = 140f;
             researchCostMultiplier = 0.3f;
