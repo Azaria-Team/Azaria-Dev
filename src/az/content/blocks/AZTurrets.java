@@ -161,7 +161,7 @@ public class AZTurrets {
                 shotDelay = 1f;
             }};
 
-            health = 1460;
+            health = 1560;
             size = 3;
             reload = 13f;
             range = 35f * Vars.tilesize;

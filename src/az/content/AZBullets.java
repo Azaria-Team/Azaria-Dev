@@ -33,7 +33,7 @@ public class AZBullets {
            shrinkX = shrinkY = 0f;
            width = 8f;
            height = 12f;
-           lifetime = 35;
+           lifetime = 34;
            collidesGround = true;
            collidesAir = true;
            hitSize = 3;
@@ -60,7 +60,7 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 8f;
             height = 14f;
-            lifetime = 29;
+            lifetime = 28;
             collidesGround = true;
             collidesAir = true;
             hitSize = 3;
@@ -92,7 +92,7 @@ public class AZBullets {
             }};
         }};
 
-        hornBullet = new BasicBulletType(5f, 50f){{
+        hornBullet = new BasicBulletType(5f, 40f){{
             hitEffect = AZFx.hornBulletHit;
             despawnEffect = AZFx.hornBulletDespawn;
             width = 52f;
@@ -117,7 +117,7 @@ public class AZBullets {
 
 
         razeBullet = new BasicBulletType(7f, 40f){{
-            sprite = "az-dagger-missile";
+            sprite = "az-grenade";
             trailInterval = 0.5f;
             hitEffect = AZFx.superdanseBulletHit;
             despawnEffect = AZFx.superdanseBulletDespawn;
