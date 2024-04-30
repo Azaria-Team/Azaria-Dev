@@ -3,6 +3,7 @@ package az.content.blocks;
 import arc.graphics.Color;
 import az.content.AZFx;
 import az.content.AZItems;
+import az.graphics.AZPal;
 import az.world.draw.MultiDrawFlame;
 import mindustry.gen.Sounds;
 import mindustry.graphics.Layer;
@@ -65,10 +66,10 @@ public class AZProduction {
                         flamePoints(
                                 new FlamePoint(63.5f/128f,33.4f/128f),
                                 new FlamePoint(63.5f/128f,93.5f/128f),
-                                new FlamePoint(40.5f/128f,86.5f/128f),
-                                new FlamePoint(40.5f/128f,40.5f/128f),
-                                new FlamePoint(86.5f/128f,86.5f/128f),
-                                new FlamePoint(86.5f/128f,40.5f/128f),
+                                new FlamePoint(43.5f/128f,83.5f/128f),
+                                new FlamePoint(43.5f/128f,43.5f/128f),
+                                new FlamePoint(83.5f/128f,83.5f/128f),
+                                new FlamePoint(83.5f/128f,43.5f/128f),
                                 new FlamePoint(33.5f/128f,63.5f/128f),
                                 new FlamePoint(93.5f/128f,63.5f/128f)
 
@@ -78,10 +79,10 @@ public class AZProduction {
                         flameRadiusScl = 3f;
                         flameRadiusMag = 0.5f;
                         flameRadiusInMag = 0.5f;
-                        flameColor = Color.valueOf("313442");
+                        flameColor = AZPal.superdenseBullet;
                     }},
                     new DrawFlame(){{
-                        flameColor = Color.valueOf("313442");
+                        flameColor = AZPal.superdenseBulletBack;
                         flameRadius = 3f;
 
                     }}
