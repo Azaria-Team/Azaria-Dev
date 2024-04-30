@@ -12,7 +12,7 @@ import mindustry.gen.Sounds;
 
 public class AZBullets {
     public static BulletType
-            noneBullet, forceBullet, forceFerbiumBullet, hornBullet, antiMissileBullet, shrapnelBullet;
+            noneBullet, forceBullet, forceFerbiumBullet, hornBullet, antiMissileBullet, shrapnelBullet, razeBullet;
 
     public static void load() {
 
@@ -33,7 +33,7 @@ public class AZBullets {
            shrinkX = shrinkY = 0f;
            width = 8f;
            height = 12f;
-           lifetime = 35;
+           lifetime = 34;
            collidesGround = true;
            collidesAir = true;
            hitSize = 3;
@@ -46,8 +46,8 @@ public class AZBullets {
            trailLength = 18;
            trailWidth = 1.7f;
 
-            splashDamage = 40f;
-            splashDamageRadius = 25f;
+           splashDamage = 40f;
+           splashDamageRadius = 25f;
         }};
 
         forceFerbiumBullet = new BasicBulletType(7f, 45f){{
@@ -60,7 +60,7 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 8f;
             height = 14f;
-            lifetime = 29;
+            lifetime = 28;
             collidesGround = true;
             collidesAir = true;
             hitSize = 3;
@@ -76,6 +76,7 @@ public class AZBullets {
             splashDamage = 45f;
             splashDamageRadius = 40f;
             fragBullets = 5;
+            ammoMultiplier = 3f;
             fragBullet = new BasicBulletType(2f, 10) {{
                // sprite = "bullet";
                 backColor = AZPal.ferbiumBulletBack;
@@ -91,7 +92,7 @@ public class AZBullets {
             }};
         }};
 
-        hornBullet = new BasicBulletType(5f, 50f){{
+        hornBullet = new BasicBulletType(5f, 40f){{
             hitEffect = AZFx.hornBulletHit;
             despawnEffect = AZFx.hornBulletDespawn;
             width = 52f;
@@ -112,7 +113,35 @@ public class AZBullets {
 
             backColor = AZPal.craside;
             frontColor = AZPal.craside2;
+        }};
 
+
+        razeBullet = new BasicBulletType(7f, 40f){{
+            sprite = "az-grenade";
+            trailInterval = 0.5f;
+            hitEffect = AZFx.superdanseBulletHit;
+            despawnEffect = AZFx.superdanseBulletDespawn;
+            trailRotation = false;
+            shrinkX = shrinkY = 0f;
+            width = 10f;
+            height = 14f;
+            lifetime = 36;
+            collidesGround = false;
+            collidesAir = true;
+            hitSize = 3;
+            //homingPower = 0.3f;
+
+            backColor = AZPal.superdenseBulletBack;
+            frontColor = AZPal.superdenseBullet;
+
+            trailColor = AZPal.superdenseAlloy;
+            trailEffect = Fx.none;
+            trailLength = 10;
+            trailWidth = 2f;
+            ammoMultiplier = 3f;
+
+            splashDamage = 50f;
+            splashDamageRadius = 5.5f * 8f;
         }};
 
         antiMissileBullet = new AntiMissileBulletType(6f, 60f, 10 * Vars.tilesize){{
