@@ -12,25 +12,32 @@ public static final Color
 
         droneBullet = Color.valueOf("d8f7f8"),
         droneBulletBack = Color.valueOf("2dd5d9"),
-//aa
-        fors = Color.valueOf("f3b2c1"),
-        forsBack = Color.valueOf("c28392"),
-        craside = Color.valueOf("d9fa96"),
-        craside2 = Color.valueOf("d47f6a"),
 
         forceBullet = Color.valueOf("ffffff"),
         forceBulletBack = Color.valueOf("f27c98"),
 
         ferbiumBullet = Color.valueOf("aeb9e4"),
         ferbiumBulletBack = Color.valueOf("847bb1"),
-        aurionaCloud = Color.valueOf("94debc"),
 
-        khylid = Color.valueOf("87d7bf"),
-        lightningNodeColor = Color.valueOf("f6738d"),
+        superdenseBullet = Color.valueOf("9c92b3"),
+        superdenseBulletBack = Color.valueOf("5f5e74"),
+//items
+        fors = Color.valueOf("f3b2c1"),
+        forsBack = Color.valueOf("c28392"),
+        craside = Color.valueOf("d9fa96"),
+        craside2 = Color.valueOf("d47f6a"),
+
+
+        superdenseAlloy = Color.valueOf("5eff8f"),
+
+        khylid = Color.valueOf("313442"),
+
 //units
         unmakerColor = Color.valueOf("8deb87"),
         zephyrLight = Color.valueOf("d8f7f8"),
         zephyrDark = Color.valueOf("2dd5d9"),
+        lightningNodeColor = Color.valueOf("f6738d"),
 //other
-        forestLight = Color.valueOf("5eff8f");
+        forestLight = Color.valueOf("5eff8f"),
+        aurionaCloud = Color.valueOf("94debc");
 }
