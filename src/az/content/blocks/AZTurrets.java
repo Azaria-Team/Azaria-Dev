@@ -164,15 +164,16 @@ public class AZTurrets {
             health = 1560;
             size = 3;
             reload = 13f;
-            range = 35f * Vars.tilesize;
+            range = 37f * Vars.tilesize;
             recoil = 2;
             inaccuracy = 2f;
             rotateSpeed = 3f;
             shootCone = 2f;
-            ammoPerShot = 1;
+            //ammoPerShot = 1;
             shootSound = Sounds.shootBig;
             ammoUseEffect = Fx.casing2;
             targetAir = true;
+            targetGround = false;
         }};
 
 
