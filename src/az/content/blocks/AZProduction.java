@@ -3,7 +3,9 @@ package az.content.blocks;
 import az.content.AZFx;
 import az.content.AZItems;
 import az.graphics.AZPal;
+import az.world.draw.DrawCrasideSmelt;
 import az.world.draw.MultiDrawFlame;
+import mindustry.content.Fx;
 import mindustry.gen.Sounds;
 import mindustry.graphics.Layer;
 import mindustry.type.Category;
@@ -32,7 +34,7 @@ public class AZProduction {
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
             size = 3;
-            craftEffect = AZFx.crasideBrewerSmoke;
+            craftEffect = Fx.none;
             consumePower(1f);
             researchCostMultiplier = 0.2f;
             squareSprite = false;
@@ -45,6 +47,8 @@ public class AZProduction {
                     }},
                     new DrawRegion("-top"){{
                         layer = Layer.block + 0.2f;
+                    }},
+                    new DrawCrasideSmelt(){{
                     }}
             );
         }};
