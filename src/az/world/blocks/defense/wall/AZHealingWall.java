@@ -2,8 +2,6 @@ package az.world.blocks.defense.wall;
 
 import mindustry.world.blocks.defense.Wall;
 
-import java.io.Console;
-
 public class AZHealingWall extends Wall {
     public float healAmount = 1f;
     public AZHealingWall(String name) {
