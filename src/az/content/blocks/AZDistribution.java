@@ -12,25 +12,24 @@ import static mindustry.type.ItemStack.with;
 
 public class AZDistribution {
     public static Block
-            hardenedConveyor, hardenedJunction, hardenedRouter, hardenedBridgeConveyor,
-            impulseSorter, impulseReverseSorter, impulseOverflorGate, impulseUnderflowGate,
-
-            hardenedUnloader;
+            magneticConveyor, magneticJunction, magneticRouter, magneticBridgeConveyor,
+            magneticSorter, magneticReverseSorter, magneticOverflorGate, magneticUnderflowGate,
+            magneticUnloader;
 
     public static void load() {
         //sec1
-        hardenedConveyor = new ModDuct("hardened-conveyor") {{
+        magneticConveyor = new ModDuct("magnetic-conveyor") {{
             requirements(Category.distribution, with(AZItems.fors, 1));
             researchCost = with(AZItems.fors, 5);
 
             health = 210;
             speed = 5f;
 
-            junctionReplacement = AZDistribution.hardenedJunction;
-            bridgeReplacement = AZDistribution.hardenedBridgeConveyor;
+            junctionReplacement = AZDistribution.magneticJunction;
+            bridgeReplacement = AZDistribution.magneticBridgeConveyor;
         }};
 
-        hardenedJunction = new Junction("hardened-junction") {{
+        magneticJunction = new Junction("magnetic-junction") {{
             requirements(Category.distribution, with(AZItems.fors, 2));
             researchCost = with(AZItems.fors, 10);
 
@@ -42,7 +41,7 @@ public class AZDistribution {
             squareSprite = false;
         }};
 
-        hardenedRouter = new Router("hardened-router") {{
+        magneticRouter = new Router("magnetic-router") {{
             requirements(Category.distribution, with(AZItems.fors, 3));
             researchCost = with(AZItems.fors, 15);
 
@@ -52,7 +51,7 @@ public class AZDistribution {
             squareSprite = false;
         }};
 
-        hardenedBridgeConveyor = new ItemBridge("hardened-bridge-conveyor"){{
+        magneticBridgeConveyor = new ItemBridge("magnetic-bridge-conveyor"){{
             requirements(Category.distribution, with(AZItems.fors, 10));
             researchCost = with(AZItems.fors, 35);
             bridgeWidth = 8F;
@@ -64,25 +63,25 @@ public class AZDistribution {
         }};
 
         //sec2
-        impulseSorter = new Sorter("impulse-sorter"){{
+        magneticSorter = new Sorter("magnetic-sorter"){{
             requirements(Category.distribution, with(AZItems.fors, 4));
         }};
 
-        impulseReverseSorter = new Sorter("impulse-reverse-sorter") {{
+        magneticReverseSorter = new Sorter("magnetic-reverse-sorter") {{
             requirements(Category.distribution, with(AZItems.fors, 4));
             invert = true;
         }};
 
-        impulseOverflorGate = new OverflowGate("impulse-overflow-gate"){{
+        magneticOverflorGate = new OverflowGate("magnetic-overflow-gate"){{
             requirements(Category.distribution, with(AZItems.fors, 6));
             buildCostMultiplier = 3;
         }};
-        impulseUnderflowGate = new OverflowGate("impulse-underflow-gate") {{
+        magneticUnderflowGate = new OverflowGate("magnetic-underflow-gate") {{
             requirements(Category.distribution, with(AZItems.fors, 6));
             invert = true;
         }};
 
-        hardenedUnloader = new Unloader("hardened-unloader") {{
+        magneticUnloader = new Unloader("magnetic-unloader") {{
             requirements(Category.distribution, with(AZItems.superdenseAlloy, 15, AZItems.fors, 5));
             health = 300;
             speed = 60.0f / 11.0f;

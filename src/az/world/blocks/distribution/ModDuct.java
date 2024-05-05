@@ -27,8 +27,8 @@ public class ModDuct extends Duct {
     public void init(){
         super.init();
 
-        if(junctionReplacement == null) junctionReplacement = AZDistribution.hardenedJunction;
-        if(bridgeReplacement == null || !(bridgeReplacement instanceof ItemBridge)) bridgeReplacement = AZDistribution.hardenedBridgeConveyor;
+        if(junctionReplacement == null) junctionReplacement = AZDistribution.magneticJunction;
+        if(bridgeReplacement == null || !(bridgeReplacement instanceof ItemBridge)) bridgeReplacement = AZDistribution.magneticBridgeConveyor;
     }
 
     @Override

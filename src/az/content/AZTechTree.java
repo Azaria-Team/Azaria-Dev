@@ -24,16 +24,16 @@ public class AZTechTree {
     public static void load(){
         AZPlanets.auriona.techTree = nodeRoot("Auriona", coreLegion, () -> {
             //region distribution
-            node(hardenedConveyor, () -> {
-                node(hardenedJunction, () -> {
-                    node(hardenedRouter, () -> {
+            node(magneticConveyor, () -> {
+                node(magneticJunction, () -> {
+                    node(magneticRouter, () -> {
                     });
 
                 });
-                node(hardenedBridgeConveyor, () -> {
+                node(magneticBridgeConveyor, () -> {
                 });
-                node(impulseSorter, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
-                    node(impulseOverflorGate, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
+                node(magneticSorter, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
+                    node(magneticOverflorGate, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
 
                     });
                 });

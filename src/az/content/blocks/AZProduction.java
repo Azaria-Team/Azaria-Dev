@@ -1,6 +1,5 @@
 package az.content.blocks;
 
-import arc.graphics.Color;
 import az.content.AZFx;
 import az.content.AZItems;
 import az.graphics.AZPal;
@@ -20,7 +19,7 @@ import static mindustry.type.ItemStack.with;
 
 public class AZProduction {
     public static Block
-    crasideBrewer, superdenseKiln;
+    crasideBrewer, heavyDutyCrucible;
 
     public static void load() {
 
@@ -50,7 +49,7 @@ public class AZProduction {
             );
         }};
 
-        superdenseKiln = new GenericCrafter("superdense-kiln") {{
+        heavyDutyCrucible = new GenericCrafter("heavy-duty-crucible") {{
             requirements(Category.crafting, with(AZItems.fors, 200, AZItems.khylid, 150, AZItems.craside, 100));
             outputItem = new ItemStack(AZItems.superdenseAlloy, 4);
             consumeItems(with(AZItems.fors, 2, AZItems.volcanicSerrid, 3, AZItems.ferbium, 1));
