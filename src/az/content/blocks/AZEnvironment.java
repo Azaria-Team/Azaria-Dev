@@ -115,6 +115,7 @@ public class AZEnvironment {
         //decorations
         corals = new TallBlock("coral") {{
             variants = 3;
+            cacheLayer = CacheLayer.water;
         }};
         //endregion sea-biome
 
@@ -250,6 +251,7 @@ public class AZEnvironment {
         //region volcanic-biome
         //huitaRock
         huitaRock = new Floor("huita-rock") {{
+            attributes.set(AZAttribute.serridAttr, 0.25f);
             itemDrop = AZItems.volcanicSerrid;
             variants = 4;
         }};

@@ -9,5 +9,6 @@ public class AZAttribute {
             none = add("none"),
             forsattr = add("fors-attr"),
             khylidattr = add("khylid-attr"),
+            serridAttr = add("serrid-attr"),
             mainlheatattr = add("khylid-attr");
 }

@@ -4,6 +4,7 @@ import az.content.AZAttribute;
 import az.content.AZFx;
 import az.content.AZItems;
 import az.graphics.AZPal;
+import az.world.blocks.production.AzItemCollector;
 import az.world.blocks.production.HPLBurstDrill;
 import az.world.blocks.production.OreRadar;
 import az.world.draw.DrawDrillPart;
@@ -41,8 +42,8 @@ public class AZDrills {
             craftTime = 240f;
 
             minEfficiency = 4f - 0.0001f;
-            baseEfficiency = 0f;
             boostScale = 1f / 4f;
+            baseEfficiency = 0f;
             ambientSoundVolume = 0.06f;
             craftEffect = AZFx.forsDrillEffect;
             drawer = new DrawMulti(
@@ -86,6 +87,25 @@ public class AZDrills {
                     }}
             );
             squareSprite = false;
+            displayEfficiency = false;
+        }};
+
+        vacuumCollector = new AzItemCollector("vacuum-collector") {{
+            requirements(Category.production, with(AZItems.fors, 20));
+            researchCost = with( AZItems.fors, 25);
+
+            attribute = AZAttribute.serridAttr;
+            outputItem = new ItemStack(AZItems.volcanicSerrid, 4);
+            ambientSound = Sounds.hum;
+
+            health = 280;
+            size = 2;
+            craftTime = 240f;
+
+            minEfficiency = 4f - 0.0001f;
+            boostScale = 1f / 4f;
+            baseEfficiency = 0f;
+            ambientSoundVolume = 0.06f;
             displayEfficiency = false;
         }};
 
