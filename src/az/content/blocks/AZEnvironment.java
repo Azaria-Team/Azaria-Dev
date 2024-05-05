@@ -288,29 +288,29 @@ public class AZEnvironment {
         //endregion volcanic-biome
 
 
-        shaderTesting = new Floor("spectralia") {{
-            variants = 4;
-            isLiquid = true;
-            liquidDrop = AZLiquids.spectralia;
-            cacheLayer = AzCacheLayers.testShader;
-            attributes.set(AZAttribute.mainlheatattr, 0.25f);
-        }};
-
-        shaderTesting2 = new Floor("spectralia") {{
-            variants = 4;
-            isLiquid = true;
-            liquidDrop = AZLiquids.spectralia;
-            cacheLayer = AzCacheLayers.testShader2;
-            attributes.set(AZAttribute.mainlheatattr, 0.25f);
-        }};
-
-        shaderTesting3 = new Floor("spectralia") {{
-            variants = 4;
-            isLiquid = true;
-            liquidDrop = AZLiquids.spectralia;
-            cacheLayer = AzCacheLayers.testShader3;
-            attributes.set(AZAttribute.mainlheatattr, 0.25f);
-        }};
+//        shaderTesting = new Floor("spectralia") {{
+//            variants = 4;
+//            isLiquid = true;
+//            liquidDrop = AZLiquids.spectralia;
+//            cacheLayer = AzCacheLayers.testShader;
+//            attributes.set(AZAttribute.mainlheatattr, 0.25f);
+//        }};
+//
+//        shaderTesting2 = new Floor("spectralia") {{
+//            variants = 4;
+//            isLiquid = true;
+//            liquidDrop = AZLiquids.spectralia;
+//            cacheLayer = AzCacheLayers.testShader2;
+//            attributes.set(AZAttribute.mainlheatattr, 0.25f);
+//        }};
+//
+//        shaderTesting3 = new Floor("spectralia") {{
+//            variants = 4;
+//            isLiquid = true;
+//            liquidDrop = AZLiquids.spectralia;
+//            cacheLayer = AzCacheLayers.testShader3;
+//            attributes.set(AZAttribute.mainlheatattr, 0.25f);
+//        }};
         //region not-in-biome
 
         //endregion not-in-biome
