@@ -4,10 +4,8 @@ import arc.graphics.Color;
 import az.content.AZAttribute;
 import az.content.AZItems;
 import az.content.AZLiquids;
-import az.graphics.AZPal;
 import az.world.blocks.environment.ModOverlayFloor;
 import az.world.blocks.environment.UndergroundOre;
-import mindustry.Vars;
 import mindustry.graphics.CacheLayer;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
@@ -19,7 +17,7 @@ public class AZEnvironment {
     serridDust, serridDustWall, serridicBoulder,
     crabStone, crabStoneWall, crabStoneBoulder,
     serridicRock, serridicRockWall, serridBoulder, serridOxylite,
-    coral,
+            corals,
 
     //forest-biome
     fir, firWall, firBoulder,
@@ -113,6 +111,10 @@ public class AZEnvironment {
         serridicBoulder = new Prop("serridic-boulder") {{
             variants = 3;
             serridicRock.asFloor().decoration = this;
+        }};
+        //decorations
+        corals = new TallBlock("coral") {{
+            variants = 3;
         }};
         //endregion sea-biome
 
