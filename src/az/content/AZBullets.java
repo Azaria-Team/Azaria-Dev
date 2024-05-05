@@ -125,10 +125,10 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 10f;
             height = 14f;
-            lifetime = 36;
+            lifetime = 38;
             collidesGround = false;
             collidesAir = true;
-            hitSize = 3;
+            hitSize = 5;
             //homingPower = 0.3f;
 
             backColor = AZPal.superdenseBulletBack;
