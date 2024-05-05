@@ -4,6 +4,7 @@ import arc.graphics.Color;
 import az.content.AZAttribute;
 import az.content.AZItems;
 import az.content.AZLiquids;
+import az.graphics.AzCacheLayers;
 import az.world.blocks.environment.ModOverlayFloor;
 import az.world.blocks.environment.UndergroundOre;
 import mindustry.graphics.CacheLayer;
@@ -38,6 +39,7 @@ public class AZEnvironment {
     volcanicSerrid, volcanicSerridWall, volcanicSerridBoulder,
 
     //other
+    shaderTesting, shaderTesting2, shaderTesting3,
 
     //prop
     ancientSus,
@@ -280,11 +282,35 @@ public class AZEnvironment {
             variants = 4;
             isLiquid = true;
             liquidDrop = AZLiquids.spectralia;
-            cacheLayer = CacheLayer.water;
+            cacheLayer = CacheLayer.arkycite;
             attributes.set(AZAttribute.mainlheatattr, 0.25f);
         }};
         //endregion volcanic-biome
 
+
+        shaderTesting = new Floor("spectralia") {{
+            variants = 4;
+            isLiquid = true;
+            liquidDrop = AZLiquids.spectralia;
+            cacheLayer = AzCacheLayers.testShader;
+            attributes.set(AZAttribute.mainlheatattr, 0.25f);
+        }};
+
+        shaderTesting2 = new Floor("spectralia") {{
+            variants = 4;
+            isLiquid = true;
+            liquidDrop = AZLiquids.spectralia;
+            cacheLayer = AzCacheLayers.testShader2;
+            attributes.set(AZAttribute.mainlheatattr, 0.25f);
+        }};
+
+        shaderTesting3 = new Floor("spectralia") {{
+            variants = 4;
+            isLiquid = true;
+            liquidDrop = AZLiquids.spectralia;
+            cacheLayer = AzCacheLayers.testShader3;
+            attributes.set(AZAttribute.mainlheatattr, 0.25f);
+        }};
         //region not-in-biome
 
         //endregion not-in-biome
