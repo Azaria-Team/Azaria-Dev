@@ -174,6 +174,27 @@ public class AZTurrets {
             ammoUseEffect = Fx.casing2;
             targetAir = true;
             targetGround = false;
+
+            drawer = new DrawTurret(){{
+                for(int i = 0; i < 2; i++){
+                    int f = i;
+                    parts.add(new RegionPart("-barrel1-" + (i == 0 ? "l" : "r")){{
+                        progress = PartProgress.recoil;
+                        recoilIndex = f;
+                        under = true;
+                        moveY = -1.5f;
+                    }});
+                }
+                for(int j = 0; j < 2; j++){
+                    int f = j;
+                    parts.add(new RegionPart("-barrel2-" + (j == 0 ? "l" : "r")){{
+                        progress = PartProgress.recoil;
+                        recoilIndex = f;
+                        under = true;
+                        moveY = -1.5f;
+                    }});
+                }
+            }};
         }};
 
 

@@ -21,7 +21,9 @@ import mindustry.world.meta.StatUnit;
 
 import static mindustry.Vars.*;
 import static mindustry.content.Blocks.air;
-
+/**
+ * Original code from FOS[<a href="https://github.com/TeamOct/fictional-octo-system/blob/master/src/fos/type/blocks/production/HeatProducerDrill.java">...</a>]
+*/
 public class OreRadar extends Block {
     public int range = 20 * 8;
     public float radarSpeed = 1f;

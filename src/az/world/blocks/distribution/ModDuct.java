@@ -17,7 +17,7 @@ import mindustry.world.blocks.distribution.*;
 public class ModDuct extends Duct {
     public @Nullable
     Block junctionReplacement, bridgeReplacement;
-    public String botName = "az-hardened-conveyor-bottom";
+    public String botName = "az-magnetic-conveyor-bottom";
 
     public ModDuct(String name) {
         super(name);
