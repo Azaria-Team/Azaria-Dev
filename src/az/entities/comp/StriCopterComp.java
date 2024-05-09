@@ -12,9 +12,8 @@ import mindustry.gen.Unitc;
 import mindustry.type.UnitType;
 
 /**
- * Original code from Project HPL[<a href="https://github.com/xstabux/Omaloon/blob/master/src/omaloon/entities/comp/OrnitopterComp.java">...</a>]
+ * Original code from Omaloon[<a href="https://github.com/xstabux/Omaloon/blob/master/src/omaloon/entities/comp/OrnitopterComp.java">...</a>]
  */
-
 @Annotations.EntityComponent
 
 public abstract class StriCopterComp implements Unitc, StriCopterc {
