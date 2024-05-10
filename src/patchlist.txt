@@ -44,18 +44,14 @@
 -composite wall unique effect added
 -superdense wall added
 -superdense kiln added
--naval mine finished
 -fors ore resprited
 -sandbox floor added
--huge environment update
--new status effects added
 -new fx effects added
 -unit eliminator remake
--unit rector remake (new burst fire added)
+-unit vector remake (new burst fire added)
 -new liquid spectralia added
 -fix bridge conveyors
 -fix ferbium display
--fix azHealingWall liquid consume
 -fixed hardened conveyor icon
 -fixed sorter item color (doesn't display), reverse sorter too
 -added unit refabricators
