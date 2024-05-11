@@ -44,20 +44,18 @@ public class AZUnits {
             //aurelia core units
             gyurza, veresk, chaos,
     //angelshark unit tree
-    angelshark, glaucus, aurora, dunkleosteus,
-    //unmaker tree
-
+    angelshark, glaucus, aurora, piranha, megalodon,
     //vector tree
-    vector, zephyr, vortex, whirlwind,
+    vector, zephyr, vortex, altura, cataclysm,
+    //support
+    sentinel, custodian, bulwark, bulat, colossus;
     //fire support
-    source, quantum, diffraction, interference,
-    //amphibia
-    aqua, nameFloat, salamander,
+    //...
+
     //off the tree
-    shell, bastion, citadel,
-    testHealUnit;
     public static @Annotations.EntityDef({Unitc.class, StriCopterc.class})
-    UnitType unmaker, eliminator, exterminator, blighter, dragonfly;
+    //unmaker tree
+    UnitType unmaker, eliminator, exterminator, blighter, plague, dragonfly;
     //supportDrone, torpedoNaval, bigKaboom
     private static final ObjectMap.Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new ObjectMap.Entry[]{
             prov(DroneUnitEntity.class, DroneUnitEntity::new)
