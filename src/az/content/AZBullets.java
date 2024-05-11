@@ -5,10 +5,12 @@ import az.entities.bullets.AntiMissileBulletType;
 import az.graphics.AZPal;
 import mindustry.Vars;
 import mindustry.content.Fx;
+import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.ShrapnelBulletType;
 import mindustry.gen.Sounds;
+import mindustry.type.StatusEffect;
 
 public class AZBullets {
     public static BulletType
@@ -111,6 +113,11 @@ public class AZBullets {
             pierce = true;
             pierceCap = 2;
 
+            status = new StatusEffect("") {{
+                    disarm = true;
+                    speedMultiplier = 0.0f;
+                    statusDuration = 55f;
+                }};
             backColor = AZPal.craside;
             frontColor = AZPal.craside2;
         }};
