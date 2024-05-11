@@ -149,6 +149,7 @@ public class AZTurrets {
             ammo(
                     AZItems.superdenseAlloy, AZBullets.razeBullet
             );
+            outlineColor = AZPal.aureliaOutline;
 
             shoot = new ShootBarrel(){{
                 barrels = new float[]{
