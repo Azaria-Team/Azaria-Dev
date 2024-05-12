@@ -44,20 +44,18 @@ public class AZUnits {
             //aurelia core units
             gyurza, veresk, chaos,
     //angelshark unit tree
-    angelshark, glaucus, aurora, dunkleosteus,
-    //unmaker tree
-
+    angelshark, glaucus, aurora, piranha, megalodon,
     //vector tree
-    vector, zephyr, vortex, whirlwind,
+    vector, zephyr, vortex, altura, cataclysm,
+    //support
+    sentinel, custodian, bulwark, bulat, colossus;
     //fire support
-    source, quantum, diffraction, interference,
-    //amphibia
-    aqua, nameFloat, salamander,
+    //...
+
     //off the tree
-    shell, bastion, citadel,
-    testHealUnit;
     public static @Annotations.EntityDef({Unitc.class, StriCopterc.class})
-    UnitType unmaker, eliminator, exterminator, blighter, dragonfly;
+    //unmaker tree
+    UnitType unmaker, eliminator, exterminator, blighter, plague, dragonfly;
     //supportDrone, torpedoNaval, bigKaboom
     private static final ObjectMap.Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new ObjectMap.Entry[]{
             prov(DroneUnitEntity.class, DroneUnitEntity::new)
@@ -702,7 +700,7 @@ public class AZUnits {
                     hitEffect = AZFx.blueHitExplosion1;
                     despawnEffect = AZFx.smallBlueExplosion;
                     lifetime = 25;
-                    velocityRnd = 0.2f;
+                    velocityRnd =  0.2f;
                 }};
             }});
         }};
@@ -740,7 +738,10 @@ public class AZUnits {
                 mirror = true;
                 alternate = true;
                 shootSound = Sounds.shootAlt;
-                bullet = new BasicBulletType(5.5f, 10) {{
+
+                inaccuracy = 5.5f;
+                bullet = new ArtilleryBulletType(5.5f, 10) {{
+                    velocityRnd = 0.25f;
                     sprite = "az-grenade";
                     backColor = AZPal.droneBulletBack;
                     frontColor = AZPal.droneBullet;
