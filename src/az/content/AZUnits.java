@@ -860,8 +860,8 @@ public class AZUnits {
                         lifetime = 150f;
                         speed = 1f;
                         damage = 0f;
-                        sprite = "none.png";
-                        shootEffect = hitEffect = despawnEffect = Fx.none;
+                        sprite = "az-none";
+                        shootEffect = hitEffect = despawnEffect = ejectEffect = Fx.none;
                     }};
                 }});
             }};
