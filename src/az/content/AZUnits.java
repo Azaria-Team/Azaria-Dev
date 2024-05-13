@@ -10,7 +10,6 @@ import arc.util.Time;
 import az.entities.bullets.AimBulletType;
 import az.entities.bullets.ModEmpBulletType;
 import az.entities.entity.DroneUnitEntity;
-import az.entities.entity.StriCopterUnitEntityLegacy;
 import az.entities.units.DroneUnitType;
 import az.entities.units.StriCopterUnitType;
 import az.graphics.AZPal;
@@ -18,7 +17,6 @@ import az.pattern.AZBurstShoot;
 import az.world.draw.Blade;
 import az.world.draw.Rotor;
 
-import azaria.gen.StriCopterUnit;
 import azaria.gen.StriCopterc;
 import ent.anno.Annotations;
 import mindustry.Vars;
@@ -27,12 +25,10 @@ import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.MultiEffect;
-import mindustry.entities.effect.WaveEffect;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
@@ -55,7 +51,7 @@ public class AZUnits {
     //off the tree
     public static @Annotations.EntityDef({Unitc.class, StriCopterc.class})
     //unmaker tree
-    UnitType unmaker, eliminator, exterminator, blighter, plague, dragonfly;
+    UnitType unmaker, eliminator, exterminator, blighter, plague, opjozdysh;
     //supportDrone, torpedoNaval, bigKaboom
     private static final ObjectMap.Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new ObjectMap.Entry[]{
             prov(DroneUnitEntity.class, DroneUnitEntity::new)
@@ -597,7 +593,7 @@ public class AZUnits {
                     }});
 
         }};
-        dragonfly = new StriCopterUnitType("dragonfly") {{
+        opjozdysh = new StriCopterUnitType("opjozdysh") {{
             flying = true;
 
             speed = 4.5f;
@@ -619,30 +615,31 @@ public class AZUnits {
                         bladeMoveSpeed = -40f;
                         bladeBlurAlphaMultiplier = 0.9f;
                     }});
-            weapons.add(
-                    new Weapon("aaa") {{
-                        y = 4f;
-                        x = 0;
-                        reload = 60;
-                        layerOffset = -0.002f;
-                        recoil = 3.5f;
-                        mirror = false;
 
-                        bullet = new ContinuousFlameBulletType() {{
-                            damage = 35f;
-                            length = 100;
-                            knockback = 2.5f;
-                            pierceCap = 1;
-
-                            colors = new Color[]{Color.valueOf("46aab8").a(0.55f), Color.valueOf("66d2b2").a(0.7f), Color.valueOf("9ee889").a(0.8f), Color.valueOf("f5fcbe"), Color.white};
-                            flareColor = Color.valueOf("89e8b6");
-
-                            lightColor = hitColor = flareColor;
-
-                            statusDuration = 1f;
-                            status = AZStatusEffects.weakness;
-                        }};
-                    }});
+            weapons.add(new Weapon(""){{
+                shootSound = Sounds.flame;
+                shootY = 2f;
+                mirror = false;
+                x = 0;
+                reload = 11f;
+                recoil = 1f;
+                ejectEffect = Fx.none;
+                bullet = new BulletType(4.2f, 37f){{
+                    ammoMultiplier = 3f;
+                    hitSize = 7f;
+                    lifetime = 13f;
+                    pierce = true;
+                    pierceBuilding = true;
+                    pierceCap = 2;
+                    statusDuration = 60f * 4;
+                    shootEffect = AZFx.opjozdyhFlame;
+                    hitEffect = AZFx.opjozdyshHit;
+                    despawnEffect = Fx.none;
+                    status = StatusEffects.burning;
+                    keepVelocity = false;
+                    hittable = false;
+                }};
+            }});
         }};
         //endregion unmakerTree
 
