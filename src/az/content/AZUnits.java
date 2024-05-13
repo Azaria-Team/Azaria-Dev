@@ -28,6 +28,7 @@ import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
+import mindustry.entities.Effect;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.effect.WaveEffect;
@@ -836,24 +837,32 @@ public class AZUnits {
                 researchCostMultiplier = 0f;
                 constructor = TankUnit::create;
                 abilities.add(new ModShieldArcAbility(){{
-                    radius = hitSize + 10f;
-                    angle = 140;
+                    radius = hitSize + 32f;
+                    angle = 100;
                     regen = 3f;
                     cooldown = 60f * 10f;
-                    max = 200f;
+                    max = 700;
                     width = 10f;
                     drawWidth = 5f;
                     whenShooting = true;
                 }});
-                weapons.add(new Weapon("flare-shield") {{
-                    reload = 0f;
+                weapons.add(new Weapon("az-flare-shield") {{
+                    reload = Integer.MAX_VALUE;
+                    shootSound = Sounds.none;
+                    recoil = 0f;
                     rotateSpeed = 2f;
                     rotate = true;
-                    //x = 0;
-                    //y = -6;
+                    x = y = 0;
                     mirror = false;
 
-                    //bullet = AZBullets.noneBullet;
+                    bullet = new BasicBulletType() {{
+                        display = false;
+                        lifetime = 150f;
+                        speed = 1f;
+                        damage = 0f;
+                        sprite = "none.png";
+                        shootEffect = hitEffect = despawnEffect = Fx.none;
+                    }};
                 }});
             }};
         //endregion sentinelTree

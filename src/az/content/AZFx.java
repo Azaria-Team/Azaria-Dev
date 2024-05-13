@@ -527,7 +527,7 @@ public class AZFx {
         }
     }),
 
-    cursedFireTrailSmall = new Effect(16.0f, 50.0f, e -> {
+    cursedFireTrailSmall = new Effect(11.3f, 50.0f, e -> {
         color(AZPal.unmakerColor, Color.valueOf("96d66a"), Color.valueOf("487364"), e.fin() * e.fin());
         randLenVectors(e.id, 4, 1.0f + e.finpow() * 30, e.rotation + 180, 7.0f, (x, y) -> {
             Fill.circle(e.x + x, e.y + y, 0.9f + e.fout() * 1.1f);
