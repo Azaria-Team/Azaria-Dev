@@ -625,30 +625,30 @@ public class AZUnits {
                         bladeMoveSpeed = -40f;
                         bladeBlurAlphaMultiplier = 0.9f;
                     }});
-            weapons.add(
-                    new Weapon("aaa") {{
-                        y = 4f;
-                        x = 0;
-                        reload = 60;
-                        layerOffset = -0.002f;
-                        recoil = 3.5f;
-                        mirror = false;
-
-                        bullet = new ContinuousFlameBulletType() {{
-                            damage = 35f;
-                            length = 100;
-                            knockback = 2.5f;
-                            pierceCap = 1;
-
-                            colors = new Color[]{Color.valueOf("46aab8").a(0.55f), Color.valueOf("66d2b2").a(0.7f), Color.valueOf("9ee889").a(0.8f), Color.valueOf("f5fcbe"), Color.white};
-                            flareColor = Color.valueOf("89e8b6");
-
-                            lightColor = hitColor = flareColor;
-
-                            statusDuration = 1f;
-                            status = AZStatusEffects.weakness;
-                        }};
-                    }});
+            weapons.add(new Weapon(""){{
+                shootSound = Sounds.flame;
+                shootY = 2f;
+                mirror = false;
+                x = 0;
+                reload = 11f;
+                recoil = 1f;
+                ejectEffect = Fx.none;
+                bullet = new BulletType(4.2f, 37f){{
+                    ammoMultiplier = 3f;
+                    hitSize = 7f;
+                    lifetime = 13f;
+                    pierce = true;
+                    pierceBuilding = true;
+                    pierceCap = 2;
+                    statusDuration = 60f * 4;
+                    shootEffect = AZFx.opjozdyhFlame;
+                    hitEffect = AZFx.opjozdyshHit;
+                    despawnEffect = Fx.none;
+                    status = StatusEffects.burning;
+                    keepVelocity = false;
+                    hittable = false;
+                }};
+            }});
         }};
         //endregion unmakerTree
 
