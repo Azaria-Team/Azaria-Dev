@@ -3,10 +3,12 @@ package az.content;
 import arc.func.Prov;
 import arc.graphics.Color;
 import arc.math.Interp;
+import arc.math.geom.Rect;
 import arc.struct.ObjectIntMap;
 import arc.struct.ObjectMap;
 
 import arc.util.Time;
+import az.entities.ability.ModShieldArcAbility;
 import az.entities.bullets.AimBulletType;
 import az.entities.bullets.ModEmpBulletType;
 import az.entities.entity.DroneUnitEntity;
@@ -20,6 +22,7 @@ import az.world.draw.Rotor;
 
 import azaria.gen.StriCopterUnit;
 import azaria.gen.StriCopterc;
+import azaria.gen.TankUnit;
 import ent.anno.Annotations;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
@@ -36,6 +39,7 @@ import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
+import mindustry.type.unit.TankUnitType;
 import mindustry.world.meta.BlockFlag;
 
 import static mindustry.Vars.tilesize;
@@ -46,9 +50,8 @@ public class AZUnits {
     //angelshark unit tree
     angelshark, glaucus, aurora, piranha, megalodon,
     //vector tree
-    vector, zephyr, vortex, altura, cataclysm,
-    //support
-    sentinel, custodian, bulwark, bulat, colossus;
+    vector, zephyr, vortex, altura, cataclysm;
+
     //fire support
     //...
 
@@ -56,7 +59,10 @@ public class AZUnits {
     public static @Annotations.EntityDef({Unitc.class, StriCopterc.class})
     //unmaker tree
     UnitType unmaker, eliminator, exterminator, blighter, plague, dragonfly;
-    //supportDrone, torpedoNaval, bigKaboom
+
+    public static @Annotations.EntityDef({Unitc.class, Tankc.class})
+    //support
+    UnitType sentinel, custodian, bulwark, bulat, colossus;
     private static final ObjectMap.Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new ObjectMap.Entry[]{
             prov(DroneUnitEntity.class, DroneUnitEntity::new)
     };
@@ -815,6 +821,42 @@ public class AZUnits {
             }});*/
         };
         //endregion vectorTree
+
+        //region sentinelTree
+        sentinel = new TankUnitType("sentinel"){
+            {
+                hitSize = 12f;
+                treadPullOffset = 3;
+                speed = 0.75f;
+                rotateSpeed = 3.5f;
+                health = 850;
+                armor = 6f;
+                itemCapacity = 0;
+                treadRects = new Rect[]{new Rect(12 - 32f, 7 - 32f, 14, 51)};
+                researchCostMultiplier = 0f;
+                constructor = TankUnit::create;
+                abilities.add(new ModShieldArcAbility(){{
+                    radius = hitSize + 10f;
+                    angle = 140;
+                    regen = 3f;
+                    cooldown = 60f * 10f;
+                    max = 200f;
+                    width = 10f;
+                    drawWidth = 5f;
+                    whenShooting = true;
+                }});
+                weapons.add(new Weapon("flare-shield") {{
+                    reload = 0f;
+                    rotateSpeed = 2f;
+                    rotate = true;
+                    //x = 0;
+                    //y = -6;
+                    mirror = false;
+
+                    //bullet = AZBullets.noneBullet;
+                }});
+            }};
+        //endregion sentinelTree
 
         //region source
         //endregion source
