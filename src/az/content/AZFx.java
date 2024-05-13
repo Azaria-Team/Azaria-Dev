@@ -553,8 +553,26 @@ public class AZFx {
         randLenVectors(e.id, 3, 4.0f + e.fin() * 7.0f, (x, y) -> {
             Fill.circle(e.x + x, e.y + y, 0.57f + e.fout() * 1.4f);
         });
+    }),
+
+    opjozdyshHit = new Effect(14, e -> {
+        color(AZPal.unmakerColor, Color.valueOf("487364"), e.fin());
+        stroke(0.5f + e.fout());
+
+        randLenVectors(e.id, 2, 1f + e.fin() * 15f, e.rotation, 50f, (x, y) -> {
+            float ang = Mathf.angle(x, y);
+            lineAngle(e.x + x, e.y + y, ang, e.fout() * 3 + 1f);
+        });
+    }),
+
+    opjozdyhFlame = new Effect(32f, 80f, e -> {
+        color(AZPal.unmakerColor, Color.valueOf("487364"), Color.gray, e.fin());
+
+        randLenVectors(e.id, 8, e.finpow() * 60f, e.rotation, 10f, (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, 0.65f + e.fout() * 1.5f);
+        });
     });
-    
+
 
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {
