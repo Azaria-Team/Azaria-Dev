@@ -599,7 +599,7 @@ public class AZUnits {
                     }});
 
         }};
-        opjozdysh = new StriCopterUnitType("dragonfly") {{
+        opjozdysh = new StriCopterUnitType("opjozdysh") {{
             flying = true;
 
             speed = 4.5f;
