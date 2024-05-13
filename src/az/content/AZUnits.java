@@ -849,15 +849,9 @@ public class AZUnits {
                     rotate = true;
                     x = y = 0;
                     mirror = false;
+                    ejectEffect = Fx.none;
 
-                    bullet = new BasicBulletType() {{
-                        display = false;
-                        lifetime = 150f;
-                        speed = 1f;
-                        damage = 0f;
-                        sprite = "az-none";
-                        shootEffect = hitEffect = despawnEffect = ejectEffect = Fx.none;
-                    }};
+                    bullet = AZBullets.noneBullet;
                 }});
             }};
         //endregion sentinelTree
