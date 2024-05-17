@@ -197,6 +197,7 @@ public class AZTurrets {
                             razeBarrels.add(new RegionPart("-barrel1-" + ((i == 0) ? "l" : "r")) {{
                                 progress = PartProgress.recoil;
                                 recoilIndex = f;
+                                recoil = 1f;
                                 under = true;
                                 moveY = -1.5f;
                             }});
@@ -206,6 +207,7 @@ public class AZTurrets {
                             razeBarrels.add(new RegionPart("-barrel2-" + ((j == 0) ? "l" : "r")) {{
                                 progress = PartProgress.recoil;
                                 recoilIndex = f;
+                                recoil = 1f;
                                 under = true;
                                 moveY = -1.5f;
                             }});

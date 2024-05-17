@@ -22,8 +22,11 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 0f;
             height = 0f;
-            lifetime = 0;
-            despawnEffect = hitEffect = Fx.none;
+            despawnEffect = hitEffect = shootEffect = Fx.none;
+            lifetime = 0f;
+            speed = 0f;
+            damage = 0f;
+            sprite = "az-none";
         }};
         forceBullet = new BasicBulletType(6f, 60f){{
            sprite = "az-dagger-missile";

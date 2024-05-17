@@ -819,47 +819,42 @@ public class AZUnits {
         //endregion vectorTree
 
         //region sentinelTree
-        sentinel = new TankUnitType("sentinel"){
-            {
-                hitSize = 12f;
-                treadPullOffset = 3;
-                speed = 0.75f;
-                rotateSpeed = 3.5f;
-                health = 850;
-                armor = 6f;
-                itemCapacity = 0;
-                treadRects = new Rect[]{new Rect(12 - 32f, 7 - 32f, 14, 51)};
-                researchCostMultiplier = 0f;
-                constructor = TankUnit::create;
-                abilities.add(new ModShieldArcAbility(){{
-                    radius = hitSize + 32f;
-                    angle = 100;
-                    regen = 3f;
-                    cooldown = 60f * 10f;
-                    max = 700;
-                    width = 10f;
-                    drawWidth = 5f;
-                    whenShooting = true;
-                }});
-                weapons.add(new Weapon("az-flare-shield") {{
-                    reload = Integer.MAX_VALUE;
-                    shootSound = Sounds.none;
-                    recoil = 0f;
-                    rotateSpeed = 2f;
-                    rotate = true;
-                    x = y = 0;
-                    mirror = false;
+        sentinel = new TankUnitType("sentinel"){{
+            drag = 0.06f;
+            accel = 0.1f;
+            hitSize = 12f;
+            treadPullOffset = 3;
+            speed = 1f;
+            rotateSpeed = 2.5f;
+            health = 350;
+            armor = 2f;
+            itemCapacity = 0;
+            treadRects = new Rect[]{new Rect(30 - 32f, 7 - 32f, 14, 51)};
+            researchCostMultiplier = 0f;
+            constructor = TankUnit::create;
+            abilities.add(new ModShieldArcAbility(){{
+                radius = hitSize + 32f;
+                angle = 100;
+                regen = 3f;
+                cooldown = 60f * 10f;
+                max = 700;
+                width = 10f;
+                drawWidth = 5f;
+                whenShooting = true;
+            }});
+            weapons.add(new Weapon("az-flare-shield") {{
+                reload = Integer.MAX_VALUE;
+                shootSound = Sounds.none;
+                recoil = 0f;
+                rotateSpeed = 2f;
+                rotate = true;
+                x = y = 0;
+                mirror = false;
+                ejectEffect = Fx.none;
 
-                    bullet = new BasicBulletType() {{
-                        display = false;
-                        lifetime = 150f;
-                        speed = 1f;
-                        damage = 0f;
-                        sprite = "az-none";
-                        shootEffect = hitEffect = despawnEffect = ejectEffect = Fx.none;
-                    }};
-                }});
-            }};
+                bullet = AZBullets.noneBullet;
+            }});
+        }};
         //endregion sentinelTree
 
         //region source
