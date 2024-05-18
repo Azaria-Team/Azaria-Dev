@@ -881,7 +881,8 @@ public class AZUnits {
             researchCostMultiplier = 0f;
             constructor = TankUnit::create;
             abilities.add(new ModShieldArcAbility(){{
-                radius = hitSize + 32f;
+                radius = 32f;
+                hitSize = 20;
                 angle = 100;
                 regen = 3f;
                 cooldown = 60f * 10f;
@@ -901,6 +902,8 @@ public class AZUnits {
                 ejectEffect = Fx.none;
 
                 bullet = AZBullets.noneBullet;
+                targetAir = true;
+                targetGround = true;
             }});
         }};
         //endregion sentinelTree
