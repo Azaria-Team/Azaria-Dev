@@ -599,6 +599,35 @@ public class AZUnits {
                     }});
 
         }};
+
+        exterminator = new StriCopterUnitType("exterminator") {{
+            flying = true;
+
+            speed = 1.5f;
+            rotateSpeed = 2f;
+            accel = 0.01f;
+            drag = 0.03f;
+
+            health = 2300f;
+            hitSize = 20f;
+            itemCapacity = 5;
+
+            alwaysUnlocked = true;
+            outlineColor = AZPal.aureliaOutline;
+            blade.add(
+                    new Blade(name + "-blade-big"){{
+                        y = 1.5f; x = 1.3f;
+                        bladeMoveSpeed = 40f;
+                        bladeBlurAlphaMultiplier = 0.5f;
+                    }},
+
+                    new Blade(name + "-blade"){{
+                        y = -0.2f; x = 1.3f;
+                        bladeMoveSpeed = -40f;
+                        bladeBlurAlphaMultiplier = 0.5f;
+                    }});
+        }};
+
         opjozdysh = new StriCopterUnitType("opjozdysh") {{
             flying = true;
 
