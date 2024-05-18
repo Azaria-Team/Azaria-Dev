@@ -28,7 +28,7 @@ public class AZBullets {
             damage = 0f;
             sprite = "az-none";
             collidesAir = true;
-            collidesGround = true
+            collidesGround = true;
         }};
         forceBullet = new BasicBulletType(6f, 60f){{
            sprite = "az-dagger-missile";
