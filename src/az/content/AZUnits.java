@@ -354,18 +354,21 @@ public class AZUnits {
                 //TODO nerf
                 weapons.add(
                         new Weapon("az-vog-automatic-launcher") {{
-                                reload = 80f;
+                                reload = 100f;
                                 shootY = 3f;
                                 targetAir = false;
-                                inaccuracy = 4;
+                                inaccuracy = 5.5f;
                                 rotate = true;
                                 x = 0;
                                 y = -2.5f;
                                 mirror = false;
                                 shootSound = Sounds.shootAlt;
 
-                                shoot = new AZBurstShoot(3, 5, 15f);
+                                shoot = new AZBurstShoot(3, 6, 15f);
                                 bullet = new MissileBulletType(6f, 10, "az-vog") {{
+                                    velocityRnd =  0.3f;
+                                    homingPower = 0f;
+                                    homingRange = 0f;
                                     splashDamage = 85;
                                     splashDamageRadius = 20;
                                     backColor = AZPal.vogPinkBack;
@@ -568,12 +571,11 @@ public class AZUnits {
                         reload = 70;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
-                        inaccuracy = 3.0f;
+                        inaccuracy = 6f;
 
                         shoot = new ShootAlternate() {{
                             shots = 3;
-                            shotDelay = 7.5f;
-                            spread = 6f;
+                            shotDelay = 7f;
                         }};
 
                         bullet = new BasicBulletType(4.f, 5) {{
