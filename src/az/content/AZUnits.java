@@ -893,6 +893,7 @@ public class AZUnits {
             }});
             weapons.add(new Weapon("az-flare-shield") {{
                 reload = Integer.MAX_VALUE;
+                range = 15 * 8f;
                 shootSound = Sounds.none;
                 recoil = 0f;
                 rotateSpeed = 2f;
