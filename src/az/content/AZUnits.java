@@ -622,10 +622,10 @@ public class AZUnits {
         exterminator = new StriCopterUnitType("exterminator") {{
             flying = true;
 
-            speed = 1.5f;
+            speed = 2f;
             rotateSpeed = 2f;
-            accel = 0.01f;
-            drag = 0.03f;
+            accel = 0.08f;
+            drag = 0.05f;
 
             health = 2300f;
             hitSize = 20f;
@@ -704,7 +704,7 @@ public class AZUnits {
             useEngineElevation = false;
             flying = false;
             drag = 0.07f;
-            speed = 1.4f;
+            speed = 1.8f;
             rotateSpeed = 16f;
             accel = 0.1f;
             itemCapacity = 20;
@@ -872,12 +872,12 @@ public class AZUnits {
             accel = 0.1f;
             hitSize = 12f;
             treadPullOffset = 3;
-            speed = 1f;
+            speed = 1.3f;
             rotateSpeed = 2.5f;
             health = 350;
             armor = 2f;
             itemCapacity = 0;
-            treadRects = new Rect[]{new Rect(30 - 32f, 7 - 32f, 14, 51)};
+            treadRects = new Rect[]{new Rect(3 - 32f, 2 - 32f, 14, 51)};
             researchCostMultiplier = 0f;
             constructor = TankUnit::create;
             abilities.add(new ModShieldArcAbility(){{
