@@ -26,9 +26,11 @@ import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
+import mindustry.content.UnitTypes;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.part.RegionPart;
+import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
@@ -36,6 +38,8 @@ import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
 import mindustry.type.unit.TankUnitType;
+import mindustry.world.Tile;
+import mindustry.world.Tiles;
 import mindustry.world.meta.BlockFlag;
 
 import static mindustry.Vars.tilesize;
@@ -347,10 +351,12 @@ public class AZUnits {
                             }}
                 );
 
+                //TODO nerf
                 weapons.add(
                         new Weapon("az-vog-automatic-launcher") {{
-                                reload = 40f;
+                                reload = 80f;
                                 shootY = 3f;
+                                targetAir = false;
                                 inaccuracy = 4;
                                 rotate = true;
                                 x = 0;
@@ -358,8 +364,10 @@ public class AZUnits {
                                 mirror = false;
                                 shootSound = Sounds.shootAlt;
 
-                                shoot = new AZBurstShoot(2, 4, 6.0f);
+                                shoot = new AZBurstShoot(3, 5, 15f);
                                 bullet = new MissileBulletType(6f, 10, "az-vog") {{
+                                    splashDamage = 85;
+                                    splashDamageRadius = 20;
                                     backColor = AZPal.vogPinkBack;
                                     frontColor = AZPal.vogPink;
                                     width = 13f;
@@ -378,6 +386,7 @@ public class AZUnits {
                 );
         }};
 
+        //TODO nerf at all
         aurora = new UnitType("aurora") {{
             speed = 0.67f;
             drag = 0.9f;
@@ -409,7 +418,7 @@ public class AZUnits {
                         shootSound = Sounds.missileLaunch;
                         targetAir = false;
                         //shootStatus = StatusEffects.unmoving;
-//                        shoot.firstShotDelay = 90f;
+                        //shoot.firstShotDelay = 90f;
                         parts.add(
                                 new RegionPart("-missile") {{
                                     y = 0.5f;
@@ -515,7 +524,7 @@ public class AZUnits {
 
                         recoil = 3.5f;
                         shoot = new ShootSpread(3, 5f);
-                        bullet = new BasicBulletType(5.5f, 15) {{
+                        bullet = new BasicBulletType(5.5f, 7) {{
                             lifetime = 25f;
                             sprite = "az-dagbul";
                             statusDuration = 100.0f;
@@ -535,6 +544,8 @@ public class AZUnits {
                     }});
         }};
 
+
+        //TODO fix
         eliminator = new StriCopterUnitType("eliminator") {{
             flying = true;
 
@@ -554,12 +565,18 @@ public class AZUnits {
             outlineColor = AZPal.aureliaOutline;
             weapons.add(
                     new Weapon("eliminator-gun") {{
-                        reload = 15;
+                        reload = 70;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         inaccuracy = 3.0f;
 
-                        bullet = new BasicBulletType(4.f, 15) {{
+                        shoot = new ShootAlternate() {{
+                            shots = 3;
+                            shotDelay = 7.5f;
+                            spread = 6f;
+                        }};
+
+                        bullet = new BasicBulletType(4.f, 5) {{
                             lifetime = 35.0f;
                             drag = 0.0012f;
                             shootEffect = Fx.shootLiquid;
@@ -578,8 +595,8 @@ public class AZUnits {
                             status = AZStatusEffects.decomposition;
                             statusDuration = 140f;
 
-                            splashDamage = 20;
-                            splashDamageRadius = 35.0f;
+                            splashDamage = 15;
+                            splashDamageRadius = 8 * 2.2f;
 
                             range = 125.0f;
                         }};

@@ -15,8 +15,8 @@ public class AZBurstShoot extends ShootPattern {
         //(from - to) -> (range, offset)
     }
 
-    public AZBurstShoot(int from, int to, float shotDelay) {
-        burstFireInterval(from, to);
+    public AZBurstShoot(int minValue, int maxValue, float shotDelay) {
+        burstFireInterval(minValue, maxValue);
         this.shotDelay = shotDelay;
     }
 

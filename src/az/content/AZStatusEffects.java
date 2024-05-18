@@ -9,13 +9,12 @@ public class AZStatusEffects {
 
     public static void load() {
         weakness = new StatusEffect ("weakness") {{
-
             color = AZPal.unmakerColor;
-            damage = 0.3f;
+            damage = 0.375f;
             healthMultiplier = 0.8f;
             speedMultiplier =  0.5f;
             damageMultiplier = 0.65f;
-            reloadMultiplier = 1f/3 * 2;
+            reloadMultiplier = 2f/3;
         }};
 
         decomposition = new StatusEffect("decomposition") {{
