@@ -22,13 +22,16 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 0f;
             height = 0f;
-            despawnEffect = hitEffect = shootEffect = Fx.none;
+            despawnEffect = hitEffect = shootEffect = smokeEffect =  Fx.none;
             lifetime = 0f;
             speed = 0f;
             damage = 0f;
             sprite = "az-none";
             collidesAir = true;
             collidesGround = true;
+            range = 17 * 8f;
+            maxRange = 17 * 8f;
+            despawnSound = hitSound = Sounds.none;
         }};
         forceBullet = new BasicBulletType(6f, 60f){{
            sprite = "az-dagger-missile";

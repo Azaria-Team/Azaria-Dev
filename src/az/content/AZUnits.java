@@ -829,7 +829,7 @@ public class AZUnits {
             treadRects = new Rect[]{new Rect(3 - 32f, 2 - 32f, 14, 51)};
             researchCostMultiplier = 0f;
             constructor = TankUnit::create;
-            range = 15f * 8;
+            range = 17f * 8;
             targetAir = true;
             targetGround = true;
             abilities.add(new ModShieldArcAbility(){{
@@ -845,7 +845,6 @@ public class AZUnits {
             }});
             weapons.add(new Weapon("az-flare-shield") {{
                 reload = Integer.MAX_VALUE;
-                range = 15 * 8f;
                 shootSound = Sounds.none;
                 recoil = 0f;
                 rotateSpeed = 2f;
