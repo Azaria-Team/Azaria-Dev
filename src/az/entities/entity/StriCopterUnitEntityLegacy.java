@@ -15,6 +15,7 @@ public class StriCopterUnitEntityLegacy extends UnitEntity {
     public BladeMount[] blades;
     public float bladeMoveSpeedScl = 1f;
     public long drawSeed = 0;
+    /*
     @Override
     public String toString() {
         return "StriCopterUnit#" + id;
@@ -24,6 +25,8 @@ public class StriCopterUnitEntityLegacy extends UnitEntity {
     public int classId() {
         return AZUnits.classID(getClass());
     }
+
+     */
 
     @Override
     public void setType(UnitType type) {

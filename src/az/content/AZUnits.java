@@ -1,17 +1,13 @@
 package az.content;
 
-import arc.func.Prov;
 import arc.graphics.Color;
 import arc.math.Interp;
 import arc.math.geom.Rect;
-import arc.struct.ObjectIntMap;
-import arc.struct.ObjectMap;
 
 import arc.util.Time;
 import az.entities.ability.ModShieldArcAbility;
 import az.entities.bullets.AimBulletType;
 import az.entities.bullets.ModEmpBulletType;
-import az.entities.entity.DroneUnitEntity;
 import az.entities.units.DroneUnitType;
 import az.entities.units.StriCopterUnitType;
 import az.graphics.AZPal;
@@ -19,14 +15,14 @@ import az.pattern.AZBurstShoot;
 import az.world.draw.Blade;
 import az.world.draw.Rotor;
 
-import azaria.gen.StriCopterc;
+import azaria.gen.*;
 import azaria.gen.TankUnit;
+import azaria.gen.UnitEntity;
 import ent.anno.Annotations;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
-import mindustry.content.UnitTypes;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.part.RegionPart;
@@ -38,81 +34,31 @@ import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
 import mindustry.type.unit.TankUnitType;
-import mindustry.world.Tile;
-import mindustry.world.Tiles;
 import mindustry.world.meta.BlockFlag;
 
 import static mindustry.Vars.tilesize;
 public class AZUnits {
-    public static UnitType
-            //aurelia core units
-            gyurza, veresk, chaos,
-    //angelshark unit tree
-    angelshark, glaucus, aurora, piranha, megalodon,
+    //aurelia core units
+    public static @Annotations.EntityDef({Unitc.class})
+    UnitType gyurza, veresk, chaos;
+            //angelshark unit tree
+    public static @Annotations.EntityDef({Unitc.class, WaterMovec.class})
+    UnitType angelshark, glaucus, aurora, piranha, megalodon;
     //vector tree
-    vector, zephyr, vortex, altura, cataclysm;
-
-    //fire support
-    //...
-
-    //off the tree
+    public static @Annotations.EntityDef({Unitc.class, Dronec.class, ElevationMovec.class})
+    UnitType vector;
+    public static @Annotations.EntityDef({Unitc.class, Dronec.class})
+    UnitType zephyr, vortex, altura, cataclysm;
     public static @Annotations.EntityDef({Unitc.class, StriCopterc.class})
     //unmaker tree
     UnitType unmaker, eliminator, exterminator, blighter, plague, opjozdysh;
 
+    //support tree
     public static @Annotations.EntityDef({Unitc.class, Tankc.class})
-    //support
     UnitType sentinel, custodian, bulwark, bulat, colossus;
-    private static final ObjectMap.Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new ObjectMap.Entry[]{
-            prov(DroneUnitEntity.class, DroneUnitEntity::new)
-    };
-
-    private static final ObjectIntMap<Class<? extends Entityc>> idMap = new ObjectIntMap<>();
-
-    /**
-     * Internal function to flatmap {@code Class -> Prov} into an {@link ObjectMap.Entry}.
-     * @author GlennFolker
-     */
-    private static <T extends Entityc> ObjectMap.Entry<Class<T>, Prov<T>> prov(Class<T> type, Prov<T> prov) {
-        ObjectMap.Entry<Class<T>, Prov<T>> entry = new ObjectMap.Entry<>();
-        entry.key = type;
-        entry.value = prov;
-        return entry;
-    }
-
-    /**
-     * Setups all entity IDs and maps them into {@link EntityMapping}.
-     * <p>
-     * Put this inside load()
-     * </p>
-     * @author GlennFolker
-     */
-    private static void setupID() {
-        for (
-                int i = 0,
-                j = 0,
-                len = EntityMapping.idMap.length;
-                i < len;
-                i++
-        ) {
-            if (EntityMapping.idMap[i] == null) {
-                idMap.put(types[j].key, i);
-                EntityMapping.idMap[i] = types[j].value;
-                if (++j >= types.length) break;
-            }
-        }
-    }
-
-    /**
-     * Retrieves the class ID for a certain entity type.
-     * @author GlennFolker
-     */
-    public static <T extends Entityc> int classID(Class<T> type) {
-        return idMap.get(type, -1);
-    }
+    //fire support
 
     public static void load() {
-        setupID();
 
         //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
@@ -209,7 +155,7 @@ public class AZUnits {
             waveTrailX = 5.5f;
             trailScl = 1.3f;
             range = 25 * Vars.tilesize;
-            constructor = UnitWaterMove::create;
+            constructor = WaterMoveUnit::create;
             outlineColor = AZPal.aureliaOutline;
 
             weapons.add(new Weapon("az-vog-launcher") {{
@@ -256,7 +202,7 @@ public class AZUnits {
                 waveTrailY = -4f;
                 trailScl = 1.9f;
                 range = 30 * Vars.tilesize;
-                constructor = UnitWaterMove::create;
+                constructor = WaterMoveUnit::create;
                 outlineColor = AZPal.aureliaOutline;
 
                 parts.add(
@@ -403,7 +349,7 @@ public class AZUnits {
             waveTrailX = 6f;
             trailScl = 1.5f;
             range = 30 * Vars.tilesize;
-            constructor = UnitWaterMove::create;
+            constructor = WaterMoveUnit::create;
             outlineColor = AZPal.aureliaOutline;
 
             weapons.add(
@@ -715,6 +661,7 @@ public class AZUnits {
             researchCostMultiplier = 0f;
             shadowElevation = 0.1f;
             hover = true;
+            constructor = ElevationMoveDroneUnit::create;
             rotors.add(
                     new Rotor(name + "-rotor"){{
                         rotorLayer = -0.1f;
@@ -767,6 +714,7 @@ public class AZUnits {
             hitSize = 12f;
 
             outlineColor = AZPal.aureliaOutline;
+            constructor = DroneUnit::create;
 
             rotors.add(
                     new Rotor(name + "-rotor") {{
@@ -843,6 +791,7 @@ public class AZUnits {
 //            isEnemy = true;
 
             itemCapacity = 45;
+            constructor = DroneUnit::create;
 
 
             weapons.add(
@@ -880,6 +829,9 @@ public class AZUnits {
             treadRects = new Rect[]{new Rect(3 - 32f, 2 - 32f, 14, 51)};
             researchCostMultiplier = 0f;
             constructor = TankUnit::create;
+            range = 15f * 8;
+            targetAir = true;
+            targetGround = true;
             abilities.add(new ModShieldArcAbility(){{
                 radius = 32f;
                 hitSize = 20;

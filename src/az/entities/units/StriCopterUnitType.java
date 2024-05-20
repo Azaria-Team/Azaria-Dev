@@ -43,12 +43,6 @@ public class StriCopterUnitType extends UnitType {
                     if (blade.bladeRegion.found()) {
                         Draw.z(z + blade.bladeLayer);
                         Draw.alpha(blade.blurRegion.found() ? 1 - (stri.bladeMoveSpeedScl() / 0.8f) : 1);
-                        Draw.rect(
-                                blade.bladeOutlineRegion, rx, ry,
-                                blade.bladeOutlineRegion.width * bladeScl * sign,
-                                blade.bladeOutlineRegion.height * bladeScl,
-                                unit.rotation - 90 + sign * Mathf.randomSeed(stri.drawSeed() + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
-                        );
                         Draw.mixcol(Color.white, unit.hitTime);
                         Draw.rect(blade.bladeRegion, rx, ry,
                                 blade.bladeRegion.width * bladeScl * sign,
@@ -57,12 +51,6 @@ public class StriCopterUnitType extends UnitType {
                         );
 
                         if (blade.doubleBlade) {
-                            Draw.rect(
-                                    blade.bladeOutlineRegion, rx, ry,
-                                    blade.bladeOutlineRegion.width * bladeScl * sign,
-                                    blade.bladeOutlineRegion.height * bladeScl,
-                                    -unit.rotation - 90 + sign * Mathf.randomSeed(stri.drawSeed() + (seedOffset++), blade.bladeMoveSpeed, -blade.minimumBladeMoveSpeed)
-                            );
                             Draw.mixcol(Color.white, unit.hitTime);
                             Draw.rect(blade.bladeRegion, rx, ry,
                                     blade.bladeRegion.width * bladeScl * sign,
