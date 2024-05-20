@@ -826,7 +826,8 @@ public class AZUnits {
             health = 350;
             armor = 2f;
             itemCapacity = 0;
-            treadRects = new Rect[]{new Rect(3 - 32f, 2 - 32f, 15, 40)};
+            treadFrames = 12;
+            treadRects = new Rect[]{new Rect(21 - 96f/2, 14 - 80f/2, 9, 24),new Rect(21 - 96f/2, 44 - 80f/2, 9, 20)};
             researchCostMultiplier = 0f;
             constructor = TankUnit::create;
             range = 17f * 8;
@@ -836,8 +837,8 @@ public class AZUnits {
                 radius = 32f;
                 hitSize = 20;
                 angle = 100;
-                regen = 0.6f;
-                cooldown = 60f * 10f;
+                regen = 0.2f;
+                cooldown = 10f * 60f;
                 max = 700;
                 width = 10f;
                 drawWidth = 5f;
