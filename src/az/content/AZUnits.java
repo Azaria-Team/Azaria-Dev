@@ -41,7 +41,7 @@ public class AZUnits {
     //aurelia core units
     public static @Annotations.EntityDef({Unitc.class})
     UnitType gyurza, veresk, chaos;
-            //angelshark unit tree
+    //angelshark unit tree
     public static @Annotations.EntityDef({Unitc.class, WaterMovec.class})
     UnitType angelshark, glaucus, aurora, piranha, megalodon;
     //vector tree
