@@ -39,7 +39,6 @@ import mindustry.world.meta.BlockFlag;
 import static mindustry.Vars.tilesize;
 public class AZUnits {
     //aurelia core units
-    public static UnitType asss;
     public static @Annotations.EntityDef({Unitc.class})
     UnitType gyurza, veresk, chaos;
     //angelshark unit tree
@@ -303,7 +302,6 @@ public class AZUnits {
                         new Weapon("az-vog-automatic-launcher") {{
                                 reload = 100f;
                                 shootY = 3f;
-                                targetAir = false;
                                 inaccuracy = 5.5f;
                                 rotate = true;
                                 x = 0;
@@ -313,10 +311,10 @@ public class AZUnits {
 
                                 shoot = new AZBurstShoot(3, 6, 15f);
                                 bullet = new MissileBulletType(6f, 10, "az-vog") {{
-                                    velocityRnd =  0.3f;
+                                    velocityRnd =  0.175f;
                                     homingPower = 0f;
                                     homingRange = 0f;
-                                    splashDamage = 85;
+                                    splashDamage = 50   ;
                                     splashDamageRadius = 20;
                                     backColor = AZPal.vogPinkBack;
                                     frontColor = AZPal.vogPink;
@@ -477,7 +475,7 @@ public class AZUnits {
                         bullet = new BasicBulletType(5.5f, 7) {{
                             lifetime = 25f;
                             sprite = "az-dagbul";
-                            statusDuration = 100.0f;
+                            statusDuration = 60 * 8f;
                             status = AZStatusEffects.weakness;
 
                             width = 12f;
@@ -515,21 +513,21 @@ public class AZUnits {
             outlineColor = AZPal.aureliaOutline;
             weapons.add(
                     new Weapon("eliminator-gun") {{
-                        reload = 70;
+                        reload = 50;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
-                        inaccuracy = 6f;
+                        inaccuracy = 6.35f;
 
                         shoot = new ShootAlternate() {{
-                            shots = 3;
+                            shots = 2;
                             shotDelay = 7f;
                         }};
 
                         bullet = new BasicBulletType(4.f, 5) {{
-                            lifetime = 35.0f;
+                            lifetime = 25f;
                             drag = 0.0012f;
                             shootEffect = Fx.shootLiquid;
-
+                            speed = 4.5f;
                             frontColor = Color.white;
                             backColor = AZPal.unmakerColor;
 
@@ -656,7 +654,7 @@ public class AZUnits {
             accel = 0.1f;
             itemCapacity = 20;
             health = 450f;
-            hitSize = 7f;
+            hitSize = 12f;
             outlineColor = AZPal.aureliaOutline;
 
             researchCostMultiplier = 0f;
@@ -754,7 +752,7 @@ public class AZUnits {
                     shrinkY = 0;
                     splashDamage = 10f;
                     splashDamageRadius = 2f * Vars.tilesize;
-                    fragBullets = 4;
+                    fragBullets = 6;
                     fragBullet = new BasicBulletType(4f, 35) {{
                         sprite = "az-grenade";
                         backColor = AZPal.droneBulletBack;
@@ -859,21 +857,6 @@ public class AZUnits {
                 targetAir = true;
                 targetGround = true;
             }});
-        }};
-
-        asss = new UnitType("cataclysm") {{
-            lowAltitude = true;
-            flying = true;
-            drag = 0.05f;
-            speed = 1.5f;
-            rotateSpeed = 8f;
-            accel = 0.1f;
-            itemCapacity = 30;
-            health = 1090f;
-            hitSize = 12f;
-
-            outlineColor = AZPal.aureliaOutline;
-            constructor = DroneUnit::create;
         }};
         //endregion sentinelTree
         //region source
