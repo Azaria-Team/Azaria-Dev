@@ -10,7 +10,7 @@ public class AZStatusEffects {
     public static void load() {
         weakness = new StatusEffect ("weakness") {{
             color = AZPal.unmakerColor;
-            damage = 0.375f;
+            damage = 0.375f;    
             healthMultiplier = 0.8f;
             speedMultiplier =  0.5f;
             damageMultiplier = 0.65f;
@@ -42,3 +42,4 @@ public class AZStatusEffects {
         }};
     }
 }
+    
