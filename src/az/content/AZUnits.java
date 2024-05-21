@@ -39,6 +39,7 @@ import mindustry.world.meta.BlockFlag;
 import static mindustry.Vars.tilesize;
 public class AZUnits {
     //aurelia core units
+    public static UnitType asss;
     public static @Annotations.EntityDef({Unitc.class})
     UnitType gyurza, veresk, chaos;
     //angelshark unit tree
@@ -859,8 +860,22 @@ public class AZUnits {
                 targetGround = true;
             }});
         }};
-        //endregion sentinelTree
 
+        asss = new UnitType("cataclysm") {{
+            lowAltitude = true;
+            flying = true;
+            drag = 0.05f;
+            speed = 1.5f;
+            rotateSpeed = 8f;
+            accel = 0.1f;
+            itemCapacity = 30;
+            health = 1090f;
+            hitSize = 12f;
+
+            outlineColor = AZPal.aureliaOutline;
+            constructor = DroneUnit::create;
+        }};
+        //endregion sentinelTree
         //region source
         //endregion source
 
