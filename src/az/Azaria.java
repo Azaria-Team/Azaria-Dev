@@ -20,11 +20,11 @@ public class Azaria extends Mod{
         return Core.bundle.format(str);
     }
 
-    public static void dialog(){
+    public static void dialogToShow(){
         if(!mobile) {
 
             BaseDialog dialog = new BaseDialog("Azaria") {
-                private float leave = 4f * 60;
+                private float leave = 3f * 60;
                 private boolean canClose = false;
 
                 {
@@ -36,15 +36,12 @@ public class Azaria extends Mod{
                     });
                     //cont.add("m-project-hpl").row();
                     cont.image(Core.atlas.find("az-title")).pad(3f).height(70).width(700).row();
-                    cont.add(text("m-attention")).row();
+                    cont.add(text("d-attention")).row();
                     //cont.add(Core.bundle.format("h.name")).row();
-                    cont.add(Core.bundle.format("m.description")).row();
-                    buttons.check(text("m-not-show-next"), !Core.settings.getBool("first-load"), b -> {
-                        Core.settings.put("first-load", !b);
-                    }).center();
+                    cont.add(Core.bundle.format("d.description")).row();
                     buttons.button("", this::hide).update(b -> {
                         b.setDisabled(!canClose);
-                        b.setText(canClose ? text("m-got-it") : "[accent]" + Math.floor(leave / 60) + text("m-seconds"));
+                        b.setText(canClose ? text("d-got-it") : "[accent]" + Math.floor(leave / 60) + text("d-seconds"));
                     }).size(150f, 50f).center();
                 }
             };
@@ -54,11 +51,7 @@ public class Azaria extends Mod{
 
     public static void dialogShow(){
         if(!mobile) {
-            if (show) return;
-            show = true;
-            if (Core.settings.getBool("first-load")) {
-                dialog();
-            }
+            dialogToShow();
         }
     }
     @Override
@@ -70,7 +63,7 @@ public class Azaria extends Mod{
     public Azaria(){
         super();
         if(!mobile) {
-            Events.on(EventType.ClientLoadEvent.class, e -> Time.runTask(100f, Azaria::dialogShow));
+            Events.on(EventType.ClientLoadEvent.class, e -> Time.runTask(10f, Azaria::dialogShow));
         }
         Events.on(EventType.FileTreeInitEvent.class, e -> AZSounds.load());
 

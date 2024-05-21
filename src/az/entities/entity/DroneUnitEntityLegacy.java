@@ -6,16 +6,29 @@ import arc.util.Time;
 import az.content.AZUnits;
 import az.entities.units.DroneUnitType;
 import az.world.draw.Rotor;
+import ent.anno.Annotations;
+import mindustry.content.Fx;
+import mindustry.entities.EntityCollisions;
+import az.world.draw.Rotor.RotorMount;
+import mindustry.gen.Unitc;
+import mindustry.type.UnitType;
+
+import arc.math.Angles;
+import arc.math.Mathf;
+import arc.util.Time;
+import az.content.AZUnits;
+import az.entities.units.DroneUnitType;
+import az.world.draw.Rotor;
 import mindustry.content.Fx;
 import mindustry.entities.EntityCollisions;
 import mindustry.gen.UnitEntity;
 import az.world.draw.Rotor.RotorMount;
 import mindustry.type.UnitType;
 
-public class DroneUnitEntity extends UnitEntity {
+public class DroneUnitEntityLegacy extends UnitEntity {
     public RotorMount[] rotors;
     public float rotSpeedScl = 1f;
-
+/*
     @Override
     public String toString() {
         return "DroneUnit#" + id;
@@ -25,6 +38,8 @@ public class DroneUnitEntity extends UnitEntity {
     public int classId() {
         return AZUnits.classID(getClass());
     }
+
+ */
 
     /** @author GlennFolker#6881 */
     @Override
@@ -75,4 +90,3 @@ public class DroneUnitEntity extends UnitEntity {
         type.fallSpeed = 0.006f;
     }
 }
-

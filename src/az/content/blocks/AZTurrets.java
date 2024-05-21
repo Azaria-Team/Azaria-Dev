@@ -189,7 +189,7 @@ public class AZTurrets {
                 targetAir = true;
                 targetGround = false;
 
-                drawer = new DrawTurret() {
+                drawer = new DrawTurret("fortified-") {
                     {
                         final Seq<RegionPart> razeBarrels = new Seq<>();
                         for (int i = 0; i < 2; i++) {
