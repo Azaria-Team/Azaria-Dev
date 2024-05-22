@@ -365,25 +365,29 @@ public class AZUnits {
                         showStatSprite = false;
                         shootSound = Sounds.missileLaunch;
                         targetAir = false;
-                        //shootStatus = StatusEffects.unmoving;
-                        //shoot.firstShotDelay = 90f;
+                        minWarmup = 0.9f;
+                        smoothReloadSpeed = 0.15f;
+                        shootWarmupSpeed = 0.02f;
                         parts.add(
                                 new RegionPart("-missile") {{
                                     y = 0.5f;
                                     progress = PartProgress.reload.curve(Interp.pow2In);
                                     under = true;
-                                    x = -8f;
-                                    moves.add(new PartMove(PartProgress.reload,8f, 0f, 0f));
+                                    x = -7f;
+                                    moves.add(new PartMove(PartProgress.reload,7f, 0f, 0f));
+                                }},
+                                new RegionPart("-beam") {{
+                                    under = true;
+                                    colorTo = new Color(1f, 1f, 1f, 0f);
+                                    color = Color.red;
+                                    mixColorTo = new Color(1f, 1f, 1f, 1f);
+                                    outline = false;
+                                    moves.add(new PartMove(PartProgress.warmup, 0f, 0f, 0f));
                                 }},
                                 new RegionPart("-lens") {{
                                     under = true;
-                                }},
-                                new RegionPart("-lid") {{
-                                    under = true;
-                                    mirror = true;
-                                    moves.add(new PartMove(PartProgress.warmup, 4f, 0f, 0f));
+                                    moves.add(new PartMove(PartProgress.warmup, 0f, 4f, 0f));
                                 }}
-
                         );
                         bullet = new BasicBulletType() {{
                             shootEffect = Fx.none;
@@ -797,7 +801,7 @@ public class AZUnits {
                     new Weapon("az-vortex-emp") {{
                         rotate = true;
                         rotateSpeed /= 2.0f;
-                        x = 13;
+                        x = 11;
                         y = -7;
 
                         reload = 45.0f;
