@@ -355,7 +355,7 @@ public class AZUnits {
                     new Weapon("az-laser-launcher") {{
                         reload = 6f * Time.toSeconds;
 
-                        x = 1.5f;
+                        x = 1f;
                         shootX = -6.7f;
                         shootY = -8f;
                         mirror = false;
@@ -404,8 +404,9 @@ public class AZUnits {
                                 outlineColor = AZPal.aureliaOutline;
                                 engineColor = AZPal.vogPink;
                                 engineLayer = Layer.effect;
-                                engineOffset = 9f;
-                                trailLength = 12;
+                                engineOffset = 7.5f;
+                                trailLength = 9;
+                                trailColor = AZPal.vogPink;
                                 health = 500;
                                 lowAltitude = true;
                                 loopSound = Sounds.missileTrail;
@@ -423,7 +424,7 @@ public class AZUnits {
                                     deathExplosionEffect = AZFx.massiveExplosionAurora2;
                                     shootOnDeath = true;
                                     shake = 5f;
-                                    bullet = new ExplosionBulletType(1450, 4f * tilesize){{
+                                    bullet = new ExplosionBulletType(790, 4f * tilesize){{
                                         hitColor = AZPal.forceBullet;
                                         hitEffect = Fx.none;
                                         despawnEffect = Fx.none;
