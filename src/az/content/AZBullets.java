@@ -33,31 +33,30 @@ public class AZBullets {
             maxRange = 17 * 8f;
             despawnSound = hitSound = Sounds.none;
         }};
-        forceBullet = new BasicBulletType(6f, 60f){{
-           sprite = "az-dagger-missile";
-           trailInterval = 0.5f;
-           trailEffect = AZFx.forceBulletTrail;
-           hitEffect = AZFx.forceBulletHit;
-           despawnEffect = AZFx.forceBulletDespawn;
-           trailRotation = true;
-           shrinkX = shrinkY = 0f;
-           width = 8f;
-           height = 12f;
-           lifetime = 34;
-           collidesGround = true;
-           collidesAir = true;
-           hitSize = 3;
-           homingPower = 0.3f;
+        forceBullet = new BasicBulletType(6f, 35f){{
+            splashDamage = 30f;
+            splashDamageRadius = 25f;
+            sprite = "az-dagger-missile";
+            trailInterval = 0.5f;
+            trailEffect = AZFx.forceBulletTrail;
+            hitEffect = AZFx.forceBulletHit;
+            despawnEffect = AZFx.forceBulletDespawn;
+            trailRotation = true;
+            shrinkX = shrinkY = 0f;
+            width = 8f;
+            height = 12f;
+            lifetime = 34;
+            collidesGround = true;
+            collidesAir = true;
+            hitSize = 3;
+            homingPower = 0.3f;
 
-           trailColor = AZPal.vogPinkBack;
-           backColor = AZPal.vogPinkBack;
-           frontColor = AZPal.vogPink;
+            trailColor = AZPal.vogPinkBack;
+            backColor = AZPal.vogPinkBack;
+            frontColor = AZPal.vogPink;
 
-           trailLength = 18;
-           trailWidth = 1.7f;
-
-           splashDamage = 40f;
-           splashDamageRadius = 25f;
+            trailLength = 18;
+            trailWidth = 1.7f;
         }};
 
         forceFerbiumBullet = new BasicBulletType(7f, 45f){{
@@ -102,7 +101,7 @@ public class AZBullets {
             }};
         }};
 
-        hornBullet = new BasicBulletType(5f, 40f){{
+        hornBullet = new BasicBulletType(5f, 35f){{
             hitEffect = AZFx.hornBulletHit;
             despawnEffect = AZFx.hornBulletDespawn;
             width = 52f;

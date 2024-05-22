@@ -80,8 +80,8 @@ public class AZUnits {
             mineTier = 1;
             buildSpeed = 0.6f;
 
-            health = 500f;
-            hitSize = 8f;
+            health = 300;
+            hitSize = 10f;
             itemCapacity = 50;
 
             engineSize = 3f;
@@ -122,7 +122,7 @@ public class AZUnits {
                                     mirror = false;
                                     reload = 1f;
                                     shootOnDeath = true;
-                                    bullet = new ExplosionBulletType(90f, 3f * tilesize){{
+                                    bullet = new ExplosionBulletType(125f, 3f * tilesize){{
                                         shootEffect = Fx.explosion;
                                         buildingDamageMultiplier = 0.5f;
                                     }};
@@ -145,9 +145,9 @@ public class AZUnits {
             targetAir = true;
             speed = 0.9f;
             drag = 0.12f;
-            hitSize = 12f;
+            hitSize = 13f;
             armor = 2;
-            health = 500;
+            health = 700;
             accel = 0.2f;
             faceTarget = false;
             rotateSpeed = 4f;
@@ -182,13 +182,13 @@ public class AZUnits {
                     lifetime = 35;
 
                     splashDamage = 65f;
-                    splashDamageRadius = 30f;
+                    splashDamageRadius = 45f;
                 }};
             }});
         }};
         glaucus = new UnitType("glaucus") {{
                 speed = 0.72f;
-                hitSize = 15f;
+                hitSize = 17f;
                 health = 1600;
                 armor = 8;
                 accel = 0.3f;
@@ -443,8 +443,8 @@ public class AZUnits {
             drag = 0.05f;
             strafePenalty = 0.4f;
 
-            health = 360f;
-            hitSize = 9f;
+            health = 340f;
+            hitSize = 11f;
             itemCapacity = 5;
 
             engineSize = 0f;
@@ -466,7 +466,7 @@ public class AZUnits {
                     new Weapon("az-unmaker-teeth") {{
                         x = 2f;
                         y = 8f;
-                        reload = 20;
+                        reload = 27.5f;
                         layerOffset = -0.002f;
                         inaccuracy = 0.4f;
 
@@ -504,7 +504,7 @@ public class AZUnits {
             strafePenalty = 0.3f;
 
             health = 970f;
-            hitSize = 12f;
+            hitSize = 13f;
             itemCapacity = 10;
             range = 15 * tilesize;
 
@@ -653,7 +653,7 @@ public class AZUnits {
             rotateSpeed = 16f;
             accel = 0.1f;
             itemCapacity = 20;
-            health = 450f;
+            health = 500f;
             hitSize = 12f;
             outlineColor = AZPal.aureliaOutline;
 
@@ -710,7 +710,7 @@ public class AZUnits {
             accel = 0.1f;
             itemCapacity = 30;
             health = 1090f;
-            hitSize = 12f;
+            hitSize = 14f;
 
             outlineColor = AZPal.aureliaOutline;
             constructor = DroneUnit::create;
@@ -818,7 +818,7 @@ public class AZUnits {
         sentinel = new TankUnitType("sentinel"){{
             drag = 0.06f;
             accel = 0.1f;
-            hitSize = 12f;
+            hitSize = 8f;
             treadPullOffset = 3;
             speed = 1.3f;
             rotateSpeed = 2.5f;
@@ -836,9 +836,9 @@ public class AZUnits {
                 radius = 32f;
                 hitSize = 20;
                 angle = 100;
-                regen = 0.2f;
+                regen = 0.1675f;
                 cooldown = 10f * 60f;
-                max = 700;
+                max = 400;
                 width = 10f;
                 drawWidth = 5f;
                 whenShooting = true;

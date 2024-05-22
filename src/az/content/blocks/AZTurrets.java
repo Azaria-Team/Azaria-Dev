@@ -52,7 +52,9 @@ public class AZTurrets {
 
             shootSound = Sounds.cannon;
             squareSprite = false;
-            itemCapacity = 20;
+            ammoPerShot = 1;
+            maxAmmo = 10;
+            itemCapacity = 10;
             coolantMultiplier = 2f;
             coolant = consume(new ConsumeLiquid(AZLiquids.oxyliteLiq, 10f / 60f));
 
