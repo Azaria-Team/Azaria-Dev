@@ -758,7 +758,7 @@ public class AZUnits {
                     splashDamage = 10f;
                     splashDamageRadius = 2f * Vars.tilesize;
                     fragBullets = 6;
-                    fragBullet = new BasicBulletType(4f, 35) {{
+                    fragBullet = new BasicBulletType(4f, 20) {{
                         sprite = "az-grenade";
                         backColor = AZPal.droneBulletBack;
                         frontColor = AZPal.droneBullet;
@@ -801,9 +801,10 @@ public class AZUnits {
             weapons.add(
                     new Weapon("az-vortex-emp") {{
                         rotate = true;
+                        mirror = false;
                         rotateSpeed /= 2.0f;
-                        x = 11;
-                        y = -7;
+                        x = 0;
+                        y = -9f;
 
                         reload = 45.0f;
                         inaccuracy = 22.5f;
