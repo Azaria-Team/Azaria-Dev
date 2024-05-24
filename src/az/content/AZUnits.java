@@ -188,7 +188,7 @@ public class AZUnits {
         }};
         glaucus = new UnitType("glaucus") {{
                 speed = 0.72f;
-                hitSize = 17f;
+                hitSize = 20f;
                 health = 1600;
                 armor = 8;
                 accel = 0.3f;
@@ -449,7 +449,7 @@ public class AZUnits {
             strafePenalty = 0.4f;
 
             health = 340f;
-            hitSize = 11f;
+            hitSize = 14;
             itemCapacity = 5;
 
             engineSize = 0f;
@@ -765,7 +765,7 @@ public class AZUnits {
                         width = 5f;
                         height = 8f;
                         shrinkX = 0;
-                        shrinkY = 0;
+                        shrinkY = 0;    
                         hitSound = Sounds.explosion;
                         hitEffect = AZFx.blueHitExplosion1;
                         despawnEffect = AZFx.smallBlueExplosion;
@@ -783,7 +783,7 @@ public class AZUnits {
             rotateSpeed = 3.0f;
             drag = 0.03f;
             accel = 0.07f;
-            hitSize = 20.0f;
+            hitSize = 31.0f;
             engineSize = 0;
 
             health = 4200.0f;
@@ -804,7 +804,7 @@ public class AZUnits {
                         mirror = false;
                         rotateSpeed /= 2.0f;
                         x = 0;
-                        y = -9f;
+                        y = -15f;
 
                         reload = 45.0f;
                         inaccuracy = 22.5f;
