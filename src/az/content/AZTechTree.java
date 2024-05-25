@@ -37,9 +37,9 @@ public class AZTechTree {
 
                     });
                 });
-            });
-            node(caseI, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
+                node(caseI, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
 
+                });
             });
             //endregion distribution
             //region crafting
@@ -54,7 +54,9 @@ public class AZTechTree {
                 });
             });
             node(crasideBrewer, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
+                node(heavyDutyCrucible, () -> {
 
+                });
             });
             //endregion crafting
             //region liquid
@@ -91,11 +93,9 @@ public class AZTechTree {
             node(forceTurret, () -> {
                 node(forsWall, () -> {
                     node(forsWallLarge, () -> {
-                        node(forsWallLarge, () -> {
-                            node(compositeWall, () -> {
-                                node(compositeWallLarge, () -> {
+                        node(compositeWall, () -> {
+                            node(compositeWallLarge, () -> {
 
-                                });
                             });
                         });
                     });
@@ -103,8 +103,8 @@ public class AZTechTree {
                 node(hornTurret, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
 
                 });
-            });
-            node(repairTurret, Seq.with(new Objectives.SectorComplete(caveEntrance)), () -> {
+                node(repairTurret, Seq.with(new Objectives.SectorComplete(caveEntrance)), () -> {
+                });
             });
             //endregion defense
             //endregion blocks
