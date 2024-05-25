@@ -188,7 +188,7 @@ public class AZUnits {
         }};
         glaucus = new UnitType("glaucus") {{
                 speed = 0.72f;
-                hitSize = 17f;
+                hitSize = 20f;
                 health = 1600;
                 armor = 8;
                 accel = 0.3f;
@@ -449,7 +449,7 @@ public class AZUnits {
             strafePenalty = 0.4f;
 
             health = 340f;
-            hitSize = 11f;
+            hitSize = 14;
             itemCapacity = 5;
 
             engineSize = 0f;
@@ -758,14 +758,14 @@ public class AZUnits {
                     splashDamage = 10f;
                     splashDamageRadius = 2f * Vars.tilesize;
                     fragBullets = 6;
-                    fragBullet = new BasicBulletType(4f, 35) {{
+                    fragBullet = new BasicBulletType(4f, 20) {{
                         sprite = "az-grenade";
                         backColor = AZPal.droneBulletBack;
                         frontColor = AZPal.droneBullet;
                         width = 5f;
                         height = 8f;
                         shrinkX = 0;
-                        shrinkY = 0;
+                        shrinkY = 0;    
                         hitSound = Sounds.explosion;
                         hitEffect = AZFx.blueHitExplosion1;
                         despawnEffect = AZFx.smallBlueExplosion;
@@ -783,7 +783,7 @@ public class AZUnits {
             rotateSpeed = 3.0f;
             drag = 0.03f;
             accel = 0.07f;
-            hitSize = 20.0f;
+            hitSize = 31.0f;
             engineSize = 0;
 
             health = 4200.0f;
@@ -801,9 +801,10 @@ public class AZUnits {
             weapons.add(
                     new Weapon("az-vortex-emp") {{
                         rotate = true;
+                        mirror = false;
                         rotateSpeed /= 2.0f;
-                        x = 11;
-                        y = -7;
+                        x = 0;
+                        y = -15f;
 
                         reload = 45.0f;
                         inaccuracy = 22.5f;
