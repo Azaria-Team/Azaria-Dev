@@ -91,7 +91,13 @@ public class AZTechTree {
             node(forceTurret, () -> {
                 node(forsWall, () -> {
                     node(forsWallLarge, () -> {
+                        node(forsWallLarge, () -> {
+                            node(compositeWall, () -> {
+                                node(compositeWallLarge, () -> {
 
+                                });
+                            });
+                        });
                     });
                 });
                 node(hornTurret, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
@@ -105,6 +111,9 @@ public class AZTechTree {
             //region units
             node(vectorFabricator, Seq.with(new Objectives.OnSector(seaOutpost)), () -> {
                 node(vector);
+                node(angelsharkFabricator, Seq.with(new Objectives.OnSector(seaOutpost)), () -> {
+                    node(angelshark);
+                });
             });
             //endregion units
 
