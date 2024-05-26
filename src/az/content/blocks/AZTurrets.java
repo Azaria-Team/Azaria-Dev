@@ -224,12 +224,13 @@ public class AZTurrets {
                     consumePower(1f);
                     ammo(AZItems.superdenseAlloy, AZBullets.antiMissileBullet);
                 }};
-
+/*
                 complexAvalon = new PowerTurret("complex-avalon") {{
                     size = 3;
                     requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
                 }};
 
+ */
                 //endregion h-tur
 
         }
