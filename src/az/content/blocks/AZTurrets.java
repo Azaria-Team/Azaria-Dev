@@ -165,6 +165,7 @@ public class AZTurrets {
                             5, -1f, 0,
                             9, -4f, 0
                     };
+                    shots = 1;
                     shotDelay = 1f;
                 }};
 
@@ -190,7 +191,7 @@ public class AZTurrets {
                             int f = i;
                             parts.add(new RegionPart("-barrel-" + i){{
                                 progress = PartProgress.recoil;
-                                recoilIndex = f;
+                                recoilIndex = f - 1;
                                 under = false;
                                 moveY = -2f;
                             }});
