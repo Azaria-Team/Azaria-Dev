@@ -654,7 +654,7 @@ public class AZUnits {
             useEngineElevation = false;
             flying = false;
             drag = 0.07f;
-            speed = 1.8f;
+            speed = 1.9f;
             rotateSpeed = 16f;
             accel = 0.1f;
             itemCapacity = 20;
@@ -710,7 +710,7 @@ public class AZUnits {
             lowAltitude = true;
             flying = true;
             drag = 0.05f;
-            speed = 1.5f;
+            speed = 1.6f;
             rotateSpeed = 8f;
             accel = 0.1f;
             itemCapacity = 30;

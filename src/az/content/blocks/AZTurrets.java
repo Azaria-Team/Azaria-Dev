@@ -151,7 +151,7 @@ public class AZTurrets {
         }};
 
         razeTurret = new ItemTurret("raze") {{
-            requirements(Category.turret, with(AZItems.fors, 140, AZItems.craside, 80, AZItems.superdenseAlloy, 70));
+            requirements(Category.turret, with(AZItems.fors, 230, AZItems.craside, 130, AZItems.superdenseAlloy, 70, AZItems.ferbium, 20));
             ammo(
                     AZItems.superdenseAlloy, AZBullets.razeBullet
             );
