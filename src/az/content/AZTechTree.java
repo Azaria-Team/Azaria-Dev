@@ -124,6 +124,8 @@ public class AZTechTree {
                 nodeProduce(khylid, () -> {
                     nodeProduce(craside, () -> {
                         nodeProduce(ferbium, () -> {
+                            nodeProduce(superdenseAlloy, () -> {
+                            });
                         });
                     });
                 });
