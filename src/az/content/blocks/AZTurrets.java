@@ -150,23 +150,15 @@ public class AZTurrets {
             }};
         }};
 
-        razeTurret = new ItemTurret("raze") {
-            //used in barrel drawer
-            int barrelIndex = -1;
-            public void barrelIndexUpdate() {
-                if (barrelIndex > 3) barrelIndex = -1;
-                barrelIndex += 1;
-            }
-            {
-                requirements(Category.turret, with(AZItems.fors, 140, AZItems.craside, 80, AZItems.superdenseAlloy, 70));
-                ammo(
-                        AZItems.superdenseAlloy, AZBullets.razeBullet
-                );
-                outlineColor = AZPal.aureliaOutline;
+        razeTurret = new ItemTurret("raze") {{
+            requirements(Category.turret, with(AZItems.fors, 230, AZItems.craside, 130, AZItems.superdenseAlloy, 70, AZItems.ferbium, 20));
+            ammo(
+                    AZItems.superdenseAlloy, AZBullets.razeBullet
+            );
+            outlineColor = AZPal.aureliaOutline;
 
-                shoot = new ShootBarrel() {
-                    {
-                        barrelIndexUpdate();
+            shoot = new ShootBarrel() {
+                {
                     barrels = new float[]{
                             -5, -1f, 0,
                             -9, -4f, 0,
@@ -177,104 +169,36 @@ public class AZTurrets {
                     shotDelay = 1f;
                 }};
 
-                health = 1560;
-                size = 3;
-                reload = 13f;
-                range = 37f * Vars.tilesize;
-                recoil = 2;
-                inaccuracy = 2f;
-                rotateSpeed = 3f;
-                shootCone = 2f;
-                //ammoPerShot = 1;
-                shootSound = Sounds.shootBig;
-                ammoUseEffect = Fx.casing2;
-                targetAir = true;
-                targetGround = false;
+            health = 1560;
+            size = 3;
+            reload = 13f;
+            range = 37f * Vars.tilesize;
+            recoil = 2;
+            inaccuracy = 2f;
+            rotateSpeed = 3f;
+            shootCone = 2f;
+            //ammoPerShot = 1;
+            shootSound = Sounds.shootBig;
+            ammoUseEffect = Fx.casing2;
+            targetAir = true;
+            targetGround = false;
 
-                drawer = new DrawTurret("fortified-") {
-                    {
-                        final Seq<RegionPart> razeBarrels = new Seq<>();
-                        for (int i = 0; i < 2; i++) {
+            recoils = 4;
+            drawer = new DrawTurret("fortified-") {
+                {
+                    drawer = new DrawTurret(){{
+                        for(int i = 4; i > 0; i--){
                             int f = i;
-                            razeBarrels.add(new RegionPart("-barrel1-" + ((i == 0) ? "l" : "r")) {{
+                            parts.add(new RegionPart("-barrel-" + i){{
                                 progress = PartProgress.recoil;
-                                recoilIndex = f;
-                                recoil = 1f;
-                                under = true;
-                                moveY = -1.5f;
+                                recoilIndex = f - 1;
+                                under = false;
+                                moveY = -2f;
                             }});
                         }
-                        for (int j = 0; j < 2; j++) {
-                            int f = j;
-                            razeBarrels.add(new RegionPart("-barrel2-" + ((j == 0) ? "l" : "r")) {{
-                                progress = PartProgress.recoil;
-                                recoilIndex = f;
-                                recoil = 1f;
-                                under = true;
-                                moveY = -1.5f;
-                            }});
-                        }
-                        for (int k = 0; k < 4; k++) {
-                            parts.add(razeBarrels.get(k));
-                        }
-                    }
-                };
-            }
-        };
-
-//        razeTurret = new ItemTurret("raze"){{
-//            requirements(Category.turret, with(AZItems.fors, 140, AZItems.craside, 80, AZItems.superdenseAlloy, 70));
-//            ammo(
-//                    AZItems.superdenseAlloy, AZBullets.razeBullet
-//            );
-//            outlineColor = AZPal.aureliaOutline;
-//
-//            shoot = new ShootBarrel(){{
-//                barrels = new float[]{
-//                        -5, -1f, 0,
-//                        -9, -4f, 0,
-//                        5, -1f, 0,
-//                        9, -4f, 0
-//                };
-//                shots = 1;
-//                shotDelay = 1f;
-//            }};
-//
-//            health = 1560;
-//            size = 3;
-//            reload = 13f;
-//            range = 37f * Vars.tilesize;
-//            recoil = 2;
-//            inaccuracy = 2f;
-//            rotateSpeed = 3f;
-//            shootCone = 2f;
-//            //ammoPerShot = 1;
-//            shootSound = Sounds.shootBig;
-//            ammoUseEffect = Fx.casing2;
-//            targetAir = true;
-//            targetGround = false;
-//
-//            drawer = new DrawTurret(){{
-//                for(int i = 0; i < 2; i++){
-//                    int f = i;
-//                    parts.add(new RegionPart("-barrel1-" + (i == 0 ? "l" : "r")){{
-//                        progress = PartProgress.recoil;
-//                        recoilIndex = f;
-//                        under = true;
-//                        moveY = -1.5f;
-//                    }});
-//                }
-//                for(int j = 0; j < 2; j++){
-//                    int f = j;
-//                    parts.add(new RegionPart("-barrel2-" + (j == 0 ? "l" : "r")){{
-//                        progress = PartProgress.recoil;
-//                        recoilIndex = f;
-//                        under = true;
-//                        moveY = -1.5f;
-//                    }});
-//                }
-//            }};
-//        }};
+                    }};
+                }};
+        }};
 
                 //region h-tur
                 complexShell = new AirDefenceTurret("complex-shell") {{
@@ -300,12 +224,13 @@ public class AZTurrets {
                     consumePower(1f);
                     ammo(AZItems.superdenseAlloy, AZBullets.antiMissileBullet);
                 }};
-
+/*
                 complexAvalon = new PowerTurret("complex-avalon") {{
                     size = 3;
                     requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
                 }};
 
+ */
                 //endregion h-tur
 
         }

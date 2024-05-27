@@ -37,9 +37,9 @@ public class AZTechTree {
 
                     });
                 });
-            });
-            node(caseI, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
+                node(caseI, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
 
+                });
             });
             //endregion distribution
             //region crafting
@@ -54,7 +54,9 @@ public class AZTechTree {
                 });
             });
             node(crasideBrewer, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
+                node(heavyDutyCrucible, () -> {
 
+                });
             });
             //endregion crafting
             //region liquid
@@ -91,20 +93,27 @@ public class AZTechTree {
             node(forceTurret, () -> {
                 node(forsWall, () -> {
                     node(forsWallLarge, () -> {
+                        node(compositeWall, () -> {
+                            node(compositeWallLarge, () -> {
 
+                            });
+                        });
                     });
                 });
                 node(hornTurret, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
 
                 });
-            });
-            node(repairTurret, Seq.with(new Objectives.SectorComplete(caveEntrance)), () -> {
+                node(repairTurret, Seq.with(new Objectives.SectorComplete(caveEntrance)), () -> {
+                });
             });
             //endregion defense
             //endregion blocks
             //region units
             node(vectorFabricator, Seq.with(new Objectives.OnSector(seaOutpost)), () -> {
                 node(vector);
+                node(angelsharkFabricator, Seq.with(new Objectives.OnSector(seaOutpost)), () -> {
+                    node(angelshark);
+                });
             });
             //endregion units
 
@@ -115,6 +124,8 @@ public class AZTechTree {
                 nodeProduce(khylid, () -> {
                     nodeProduce(craside, () -> {
                         nodeProduce(ferbium, () -> {
+                            nodeProduce(superdenseAlloy, () -> {
+                            });
                         });
                     });
                 });
