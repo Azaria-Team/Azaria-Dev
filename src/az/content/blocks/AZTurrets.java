@@ -190,14 +190,16 @@ public class AZTurrets {
                     progress = PartProgress.warmup;
                     moveX = 0.6f;
                     moveRot = -15f;
-                    layerOffset = 0.001f;
                 }}, new RegionPart("-wing-l") {{
                     progress = PartProgress.warmup;
                     moveX = -0.6f;
                     moveRot = 15f;
-                    layerOffset = 0.001f;
                         }});
-
+                parts.add(new RegionPart("-radar") {{
+                    layerOffset = 0.001f;
+                    moveRot = 360;
+                    y = -3f;
+                }});
                 for(int i = 4; i > 0; i--) {
                     int f = i;
                     parts.add(new RegionPart("-barrel-" + i){{
