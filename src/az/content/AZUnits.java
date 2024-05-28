@@ -21,6 +21,7 @@ import azaria.gen.UnitEntity;
 import ent.anno.Annotations;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
+import mindustry.content.Blocks;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.*;
