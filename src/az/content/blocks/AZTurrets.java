@@ -11,6 +11,7 @@ import az.world.blocks.defense.turret.AirDefenceTurret;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.BulletType;
+import mindustry.entities.part.DrawPart;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootBarrel;
@@ -160,9 +161,9 @@ public class AZTurrets {
             shoot = new ShootBarrel() {
                 {
                     barrels = new float[]{
-                            -5, -1f, 0,
+                            -4, -1f, 0,
                             -9, -4f, 0,
-                            5, -1f, 0,
+                            4, -1f, 0,
                             9, -4f, 0
                     };
                     shots = 1;
@@ -184,20 +185,17 @@ public class AZTurrets {
             targetGround = false;
 
             recoils = 4;
-            drawer = new DrawTurret("fortified-") {
-                {
-                    drawer = new DrawTurret(){{
-                        for(int i = 4; i > 0; i--){
-                            int f = i;
-                            parts.add(new RegionPart("-barrel-" + i){{
-                                progress = PartProgress.recoil;
-                                recoilIndex = f - 1;
-                                under = false;
-                                moveY = -2f;
-                            }});
-                        }
-                    }};
-                }};
+            drawer = new DrawTurret("fortified-"){{
+                for(int i = 4; i > 0; i--){
+                    int f = i;
+                    parts.add(new RegionPart("-barrel-" + i){{
+                        progress = PartProgress.recoil;
+                        recoilIndex = f - 1;
+                        under = true;
+                        moveY = -3f;
+                    }});
+                }
+            }};
         }};
 
                 //region h-tur
