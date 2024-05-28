@@ -16,6 +16,7 @@ import static mindustry.Vars.*;
 
 public class Azaria extends Mod{
     private static boolean show = false;
+    public static boolean dev = true;
     public static String text(String str){
         return Core.bundle.format(str);
     }
@@ -24,7 +25,9 @@ public class Azaria extends Mod{
         if(!mobile) {
 
             BaseDialog dialog = new BaseDialog("Azaria") {
+                //for dev
                 private float leave = 3f * 60;
+
                 private boolean canClose = false;
 
                 {
@@ -50,8 +53,10 @@ public class Azaria extends Mod{
     }
 
     public static void dialogShow(){
-        if(!mobile) {
-            dialogToShow();
+        if(!dev) {
+            if (!mobile) {
+                dialogToShow();
+            }
         }
     }
     @Override
