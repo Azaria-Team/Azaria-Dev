@@ -166,7 +166,7 @@ public class AZUnits {
                 y = -6;
                 mirror = false;
                 shootSound = Sounds.shootAlt;
-                bullet = new MissileBulletType(5f, 20, "az-vog") {{
+                bullet = new MissileBulletType(5f, 20 * 1.6f, "az-vog") {{
                     backColor = AZPal.vogPinkBack;
                     frontColor = AZPal.forceBullet;
                     width = 13f;
@@ -181,7 +181,7 @@ public class AZUnits {
                     trailInterval = 0.5f;
                     lifetime = 35;
 
-                    splashDamage = 65f;
+                    splashDamage = 65 * 1.6f;
                     splashDamageRadius = 45f;
                 }};
             }});
@@ -343,6 +343,7 @@ public class AZUnits {
             health = 4050;
             accel = 0.35f;
             faceTarget = false;
+            targetAir = true;
             rotateSpeed = 4f;
             trailLength = 30;
             waveTrailX = 6f;
@@ -364,7 +365,6 @@ public class AZUnits {
                         layerOffset = 0.01f;
                         showStatSprite = false;
                         shootSound = Sounds.missileLaunch;
-                        targetAir = false;
                         minWarmup = 0.9f;
                         smoothReloadSpeed = 0.15f;
                         shootWarmupSpeed = 0.02f;
@@ -573,7 +573,7 @@ public class AZUnits {
             flying = true;
 
             speed = 2f;
-            rotateSpeed = 2f;
+            rotateSpeed = 3f;
             accel = 0.08f;
             drag = 0.05f;
 
@@ -595,6 +595,75 @@ public class AZUnits {
                         bladeMoveSpeed = -40f;
                         bladeBlurAlphaMultiplier = 0.5f;
                     }});
+
+
+            weapons.add(
+                    new Weapon("ex-bomb-bay") {{
+                        reload = 25f;
+                        shootY = 2f;
+                        rotate = false;
+                        x = 8;
+                        y = 1f;
+                        mirror = true;
+                        layerOffset = -0.0001f;
+                        baseRotation = -135f;
+                        shootCone = 360f;
+                        shootSound = Sounds.missileSmall;
+                        shoot = new ShootSpread(1, 10f);
+                        bullet = new AimBulletType(4.5f, 25) {{
+                            backColor = AZPal.unmakerColor;
+                            frontColor = Color.valueOf("2af5a1");
+                            maxRange = 240;
+                            homingPower = 0.07f;
+                            homingRange = 0;
+                            shrinkY = 0f;
+                            shrinkX = 0f;
+                            drag = 0.005f;
+                            width = 9f;
+                            height = 15f;
+                            shootEffect = AZFx.opjozdyhFlame;
+                            hitSound = Sounds.explosion;
+                            hitEffect = AZFx.hitExplosion;
+                            despawnEffect = AZFx.explosionSmall2;
+                            lifetime = 200f;
+
+                            splashDamage = 85;
+                            splashDamageRadius = 20;
+                        }};
+                    }},
+                    new Weapon("ex-bomb-bay") {{
+                        reload = 35f;
+                        shootY = 2f;
+                        rotate = false;
+                        x = 6;
+                        y = -1.5f;
+                        mirror = true;
+                        layerOffset = -0.0001f;
+                        baseRotation = 210f;
+                        shootCone = 360f;
+                        shootSound = Sounds.missileSmall;
+                        shoot = new ShootSpread(1, 10f);
+                        bullet = new AimBulletType(4.5f, 25) {{
+                            backColor = AZPal.unmakerColor;
+                            frontColor = Color.valueOf("2af5a1");
+                            maxRange = 240;
+                            homingPower = 0.07f;
+                            homingRange = 0;
+                            shrinkY = 0f;
+                            shrinkX = 0f;
+                            drag = 0.005f;
+                            width = 9f;
+                            height = 15f;
+                            hitSound = Sounds.explosion;
+                            shootEffect = AZFx.opjozdyhFlame;
+                            despawnEffect = AZFx.explosionSmall2;
+                            lifetime = 200f;
+
+                            splashDamage = 85;
+                            splashDamageRadius = 20;
+                        }};
+                    }}
+            );
         }};
 
         opjozdysh = new StriCopterUnitType("opjozdysh") {{
