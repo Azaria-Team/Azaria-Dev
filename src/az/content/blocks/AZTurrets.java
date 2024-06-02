@@ -1,7 +1,9 @@
 package az.content.blocks;
 
 import arc.graphics.g2d.Draw;
+import arc.math.Mathf;
 import arc.struct.Seq;
+import arc.util.Time;
 import az.content.AZBullets;
 import az.content.AZFx;
 import az.content.AZItems;
@@ -198,7 +200,10 @@ public class AZTurrets {
                 parts.add(new RegionPart("-radar") {{
                     layerOffset = 0.001f;
                     moveRot = 360;
+                    //rotateSpeed = 2f;
                     y = -3f;
+                    progress = p -> Mathf.sinDeg(Time.time) * 1f + 0.3f;
+                   // moves.add(new PartMove(PartProgress.life, 0f, 0f, 360f));
                 }});
                 for(int i = 4; i > 0; i--) {
                     int f = i;
