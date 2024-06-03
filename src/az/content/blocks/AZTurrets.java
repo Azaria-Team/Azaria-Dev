@@ -12,14 +12,19 @@ import az.graphics.AZPal;
 import az.world.blocks.defense.turret.AirDefenceTurret;
 import mindustry.Vars;
 import mindustry.content.Fx;
+import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
+import mindustry.entities.bullet.ExplosionBulletType;
 import mindustry.entities.part.DrawPart;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootBarrel;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
+import mindustry.graphics.Layer;
 import mindustry.type.Category;
+import mindustry.type.Weapon;
+import mindustry.type.unit.MissileUnitType;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
@@ -32,7 +37,8 @@ import static mindustry.type.ItemStack.with;
 public class AZTurrets {
     
     public static Block
-            forceTurret, hornTurret, razeTurret,
+            forceTurret, hornTurret, tideTurret,
+            razeTurret,
             complexShell, complexAvalon;
 
     public static void load() {
@@ -225,6 +231,43 @@ public class AZTurrets {
 //                    }};
                 //
             }};
+        }};
+
+        //todo change craft
+        tideTurret = new ItemTurret("tide") {{
+            requirements(Category.turret, with(AZItems.fors, 50, AZItems.ferbium, 35));
+
+            ammo(
+                    AZItems.ferbium, new BasicBulletType(0f, 1) {{
+                        ammoMultiplier = 1f;
+
+                        spawnUnit = new MissileUnitType("tide-torpedo") {{
+                            speed = 3.5f;
+                            lifetime = 90f;
+                            maxRange = 4f;
+                            outlineColor = AZPal.aureliaOutline;
+                            engineColor = AZItems.hyperliosAlloy.color;
+                            engineLayer = Layer.effect;
+                            engineOffset = 6f;
+                            missileAccelTime = -23f;
+                            lowAltitude = true;
+                            targetAir = false;
+                            health = 100;
+
+                            weapons.add(new Weapon() {{
+                              shootCone = 45f;
+                              mirror = false;
+                              reload = 1f;
+                              shootOnDeath = true;
+                              hitEffect = AZFx.hitExplosion;
+
+                              bullet = new ExplosionBulletType(400f, 140) {{
+                                  lifetime = 3f;
+                              }};
+                            }});
+                        }};
+                    }}
+            );
         }};
 
                 //region h-tur
