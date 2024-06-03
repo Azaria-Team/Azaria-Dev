@@ -21,6 +21,7 @@ import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootBarrel;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
+import mindustry.gen.UnitEntity;
 import mindustry.graphics.Layer;
 import mindustry.type.Category;
 import mindustry.type.Weapon;
@@ -253,6 +254,7 @@ public class AZTurrets {
                             lowAltitude = true;
                             targetAir = false;
                             health = 100;
+                            constructor = UnitEntity::create;
 
                             weapons.add(new Weapon() {{
                               shootCone = 45f;
