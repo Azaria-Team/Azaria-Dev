@@ -241,16 +241,17 @@ public class AZTurrets {
             ammo(
                     AZItems.ferbium, new BasicBulletType(0f, 1) {{
                         ammoMultiplier = 1f;
+                        reload = 90f;
 
                         spawnUnit = new MissileUnitType("tide-torpedo") {{
                             speed = 3.5f;
-                            lifetime = 90f;
+                            lifetime = 2f;
                             maxRange = 4f;
                             outlineColor = AZPal.aureliaOutline;
                             engineColor = AZItems.hyperliosAlloy.color;
                             engineLayer = Layer.effect;
                             engineOffset = 6f;
-                            missileAccelTime = -23f;
+                            accel = -3f;
                             lowAltitude = true;
                             targetAir = false;
                             health = 100;

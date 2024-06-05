@@ -32,7 +32,7 @@ public static final Color
 
 
         droneBullet = Color.valueOf("d8f7f8"),
-        droneBulletBack = Color.valueOf("2dd5d9"),
+        droneBulletBack = Color.valueOf("8b9cee"),
 //other
         forestLight = Color.valueOf("5eff8f"),
         aureliaOutline = Color.valueOf("2c2a36"),
