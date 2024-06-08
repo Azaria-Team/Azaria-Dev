@@ -108,7 +108,7 @@ public class AZDrills {
             ambientSoundVolume = 0.06f;
             displayEfficiency = false;
             drawer = new DrawMulti(
-                    new DrawRegion(),
+                    new DrawDefault(),
                     new DrawRegion("-top") {{
                         spinSprite = true;
                         rotateSpeed = 1f;
