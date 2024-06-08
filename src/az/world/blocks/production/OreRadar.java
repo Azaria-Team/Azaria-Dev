@@ -22,7 +22,7 @@ import mindustry.world.meta.StatUnit;
 import static mindustry.Vars.*;
 import static mindustry.content.Blocks.air;
 /**
- * Original code from FOS[<a href="https://github.com/TeamOct/fictional-octo-system/blob/master/src/fos/type/blocks/production/HeatProducerDrill.java">...</a>]
+ * Original code from FOS[<a href="https://github.com/TeamOct/fictional-octo-system/blob/master/src/fos/type/blocks/production/OreDetector.java">...</a>]
 */
 public class OreRadar extends Block {
     public int range = 20 * 8;
@@ -128,7 +128,7 @@ public class OreRadar extends Block {
                 if (ore == hoverTile && ore.block() != null) {
                     Draw.z(Layer.max);
                     Draw.alpha(1f);
-                    Draw.rect(u.itemDrop.uiIcon, ore.x * 8, ore.y * 8 + 8);
+                    Draw.rect(u.drop.uiIcon, ore.x * 8, ore.y * 8 + 8);
                 }
             }
         }

@@ -5,7 +5,7 @@ import az.content.AZFx;
 import az.content.AZItems;
 import az.graphics.AZPal;
 import az.world.blocks.production.AzItemCollector;
-import az.world.blocks.production.HPLBurstDrill;
+import az.world.blocks.production.AZBurstDrill;
 import az.world.blocks.production.OreRadar;
 import az.world.draw.DrawDrillPart;
 import mindustry.gen.Sounds;
@@ -14,7 +14,6 @@ import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.production.AttributeCrafter;
-import mindustry.world.blocks.production.Fracker;
 import mindustry.world.draw.DrawDefault;
 import mindustry.world.draw.DrawGlowRegion;
 import mindustry.world.draw.DrawMulti;
@@ -110,7 +109,7 @@ public class AZDrills {
         }};
 
         //later
-        waveDrill = new HPLBurstDrill("wave-drill"){{
+        waveDrill = new AZBurstDrill("wave-drill"){{
             requirements(Category.production, with(AZItems.fors, 35, AZItems.craside, 15));
             squareSprite = false;
             drillTime = 60f * 5f;

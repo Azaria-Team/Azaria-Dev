@@ -16,7 +16,7 @@ import mindustry.world.blocks.production.Drill;
 import mindustry.world.draw.DrawBlock;
 import mindustry.world.draw.DrawDefault;
 
-public class HPLBurstDrill extends Drill {
+public class AZBurstDrill extends Drill {
 
     public float shake = 2f;
     public Interp speedCurve = Interp.pow2In;
@@ -27,7 +27,7 @@ public class HPLBurstDrill extends Drill {
     public float drillSoundVolume = 0.6f, drillSoundPitchRand = 0.1f;
     public DrawBlock drawer = new DrawDefault();
 
-    public HPLBurstDrill(String name){
+    public AZBurstDrill(String name){
         super(name);
 
         //does not drill in the traditional sense, so this is not even used
