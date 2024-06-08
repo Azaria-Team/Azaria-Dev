@@ -6,11 +6,10 @@ import arc.graphics.*;
 import arc.math.*;
 import arc.math.geom.Point2;
 import arc.struct.*;
-import arc.util.*;
 import az.content.AZFx;
 import az.graphics.AZPal;
-import az.world.meta.HPLStat;
-import az.world.meta.HPLStatUnit;
+import az.world.meta.AZStat;
+import az.world.meta.AZStatUnit;
 import mindustry.*;
 import mindustry.core.*;
 import mindustry.entities.*;
@@ -108,7 +107,7 @@ public class LightningPowerNode extends PowerNode {
         }
         aStats.add(Stat.powerCapacity, consPower.capacity);
         aStats.add(Stat.range, lightningRange / Vars.tilesize, StatUnit.blocks);
-        aStats.add(HPLStat.lightningDiff, thresholdPerTile * Vars.tilesize, HPLStatUnit.powerBlock);
+        aStats.add(AZStat.lightningDiff, thresholdPerTile * Vars.tilesize, AZStatUnit.powerBlock);
     }
 
     @Override

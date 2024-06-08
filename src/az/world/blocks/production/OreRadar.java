@@ -9,7 +9,7 @@ import arc.math.Mathf;
 import arc.struct.Seq;
 import arc.util.Time;
 import az.world.blocks.environment.UndergroundOre;
-import az.world.meta.HPLStat;
+import az.world.meta.AZStat;
 import mindustry.gen.Building;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
@@ -43,7 +43,7 @@ public class OreRadar extends Block {
         super.setStats();
 
         stats.add(Stat.range, range / tilesize, StatUnit.blocks);
-        stats.add(HPLStat.radarSpeed.toStat(), radarSpeed, StatUnit.blocks);
+        stats.add(AZStat.radarSpeed.toStat(), radarSpeed, StatUnit.blocks);
     }
 
     @Override

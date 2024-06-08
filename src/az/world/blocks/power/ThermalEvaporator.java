@@ -1,6 +1,6 @@
 package az.world.blocks.power;
 
-import az.world.meta.HPLStat;
+import az.world.meta.AZStat;
 import mindustry.game.Team;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Pal;
@@ -37,7 +37,7 @@ public class ThermalEvaporator extends ThermalGenerator {
         if(outputLiquid != null){
             stats.add(Stat.output, StatValues.liquid(outputLiquid.liquid, outputLiquid.amount * size * size * 60f, true));
         }
-        stats.add(HPLStat.placeSpacing.toStat(), spacing + size / 2f + 3f, StatUnit.blocks);
+        stats.add(AZStat.placeSpacing.toStat(), spacing + size / 2f + 3f, StatUnit.blocks);
     }
 
     @Override
