@@ -3,11 +3,16 @@ package az.world.blocks.environment;
 import arc.graphics.g2d.Draw;
 import mindustry.Vars;
 import mindustry.graphics.Layer;
+import mindustry.type.Item;
 import mindustry.world.Tile;
 import mindustry.world.blocks.environment.OverlayFloor;
 
+/**
+ * Original code from FOS[<a href="https://github.com/TeamOct/FOS/blob/master/src/fos/type/blocks/environment/UndergroundOreBlock.java">...</a>]
+ */
 public class UndergroundOre extends OverlayFloor {
     public boolean shouldDrawBase = false;
+    public Item drop;
 
     public UndergroundOre(String name) {
         super(name);
@@ -16,20 +21,26 @@ public class UndergroundOre extends OverlayFloor {
         playerUnmineable = true;
         variants = 1;
     }
+
+    @Override
+    public void load() {
+        super.load();
+
+        //just in case somebody decides to declare itemDrop
+        if (itemDrop != null) {
+            drop = itemDrop;
+            itemDrop = null;
+        }
+    }
     @Override
     public void drawBase(Tile tile) {
-        if (shouldDrawBase || Vars.state.isEditor()) {
+        if (shouldDrawBase && Vars.state.isEditor()) {
             float l = Draw.z();
-            Draw.z(Layer.light);
+            Draw.z(Layer.floor);
 
             super.drawBase(tile);
 
             Draw.z(l);
         }
-    }
-
-    @Override
-    public String getDisplayName(Tile tile) {
-        return null;
     }
 }

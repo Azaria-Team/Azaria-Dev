@@ -5,8 +5,9 @@ import az.content.AZFx;
 import az.content.AZItems;
 import az.graphics.AZPal;
 import az.world.blocks.production.AzItemCollector;
-import az.world.blocks.production.HPLBurstDrill;
+import az.world.blocks.production.AZBurstDrill;
 import az.world.blocks.production.OreRadar;
+import az.world.blocks.production.UndergroundDrill;
 import az.world.draw.DrawDrillPart;
 import mindustry.gen.Sounds;
 import mindustry.graphics.Layer;
@@ -14,7 +15,6 @@ import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.production.AttributeCrafter;
-import mindustry.world.blocks.production.Fracker;
 import mindustry.world.draw.DrawDefault;
 import mindustry.world.draw.DrawGlowRegion;
 import mindustry.world.draw.DrawMulti;
@@ -26,7 +26,7 @@ import static mindustry.type.ItemStack.with;
 public class AZDrills {
     public static Block
             forsDrill, pumpDrill, vacuumCollector,
-            waveDrill, oreDetector;
+            waveDrill, oreDetector, undergroundDrill;
     public static void load() {
         //sec1
         forsDrill = new AttributeCrafter("fors-block") {{
@@ -102,15 +102,22 @@ public class AZDrills {
             size = 2;
             craftTime = 240f;
 
-            minEfficiency = 4f - 0.0001f;
-            boostScale = 1f / 4f;
-            baseEfficiency = 0f;
+            //minEfficiency = 4f - 0.0001f;
+            //boostScale = 1f / 4f;
+          //  baseEfficiency = 0f;
             ambientSoundVolume = 0.06f;
             displayEfficiency = false;
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawRegion("-top") {{
+                        spinSprite = true;
+                        rotateSpeed = 1f;
+                    }}
+            );
         }};
 
         //later
-        waveDrill = new HPLBurstDrill("wave-drill"){{
+        waveDrill = new AZBurstDrill("wave-drill"){{
             requirements(Category.production, with(AZItems.fors, 35, AZItems.craside, 15));
             squareSprite = false;
             drillTime = 60f * 5f;
@@ -138,6 +145,22 @@ public class AZDrills {
                         layer = Layer.blockOver + 0.1f;
                     }}
             );
+        }};
+
+        undergroundDrill = new UndergroundDrill("underground-Drill"){{
+            requirements(Category.production, with(AZItems.fors, 35, AZItems.craside, 15));
+            squareSprite = false;
+            drillTime = 60f * 5f;
+            size = 3;
+            hasPower = true;
+            tier = 3;
+            //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
+            shake = 4f;
+            itemCapacity = 20;
+            researchCost = with(AZItems.fors, 50);
+
+            fogRadius = 5;
+            consumePower(15f / 60f);
         }};
 
         oreDetector = new OreRadar("ore-detector") {{

@@ -80,6 +80,7 @@ public class AZEnvironment {
         //serridDust
         serridDust = new Floor("serrid-dust") {{
             variants = 4;
+            attributes.set(AZAttribute.serridAttr, 1);
         }};
         serridDustWall = new StaticWall("serrid-dust-wall") {{
             variants = 3;
@@ -167,6 +168,7 @@ public class AZEnvironment {
         //darkSerrid
         darkSerrid = new Floor("dark-serrid") {{
             variants = 4;
+            attributes.set(AZAttribute.serridAttr, 1);
         }} ;
         darkSerridWall = new StaticWall("dark-serrid-wall") {{
             variants = 3;
@@ -252,8 +254,8 @@ public class AZEnvironment {
         //region volcanic-biome
         //huitaRock
         huitaRock = new Floor("huita-rock") {{
-            attributes.set(AZAttribute.serridAttr, 0.25f);
-            itemDrop = AZItems.volcanicSerrid;
+            attributes.set(AZAttribute.serridAttr, 1);
+            //itemDrop = AZItems.volcanicSerrid;
             variants = 4;
         }};
         huitaRockWall = new StaticWall("huita-rock-wall") {{
@@ -267,6 +269,7 @@ public class AZEnvironment {
         //volcanicSerrid
         volcanicSerrid = new Floor("volcanic-serrid") {{
             variants = 4;
+            attributes.set(AZAttribute.serridAttr, 1f);
         }};
         volcanicSerridWall = new StaticWall("volcanic-serrid-wall") {{
             variants = 3;
