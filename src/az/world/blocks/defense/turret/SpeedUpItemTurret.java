@@ -38,13 +38,13 @@ public class SpeedUpItemTurret extends ItemTurret{
     public void setBars(){
         super.setBars();
         addBar("az-speedup", (SpeedUpItemTurretBuild entity) -> new Bar(
-                () -> Core.bundle.format("bar.az-speedup:", Utils.stringsFixed(Mathf.clamp(entity.speedupScl / maxSpeedupScl) * 100f)),
+                () -> Core.bundle.format("bar.az-speedup", Utils.stringsFixed(Mathf.clamp(entity.speedupScl / maxSpeedupScl) * 100f)),
                 () -> entity.team.color,
                 () -> entity.speedupScl / maxSpeedupScl
         ));
-        addBar("az-speedup",
+        addBar("az-overheat",
                 (SpeedUpItemTurretBuild entity) -> new Bar(
-                        () -> "bar.az-speedup:",
+                        () -> "bar.az-overheat",
                         () -> entity.requireCompleteCooling ? Pal.redderDust : Pal.powerLight,
                         () -> entity.overheat / overheatTime
                 )
