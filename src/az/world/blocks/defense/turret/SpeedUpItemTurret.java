@@ -45,7 +45,7 @@ public class SpeedUpItemTurret extends ItemTurret{
         addBar("az-overheat",
                 (SpeedUpItemTurretBuild entity) -> new Bar(
                         () -> "bar.az-overheat",
-                        () -> entity.requireCompleteCooling ? Pal.redderDust : Pal.powerLight,
+                        () -> entity.requireCompleteCooling ? Pal.redDust : Pal.powerLight,
                         () -> entity.overheat / overheatTime
                 )
         );
