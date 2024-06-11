@@ -25,7 +25,7 @@ public class AZPower {
             researchCost = with(AZItems.fors, 25);
 
             consumePowerBuffered(5000f);
-            lightningRange = 17 * 8f;
+            lightningRange = 15 * 8f;
             thresholdPerTile = 0.0001f / 8f;
         }};
 
@@ -34,7 +34,7 @@ public class AZPower {
             requirements(Category.power, with(AZItems.khylid, 20, AZItems.craside, 20));
             consumePowerBuffered(15000f);
             size = 2;
-            lightningRange = 28 * 8f;
+            lightningRange = 25 * 8f;
             thresholdPerTile = 0.0001f / 8f;
         }};
 
@@ -44,7 +44,7 @@ public class AZPower {
             size = 2;
             consumePowerBuffered(4000f);
             lightningRange = 5 * 8f;
-            laserRange = 7;
+            laserRange = 10;
             thresholdPerTile = 0.0001f / 8f;
             //buildCostMultiplier = 8f;
         }};
@@ -55,7 +55,7 @@ public class AZPower {
             consumePowerBuffered(13000f);
             size = 3;
             lightningRange = 15 * 8f;
-            laserRange = 16;
+            laserRange = 20;
             thresholdPerTile = 0.0001f / 8f;
         }};
 
