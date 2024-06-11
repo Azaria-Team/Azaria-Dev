@@ -20,6 +20,7 @@ public class SpeedUpItemTurret extends ItemTurret{
 
     public float overheatTime = -1f;
     public float overheatCoolAmount = 1.25f;
+    public boolean isOverheat = false;
 
     public float maxSpeedupScl = 0.5f;
     public float speedupPerShoot = 0.075f;
@@ -42,20 +43,24 @@ public class SpeedUpItemTurret extends ItemTurret{
                 () -> entity.team.color,
                 () -> entity.speedupScl / maxSpeedupScl
         ));
-        addBar("az-overheat",
-                (SpeedUpItemTurretBuild entity) -> new Bar(
-                        () -> "bar.az-overheat",
-                        () -> entity.requireCompleteCooling ? Pal.redDust : Pal.powerLight,
-                        () -> entity.overheat / overheatTime
-                )
-        );
+        if(isOverheat) {
+            addBar("az-overheat",
+                    (SpeedUpItemTurretBuild entity) -> new Bar(
+                            () -> "bar.az-overheat",
+                            () -> entity.requireCompleteCooling ? Pal.redDust : Pal.powerLight,
+                            () -> entity.overheat / overheatTime
+                    )
+            );
+        }
     }
 
     @Override
     public void setStats(){
         super.setStats();
         stats.add(Stat.inaccuracy, inaccuracyUp, StatUnit.degrees);
-        stats.add(Stat.heatCapacity, overheatTime / Time.toSeconds, StatUnit.seconds);
+        if(isOverheat) {
+            stats.add(Stat.heatCapacity, overheatTime / Time.toSeconds, StatUnit.seconds);
+        }
     }
 
     @Override
@@ -78,43 +83,45 @@ public class SpeedUpItemTurret extends ItemTurret{
                 speedupScl = Mathf.lerpDelta(speedupScl, 0f, 0.05f);
                 if(!requireCompleteCooling)coolDown();
             }
-
-            if(overheat > overheatTime * 0.3f){
-                if(Mathf.chanceDelta(maxHeatEffectChance * (requireCompleteCooling ? 1 : overheat / overheatTime))){
-                    heatEffect.at(x + Mathf.range(Vars.tilesize * size / 2), y + Mathf.range(Vars.tilesize * size / 2), rotation, heatColor);
+            if(isOverheat) {
+                if (overheat > overheatTime * 0.3f) {
+                    if (Mathf.chanceDelta(maxHeatEffectChance * (requireCompleteCooling ? 1 : overheat / overheatTime))) {
+                        heatEffect.at(x + Mathf.range(Vars.tilesize * size / 2), y + Mathf.range(Vars.tilesize * size / 2), rotation, heatColor);
+                    }
                 }
-            }
+                if(overheat < overheatTime && !requireCompleteCooling){
+                    super.updateTile();
+                }else {
+                    slowDownReload = 0;
+                    coolDown();
+                    if (linearWarmup) {
+                        shootWarmup = Mathf.approachDelta(shootWarmup, 0, shootWarmupSpeed);
+                    } else {
+                        shootWarmup = Mathf.lerpDelta(shootWarmup, 0, shootWarmupSpeed);
+                    }
 
-            if(overheat < overheatTime && !requireCompleteCooling){
-                super.updateTile();
-            }else{
-                slowDownReload = 0;
-                coolDown();
-                if(linearWarmup){
-                    shootWarmup = Mathf.approachDelta(shootWarmup, 0, shootWarmupSpeed);
-                }else{
-                    shootWarmup = Mathf.lerpDelta(shootWarmup, 0, shootWarmupSpeed);
-                }
+                    unit.tile(this);
+                    unit.rotation(rotation);
+                    unit.team(team);
+                    curRecoil = Mathf.approachDelta(curRecoil, 0, 1 / recoilTime);
+                    recoilOffset.trns(rotation, -Mathf.pow(curRecoil, recoilPow) * recoil);
 
-                unit.tile(this);
-                unit.rotation(rotation);
-                unit.team(team);
-                curRecoil = Mathf.approachDelta(curRecoil, 0, 1 / recoilTime);
-                recoilOffset.trns(rotation, -Mathf.pow(curRecoil, recoilPow) * recoil);
+                    if (logicControlTime > 0) {
+                        logicControlTime -= Time.delta;
+                    }
 
-                if(logicControlTime > 0){
-                    logicControlTime -= Time.delta;
-                }
-
-                if(overheat < 1){
-                    overheat = 0;
-                    requireCompleteCooling = false;
+                    if (overheat < 1) {
+                        overheat = 0;
+                        requireCompleteCooling = false;
+                    }
                 }
             }
         }
 
         public void coolDown(){
-            overheat = Mathf.approachDelta(overheat, 0, overheatCoolAmount * (1 + (liquids().current() == null ? 0 : liquids().current().heatCapacity)));
+            if(isOverheat) {
+                overheat = Mathf.approachDelta(overheat, 0, overheatCoolAmount * (1 + (liquids().current() == null ? 0 : liquids().current().heatCapacity)));
+            }
         }
 
         @Override
@@ -127,8 +134,10 @@ public class SpeedUpItemTurret extends ItemTurret{
                 reloadCounter = 0f;
             }else{
                 reloadCounter += (1 + speedupScl) * delta() * peekAmmo().reloadMultiplier * baseReloadSpeed();
-                overheat = Mathf.approachDelta(overheat, overheatTime + 0.05f, efficiency * timeScale * ((speedupScl / maxSpeedupScl) * 1) / (1 + (liquids().current() == null ? 0 : liquids().current().heatCapacity)));
-                if(overheat > overheatTime)requireCompleteCooling = true;
+                if(isOverheat) {
+                    overheat = Mathf.approachDelta(overheat, overheatTime + 0.05f, efficiency * timeScale * ((speedupScl / maxSpeedupScl) * 1) / (1 + (liquids().current() == null ? 0 : liquids().current().heatCapacity)));
+                    if (overheat > overheatTime) requireCompleteCooling = true;
+                }
             }
         }
 
