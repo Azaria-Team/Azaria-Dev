@@ -77,6 +77,9 @@ public class SpeedUpItemTurret extends ItemTurret{
 
         @Override
         public void updateTile(){
+            if(!isOverheat) {
+                super.updateTile();
+            }
             if(slowDownReload >= 1f){
                 slowDownReload -= Time.delta;
             }else{
