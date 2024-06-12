@@ -10,6 +10,7 @@ import az.content.AZItems;
 import az.content.AZLiquids;
 import az.graphics.AZPal;
 import az.world.blocks.defense.turret.AirDefenceTurret;
+import az.world.blocks.defense.turret.SpeedUpItemTurret;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
@@ -38,7 +39,7 @@ import static mindustry.type.ItemStack.with;
 public class AZTurrets {
     
     public static Block
-            forceTurret, hornTurret, tideTurret,
+            forceTurret, hornTurret, testTurret, tideTurret,
             razeTurret,
             complexShell, complexAvalon;
 
@@ -153,6 +154,63 @@ public class AZTurrets {
                             under = false;
                             moveX = 0f;
                             moveY = -3f;
+                            moveRot = 0f;
+                            x = 0;
+                            y = 0;
+                        }});
+            }};
+        }};
+
+        testTurret = new SpeedUpItemTurret("test-turret") {{
+            requirements(Category.turret, with(AZItems.fors, 70, AZItems.khylid, 25));
+            researchCost = with(AZItems.fors, 150, AZItems.khylid, 70);
+            health = 700;
+            shootEffect = AZFx.shootForce;
+            smokeEffect = AZFx.shootSmokeForce;
+            reload = 70f;
+            inaccuracy = 2f;
+            shake = 2f;
+            shootY = -2;
+            outlineColor = AZPal.aureliaOutline;
+            size = 2;
+            recoil = 2f;
+            range = 24 * Vars.tilesize;
+            shootCone = 10f;
+            rotateSpeed = 4f;
+            speedupPerShoot = 0.04f;
+
+            shootSound = Sounds.cannon;
+            squareSprite = false;
+            ammoPerShot = 1;
+            maxAmmo = 10;
+            itemCapacity = 10;
+            coolantMultiplier = 2f;
+
+            ammo(
+                    AZItems.fors, AZBullets.forceBullet
+            );
+
+
+            drawer = new DrawTurret("fortified-") {{
+                parts.add(
+                        new RegionPart("-edge-r") {{
+                            progress = PartProgress.warmup;
+                            mirror = false;
+                            under = false;
+                            moveRot = -8f;
+                        }},
+                        new RegionPart("-edge-l") {{
+                            progress = PartProgress.warmup;
+                            mirror = false;
+                            under = false;
+                            moveRot = 8f;
+                        }},
+                        new RegionPart("-barrel") {{
+                            progress = PartProgress.recoil;
+                            mirror = false;
+                            under = false;
+                            moveX = 0f;
+                            moveY = -1f;
                             moveRot = 0f;
                             x = 0;
                             y = 0;
