@@ -3,6 +3,7 @@ package az.utils;
 import arc.Events;
 import arc.math.geom.Vec2;
 import arc.struct.IntSet;
+import arc.util.Strings;
 import mindustry.entities.bullet.BulletType;
 import mindustry.game.EventType;
 
@@ -47,4 +48,7 @@ public class Utils {
         return type.damage + type.splashDamage + (Math.max(type.lightningDamage / 2f, 0f) * type.lightning * type.lightningLength);
     }
 
+    public static String stringsFixed(float value){
+        return Strings.autoFixed(value, 2);
+    }
 }
