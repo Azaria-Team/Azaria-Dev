@@ -11,7 +11,7 @@ import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.meta.Stat;
 
 public class AirDefenceTurret extends ItemTurret {
-    public float loadSpeed = -1.5f;
+    public float loadSpeed = 0;
     public boolean controllable = false;
 
     public AirDefenceTurret(String name) {

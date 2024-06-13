@@ -1,9 +1,8 @@
 package az.content.blocks;
 
 import az.content.AZItems;
-import az.content.AZLiquids;
 
-import az.world.blocks.defense.wall.AZHealingWall;
+import az.world.blocks.defense.wall.HealingWall;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Wall;
@@ -42,7 +41,7 @@ public class AZWalls {
         }};
 
         //later
-        compositeWall = new AZHealingWall("composite-wall") {{
+        compositeWall = new HealingWall("composite-wall") {{
             requirements (Category.defense, with(AZItems.craside, 4, AZItems.khylid, 2));
             health = 800;
             buildCostMultiplier = 6f;
@@ -53,7 +52,7 @@ public class AZWalls {
             placeableLiquid = true;
         }};
 
-        compositeWallLarge = new AZHealingWall("composite-wall-large"){{
+        compositeWallLarge = new HealingWall("composite-wall-large"){{
             requirements (Category.defense, with(AZItems.craside, 20, AZItems.khylid, 4));
             health = compositeWall.health * 4;
             size = 2;
