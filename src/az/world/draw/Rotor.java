@@ -2,6 +2,7 @@ package az.world.draw;
 
 import arc.*;
 import arc.graphics.g2d.*;
+import mindustry.io.JsonIO;
 
 /**
  * Defines a rotor type.
@@ -13,9 +14,9 @@ public class Rotor{
 
     public TextureRegion bladeRegion, rotorGlowRegion, rotorShadeRegion, topRegion;
 
+    public float x;
+    public float y;
 
-    /** Rotor offsets from the unit */
-    public float x = 0f, y = 0f;
     /** Rotor Size Scaling */
     public float rotorSizeScl = 1, rotorTopSizeScl = 1;
     /** Rotor base rotation speed */
@@ -32,16 +33,19 @@ public class Rotor{
     /** Whenever to draw the rotor top sprite */
     public float rotorGlowAlphaMultiplier = 1f;
     public boolean drawRotorTop = false;
-    /** Duplicates the initial rotor and spins it on the opposite dirrection */
-    public boolean doubleRotor = false;
-    /** How many blades generated on the unit */
+
+    public float rotOffset = 0f;
+    public float speed = 29f;
+
+    public int bladeCount = 4;
+    public boolean mirror = false;
 
     public boolean rotorNotRadial = true;
 
     public boolean rotorRadial = false;
 
     public boolean drawGlow = false;
-    public int bladeCount = 4;
+
 
     public Rotor(String name){
         this.name = name;
@@ -53,6 +57,10 @@ public class Rotor{
         rotorShadeRegion = Core.atlas.find(name + "-shade");
         rotorGlowRegion = Core.atlas.find(name + "-glow");
         topRegion = Core.atlas.find(name + "-top");
+    }
+
+    public Rotor copy(){
+        return JsonIO.copy(this, new Rotor(name));
     }
 
     /** Rotor entities that are mounted in units or other stuff. */

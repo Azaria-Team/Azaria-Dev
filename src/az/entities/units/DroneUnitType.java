@@ -7,18 +7,21 @@ import arc.math.Mathf;
 import arc.struct.Seq;
 import az.world.draw.Rotor;
 import azaria.gen.Dronec;
+import mindustry.content.Fx;
 import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
 import mindustry.type.UnitType;
 
 public class DroneUnitType extends UnitType {
-    // Copters.
-    public final Seq<Rotor> rotors = new Seq<>();
 
-    public float spinningFallSpeed = 0;
     public float rotorDeathSlowdown = 0.01f;
     public float fallSmokeX = 0f, fallSmokeY = -5f, fallSmokeChance = 0.1f;
     public boolean hover = false;
+
+    // Copters.
+    public final Seq<Rotor> rotors = new Seq<>(2);
+    public float fallRotateSpeed = 2f;
+
 
     public DroneUnitType(String name) {
         super(name);
@@ -31,14 +34,51 @@ public class DroneUnitType extends UnitType {
         Draw.z(z - 3f);
         super.drawSoftShadow(unit, alpha);
     }
-    public void drawRotor(Unit unit) {
+    @Override
+    public void load(){
+        super.load();
+
+        for(Rotor rotor : rotors) rotor.load();
+    }
+
+    @Override
+    public void init(){
+        super.init();
+
+        Seq<Rotor> mapped = new Seq<>();
+        for(Rotor rotor : rotors){
+            mapped.add(rotor);
+            if(rotor.mirror){
+                Rotor copy = rotor.copy();
+                copy.x *= -1f;
+                copy.speed *= -1f;
+                copy.rotorGlowSpeedMultiplier *= -1f;
+                copy.rotOffset += 360f / (copy.bladeCount * 2);
+
+                mapped.add(copy);
+            }
+        }
+        rotors.set(mapped);
+    }
+
+    @Override
+    public void draw(Unit unit){
+        float z = unit.elevation > 0.5f ? (lowAltitude ? Layer.flyingUnitLow : Layer.flyingUnit) : groundLayer + Mathf.clamp(hitSize / 4000f, 0, 0.01f);
+        super.draw(unit);
+        Draw.z(z);
+        if(unit instanceof Dronec) drawRotors((Unit & Dronec)unit);
+    }
+
+    public <T extends Unit & Dronec> void drawRotors(T unit){
         float z = unit.elevation > 0.5f ? (lowAltitude ? Layer.flyingUnitLow : Layer.flyingUnit) : groundLayer + Mathf.clamp(hitSize / 4000f, 0, 0.01f);
         applyColor(unit);
-        if (unit instanceof Dronec copter) {
-            for (Rotor.RotorMount mount : copter.rotors()) {
-                Rotor rotor = mount.rotor;
+
+        Rotor.RotorMount[] rotors = unit.rotors();
+        for(Rotor.RotorMount mount : rotors){
+            Rotor rotor = mount.rotor;
                 float rx = unit.x + Angles.trnsx(unit.rotation - 90, rotor.x, rotor.y);
                 float ry = unit.y + Angles.trnsy(unit.rotation - 90, rotor.x, rotor.y);
+
                 float rotorScl = Draw.scl * rotor.rotorSizeScl;
                 float rotorTopScl = Draw.scl * rotor.rotorTopSizeScl;
 
@@ -48,7 +88,7 @@ public class DroneUnitType extends UnitType {
 
                     // region Normal Rotor
                     Draw.z(z + rotor.rotorLayer);
-                    Draw.alpha(rotor.rotorShadeRegion.found() ? 1 - (copter.rotSpeedScl() / 0.8f) : 1);
+                    Draw.alpha(rotor.rotorShadeRegion.found() ? 1 - (unit.rotSpeedScl() / 0.8f) : 1);
                     Draw.mixcol(Color.white, unit.hitTime);
                     Draw.rect(rotor.bladeRegion, rx, ry,
                             rotor.bladeRegion.width * rotorScl,
@@ -62,7 +102,7 @@ public class DroneUnitType extends UnitType {
                     if (rotor.rotorNotRadial) {
                         if (rotor.rotorShadeRegion.found()) {
                             Draw.z(z + rotor.rotorLayer);
-                            Draw.alpha(copter.rotSpeedScl() * rotor.rotorBlurAlphaMultiplier * (copter.dead() ? copter.rotSpeedScl() * 0.5f : 1));
+                            Draw.alpha(unit.rotSpeedScl() * rotor.rotorBlurAlphaMultiplier * (unit.dead() ? unit.rotSpeedScl() * 0.5f : 1));
                             Draw.rect(
                                     rotor.rotorShadeRegion, rx, ry,
                                     rotor.rotorShadeRegion.width * rotorScl,
@@ -81,7 +121,7 @@ public class DroneUnitType extends UnitType {
                 if (rotor.rotorRadial) {
                     if (rotor.rotorShadeRegion.found()) {
                         Draw.z(z + rotor.rotorLayer);
-                        Draw.alpha(copter.rotSpeedScl() * rotor.rotorBlurAlphaMultiplier * (copter.dead() ? copter.rotSpeedScl() * 0.5f : 1));
+                        Draw.alpha(unit.rotSpeedScl() * rotor.rotorBlurAlphaMultiplier * (unit.dead() ? unit.rotSpeedScl() * 0.5f : 1));
                         Draw.rect(
                                 rotor.rotorShadeRegion, rx, ry,
                                 rotor.rotorShadeRegion.width * rotorScl,
@@ -95,7 +135,7 @@ public class DroneUnitType extends UnitType {
                     if (rotor.drawGlow) {
                         if (rotor.rotorGlowRegion.found()) {
                             Draw.z(z + rotor.rotorLayer + 0.01f);
-                            Draw.alpha(copter.rotSpeedScl() * rotor.rotorGlowAlphaMultiplier * (copter.dead() ? copter.rotSpeedScl() * 0.5f : 1));
+                            Draw.alpha(unit.rotSpeedScl() * rotor.rotorGlowAlphaMultiplier * (unit.dead() ? unit.rotSpeedScl() * 0.5f : 1));
                             Draw.rect(
                                     rotor.rotorGlowRegion, rx, ry,
                                     rotor.rotorGlowRegion.width * rotorScl,
@@ -120,19 +160,4 @@ public class DroneUnitType extends UnitType {
                 }
             }
         }
-    }
-
-    @Override
-    public void draw(Unit unit) {
-        float z = unit.elevation > 0.5f ? (lowAltitude ? Layer.flyingUnitLow : Layer.flyingUnit) : groundLayer + Mathf.clamp(hitSize / 4000f, 0, 0.01f);
-        super.draw(unit);
-        Draw.z(z);
-        drawRotor(unit);
-    }
-
-    @Override
-    public void load() {
-        super.load();
-        rotors.each(Rotor::load);
-    }
 }
