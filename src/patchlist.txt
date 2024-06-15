@@ -1,8 +1,6 @@
 #DON'T TOUCH ANY OF THEM!
 #before release
 
-- fix ferbium ore display
-
 - add some ferbium blocks
 - add spectralia related blocks
 - add superdense alloy related blocks
@@ -51,7 +49,8 @@
 -unit vector remake (new burst fire added)
 -new liquid spectralia added
 -fix bridge conveyors
--fix ferbium display
+-fix ferbium ore display
+-fixed DroneUnitType crash in multiplayer
 -fixed hardened conveyor icon
 -fixed sorter item color (doesn't display), reverse sorter too
 -added unit refabricators
