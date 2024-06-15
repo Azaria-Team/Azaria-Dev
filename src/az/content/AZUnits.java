@@ -732,6 +732,7 @@ public class AZUnits {
             hitSize = 12f;
             outlineColor = AZPal.aureliaOutline;
             fallSpeed = 0.001f;
+            fallRotateSpeed = 0;
 
             researchCostMultiplier = 0f;
             shadowElevation = 0.1f;
