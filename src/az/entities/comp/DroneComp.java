@@ -57,11 +57,7 @@ abstract class DroneComp implements Unitc {
             }
 
             for(Rotor.RotorMount rotor : rotors){
-                rotor.rotorRot += rotor.rotor.speed * rotSpeedScl * Time.delta;
-                rotor.rotorRot %= 360f;
-
-                rotor.rotorShadeRot += rotor.rotor.rotorGlowSpeedMultiplier * Time.delta;
-                rotor.rotorShadeRot %= 360f;
+                rotor.rotorRot += ((rotor.rotor.rotorSpeed * rotSpeedScl) + rotor.rotor.minimumRotorSpeed) * Time.delta;
             }
         }
     }
