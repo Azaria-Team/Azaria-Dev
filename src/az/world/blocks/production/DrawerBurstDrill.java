@@ -16,7 +16,7 @@ import mindustry.world.blocks.production.Drill;
 import mindustry.world.draw.DrawBlock;
 import mindustry.world.draw.DrawDefault;
 
-public class AZBurstDrill extends Drill {
+public class DrawerBurstDrill extends Drill {
 
     public float shake = 2f;
     public Interp speedCurve = Interp.pow2In;
@@ -27,7 +27,7 @@ public class AZBurstDrill extends Drill {
     public float drillSoundVolume = 0.6f, drillSoundPitchRand = 0.1f;
     public DrawBlock drawer = new DrawDefault();
 
-    public AZBurstDrill(String name){
+    public DrawerBurstDrill(String name){
         super(name);
 
         //does not drill in the traditional sense, so this is not even used
@@ -66,7 +66,7 @@ public class AZBurstDrill extends Drill {
         return drillTime / drillMultipliers.get(item, 1f);
     }
 
-    public class HPLBurstDrillBuild extends DrillBuild{
+    public class DrawerBurstDrillBuild extends DrillBuild{
         //used so the lights don't fade out immediately
         public float smoothProgress = 0f;
         public float invertTime = 0f;

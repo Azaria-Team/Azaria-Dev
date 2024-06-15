@@ -17,7 +17,7 @@ import mindustry.world.blocks.distribution.*;
 public class ModDuct extends Duct {
     public @Nullable
     Block junctionReplacement, bridgeReplacement;
-    public String botName = "az-magnetic-conveyor-bottom";
+    public String bottomName = "az-magnetic-conveyor-bottom";
 
     public ModDuct(String name) {
         super(name);
@@ -33,7 +33,7 @@ public class ModDuct extends Duct {
 
     @Override
     public TextureRegion[] icons(){
-        return new TextureRegion[]{Core.atlas.find(botName), topRegions[0]};
+        return new TextureRegion[]{Core.atlas.find(bottomName), topRegions[0]};
     }
 
     @Override

@@ -34,7 +34,7 @@ public class UndergroundOre extends OverlayFloor {
     }
     @Override
     public void drawBase(Tile tile) {
-        if (shouldDrawBase && Vars.state.isEditor()) {
+        if (shouldDrawBase || Vars.state.isEditor()) {
             float l = Draw.z();
             Draw.z(Layer.floor);
 

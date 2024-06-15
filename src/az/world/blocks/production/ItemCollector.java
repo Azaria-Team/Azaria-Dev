@@ -1,6 +1,5 @@
 package az.world.blocks.production;
 
-import az.world.blocks.power.ThermalEvaporator;
 import az.world.meta.AZStat;
 import mindustry.game.Team;
 import mindustry.graphics.Drawf;
@@ -14,9 +13,9 @@ import mindustry.world.meta.StatValues;
 import static mindustry.Vars.tilesize;
 import static mindustry.Vars.world;
 
-public class AzItemCollector extends AttributeCrafter {
+public class ItemCollector extends AttributeCrafter {
     public int spacing = 4;
-    public AzItemCollector(String name) {
+    public ItemCollector(String name) {
         super(name);
     }
     @Override
@@ -44,7 +43,7 @@ public class AzItemCollector extends AttributeCrafter {
         for(int x = tile.x - spacing + off; x < tile.x + spacing - -1; x++){
             for(int y = tile.y - spacing + off; y < tile.y + spacing - -1; y++){
                 Tile t = world.tile(x, y);
-                if(t != null &&  t.block() instanceof AzItemCollector s && (s == this || s.spacings(t.build.tile, tile))) return false;
+                if(t != null &&  t.block() instanceof ItemCollector s && (s == this || s.spacings(t.build.tile, tile))) return false;
             }
         }
         return tile.getLinkedTilesAs(this, tempTiles).sumf(other -> other.floor().attributes.get(attribute)) > minEfficiency;

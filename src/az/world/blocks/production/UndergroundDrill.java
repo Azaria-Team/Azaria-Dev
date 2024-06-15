@@ -6,20 +6,16 @@ import arc.graphics.g2d.Draw;
 import arc.math.Mathf;
 import az.world.blocks.environment.UndergroundOre;
 import mindustry.content.Items;
-import mindustry.game.Team;
-import mindustry.graphics.Drawf;
-import mindustry.logic.Ranged;
 import mindustry.type.Item;
 import mindustry.world.Block;
 import mindustry.world.Tile;
-import mindustry.world.meta.StatValue;
 
 import static mindustry.Vars.*;
 
 /**
  * Original code from FOS[<a href="https://github.com/TeamOct/FOS/blob/master/src/fos/type/blocks/production/UndergroundDrill.java">...</a>]
  */
-public class UndergroundDrill extends AZBurstDrill {
+public class UndergroundDrill extends DrawerBurstDrill {
     public UndergroundDrill(String name){
         super(name);
     }
@@ -109,7 +105,6 @@ public class UndergroundDrill extends AZBurstDrill {
         return b instanceof UndergroundOre u ? u.drop : null;
     }
 
-    @SuppressWarnings("unused")
     public class UndergroundDrillBuild extends DrillBuild {
         @Override
         public void onProximityUpdate() {

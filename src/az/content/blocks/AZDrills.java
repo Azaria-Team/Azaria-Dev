@@ -4,8 +4,8 @@ import az.content.AZAttribute;
 import az.content.AZFx;
 import az.content.AZItems;
 import az.graphics.AZPal;
-import az.world.blocks.production.AzItemCollector;
-import az.world.blocks.production.AZBurstDrill;
+import az.world.blocks.production.ItemCollector;
+import az.world.blocks.production.DrawerBurstDrill;
 import az.world.blocks.production.OreRadar;
 import az.world.blocks.production.UndergroundDrill;
 import az.world.draw.DrawDrillPart;
@@ -90,7 +90,7 @@ public class AZDrills {
             displayEfficiency = false;
         }};
 
-        vacuumCollector = new AzItemCollector("vacuum-collector") {{
+        vacuumCollector = new ItemCollector("vacuum-collector") {{
             requirements(Category.production, with(AZItems.fors, 20));
             researchCost = with( AZItems.fors, 25);
 
@@ -117,7 +117,7 @@ public class AZDrills {
         }};
 
         //later
-        waveDrill = new AZBurstDrill("wave-drill"){{
+        waveDrill = new DrawerBurstDrill("wave-drill"){{
             requirements(Category.production, with(AZItems.fors, 35, AZItems.craside, 15));
             squareSprite = false;
             drillTime = 60f * 5f;
