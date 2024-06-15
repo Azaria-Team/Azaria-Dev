@@ -63,7 +63,6 @@ abstract class DroneComp implements Unitc {
                 rotor.rotorShadeRot += rotor.rotor.rotorGlowSpeedMultiplier * Time.delta;
                 rotor.rotorShadeRot %= 360f;
             }
-            type.fallSpeed = 0.006f;
         }
     }
 

@@ -26,6 +26,7 @@ public class DroneUnitType extends UnitType {
     public DroneUnitType(String name) {
         super(name);
         engineSize = 0;
+        fallSpeed = 0.006f;
     }
 
     @Override
