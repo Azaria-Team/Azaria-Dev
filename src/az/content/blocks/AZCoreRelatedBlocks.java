@@ -53,7 +53,8 @@ public class AZCoreRelatedBlocks {
         }};
 
         repairTurret = new BlockRepairTurret("repair-turret"){{
-            requirements(Category.effect, with(AZItems.fors, 120, AZItems.lepera, 30, AZItems.arside, 80));
+            requirements(Category.effect, with(AZItems.fors, 90, AZItems.lepera, 40));
+            health = 320;
             repairSpeed = 0.75f;
             repairRadius = 90f;
             outlineColor = AZPal.aureliaOutline;

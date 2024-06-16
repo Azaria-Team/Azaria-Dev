@@ -76,7 +76,7 @@ public class AZLiquidBlocks {
         }};
 
         advancedPump = new Pump("advanced-pump"){{
-            requirements(Category.liquid, with(AZItems.fors, 90, AZItems.arside, 70, AZItems.keremtite, 30));
+            requirements(Category.liquid, with(AZItems.fors, 90, AZItems.arside, 70, AZItems.superdenseAlloy, 30));
             squareSprite = true;
             pumpAmount = 10f / 60f;
             liquidCapacity = 140f;

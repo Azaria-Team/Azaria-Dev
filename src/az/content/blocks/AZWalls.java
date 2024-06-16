@@ -65,7 +65,7 @@ public class AZWalls {
         }};
 
         superdenseWall = new Wall("superdense-wall") {{
-           requirements(Category.defense, with(AZItems.keremtite, 8));
+           requirements(Category.defense, with(AZItems.superdenseAlloy, 8));
            health = 1500;
            buildCostMultiplier = 8f;
            armor = 5f;
@@ -73,7 +73,7 @@ public class AZWalls {
 
         superdenseWallLarge = new Wall("superdense-wall-large") {{
             size = 2;
-            requirements(Category.defense, with(AZItems.keremtite, 32));
+            requirements(Category.defense, with(AZItems.superdenseAlloy, 32));
             health = superdenseWall.health * 4;
             buildCostMultiplier = 8f;
             armor = 7f;

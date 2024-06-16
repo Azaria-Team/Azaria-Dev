@@ -7,7 +7,7 @@ import mindustry.type.Item;
 public class AZItems {
     public static Item
     fors, lepera, ferbium, //TODO rename ferbuim
-    serrid, arside, keremtite,
+    serrid, arside, superdenseAlloy,
     seonium, medulla, zectral, arcanite,
     palerite, darnar;
 
@@ -36,7 +36,7 @@ public class AZItems {
             hardness = 2;
         }};
 
-        keremtite = new Item("keremtite", Color.valueOf("313442")) {{
+        superdenseAlloy = new Item("superdense-alloy", Color.valueOf("313442")) {{
             cost = 1f;
         }};
 
@@ -61,7 +61,7 @@ public class AZItems {
             cost = 2f;
         }};
         aurionaItems.addAll(
-                fors, arside, lepera, serrid, ferbium, keremtite, seonium, medulla, zectral
+                fors, arside, lepera, serrid, ferbium, superdenseAlloy, seonium, medulla, zectral
         );
     }
 }

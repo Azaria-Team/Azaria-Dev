@@ -21,7 +21,7 @@ public class AZPower {
     public static void load() {
         //nodes
         plasmaNode = new LightningPowerNode("plasma-node", 0) {{
-            requirements(Category.power, with(AZItems.fors, 3));
+            requirements(Category.power, with(AZItems.fors, 3, AZItems.lepera, 5));
             researchCost = with(AZItems.fors, 25);
 
             consumePowerBuffered(5000f);
@@ -29,17 +29,8 @@ public class AZPower {
             thresholdPerTile = 0.0001f / 8f;
         }};
 
-        plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
-            //todo crafting
-            requirements(Category.power, with(AZItems.lepera, 20, AZItems.arside, 20));
-            consumePowerBuffered(15000f);
-            size = 2;
-            lightningRange = 25 * 8f;
-            thresholdPerTile = 0.0001f / 8f;
-        }};
-
         plasmaDistributor = new LightningPowerNode("plasma-distributor", 12) {{
-            requirements(Category.power, with(AZItems.fors, 45));
+            requirements(Category.power, with(AZItems.fors, 25, AZItems.lepera, 35));
             researchCost = with(AZItems.fors, 40);
             size = 2;
             consumePowerBuffered(4000f);
@@ -49,8 +40,15 @@ public class AZPower {
             //buildCostMultiplier = 8f;
         }};
 
+        plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
+            requirements(Category.power, with(AZItems.lepera, 20, AZItems.arside, 20));
+            consumePowerBuffered(15000f);
+            size = 2;
+            lightningRange = 25 * 8f;
+            thresholdPerTile = 0.0001f / 8f;
+        }};
+
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
-            //todo crafting
             requirements(Category.power, with(AZItems.lepera, 20, AZItems.arside, 20));
             consumePowerBuffered(13000f);
             size = 3;
@@ -62,9 +60,9 @@ public class AZPower {
         //generators
         thermalEvaporator = new ThermalEvaporator("thermal-evaporator") {{
             requirements(Category.power, with(AZItems.fors, 40));
-            researchCost = with(AZItems.fors, 65);
-
-            powerProduction = 4.0f / 15f;
+            researchCost = with(AZItems.fors, 65, AZItems.lepera, 30);
+            health = 80;
+            powerProduction = 0.15f;
             displayEfficiency = true;
             size = 2;
             floating = true;

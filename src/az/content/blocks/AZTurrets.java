@@ -213,9 +213,9 @@ public class AZTurrets {
         }};
 
         razeTurret = new ItemTurret("raze") {{
-            requirements(Category.turret, with(AZItems.fors, 230, AZItems.arside, 130, AZItems.keremtite, 70, AZItems.ferbium, 20));
+            requirements(Category.turret, with(AZItems.fors, 230, AZItems.arside, 130, AZItems.superdenseAlloy, 70, AZItems.ferbium, 20));
             ammo(
-                    AZItems.keremtite, AZBullets.razeBullet
+                    AZItems.superdenseAlloy, AZBullets.razeBullet
             );
             outlineColor = AZPal.aureliaOutline;
 
@@ -328,7 +328,7 @@ public class AZTurrets {
                 //region h-tur
                 complexShell = new AirDefenceTurret("complex-shell") {{
                     size = 3;
-                    requirements(Category.turret, with(AZItems.keremtite, 300));
+                    requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
                     health = 700;
                     shootEffect = AZFx.shootForce;
                     smokeEffect = AZFx.shootSmokeForce;
@@ -347,7 +347,7 @@ public class AZTurrets {
                     itemCapacity = 20;
                     coolantMultiplier = 2f;
                     consumePower(1f);
-                    ammo(AZItems.keremtite, AZBullets.antiMissileBullet);
+                    ammo(AZItems.superdenseAlloy, AZBullets.antiMissileBullet);
                 }};
 /*
                 complexAvalon = new PowerTurret("complex-avalon") {{

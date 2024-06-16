@@ -124,7 +124,7 @@ public class AZTechTree {
                 nodeProduce(lepera, () -> {
                     nodeProduce(arside, () -> {
                         nodeProduce(ferbium, () -> {
-                            nodeProduce(keremtite, () -> {
+                            nodeProduce(superdenseAlloy, () -> {
                             });
                         });
                     });

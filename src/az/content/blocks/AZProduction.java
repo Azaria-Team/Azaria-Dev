@@ -54,7 +54,7 @@ public class AZProduction {
 
         heavyDutyCrucible = new GenericCrafter("heavy-duty-crucible") {{
             requirements(Category.crafting, with(AZItems.fors, 200, AZItems.lepera, 150, AZItems.arside, 100));
-            outputItem = new ItemStack(AZItems.keremtite, 4);
+            outputItem = new ItemStack(AZItems.superdenseAlloy, 4);
             consumeItems(with(AZItems.fors, 2, AZItems.serrid, 3, AZItems.ferbium, 1));
             craftTime = 160f;
             ambientSound = Sounds.hum;

@@ -2,7 +2,6 @@ package az.content.blocks;
 
 import az.content.AZItems;
 import az.world.blocks.distribution.ModDuct;
-import mindustry.content.Blocks;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.distribution.*;
@@ -14,7 +13,7 @@ import static mindustry.type.ItemStack.with;
 public class AZDistribution {
     public static Block
             magneticConveyor, magneticJunction, magneticRouter, magneticBridgeConveyor,
-            magneticSorter, magneticReverseSorter, magneticOverflorGate, magneticUnderflowGate,
+            magneticSorter, magneticInvertedSorter, magneticOverflorGate, magneticUnderflowGate,
             magneticUnloader;
 
     public static void load() {
@@ -30,18 +29,6 @@ public class AZDistribution {
             bridgeReplacement = AZDistribution.magneticBridgeConveyor;
         }};
 
-        magneticJunction = new Junction("magnetic-junction") {{
-            requirements(Category.distribution, with(AZItems.fors, 2));
-            researchCost = with(AZItems.fors, 10);
-
-            health = 180;
-            speed = 6f;
-
-            capacity = 1;
-            buildCostMultiplier = 6f;
-            squareSprite = false;
-        }};
-
         magneticRouter = new Router("magnetic-router") {{
             requirements(Category.distribution, with(AZItems.fors, 2));
             researchCost = with(AZItems.fors, 15);
@@ -52,11 +39,23 @@ public class AZDistribution {
             squareSprite = false;
         }};
 
+        magneticJunction = new Junction("magnetic-junction") {{
+            requirements(Category.distribution, with(AZItems.fors, 2));
+            researchCost = with(AZItems.fors, 10);
+
+            health = magneticRouter.health;
+            speed = 6f;
+
+            capacity = 1;
+            buildCostMultiplier = 6f;
+            squareSprite = false;
+        }};
+
         magneticBridgeConveyor = new ItemBridge("magnetic-bridge-conveyor"){{
             requirements(Category.distribution, with(AZItems.fors, 10));
             researchCost = with(AZItems.fors, 35);
             bridgeWidth = 8F;
-            health = 170;
+            health = 200;
             range = 5;
 
             buildCostMultiplier = 2f;
@@ -66,24 +65,28 @@ public class AZDistribution {
         //sec2
         magneticSorter = new Sorter("magnetic-sorter"){{
             requirements(Category.distribution, with(AZItems.fors, 4));
+            health = magneticRouter.health;
         }};
 
-        magneticReverseSorter = new Sorter("magnetic-reverse-sorter") {{
+        magneticInvertedSorter = new Sorter("magnetic-inverted-sorter") {{
             requirements(Category.distribution, with(AZItems.fors, 4));
             invert = true;
+            health = magneticRouter.health;
         }};
 
         magneticOverflorGate = new OverflowGate("magnetic-overflow-gate"){{
             requirements(Category.distribution, with(AZItems.fors, 6));
             buildCostMultiplier = 3;
+            health = magneticRouter.health;
         }};
         magneticUnderflowGate = new OverflowGate("magnetic-underflow-gate") {{
             requirements(Category.distribution, with(AZItems.fors, 6));
             invert = true;
+            health = magneticRouter.health;
         }};
 
         magneticUnloader = new Unloader("magnetic-unloader") {{
-            requirements(Category.distribution, with(AZItems.keremtite, 15, AZItems.fors, 5));
+            requirements(Category.distribution, with(AZItems.superdenseAlloy, 15, AZItems.fors, 5));
             health = 300;
             speed = 60.0f / 11.0f;
 
