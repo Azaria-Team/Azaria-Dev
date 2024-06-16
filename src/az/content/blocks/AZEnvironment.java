@@ -254,7 +254,6 @@ public class AZEnvironment {
         //region volcanic-biome
         //huitaRock
         huitaRock = new Floor("huita-rock") {{
-            attributes.set(AZAttribute.serridAttr, 1);
             //itemDrop = AZItems.volcanicSerrid;
             variants = 4;
         }};
@@ -332,9 +331,8 @@ public class AZEnvironment {
             oreThreshold = 0.81f;
             oreScale = 23.47619f;
         }};
-        ferbiumOre = new UndergroundOre("ore-ferbium"){{
-            itemDrop = AZItems.ferbium;
-            generateIcons = false;
+        ferbiumOre = new OreBlock(AZItems.ferbium){{
+            //itemDrop = AZItems.ferbium;
             oreDefault = true;
             oreThreshold = 0.81f;
             oreScale = 23.47619f;

@@ -89,6 +89,7 @@ public class AZUnits {
             engineOffset = 9.5f;
             alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
+            fogRadius = 0f;
 
             weapons.add(
                     new Weapon(){{
@@ -109,6 +110,7 @@ public class AZUnits {
                                 speed = 4.2f;
                                 maxRange = 16f;
                                 trailWidth = 1;
+                                fogRadius = 0f;
 
                                 lifetime = 55;
                                 outlineColor = AZPal.aureliaOutline;
@@ -123,9 +125,9 @@ public class AZUnits {
                                     mirror = false;
                                     reload = 1f;
                                     shootOnDeath = true;
-                                    bullet = new ExplosionBulletType(125f, 3f * tilesize){{
+                                    bullet = new ExplosionBulletType(100f, 3f * tilesize){{
                                         shootEffect = Fx.explosion;
-                                        buildingDamageMultiplier = 0.5f;
+                                        buildingDamageMultiplier = 0.3f;
                                     }};
                                 }});
                             }};
@@ -731,6 +733,8 @@ public class AZUnits {
             health = 500f;
             hitSize = 12f;
             outlineColor = AZPal.aureliaOutline;
+            fallSpeed = 0.001f;
+            fallRotateSpeed = 0;
 
             researchCostMultiplier = 0f;
             shadowElevation = 0.1f;
