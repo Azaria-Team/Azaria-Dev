@@ -6,8 +6,6 @@ import az.content.AZItems;
 import az.graphics.AZPal;
 import az.world.blocks.production.ItemCollector;
 import az.world.blocks.production.DrawerBurstDrill;
-import az.world.blocks.production.OreRadar;
-import az.world.blocks.production.UndergroundDrill;
 import az.world.draw.DrawDrillPart;
 import mindustry.gen.Sounds;
 import mindustry.graphics.Layer;
@@ -147,26 +145,5 @@ public class AZDrills {
             );
         }};
 
-        undergroundDrill = new UndergroundDrill("underground-Drill"){{
-            requirements(Category.production, with(AZItems.fors, 35, AZItems.arside, 15));
-            squareSprite = false;
-            drillTime = 60f * 5f;
-            size = 3;
-            hasPower = true;
-            tier = 3;
-            //drillEffect = new MultiEffect(Fx.mineImpact, Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 40f));
-            shake = 4f;
-            itemCapacity = 20;
-            researchCost = with(AZItems.fors, 50);
-
-            fogRadius = 5;
-            consumePower(15f / 60f);
-        }};
-
-        oreDetector = new OreRadar("ore-detector") {{
-            requirements(Category.production, with(AZItems.fors, 20, AZItems.lepera, 20, AZItems.arside, 35));
-            size = 3;
-            consumePower(30f/60f);
-        }};
     }
 }

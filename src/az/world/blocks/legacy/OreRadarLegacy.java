@@ -1,4 +1,4 @@
-package az.world.blocks.production;
+package az.world.blocks.legacy;
 
 import arc.Core;
 import arc.graphics.Color;
@@ -8,7 +8,6 @@ import arc.graphics.g2d.Lines;
 import arc.math.Mathf;
 import arc.struct.Seq;
 import arc.util.Time;
-import az.world.blocks.environment.UndergroundOre;
 import az.world.meta.AZStat;
 import mindustry.gen.Building;
 import mindustry.graphics.Drawf;
@@ -24,7 +23,7 @@ import static mindustry.content.Blocks.air;
 /**
  * Original code from FOS[<a href="https://github.com/TeamOct/fictional-octo-system/blob/master/src/fos/type/blocks/production/OreDetector.java">...</a>]
 */
-public class OreRadar extends Block {
+public class OreRadarLegacy extends Block {
     public int range = 20 * 8;
     public float radarSpeed = 1f;
     public float radarCone = 15f;
@@ -32,7 +31,7 @@ public class OreRadar extends Block {
     public float coneAlpha = 0.4f;
     public float moveCircleAlpha = 0.4f;
 
-    public OreRadar(String name) {
+    public OreRadarLegacy(String name) {
         super(name);
         solid = true;
         update = true;
@@ -102,7 +101,7 @@ public class OreRadar extends Block {
             Tile hoverTile = world.tileWorld(Core.input.mouseWorld().x, Core.input.mouseWorld().y);
 
             tile.circle((int) (radius / tilesize), (ore) -> {
-                if (ore != null && ore.overlay() != null && ore.overlay() instanceof UndergroundOre u) {
+                if (ore != null && ore.overlay() != null && ore.overlay() instanceof UndergroundOreLegacy u) {
                     var angle = Mathf.angle(ore.x - tile.x, ore.y - tile.y);
                     var c1 = rot();
                     var c2 = rot() + radarCone;
@@ -119,7 +118,7 @@ public class OreRadar extends Block {
             for (var ore : detectedOres) {
                 if (ore.block() != air) continue;
 
-                UndergroundOre u = (UndergroundOre)ore.overlay();
+                UndergroundOreLegacy u = (UndergroundOreLegacy)ore.overlay();
                 u.shouldDrawBase = true;
                 u.drawBase(ore);
                 u.shouldDrawBase = false;
