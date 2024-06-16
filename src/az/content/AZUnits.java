@@ -89,6 +89,7 @@ public class AZUnits {
             engineOffset = 9.5f;
             alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
+            fogRadius = 0f;
 
             weapons.add(
                     new Weapon(){{
