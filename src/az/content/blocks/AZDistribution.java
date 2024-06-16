@@ -24,7 +24,7 @@ public class AZDistribution {
             researchCost = with(AZItems.fors, 5);
 
             health = 200;
-            speed = 7.5;
+            speed = 7.5f;
 
             junctionReplacement = AZDistribution.magneticJunction;
             bridgeReplacement = AZDistribution.magneticBridgeConveyor;
