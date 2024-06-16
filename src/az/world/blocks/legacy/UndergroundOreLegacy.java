@@ -1,4 +1,4 @@
-package az.world.blocks.environment;
+package az.world.blocks.legacy;
 
 import arc.graphics.g2d.Draw;
 import mindustry.Vars;
@@ -10,11 +10,11 @@ import mindustry.world.blocks.environment.OverlayFloor;
 /**
  * Original code from FOS[<a href="https://github.com/TeamOct/FOS/blob/master/src/fos/type/blocks/environment/UndergroundOreBlock.java">...</a>]
  */
-public class UndergroundOre extends OverlayFloor {
+public class UndergroundOreLegacy extends OverlayFloor {
     public boolean shouldDrawBase = false;
     public Item drop;
 
-    public UndergroundOre(String name) {
+    public UndergroundOreLegacy(String name) {
         super(name);
         //hide an ore from the minimap
         useColor = false;

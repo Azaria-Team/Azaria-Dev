@@ -5,7 +5,6 @@ import az.content.AZAttribute;
 import az.content.AZItems;
 import az.content.AZLiquids;
 import az.world.blocks.environment.ModOverlayFloor;
-import az.world.blocks.environment.UndergroundOre;
 import mindustry.graphics.CacheLayer;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;

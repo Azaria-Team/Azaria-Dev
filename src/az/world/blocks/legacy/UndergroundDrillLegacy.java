@@ -1,10 +1,10 @@
-package az.world.blocks.production;
+package az.world.blocks.legacy;
 
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.math.Mathf;
-import az.world.blocks.environment.UndergroundOre;
+import az.world.blocks.production.DrawerBurstDrill;
 import mindustry.content.Items;
 import mindustry.type.Item;
 import mindustry.world.Block;
@@ -15,8 +15,8 @@ import static mindustry.Vars.*;
 /**
  * Original code from FOS[<a href="https://github.com/TeamOct/FOS/blob/master/src/fos/type/blocks/production/UndergroundDrill.java">...</a>]
  */
-public class UndergroundDrill extends DrawerBurstDrill {
-    public UndergroundDrill(String name){
+public class UndergroundDrillLegacy extends DrawerBurstDrill {
+    public UndergroundDrillLegacy(String name){
         super(name);
     }
 
@@ -69,7 +69,7 @@ public class UndergroundDrill extends DrawerBurstDrill {
         itemArray.clear();
 
         for(Tile other : tile.getLinkedTilesAs(this, tempTiles)){
-            if(canMine(other) && (other.overlay() instanceof UndergroundOre)) {
+            if(canMine(other) && (other.overlay() instanceof UndergroundOreLegacy)) {
                 oreCount.increment(getUnderDrop(other.overlay()), 0, 1);
             }
         }
@@ -102,7 +102,7 @@ public class UndergroundDrill extends DrawerBurstDrill {
     }
 
     protected Item getUnderDrop(Block b) {
-        return b instanceof UndergroundOre u ? u.drop : null;
+        return b instanceof UndergroundOreLegacy u ? u.drop : null;
     }
 
     public class UndergroundDrillBuild extends DrillBuild {
