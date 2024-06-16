@@ -110,6 +110,7 @@ public class AZUnits {
                                 speed = 4.2f;
                                 maxRange = 16f;
                                 trailWidth = 1;
+                                fogRadius = 0f;
 
                                 lifetime = 55;
                                 outlineColor = AZPal.aureliaOutline;
@@ -124,9 +125,9 @@ public class AZUnits {
                                     mirror = false;
                                     reload = 1f;
                                     shootOnDeath = true;
-                                    bullet = new ExplosionBulletType(125f, 3f * tilesize){{
+                                    bullet = new ExplosionBulletType(100f, 3f * tilesize){{
                                         shootEffect = Fx.explosion;
-                                        buildingDamageMultiplier = 0.5f;
+                                        buildingDamageMultiplier = 0.3f;
                                     }};
                                 }});
                             }};
