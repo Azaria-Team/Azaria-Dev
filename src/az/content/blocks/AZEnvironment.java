@@ -44,7 +44,7 @@ public class AZEnvironment {
     ancientSus,
 
     //ores
-    forsOre, ferbiumOre, forsRock, khylidOre;
+    forsOre, ferbiumOre, forsRock, khylidGrowth;
 
     public static void load() {
         //region Auriona
@@ -345,7 +345,7 @@ public class AZEnvironment {
             variants = 2;
             attributes.set(AZAttribute.forsattr, 1f);
         }};
-        khylidOre = new ModOverlayFloor(("khylid-ore")) {{
+        khylidGrowth = new ModOverlayFloor(("lepera-growth")) {{
             parent = blendGroup = oxylite;
             variants = 2;
             cacheLayer = CacheLayer.water;

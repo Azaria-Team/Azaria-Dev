@@ -49,7 +49,7 @@ public class AZTechTree {
 
                     });
                 });
-                node(pumpDrill, () -> {
+                node(aquaticDrill, () -> {
 
                 });
             });
@@ -119,12 +119,12 @@ public class AZTechTree {
 
             //region items and liquids
             nodeProduce(fors, () -> {
-                nodeProduce(volcanicSerrid, () -> {
+                nodeProduce(serrid, () -> {
                 });
-                nodeProduce(khylid, () -> {
-                    nodeProduce(craside, () -> {
+                nodeProduce(lepera, () -> {
+                    nodeProduce(arside, () -> {
                         nodeProduce(ferbium, () -> {
-                            nodeProduce(superdenseAlloy, () -> {
+                            nodeProduce(keremtite, () -> {
                             });
                         });
                     });

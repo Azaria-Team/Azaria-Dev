@@ -1,6 +1,5 @@
 package az.content.blocks;
 
-import az.content.AZFx;
 import az.content.AZItems;
 import az.graphics.AZPal;
 import az.world.draw.DrawCrasideSmelt;
@@ -27,9 +26,9 @@ public class AZProduction {
 
         //TODO
         crasideBrewer = new GenericCrafter("craside-brewer") {{
-            requirements(Category.crafting, with(AZItems.fors, 60, AZItems.khylid, 35));
-            outputItem = new ItemStack(AZItems.craside, 2);
-            consumeItems(with(AZItems.khylid, 1, AZItems.volcanicSerrid, 1));
+            requirements(Category.crafting, with(AZItems.fors, 60, AZItems.lepera, 35));
+            outputItem = new ItemStack(AZItems.arside, 2);
+            consumeItems(with(AZItems.lepera, 1, AZItems.serrid, 1));
             craftTime = 110f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;
@@ -54,9 +53,9 @@ public class AZProduction {
         }};
 
         heavyDutyCrucible = new GenericCrafter("heavy-duty-crucible") {{
-            requirements(Category.crafting, with(AZItems.fors, 200, AZItems.khylid, 150, AZItems.craside, 100));
-            outputItem = new ItemStack(AZItems.superdenseAlloy, 4);
-            consumeItems(with(AZItems.fors, 2, AZItems.volcanicSerrid, 3, AZItems.ferbium, 1));
+            requirements(Category.crafting, with(AZItems.fors, 200, AZItems.lepera, 150, AZItems.arside, 100));
+            outputItem = new ItemStack(AZItems.keremtite, 4);
+            consumeItems(with(AZItems.fors, 2, AZItems.serrid, 3, AZItems.ferbium, 1));
             craftTime = 160f;
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.06f;

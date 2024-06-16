@@ -1,8 +1,6 @@
 package az.content.blocks;
 
-import arc.graphics.g2d.Draw;
 import arc.math.Mathf;
-import arc.struct.Seq;
 import arc.util.Time;
 import az.content.AZBullets;
 import az.content.AZFx;
@@ -14,11 +12,8 @@ import az.world.blocks.defense.turret.SpeedUpItemTurret;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
-import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.ExplosionBulletType;
-import mindustry.entities.part.DrawPart;
 import mindustry.entities.part.RegionPart;
-import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootBarrel;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
@@ -30,7 +25,6 @@ import mindustry.type.unit.MissileUnitType;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
-import mindustry.world.blocks.defense.turrets.Turret;
 import mindustry.world.consumers.ConsumeLiquid;
 import mindustry.world.draw.DrawTurret;
 
@@ -45,8 +39,8 @@ public class AZTurrets {
 
     public static void load() {
         forceTurret = new ItemTurret("force") {{
-            requirements(Category.turret, with(AZItems.fors, 70, AZItems.khylid, 25));
-            researchCost = with(AZItems.fors, 150, AZItems.khylid, 70);
+            requirements(Category.turret, with(AZItems.fors, 85, AZItems.lepera, 30));
+            researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
             health = 700;
             shootEffect = AZFx.shootForce;
             smokeEffect = AZFx.shootSmokeForce;
@@ -103,8 +97,8 @@ public class AZTurrets {
         }};
 
         hornTurret = new PowerTurret("horn") {{
-            requirements(Category.turret, with(AZItems.fors, 70, AZItems.craside, 25));
-            researchCost = with(AZItems.fors, 150, AZItems.khylid, 70);
+            requirements(Category.turret, with(AZItems.fors, 70, AZItems.arside, 25));
+            researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
             health = 900;
             shootEffect = Fx.none;
             smokeEffect = Fx.none;
@@ -162,8 +156,8 @@ public class AZTurrets {
         }};
 
         testTurret = new SpeedUpItemTurret("test-turret") {{
-            requirements(Category.turret, with(AZItems.fors, 70, AZItems.khylid, 25));
-            researchCost = with(AZItems.fors, 150, AZItems.khylid, 70);
+            requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
+            researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
             health = 700;
             shootEffect = AZFx.shootForce;
             smokeEffect = AZFx.shootSmokeForce;
@@ -219,9 +213,9 @@ public class AZTurrets {
         }};
 
         razeTurret = new ItemTurret("raze") {{
-            requirements(Category.turret, with(AZItems.fors, 230, AZItems.craside, 130, AZItems.superdenseAlloy, 70, AZItems.ferbium, 20));
+            requirements(Category.turret, with(AZItems.fors, 230, AZItems.arside, 130, AZItems.keremtite, 70, AZItems.ferbium, 20));
             ammo(
-                    AZItems.superdenseAlloy, AZBullets.razeBullet
+                    AZItems.keremtite, AZBullets.razeBullet
             );
             outlineColor = AZPal.aureliaOutline;
 
@@ -306,7 +300,7 @@ public class AZTurrets {
                             lifetime = 2f;
                             maxRange = 4f;
                             outlineColor = AZPal.aureliaOutline;
-                            engineColor = AZItems.hyperliosAlloy.color;
+                            engineColor = AZItems.zectral.color;
                             engineLayer = Layer.effect;
                             engineOffset = 6f;
                             accel = -3f;
@@ -334,7 +328,7 @@ public class AZTurrets {
                 //region h-tur
                 complexShell = new AirDefenceTurret("complex-shell") {{
                     size = 3;
-                    requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
+                    requirements(Category.turret, with(AZItems.keremtite, 300));
                     health = 700;
                     shootEffect = AZFx.shootForce;
                     smokeEffect = AZFx.shootSmokeForce;
@@ -353,7 +347,7 @@ public class AZTurrets {
                     itemCapacity = 20;
                     coolantMultiplier = 2f;
                     consumePower(1f);
-                    ammo(AZItems.superdenseAlloy, AZBullets.antiMissileBullet);
+                    ammo(AZItems.keremtite, AZBullets.antiMissileBullet);
                 }};
 /*
                 complexAvalon = new PowerTurret("complex-avalon") {{

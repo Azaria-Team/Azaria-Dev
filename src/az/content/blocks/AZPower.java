@@ -31,7 +31,7 @@ public class AZPower {
 
         plasmaNodeLarge = new LightningPowerNode("plasma-node-large", 0) {{
             //todo crafting
-            requirements(Category.power, with(AZItems.khylid, 20, AZItems.craside, 20));
+            requirements(Category.power, with(AZItems.lepera, 20, AZItems.arside, 20));
             consumePowerBuffered(15000f);
             size = 2;
             lightningRange = 25 * 8f;
@@ -51,7 +51,7 @@ public class AZPower {
 
         plasmaDistributorLarge = new LightningPowerNode("plasma-distributor-large", 24) {{
             //todo crafting
-            requirements(Category.power, with(AZItems.khylid, 20, AZItems.craside, 20));
+            requirements(Category.power, with(AZItems.lepera, 20, AZItems.arside, 20));
             consumePowerBuffered(13000f);
             size = 3;
             lightningRange = 15 * 8f;
@@ -86,7 +86,7 @@ public class AZPower {
         }};
 
         oxyliteTurbine = new ConsumeGenerator("oxylite-turbine"){{
-            requirements(Category.power, with(AZItems.fors, 100, AZItems.khylid, 35, AZItems.craside, 55));
+            requirements(Category.power, with(AZItems.fors, 100, AZItems.lepera, 35, AZItems.arside, 55));
             powerProduction = 2.5f;
             itemDuration = 130f;
             consumeLiquid(AZLiquids.oxyliteLiq, 5f / 60f);
@@ -98,7 +98,7 @@ public class AZPower {
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.06f;
 
-            consumeItems(with(AZItems.khylid, 2f));
+            consumeItems(with(AZItems.lepera, 2f));
 
             drawer = new DrawMulti(
 

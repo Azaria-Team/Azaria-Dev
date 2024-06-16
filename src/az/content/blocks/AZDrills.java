@@ -25,12 +25,12 @@ import static mindustry.type.ItemStack.with;
 
 public class AZDrills {
     public static Block
-            forsDrill, pumpDrill, vacuumCollector,
+            forsDrill, aquaticDrill, dustCollector,
             waveDrill, oreDetector, undergroundDrill;
     public static void load() {
         //sec1
-        forsDrill = new AttributeCrafter("fors-block") {{
-            requirements(Category.production, with(AZItems.fors, 20));
+        forsDrill = new AttributeCrafter("fors-drill") {{
+            requirements(Category.production, with(AZItems.fors, 30));
             researchCost = with( AZItems.fors, 25);
 
             attribute = AZAttribute.forsattr;
@@ -59,14 +59,14 @@ public class AZDrills {
             displayEfficiency = false;
         }};
 
-        pumpDrill = new AttributeCrafter("pump-drill") {{
+        aquaticDrill = new AttributeCrafter("aquatic-drill") {{
             requirements(Category.production, with(AZItems.fors, 35));
             researchCost = with(AZItems.fors, 50);
             squareSprite = false;
 
             attribute = AZAttribute.khylidattr;
             group = BlockGroup.liquids;
-            outputItem = new ItemStack(AZItems.khylid, 4);
+            outputItem = new ItemStack(AZItems.lepera, 4);
             ambientSound = Sounds.hum;
 
             health = 280;
@@ -90,12 +90,12 @@ public class AZDrills {
             displayEfficiency = false;
         }};
 
-        vacuumCollector = new ItemCollector("vacuum-collector") {{
+        dustCollector = new ItemCollector("vacuum-collector") {{
             requirements(Category.production, with(AZItems.fors, 20));
             researchCost = with( AZItems.fors, 25);
 
             attribute = AZAttribute.serridAttr;
-            outputItem = new ItemStack(AZItems.volcanicSerrid, 4);
+            outputItem = new ItemStack(AZItems.serrid, 4);
             ambientSound = Sounds.hum;
 
             health = 280;
@@ -118,7 +118,7 @@ public class AZDrills {
 
         //later
         waveDrill = new DrawerBurstDrill("wave-drill"){{
-            requirements(Category.production, with(AZItems.fors, 35, AZItems.craside, 15));
+            requirements(Category.production, with(AZItems.fors, 35, AZItems.arside, 15));
             squareSprite = false;
             drillTime = 60f * 5f;
             size = 3;
@@ -148,7 +148,7 @@ public class AZDrills {
         }};
 
         undergroundDrill = new UndergroundDrill("underground-Drill"){{
-            requirements(Category.production, with(AZItems.fors, 35, AZItems.craside, 15));
+            requirements(Category.production, with(AZItems.fors, 35, AZItems.arside, 15));
             squareSprite = false;
             drillTime = 60f * 5f;
             size = 3;
@@ -164,7 +164,7 @@ public class AZDrills {
         }};
 
         oreDetector = new OreRadar("ore-detector") {{
-            requirements(Category.production, with(AZItems.fors, 20, AZItems.khylid, 20, AZItems.craside, 35));
+            requirements(Category.production, with(AZItems.fors, 20, AZItems.lepera, 20, AZItems.arside, 35));
             size = 3;
             consumePower(30f/60f);
         }};

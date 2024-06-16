@@ -42,7 +42,7 @@ public class AZWalls {
 
         //later
         compositeWall = new HealingWall("composite-wall") {{
-            requirements (Category.defense, with(AZItems.craside, 4, AZItems.khylid, 2));
+            requirements (Category.defense, with(AZItems.arside, 4, AZItems.lepera, 2));
             health = 800;
             buildCostMultiplier = 6f;
 
@@ -53,7 +53,7 @@ public class AZWalls {
         }};
 
         compositeWallLarge = new HealingWall("composite-wall-large"){{
-            requirements (Category.defense, with(AZItems.craside, 20, AZItems.khylid, 4));
+            requirements (Category.defense, with(AZItems.arside, 20, AZItems.lepera, 4));
             health = compositeWall.health * 4;
             size = 2;
             buildCostMultiplier = 6f;
@@ -65,7 +65,7 @@ public class AZWalls {
         }};
 
         superdenseWall = new Wall("superdense-wall") {{
-           requirements(Category.defense, with(AZItems.superdenseAlloy, 8));
+           requirements(Category.defense, with(AZItems.keremtite, 8));
            health = 1500;
            buildCostMultiplier = 8f;
            armor = 5f;
@@ -73,7 +73,7 @@ public class AZWalls {
 
         superdenseWallLarge = new Wall("superdense-wall-large") {{
             size = 2;
-            requirements(Category.defense, with(AZItems.superdenseAlloy, 32));
+            requirements(Category.defense, with(AZItems.keremtite, 32));
             health = superdenseWall.health * 4;
             buildCostMultiplier = 8f;
             armor = 7f;

@@ -2,6 +2,7 @@ package az.content.blocks;
 
 import az.content.AZItems;
 import az.world.blocks.distribution.ModDuct;
+import mindustry.content.Blocks;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.distribution.*;
@@ -22,8 +23,8 @@ public class AZDistribution {
             requirements(Category.distribution, with(AZItems.fors, 1));
             researchCost = with(AZItems.fors, 5);
 
-            health = 210;
-            speed = 5f;
+            health = 200;
+            speed = 7.5;
 
             junctionReplacement = AZDistribution.magneticJunction;
             bridgeReplacement = AZDistribution.magneticBridgeConveyor;
@@ -33,7 +34,7 @@ public class AZDistribution {
             requirements(Category.distribution, with(AZItems.fors, 2));
             researchCost = with(AZItems.fors, 10);
 
-            health = 140;
+            health = 180;
             speed = 6f;
 
             capacity = 1;
@@ -42,10 +43,10 @@ public class AZDistribution {
         }};
 
         magneticRouter = new Router("magnetic-router") {{
-            requirements(Category.distribution, with(AZItems.fors, 3));
+            requirements(Category.distribution, with(AZItems.fors, 2));
             researchCost = with(AZItems.fors, 15);
 
-            health = 230;
+            health = 180;
             speed = 16f;
 
             squareSprite = false;
@@ -82,7 +83,7 @@ public class AZDistribution {
         }};
 
         magneticUnloader = new Unloader("magnetic-unloader") {{
-            requirements(Category.distribution, with(AZItems.superdenseAlloy, 15, AZItems.fors, 5));
+            requirements(Category.distribution, with(AZItems.keremtite, 15, AZItems.fors, 5));
             health = 300;
             speed = 60.0f / 11.0f;
 

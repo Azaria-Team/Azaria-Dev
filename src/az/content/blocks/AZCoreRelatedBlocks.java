@@ -18,7 +18,7 @@ public class AZCoreRelatedBlocks {
     public static void load() {
         //region traps
         coreLegion = new CoreBlock("core-legion") {{
-            requirements(Category.effect, with(AZItems.fors, 1200, AZItems.khylid, 800));
+            requirements(Category.effect, with(AZItems.fors, 1200, AZItems.lepera, 800));
 
             isFirstTier = true;
             unitType = AZUnits.gyurza;
@@ -45,7 +45,7 @@ public class AZCoreRelatedBlocks {
             placeableLiquid = true;
             underBullets = true;
             outlineColor = AZPal.aureliaOutline;
-            requirements(Category.effect, with(AZItems.ognium, 50, AZItems.ferbium, 35));
+            requirements(Category.effect, with(AZItems.seonium, 50, AZItems.ferbium, 35));
             hasShadow = false;
             health = 1850;
             damage = 790;
@@ -53,7 +53,7 @@ public class AZCoreRelatedBlocks {
         }};
 
         repairTurret = new BlockRepairTurret("repair-turret"){{
-            requirements(Category.effect, with(AZItems.fors, 120, AZItems.khylid, 30, AZItems.craside, 80));
+            requirements(Category.effect, with(AZItems.fors, 120, AZItems.lepera, 30, AZItems.arside, 80));
             repairSpeed = 0.75f;
             repairRadius = 90f;
             outlineColor = AZPal.aureliaOutline;
