@@ -24,7 +24,7 @@ import static mindustry.type.ItemStack.with;
 public class AZDrills {
     public static Block
             forsDrill, aquaticDrill, dustCollector,
-            waveDrill, oreDetector, undergroundDrill;
+            waveDrill;
     public static void load() {
         //sec1
         forsDrill = new AttributeCrafter("fors-drill") {{

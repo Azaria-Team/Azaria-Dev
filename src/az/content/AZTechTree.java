@@ -45,9 +45,6 @@ public class AZTechTree {
             //region crafting
             node(forsDrill, () -> {
                 node(waveDrill, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
-                    node(oreDetector, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
-
-                    });
                 });
                 node(aquaticDrill, () -> {
 
@@ -139,7 +136,7 @@ public class AZTechTree {
             node(abandonedShoreline, () -> {
                 node(caveEntrance, Seq.with(new Objectives.SectorComplete(abandonedShoreline)), () -> {
                     node(seaOutpost, Seq.with(new Objectives.SectorComplete(caveEntrance), new Objectives.Research(waveDrill), new Objectives.Research(crasideBrewer), new Objectives.Research(repairTurret)), () -> {
-                        node(theOutskirts, Seq.with(new Objectives.SectorComplete(seaOutpost), new Objectives.Research(vectorFabricator), new Objectives.Research(oreDetector), new Objectives.Research(caseI)), () -> {
+                        node(theOutskirts, Seq.with(new Objectives.SectorComplete(seaOutpost), new Objectives.Research(vectorFabricator), new Objectives.Research(caseI)), () -> {
                         });
                     });
                 });
