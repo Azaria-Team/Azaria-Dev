@@ -1,20 +1,25 @@
 package az.content.blocks;
 
+import arc.graphics.Color;
 import az.content.AZItems;
 import az.content.AZUnits;
 import az.graphics.AZPal;
+import az.world.blocks.defense.ModRadar;
 import az.world.blocks.defense.NavalMine;
 import az.world.blocks.defense.turret.BlockRepairTurret;
+import mindustry.content.Items;
 import mindustry.type.Category;
 import mindustry.world.Block;
+import mindustry.world.blocks.defense.Radar;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
+import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.type.ItemStack.with;
 
 public class AZCoreRelatedBlocks {
     public static Block
-            navalMine, coreLegion, caseI, repairTurret;
+            coreLegion, caseI, lampRadar, repairTurret, navalMine;
     public static void load() {
         //region traps
         coreLegion = new CoreBlock("core-legion") {{
@@ -40,6 +45,28 @@ public class AZCoreRelatedBlocks {
             squareSprite = false;
             researchCostMultiplier = 0.7f;
         }};
+
+        lampRadar = new ModRadar("lamp-radar"){{
+            requirements(Category.effect, BuildVisibility.fogOnly, with(AZItems.fors, 50, AZItems.lepera, 20));
+            outlineColor = Color.valueOf("4a4b53");
+            fogRadius = 34;
+            researchCost = with(AZItems.fors, 40, AZItems.lepera, 20);
+
+            consumePower(0.3f);
+        }};
+
+        repairTurret = new BlockRepairTurret("repair-turret"){{
+            requirements(Category.effect, with(AZItems.fors, 90, AZItems.lepera, 40));
+            health = 320;
+            repairSpeed = 0.75f;
+            repairRadius = 90f;
+            outlineColor = AZPal.aureliaOutline;
+            beamWidth = 1f;
+            powerUse = 0.7f;
+            size= 2;
+            researchCostMultiplier = 0.5f;
+        }};
+
         navalMine = new NavalMine("naval-mine") {{
             size = 2;
             placeableLiquid = true;
@@ -50,18 +77,6 @@ public class AZCoreRelatedBlocks {
             health = 1850;
             damage = 790;
             tileDamage = 1850;
-        }};
-
-        repairTurret = new BlockRepairTurret("repair-turret"){{
-            requirements(Category.effect, with(AZItems.fors, 90, AZItems.lepera, 40));
-            health = 320;
-            repairSpeed = 0.75f;
-            repairRadius = 90f;
-            outlineColor = AZPal.aureliaOutline;
-            beamWidth = 1f;
-            powerUse = 1f;
-            size= 2;
-            researchCostMultiplier = 0.5f;
         }};
     }
 }
