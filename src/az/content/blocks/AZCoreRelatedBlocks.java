@@ -49,7 +49,8 @@ public class AZCoreRelatedBlocks {
         lampRadar = new ModRadar("lamp-radar"){{
             requirements(Category.effect, BuildVisibility.fogOnly, with(AZItems.fors, 50, AZItems.lepera, 20));
             outlineColor = Color.valueOf("4a4b53");
-            fogRadius = 34;
+            fogRadius = 15;
+            size = 2;
             researchCost = with(AZItems.fors, 40, AZItems.lepera, 20);
 
             consumePower(0.3f);
