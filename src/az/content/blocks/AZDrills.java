@@ -27,6 +27,7 @@ public class AZDrills {
             waveDrill;
     public static void load() {
         //sec1
+        //TODO doesn't display floor
         forsDrill = new AttributeCrafter("fors-drill") {{
             requirements(Category.production, with(AZItems.fors, 30));
             researchCost = with( AZItems.fors, 25);

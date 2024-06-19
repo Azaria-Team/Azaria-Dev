@@ -58,3 +58,9 @@
 - fixed gyurza missile
 - t3 naval "aurora"
 - new liquid Spectralia added
+- - deep oxylite gives 175% oxylite
+  - serrid oxylite givex 75% oxylite
+  - lepera & wet lepera blocks added
+  - 4 new lepera ore variants
+  - sandbox plus floor sound & fx fixes
+- ModOverlayFloor sprite crutch fix

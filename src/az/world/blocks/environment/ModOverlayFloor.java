@@ -50,7 +50,7 @@ public class ModOverlayFloor extends Floor{
 
         if(checkAdjacent(tile)){
             Mathf.rand.setSeed(tile.pos());
-            Draw.rect(variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))], tile.worldx() - tilesize, tile.worldy() - tilesize);
+            Draw.rect(variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))], tile.worldx() - (float) tilesize / 2, tile.worldy() - (float) tilesize / 2);
         }
     }
 
