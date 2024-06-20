@@ -2,6 +2,8 @@ package az.content;
 
 import az.content.blocks.*;
 import az.content.blocks.AZDistribution;
+import mindustry.content.Fx;
+import mindustry.gen.Sounds;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.Floor;
 
@@ -26,6 +28,8 @@ public class AZBlocks {
         plusFloor = new Floor("plus-floor") {{
             variants = 0;
             isLiquid = true;
+            walkSound = Sounds.none;
+            walkEffect = Fx.none;
         }};
     }
 }

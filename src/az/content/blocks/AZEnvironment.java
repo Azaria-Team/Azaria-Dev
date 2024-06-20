@@ -11,12 +11,13 @@ import mindustry.world.blocks.environment.*;
 
 public class AZEnvironment {
     public static Block
-            //sea-biome
+    //sea-biome
     oxylite, deepOxylite,
+    leperaBlock, leperaBlockOxylite,
     serridDust, serridDustWall, serridicBoulder,
     crabStone, crabStoneWall, crabStoneBoulder,
     serridicRock, serridicRockWall, serridBoulder, serridOxylite,
-            corals,
+    corals,
 
     //forest-biome
     fir, firWall, firBoulder,
@@ -42,8 +43,10 @@ public class AZEnvironment {
     //prop
     ancientSus,
 
+    //TODO
     //ores
-    forsOre, ferbiumOre, forsRock, khylidGrowth;
+    forsOre, ferbiumOre, forsRock,
+            khylidGrowth, khylidGrowthSand,  khylidGrowthSandLiquid, khylidGrowthLepera, khylidGrowthLeperaLiquid;
 
     public static void load() {
         //region Auriona
@@ -63,7 +66,7 @@ public class AZEnvironment {
             variants = 4;
             liquidDrop = AZLiquids.oxyliteLiq;
             cacheLayer = CacheLayer.water;
-            liquidMultiplier = 1f;
+            liquidMultiplier = 1.75f;
             isLiquid = true;
             albedo = 0.7f;
             drownTime = 140f;
@@ -76,6 +79,18 @@ public class AZEnvironment {
             isLiquid = true;
             albedo = 0.7f;
         }};
+
+        //lepera blocks
+        leperaBlock = new Floor("lepera-block") {{
+            variants = 4;
+        }};
+        leperaBlockOxylite = new Floor("lepera-block-liquid") {{
+            variants = 4;
+            cacheLayer = CacheLayer.water;
+            liquidDrop = AZLiquids.oxyliteLiq;
+            isLiquid = true;
+        }};
+
         //serridDust
         serridDust = new Floor("serrid-dust") {{
             variants = 4;
@@ -342,10 +357,34 @@ public class AZEnvironment {
             variants = 2;
             attributes.set(AZAttribute.forsattr, 1f);
         }};
-        khylidGrowth = new ModOverlayFloor(("lepera-growth")) {{
+
+        //todo smth with that ore
+        khylidGrowth = new ModOverlayFloor("lepera-growth") {{
             parent = blendGroup = oxylite;
             variants = 2;
             cacheLayer = CacheLayer.water;
+            attributes.set(AZAttribute.khylidattr, 1f);
+        }};
+        khylidGrowthSandLiquid = new ModOverlayFloor("lepera-growth-sl") {{
+            parent = blendGroup = serridOxylite;
+            cacheLayer = CacheLayer.water;
+            variants = khylidGrowth.variants;
+            attributes.set(AZAttribute.khylidattr, 1f);
+        }};
+        khylidGrowthSand = new ModOverlayFloor("lepera-growth-s") {{
+            parent = blendGroup = serridDust;
+            variants = khylidGrowth.variants;
+            attributes.set(AZAttribute.khylidattr, 1f);
+        }};
+        khylidGrowthLepera = new ModOverlayFloor("lepera-growth-l") {{
+            parent = blendGroup = leperaBlock;
+            variants = khylidGrowth.variants;
+            attributes.set(AZAttribute.khylidattr, 1f);
+        }};
+        khylidGrowthLeperaLiquid = new ModOverlayFloor("lepera-growth-ll") {{
+            parent = blendGroup = leperaBlockOxylite;
+            cacheLayer = CacheLayer.water;
+            variants = khylidGrowth.variants;
             attributes.set(AZAttribute.khylidattr, 1f);
         }};
         //endregion ores
