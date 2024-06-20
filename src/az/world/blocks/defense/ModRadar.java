@@ -9,6 +9,8 @@ import arc.struct.EnumSet;
 import arc.util.Time;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
+import az.content.AZFx;
+import az.graphics.AZPal;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.Effect;
@@ -25,9 +27,9 @@ import static mindustry.Vars.tilesize;
 
 public class ModRadar extends Block {
     public float discoveryTime = 60f * 20f;
-    public Color baseColor = Color.valueOf("84f491");
+    public Color baseColor = AZPal.ferbiumBullet;
     public float effectChance = 0.003f;
-    public Effect effect = Fx.regenParticle;
+    public Effect effect = AZFx.lampParticle;
 
     public ModRadar(String name){
         super(name);

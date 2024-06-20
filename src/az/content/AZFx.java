@@ -527,6 +527,12 @@ public class AZFx {
         }
     }),
 
+    lampParticle = new Effect(100f, e -> {
+        color(AZPal.ferbiumBulletBack);
+
+        Fill.square(e.x, e.y, e.fslope() * 1.5f + 0.14f, 45f);
+    }),
+
     cursedFireTrailSmall = new Effect(11.3f, 50.0f, e -> {
         color(AZPal.unmakerColor, Color.valueOf("96d66a"), Color.valueOf("487364"), e.fin() * e.fin());
         randLenVectors(e.id, 4, 1.0f + e.finpow() * 30, e.rotation + 180, 7.0f, (x, y) -> {
