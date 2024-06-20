@@ -2,12 +2,16 @@ package az.world.blocks.defense;
 
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.Lines;
 import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
 import arc.struct.EnumSet;
+import arc.util.Time;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
 import mindustry.Vars;
+import mindustry.content.Fx;
+import mindustry.entities.Effect;
 import mindustry.gen.Building;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
@@ -15,18 +19,21 @@ import mindustry.graphics.Pal;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Radar;
 import mindustry.world.meta.BlockFlag;
+import org.jetbrains.annotations.Nullable;
 
 import static mindustry.Vars.tilesize;
 
 public class ModRadar extends Block {
     public float discoveryTime = 60f * 20f;
+    public Color baseColor = Color.valueOf("84f491");
+    public float effectChance = 0.003f;
+    public Effect effect = Fx.regenParticle;
 
     public ModRadar(String name){
         super(name);
 
         update = solid = true;
         flags = EnumSet.of(BlockFlag.hasFogRadius);
-        outlineIcon = true;
         fogRadius = 20;
     }
 
@@ -61,6 +68,11 @@ public class ModRadar extends Block {
             progress = Mathf.clamp(progress);
 
             totalProgress += efficiency * edelta();
+
+
+                if(efficiency > 0.0001 && Mathf.chanceDelta(effectChance * size * size)){
+                    effect.at(x + Mathf.range(size * tilesize/2f - 1f), y + Mathf.range(size * tilesize/2f - 1f));
+            }
         }
 
         @Override
@@ -83,6 +95,20 @@ public class ModRadar extends Block {
             super.write(write);
 
             write.f(progress);
+        }
+
+        @Override
+        public void draw(){
+            super.draw();
+
+            float f = 1f - (Time.time / 100f) % 1f;
+
+            Draw.color(baseColor);
+            Draw.alpha(1f);
+            Lines.stroke(2f * f + 0.2f);
+            Lines.square(x, y, Math.min(1f + (1f - f) * size * tilesize / 2f, size * tilesize/2f));
+
+            Draw.reset();
         }
 
         @Override
