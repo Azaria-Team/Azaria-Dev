@@ -1,16 +1,12 @@
 package az.world.blocks.defense;
 
 import arc.Core;
-import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
-import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
 import arc.util.Nullable;
-import mindustry.entities.Lightning;
 import mindustry.entities.bullet.BulletType;
 import mindustry.gen.Building;
 import mindustry.gen.Unit;
-import mindustry.graphics.Pal;
 import mindustry.world.Block;
 
 public class ModMine extends Block {
