@@ -39,7 +39,7 @@ public class ModMine extends Block {
         teamRegion = Core.atlas.find("-team-top");
     }
 
-    public class ShockMineBuild extends Building {
+    public class ModMineBuild extends Building {
 
         @Override
         public void drawTeam(){
