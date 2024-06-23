@@ -1,7 +1,9 @@
 package az.content;
 
+import arc.graphics.Color;
 import arc.math.Mathf;
 import az.graphics.AZPal;
+import mindustry.content.StatusEffects;
 import mindustry.type.StatusEffect;
 
 public class AZStatusEffects {
@@ -41,6 +43,7 @@ public class AZStatusEffects {
            speedMultiplier = 1.3f;
            buildSpeedMultiplier = 1.3f;
         }};
+
     }
 }
     
