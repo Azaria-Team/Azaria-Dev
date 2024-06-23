@@ -482,11 +482,13 @@ public class AZFx {
         });
 
         color(AZPal.craside, AZPal.craside2, Color.orange, e.fin());
-
+/*
         randLenVectors(e.id, 10, 3f + 20f * e.finpow(), (x, y) -> {
             Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.7f);
             Fill.circle(e.x + x / 2f, e.y + y / 2f, e.fout());
         });
+
+ */
 
         color(AZPal.craside, AZPal.craside2, Color.orange, e.fin());
         stroke(1.5f * e.fout());
