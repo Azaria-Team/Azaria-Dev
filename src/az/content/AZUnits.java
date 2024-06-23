@@ -168,7 +168,7 @@ public class AZUnits {
                 y = -6;
                 mirror = false;
                 shootSound = Sounds.shootAlt;
-                bullet = new MissileBulletType(5f, 20 * 1.6f, "az-vog") {{
+                bullet = new MissileBulletType(5f, 10, "az-vog") {{
                     backColor = AZPal.vogPinkBack;
                     frontColor = AZPal.forceBullet;
                     width = 13f;
@@ -183,7 +183,7 @@ public class AZUnits {
                     trailInterval = 0.5f;
                     lifetime = 35;
 
-                    splashDamage = 65 * 1.6f;
+                    splashDamage = 150;
                     splashDamageRadius = 45f;
                 }};
             }});
@@ -947,5 +947,7 @@ public class AZUnits {
 
         //region treeOff
         //endregion treeOff
+
+
     }
 }
