@@ -21,7 +21,6 @@ import azaria.gen.UnitEntity;
 import ent.anno.Annotations;
 import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
-import mindustry.content.Blocks;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.*;
@@ -918,11 +917,11 @@ public class AZUnits {
                 angle = 100;
                 regen = 0.1675f;
                 cooldown = 10f * 60f;
-                max = 400;
-                width = 10f;
+                shieldHealth = 600;
                 drawWidth = 5f;
+
                 whenShooting = true;
-                region = "az-flare-shield-shield";
+                width = 10f;
             }});
             weapons.add(new Weapon("az-flare-shield") {{
                 reload = Integer.MAX_VALUE;

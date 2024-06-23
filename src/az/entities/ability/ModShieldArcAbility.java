@@ -55,7 +55,7 @@ public class ModShieldArcAbility extends Ability {
     /** Shield regen speed in damage/tick. */
     public float regen = 0.1f;
     /** Maximum shield. */
-    public float max = 200f;
+    public float shieldHealth = 200f;
     /** Cooldown after the shield is broken, in ticks. */
     public float cooldown = 60f * 5;
     /** Angle of shield arc. */
@@ -83,7 +83,7 @@ public class ModShieldArcAbility extends Ability {
     public void update(Unit unit){
         WeaponMount mount = unit.mounts[weaponIndex];
 
-        if(data < max){
+        if(data < shieldHealth){
             data += Time.delta * regen;
         }
 
@@ -105,7 +105,7 @@ public class ModShieldArcAbility extends Ability {
 
     @Override
     public void init(UnitType type){
-        data = max;
+        data = shieldHealth;
         if(weaponIndex - 1> type.weapons.size)throw new ArrayIndexOutOfBoundsException("No so many weapons");
     }
 
@@ -140,6 +140,6 @@ public class ModShieldArcAbility extends Ability {
 
     @Override
     public void displayBars(Unit unit, Table bars){
-        bars.add(new Bar("stat.shieldhealth", Pal.accent, () -> data / max)).row();
+        bars.add(new Bar("stat.shieldhealth", Pal.accent, () -> data / shieldHealth)).row();
     }
 }
