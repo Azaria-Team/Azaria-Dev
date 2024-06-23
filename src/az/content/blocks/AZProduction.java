@@ -76,17 +76,12 @@ public class AZProduction {
                                 new FlamePoint(93.5f/128f,63.5f/128f)
 
                         );
-                        flameRadius = 1.3f;
+                        flameRadius = 1.7f;
                         flameRadiusIn = 0.5f;
                         flameRadiusScl = 3f;
                         flameRadiusMag = 0.5f;
                         flameRadiusInMag = 0.5f;
                         flameColor = AZPal.superdenseBullet;
-                    }},
-                    new DrawFlame(){{
-                        flameColor = AZPal.superdenseBulletBack;
-                        flameRadius = 3f;
-
                     }}
             );
             // researchCostMultiplier = 0.2f;
