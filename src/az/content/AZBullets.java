@@ -119,6 +119,8 @@ public class AZBullets {
             impact = true;
             pierce = true;
             pierceCap = 2;
+            trailLength = 10;
+            trailWidth = 3;
 
             status = new StatusEffect("") {{
                     disarm = true;
