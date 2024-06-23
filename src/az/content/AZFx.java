@@ -107,7 +107,6 @@ public class AZFx {
         });
 
         color(AZPal.fors);
-
         randLenVectors(e.id, 14, 2f + 30f * e.finpow(), (x, y) -> {
             Fill.circle(e.x + x, e.y + y, e.fout() * 4f + 0.5f);
         });
