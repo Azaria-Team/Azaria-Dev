@@ -478,7 +478,7 @@ public class AZFx {
         color(AZPal.craside);
         e.scaled(10, i -> {
             stroke(4f * i.fout());
-            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+            //Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
         });
 
         color(AZPal.craside);
@@ -496,7 +496,7 @@ public class AZFx {
         color(AZPal.craside);
         e.scaled(10, i -> {
             stroke(4f * i.fout());
-            Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
+            //Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
         });
 
         color(AZPal.craside, AZPal.craside2, Color.orange, e.fin());

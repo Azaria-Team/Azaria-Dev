@@ -119,9 +119,9 @@ public class AZBullets {
             impact = true;
             pierce = true;
             pierceCap = 2;
-            trailLength = 10;
-            trailWidth = 3;
-
+            trailLength = 5;
+            trailWidth = 2;
+            trailColor = AZPal.craside2;
             status = new StatusEffect("") {{
                     disarm = true;
                     speedMultiplier = 0.0f;
