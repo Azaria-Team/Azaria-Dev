@@ -60,12 +60,6 @@ public class AZUnits {
     UnitType sentinel, custodian, bulwark, bulat, colossus;
     //fire support
 
-    // global unit + watermove + transform
-    public static @Annotations.EntityDef({Unitc.class, WaterMovec.class, Amphibiac.class})
-    UnitType amphibiNaval;
-    public static @Annotations.EntityDef({Unitc.class, Legsc.class, Amphibiac.class})
-    UnitType amphibi;
-
 
     public static void load() {
         //region aureliaCoreUnits

@@ -5,6 +5,7 @@ import az.content.AZAttribute;
 import az.content.AZItems;
 import az.content.AZLiquids;
 import az.world.blocks.environment.ModOverlayFloor;
+import mindustry.content.Blocks;
 import mindustry.graphics.CacheLayer;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
@@ -71,7 +72,7 @@ public class AZEnvironment {
             albedo = 0.7f;
             drownTime = 140f;
         }};
-        serridOxylite = new Floor("serrid-oxylite") {{
+        serridOxylite = new ShallowLiquid("serrid-oxylite") {{
             variants = 4;
             liquidDrop = AZLiquids.oxyliteLiq;
             cacheLayer = CacheLayer.water;
@@ -192,7 +193,7 @@ public class AZEnvironment {
             variants = 3;
             darkSerrid.asFloor().decoration = this;
         }};
-        darkSerridOxylite = new Floor("dark-serrid-oxylite") {{
+        darkSerridOxylite = new ShallowLiquid("dark-serrid-oxylite") {{
             variants = 4;
             liquidDrop = AZLiquids.oxyliteLiq;
             cacheLayer = CacheLayer.water;
@@ -389,6 +390,5 @@ public class AZEnvironment {
         }};
         //endregion ores
         //endregion Auriona
-
     }
 }
