@@ -481,7 +481,7 @@ public class AZFx {
             //Lines.circle(e.x, e.y, 7f + i.fin() * 15f);
         });
 
-        color(AZPal.craside);
+        color(AZPal.craside, AZPal.craside2, Color.orange, e.fin());
 
         randLenVectors(e.id, 10, 3f + 20f * e.finpow(), (x, y) -> {
             Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.7f);
