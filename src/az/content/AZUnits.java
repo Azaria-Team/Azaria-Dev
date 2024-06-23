@@ -8,6 +8,7 @@ import arc.util.Time;
 import az.entities.ability.ModShieldArcAbility;
 import az.entities.bullets.AimBulletType;
 import az.entities.bullets.ModEmpBulletType;
+import az.entities.units.AmphibiaUnitType;
 import az.entities.units.DroneUnitType;
 import az.entities.units.StriCopterUnitType;
 import az.graphics.AZPal;
@@ -23,6 +24,7 @@ import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
+import mindustry.content.UnitTypes;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.part.RegionPart;
@@ -58,8 +60,14 @@ public class AZUnits {
     UnitType sentinel, custodian, bulwark, bulat, colossus;
     //fire support
 
-    public static void load() {
+    // global unit + watermove + transform
+    public static @Annotations.EntityDef({Unitc.class, WaterMovec.class, Amphibiac.class})
+    UnitType amphibiNaval;
+    public static @Annotations.EntityDef({Unitc.class, Legsc.class, Amphibiac.class})
+    UnitType amphibi;
 
+
+    public static void load() {
         //region aureliaCoreUnits
         gyurza = new UnitType("gyurza") {{
             constructor = UnitEntity::create;
