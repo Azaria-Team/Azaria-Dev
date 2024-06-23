@@ -922,6 +922,7 @@ public class AZUnits {
                 width = 10f;
                 drawWidth = 5f;
                 whenShooting = true;
+                region = "flare-shield-shield";
             }});
             weapons.add(new Weapon("az-flare-shield") {{
                 reload = Integer.MAX_VALUE;
