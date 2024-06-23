@@ -300,7 +300,7 @@ public class AZUnits {
                             }}
                 );
 
-                //TODO nerf
+                //TODO nerfc
                 weapons.add(
                         new Weapon("az-vog-automatic-launcher") {{
                                 reload = 100f;
