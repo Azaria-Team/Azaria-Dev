@@ -54,7 +54,7 @@ public class AZItems {
         }};
 
         arcanite = new Item("arcanite"){{
-            cost = 2f;
+            cost =4f;
         }};
 
         palerite = new Item("palerite") {{
