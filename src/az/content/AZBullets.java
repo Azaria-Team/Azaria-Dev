@@ -1,6 +1,8 @@
 package az.content;
 
+import arc.graphics.Color;
 import arc.math.Interp;
+import az.entities.bullets.AcceleratingLaserBulletType;
 import az.entities.bullets.AntiMissileBulletType;
 import az.graphics.AZPal;
 import mindustry.Vars;
@@ -10,11 +12,12 @@ import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.ShrapnelBulletType;
 import mindustry.gen.Sounds;
+import mindustry.graphics.Pal;
 import mindustry.type.StatusEffect;
 
 public class AZBullets {
     public static BulletType
-            noneBullet, forceBullet, forceFerbiumBullet, hornBullet, antiMissileBullet, shrapnelBullet, razeBullet;
+            noneBullet, forceBullet, forceFerbiumBullet, hornBullet, antiMissileBullet, shrapnelBullet, razeBullet, laserTest;
 
     public static void load() {
 
@@ -183,9 +186,19 @@ public class AZBullets {
             splashDamageRadius = 25f;
         }};
 
+        laserTest = new AcceleratingLaserBulletType(20f){{
+            lifetime = 40f;
+            maxLength = 170f;
+            maxRange = 180f;
+            oscOffset = 0.3f;
+            width = 7f;
+            collisionWidth = 9f;
+            colors = new Color[]{Pal.heal.cpy().a(0.4f), AZPal.aurionaCloud, Color.white};
+            pierceCap = 3;
+        }};
         shrapnelBullet = new ShrapnelBulletType(){{
             damage = 1f;
-            length = 110f;
+            length = 0f;
         }};
     }
 }
