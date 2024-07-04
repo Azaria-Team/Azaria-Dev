@@ -11,9 +11,7 @@ import arc.math.geom.Vec3;
 import arc.struct.FloatSeq;
 import arc.struct.ObjectSet;
 import arc.struct.Seq;
-import arc.util.Structs;
 import arc.util.Tmp;
-import arc.util.noise.Noise;
 import arc.util.noise.Ridged;
 import arc.util.noise.Simplex;
 
@@ -21,20 +19,14 @@ import az.content.AZLiquids;
 import az.content.blocks.AZEnvironment;
 import az.world.blocks.environment.ModOverlayFloor;
 import mindustry.ai.Astar;
-import mindustry.ai.BaseRegistry;
 import mindustry.content.Blocks;
 import mindustry.game.Schematics;
-import mindustry.game.Team;
-import mindustry.graphics.g3d.PlanetGrid;
-import mindustry.maps.generators.BaseGenerator;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.type.Sector;
 import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.TileGen;
 import az.content.AZLoadouts;
-import mindustry.world.blocks.environment.Floor;
-import mindustry.world.blocks.environment.SteamVent;
 import mindustry.world.meta.Attribute;
 
 import static mindustry.Vars.*;
@@ -56,19 +48,19 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
     Block[][] arr =
             {
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.serridOxylite, AZEnvironment.serridDust, AZEnvironment.serridDust, AZEnvironment.serridDust, AZEnvironment.crabStone, AZEnvironment.huitaRock, AZEnvironment.huitaRock, AZEnvironment.crabStone, AZEnvironment.serridicRock, AZEnvironment.forsite},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.serridOxylite, AZEnvironment.serridDust, AZEnvironment.serridDust, AZEnvironment.serridDust, AZEnvironment.crabStone, AZEnvironment.huitaRock, AZEnvironment.huitaRock, AZEnvironment.crabStone, AZEnvironment.serridicRock, AZEnvironment.forsite},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.oxylite, AZEnvironment.serridOxylite, AZEnvironment.serridDust, AZEnvironment.huitaRock, AZEnvironment.huitaRock, AZEnvironment.huitaRock, AZEnvironment.crabStone, AZEnvironment.huitaRock, AZEnvironment.crabStone, AZEnvironment.crabStone, AZEnvironment.serridicRock},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.oxylite, AZEnvironment.serridOxylite, AZEnvironment.serridDust, AZEnvironment.huitaRock, AZEnvironment.huitaRock, AZEnvironment.huitaRock, AZEnvironment.crabStone, AZEnvironment.huitaRock, AZEnvironment.huitaRock, AZEnvironment.crabStone, AZEnvironment.crabStone},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.oxylite, AZEnvironment.serridOxylite, AZEnvironment.serridDust, AZEnvironment.huitaRock, AZEnvironment.serridicRock, AZEnvironment.huitaRock, AZEnvironment.serridicRock, AZEnvironment.huitaRock, AZEnvironment.crabStone, AZEnvironment.crabStone, AZEnvironment.crabStone},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.oxylite, AZEnvironment.oxylite, AZEnvironment.serridDust, AZEnvironment.crabStone, AZEnvironment.crabStone, AZEnvironment.forenite, AZEnvironment.serridicRock, AZEnvironment.crabStone, AZEnvironment.forenite, AZEnvironment.forenite, AZEnvironment.forsite},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.oxylite, AZEnvironment.oxylite, AZEnvironment.serridDust, AZEnvironment.crabStone, AZEnvironment.forsite, AZEnvironment.fir, AZEnvironment.fir, AZEnvironment.fir, AZEnvironment.forenite, AZEnvironment.fir, AZEnvironment.forsite},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.oxylite, AZEnvironment.oxylite, AZEnvironment.serridDust, AZEnvironment.serridicRock, AZEnvironment.huitaRock, AZEnvironment.fir, AZEnvironment.forsite, AZEnvironment.forsite, AZEnvironment.forenite, AZEnvironment.fir, AZEnvironment.fir},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.oxylite, AZEnvironment.oxylite, AZEnvironment.serridDust, AZEnvironment.serridicRock, AZEnvironment.forenite, AZEnvironment.forenite, AZEnvironment.forsite, AZEnvironment.forsite, AZEnvironment.forenite, AZEnvironment.darkSerrid, AZEnvironment.fir},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.oxylite, AZEnvironment.serridOxylite, AZEnvironment.darkSerrid, AZEnvironment.fir, AZEnvironment.fir, AZEnvironment.crystalIce, AZEnvironment.forenite, AZEnvironment.forenite, AZEnvironment.fir, AZEnvironment.forenite, AZEnvironment.lamprosMineral},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.darkSerridOxylite, AZEnvironment.fir, AZEnvironment.fir, AZEnvironment.lamprosMineral, AZEnvironment.serridicRock, AZEnvironment.serridicRock, AZEnvironment.lamprosMineral, AZEnvironment.forsite, AZEnvironment.crystalIce, AZEnvironment.crystalIce},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.darkSerridOxylite, AZEnvironment.darkSerrid, AZEnvironment.lamprosMineral, AZEnvironment.forsite, AZEnvironment.lamprosMineral, AZEnvironment.lamprosMineral, AZEnvironment.darkSerrid, AZEnvironment.lamprosMineral, AZEnvironment.crystalIce, AZEnvironment.crystalIce},
-                    {AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.deepOxylite, AZEnvironment.darkSerridOxylite, AZEnvironment.darkSerrid, AZEnvironment.darkSerrid, AZEnvironment.forsite, AZEnvironment.lamprosMineral, AZEnvironment.darkSerrid, AZEnvironment.crystalIce, AZEnvironment.crystalIce, AZEnvironment.crystalIce, AZEnvironment.crystalIce}
+                    {deepOxylite, deepOxylite, deepOxylite, serridOxylite, serridOrange, serridOrange, serridOrange, crabStone, huitaRock, huitaRock, crabStone, serridicStone, forsite},
+                    {deepOxylite, deepOxylite, deepOxylite, serridOxylite, serridOrange, serridOrange, serridOrange, crabStone, huitaRock, huitaRock, crabStone, serridicStone, forsite},
+                    {deepOxylite, deepOxylite, oxylite, serridOxylite, serridOrange, huitaRock, huitaRock, huitaRock, crabStone, huitaRock, crabStone, crabStone, serridicStone},
+                    {deepOxylite, deepOxylite, oxylite, serridOxylite, serridOrange, huitaRock, huitaRock, huitaRock, crabStone, huitaRock, huitaRock, crabStone, crabStone},
+                    {deepOxylite, deepOxylite, oxylite, serridOxylite, serridOrange, huitaRock, serridicStone, huitaRock, serridicStone, huitaRock, crabStone, crabStone, crabStone},
+                    {deepOxylite, deepOxylite, oxylite, oxylite, serridOrange, crabStone, crabStone, forenite, serridicStone, crabStone, forenite, forenite, forsite},
+                    {deepOxylite, deepOxylite, oxylite, oxylite, serridOrange, crabStone, forsite, fir, fir, fir, forenite, fir, forsite},
+                    {deepOxylite, deepOxylite, oxylite, oxylite, serridOrange, serridicStone, huitaRock, fir, forsite, forsite, forenite, fir, fir},
+                    {deepOxylite, deepOxylite, oxylite, oxylite, serridOrange, serridicStone, forenite, forenite, forsite, forsite, forenite, darkSerrid, fir},
+                    {deepOxylite, deepOxylite, oxylite, serridOxylite, darkSerrid, fir, fir, crystalIce, forenite, forenite, fir, forenite, lamprosMineral},
+                    {deepOxylite, deepOxylite, deepOxylite, darkSerridOxylite, fir, fir, lamprosMineral, serridicStone, serridicStone, lamprosMineral, forsite, crystalIce, crystalIce},
+                    {deepOxylite, deepOxylite, deepOxylite, darkSerridOxylite, darkSerrid, lamprosMineral, forsite, lamprosMineral, lamprosMineral, darkSerrid, lamprosMineral, crystalIce, crystalIce},
+                    {deepOxylite, deepOxylite, deepOxylite, darkSerridOxylite, darkSerrid, darkSerrid, forsite, lamprosMineral, darkSerrid, crystalIce, crystalIce, crystalIce, crystalIce}
             };
             /*
             {
@@ -363,14 +355,14 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
 
             if(value > 0.17f && !Mathf.within(x, y, fspawn.x, fspawn.y, 12 + rrscl)){
                 boolean deep = value > 0.17f + 0.1f && !Mathf.within(x, y, fspawn.x, fspawn.y, 15 + rrscl);
-                boolean spore = floor != AZEnvironment.serridDust && floor != crabStone;
+                boolean spore = floor != AZEnvironment.serridOrange && floor != crabStone;
                 //do not place rivers on ice, they're frozen
                 //ignore pre-existing liquids
                 if(!(floor == AZEnvironment.crystalIce ||  floor.asFloor().isLiquid)){
                     floor = spore ?
                             (deep ? oxylite : darkSerridOxylite) :
                             (deep ? AZEnvironment.oxylite :
-                                    (floor == AZEnvironment.serridDust || floor == crabStone ? serridOxylite : darkSerridOxylite));
+                                    (floor == AZEnvironment.serridOrange || floor == crabStone ? serridOxylite : darkSerridOxylite));
                 }
             }
         });
@@ -395,7 +387,7 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                     }
                 }
 
-                floor = floor == AZEnvironment.serridOxylite ? deepOxylite : AZEnvironment.oxylite;
+                floor = floor == serridOxylite ? deepOxylite : AZEnvironment.oxylite;
             }
         });
 
@@ -556,9 +548,9 @@ public class AurionaPlanetGenerator extends PlanetGenerator {
                 float noise = noise(x + 782, y, 5, 0.75f, 260f, 1f);
                 if(noise > 0.67f && !roomseq.contains(e -> Mathf.within(x, y, e.x, e.y, 14))){
                     if(noise > 0.72f){
-                        floor = noise > 0.78f ? AZEnvironment.oxylite : (floor == AZEnvironment.serridDust ? AZEnvironment.serridOxylite : AZEnvironment.darkSerridOxylite);
+                        floor = noise > 0.78f ? AZEnvironment.oxylite : (floor == AZEnvironment.serridOrange ? serridOxylite : AZEnvironment.darkSerridOxylite);
                     }else{
-                        floor = (floor == AZEnvironment.serridDust ? floor : AZEnvironment.darkSerrid);
+                        floor = (floor == AZEnvironment.serridOrange ? floor : AZEnvironment.darkSerrid);
                     }
                 }
             }

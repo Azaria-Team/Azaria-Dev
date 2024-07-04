@@ -12,74 +12,208 @@ import mindustry.world.blocks.environment.*;
 
 public class AZEnvironment {
     public static Block
-    //sea-biome
-    oxylite, deepOxylite,
+        // oxylite
+            oxylite, deepOxylite, abyssOxylite,serridOxylite,
+
+    serridOrange, serridOrangeWall, serridRed, serridRedWall, serridYellow, serridYellowWall,
+            serridicStone, serridicStoneWall,
+
+    balsitePlates, balsiteWall, balsitePlatesOxylite, balsiteHoles,
+    buliteWall, fortileUwite, fortileUwiteWall,
+    crabStone, crabStoneWall, crabStoneBoulder, crabStoneOvergrowth, crabStoneOvergrowthBoulder,
+
+        // forest
+
+        // swamp
+
+        // crystal
+
+        // frozen oxylite
+
+        // thickets
+
+        // infected
+
+        //boulders
+        serridOrangeBoulder, serridRedBoulder, serridYellowBoulder, serridicBoulder, balsiteBoulder,
+    // region WIP
     leperaBlock, leperaBlockOxylite,
-    serridDust, serridDustWall, serridicBoulder,
-    crabStone, crabStoneWall, crabStoneBoulder,
-    serridicRock, serridicRockWall, serridBoulder, serridOxylite,
     corals,
 
-    //forest-biome
     fir, firWall, firBoulder,
     forenite, foreniteWall, foreniteBoulder,
     darkSerrid, darkSerridWall, darkSerridBoulder, darkSerridOxylite,
     forsite, forsiteWall, forsiteBoulder, forsBoulder,
     bigKust,
 
-    //crystal-biome
     lamprosMineral, lamprosMineralWall, lamprosBoulder, lamprosCrystals,
     crystalIce, crystalIceWall, crystalIceBoulder,
     spectralite, spectraliteWall, spectraliteBoulder, spectraliaWall,
     nerephyte, nerephyteWall, nerephyteBoulder,
     spectralia,
 
-    //volcanic-biome
     huitaRock, huitaRockWall, huitaBoulder,
     volcanicSerrid, volcanicSerridWall, volcanicSerridBoulder,
 
-    //other
-    shaderTesting, shaderTesting2, shaderTesting3,
 
+    //endregion WIP
     //prop
     ancientSus,
 
     //TODO
     //ores
     forsOre, ferbiumOre, forsRock,
-            khylidGrowth, khylidGrowthSand,  khylidGrowthSandLiquid, khylidGrowthLepera, khylidGrowthLeperaLiquid;
+            khylidGrowth;
 
+
+
+    //TODO ix all ShallowLiquid blocks (the sprite in editor is kinda fucked)
     public static void load() {
+
+        //region oxylite
+
+        // OXYLITE
+        oxylite = new Floor("oxylite-normal", 4) {{
+            isLiquid = true;
+            liquidDrop = AZLiquids.oxyliteLiq;
+            cacheLayer = CacheLayer.water;
+            liquidMultiplier = 1f;
+
+            albedo = 0.7f;
+            mapColor = Color.valueOf("50a9a8");
+            attributes.set(AZAttribute.mainlheatattr, 0.25f);
+        }};
+        deepOxylite = new Floor("oxylite-deep", oxylite.variants) {{
+            isLiquid = true;
+            liquidDrop = AZLiquids.oxyliteLiq;
+            cacheLayer = oxylite.cacheLayer;
+            liquidMultiplier = 1.75f;
+
+            albedo = oxylite.albedo;
+            drownTime = 140f;
+        }};
+        abyssOxylite = new Floor("oxylite-abyss", oxylite.variants) {{
+            isLiquid = true;
+            cacheLayer = oxylite.cacheLayer;
+            albedo = oxylite.albedo;
+        }};
+
+        /// SERRID
+        serridOrange = new Floor("serrid-orange") {{ variants = 5;
+            attributes.set(AZAttribute.serridAttr, 1);
+        }};
+        serridOrangeWall = new StaticWall("serrid-orange-wall") {{ variants = 3;
+            serridOrange.asFloor().wall = this;
+        }};
+        serridRed = new Floor("serrid-red", 5) {{
+            attributes.set(AZAttribute.serridAttr, 1);
+        }};
+        serridRedWall = new StaticWall("serrid-red-wall") {{ variants = 3;
+            serridOrange.asFloor().wall = this;
+        }};;
+        serridYellow = new Floor("serrid-yellow", 5) {{
+            attributes.set(AZAttribute.serridAttr, 1);
+        }};
+        serridYellowWall = new StaticWall("serrid-yellow-wall") {{ variants = 3;
+
+            serridOrange.asFloor().wall = this;
+        }};
+        serridOxylite = new ShallowLiquid("serrid-oxylite") {{ variants = 4;
+            isLiquid = true;
+            liquidDrop = AZLiquids.oxyliteLiq;
+            cacheLayer = oxylite.cacheLayer;
+
+            albedo = oxylite.albedo;
+            supportsOverlay = true;
+        }};
+
+        serridicStone = new Floor("serridic-stone", 4);
+        serridicStoneWall = new StaticWall("serridic-stone-wall") {{
+            variants = 3;
+            serridicStone.asFloor().wall = this;
+        }};
+
+        // BALSITE
+        balsitePlates = new Floor("balsite-plates", 8);
+        balsiteWall = new StaticWall("balsite-wall") {{
+            variants = 3;
+            balsitePlates.asFloor().wall = this;
+        }};
+
+        balsitePlatesOxylite = new ShallowLiquid("balsite-plates-oxylite") {{ variants = 4;
+            albedo = 0.9f;
+            cacheLayer = oxylite.cacheLayer;
+            supportsOverlay = true;
+        }};
+
+        balsiteHoles = new OverlayFloor("balsite-holes") {{ variants = 2;    }};
+
+        // CRAB STONE
+        crabStone = new Floor("crab-stone", 8);
+        crabStoneWall = new StaticWall("crab-stone-wall") {{ variants = 3;
+            crabStone.asFloor().wall = this;
+        }};
+        crabStoneOvergrowth = new Floor("crab-stone-overgrowth") {{ variants = 12; }};
+
+        // OXYLITE MINERALS
+        buliteWall = new StaticWall("bulite-wall") {{ variants = 3; }};
+        fortileUwite = new Floor("fortile-uwite", 4);
+        fortileUwiteWall = new StaticWall("fortile-uwite-wall") {{ variants = 3; }};
+
+        // BOULDERS
+        serridOrangeBoulder = new Prop("serrid-orange-boulder") {{ variants = 3;
+            serridOrange.asFloor().decoration = this;
+        }};
+        serridRedBoulder = new Prop("serrid-red-boulder") {{ variants = 3;
+            serridOrange.asFloor().decoration = this;
+        }};
+        serridYellowBoulder = new Prop("serrid-yellow-boulder") {{ variants = 3;
+            serridOrange.asFloor().decoration = this;
+        }};
+        serridicBoulder = new Prop("serridic-boulder") {{ variants = 3;
+            serridicStone.asFloor().decoration = this;
+        }};
+        crabStoneBoulder = new Prop("crab-stone-boulder") {{ variants = 3;
+            crabStone.asFloor().decoration = this;
+        }};
+        crabStoneOvergrowthBoulder = new Prop("crab-stone-overgrowth-boulder") {{ variants = 2;
+            crabStoneOvergrowth.asFloor().decoration = this;
+        }};
+        balsiteBoulder = new Prop("balsite-boulder") {{ variants = 3;
+            balsitePlates.asFloor().decoration = this;
+        }};
+
+
+        //endregion oxylite
+
+
+
+
+
+
+
+
+
+
+
+
+
         //region Auriona
         //region sea-biome
         //oxylite
-        oxylite = new Floor("oxylite") {{
-            variants = 4;
-            liquidDrop = AZLiquids.oxyliteLiq;
-            cacheLayer = CacheLayer.water;
-            attributes.set(AZAttribute.mainlheatattr, 0.25f);
-            liquidMultiplier = 1f;
-            isLiquid = true;
-            albedo = 0.7f;
-            mapColor = Color.valueOf("50a9a8");
-        }};
-        deepOxylite = new Floor("deep-oxylite") {{
-            variants = 4;
-            liquidDrop = AZLiquids.oxyliteLiq;
-            cacheLayer = CacheLayer.water;
-            liquidMultiplier = 1.75f;
-            isLiquid = true;
-            albedo = 0.7f;
-            drownTime = 140f;
-        }};
-        serridOxylite = new ShallowLiquid("serrid-oxylite") {{
-            variants = 4;
-            liquidDrop = AZLiquids.oxyliteLiq;
-            cacheLayer = CacheLayer.water;
-            liquidMultiplier = 1f;
-            isLiquid = true;
-            albedo = 0.7f;
-        }};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //lepera blocks
         leperaBlock = new Floor("lepera-block") {{
@@ -92,43 +226,11 @@ public class AZEnvironment {
             isLiquid = true;
         }};
 
-        //serridDust
-        serridDust = new Floor("serrid-dust") {{
-            variants = 4;
-            attributes.set(AZAttribute.serridAttr, 1);
-        }};
-        serridDustWall = new StaticWall("serrid-dust-wall") {{
-            variants = 3;
-            serridDust.asFloor().wall = this;
-        }};
-        serridBoulder = new Prop("serrid-boulder") {{
-            variants = 3;
-            serridDust.asFloor().decoration = this;
-        }};
-        //crabStone
-        crabStone = new Floor("crab-stone") {{
-            variants = 4;
-        }};
-        crabStoneWall = new StaticWall("crab-stone-wall") {{
-            variants = 3;
-            crabStone.asFloor().wall = this;
-        }};
-        crabStoneBoulder = new Prop("crab-stone-boulder") {{
-            variants = 3;
-            crabStone.asFloor().decoration = this;
-        }};
+
+
+
+
         //serridic rock
-        serridicRock = new Floor("serridic-rock") {{
-            variants = 4;
-        }};
-        serridicRockWall = new StaticWall("serridic-stone-wall") {{
-            variants = 3;
-            serridicRock.asFloor().wall = this;
-        }};
-        serridicBoulder = new Prop("serridic-boulder") {{
-            variants = 3;
-            serridicRock.asFloor().decoration = this;
-        }};
         //decorations
         corals = new TallBlock("coral") {{
             variants = 3;
@@ -200,10 +302,6 @@ public class AZEnvironment {
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.7f;
-        }};
-        //plants
-        bigKust = new TallBlock("big-kust") {{
-            variants = 3;
         }};
         //endregion forest-biome
 
@@ -304,32 +402,7 @@ public class AZEnvironment {
         //endregion volcanic-biome
 
 
-//        shaderTesting = new Floor("spectralia") {{
-//            variants = 4;
-//            isLiquid = true;
-//            liquidDrop = AZLiquids.spectralia;
-//            cacheLayer = AzCacheLayers.testShader;
-//            attributes.set(AZAttribute.mainlheatattr, 0.25f);
-//        }};
-//
-//        shaderTesting2 = new Floor("spectralia") {{
-//            variants = 4;
-//            isLiquid = true;
-//            liquidDrop = AZLiquids.spectralia;
-//            cacheLayer = AzCacheLayers.testShader2;
-//            attributes.set(AZAttribute.mainlheatattr, 0.25f);
-//        }};
-//
-//        shaderTesting3 = new Floor("spectralia") {{
-//            variants = 4;
-//            isLiquid = true;
-//            liquidDrop = AZLiquids.spectralia;
-//            cacheLayer = AzCacheLayers.testShader3;
-//            attributes.set(AZAttribute.mainlheatattr, 0.25f);
-//        }};
-        //region not-in-biome
 
-        //endregion not-in-biome
 
         //region decorations
         ancientSus = new Prop("ancient-sus") {{
@@ -364,28 +437,6 @@ public class AZEnvironment {
             parent = blendGroup = oxylite;
             variants = 2;
             cacheLayer = CacheLayer.water;
-            attributes.set(AZAttribute.khylidattr, 1f);
-        }};
-        khylidGrowthSandLiquid = new ModOverlayFloor("lepera-growth-sl") {{
-            parent = blendGroup = serridOxylite;
-            cacheLayer = CacheLayer.water;
-            variants = khylidGrowth.variants;
-            attributes.set(AZAttribute.khylidattr, 1f);
-        }};
-        khylidGrowthSand = new ModOverlayFloor("lepera-growth-s") {{
-            parent = blendGroup = serridDust;
-            variants = khylidGrowth.variants;
-            attributes.set(AZAttribute.khylidattr, 1f);
-        }};
-        khylidGrowthLepera = new ModOverlayFloor("lepera-growth-l") {{
-            parent = blendGroup = leperaBlock;
-            variants = khylidGrowth.variants;
-            attributes.set(AZAttribute.khylidattr, 1f);
-        }};
-        khylidGrowthLeperaLiquid = new ModOverlayFloor("lepera-growth-ll") {{
-            parent = blendGroup = leperaBlockOxylite;
-            cacheLayer = CacheLayer.water;
-            variants = khylidGrowth.variants;
             attributes.set(AZAttribute.khylidattr, 1f);
         }};
         //endregion ores
