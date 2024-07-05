@@ -16,9 +16,9 @@ public class AZEnvironment {
             oxylite, deepOxylite, abyssOxylite,serridOxylite,
 
     serridOrange, serridOrangeWall, serridRed, serridRedWall, serridYellow, serridYellowWall,
-            serridicStone, serridicStoneWall,
+    serridicStone, serridicStoneWall,
 
-    balsitePlates, balsiteWall, balsitePlatesOxylite, balsiteHoles,
+    balsitePlates, balsiteWall, balsitePlatesOxylite, balsiteHoles, balsiteHolesSmall, balsiteRocks, balsiteRocksLarge,
     buliteWall, fortileUwite, fortileUwiteWall,
     crabStone, crabStoneWall, crabStoneBoulder, crabStoneOvergrowth, crabStoneOvergrowthBoulder,
 
@@ -139,14 +139,20 @@ public class AZEnvironment {
             variants = 3;
             balsitePlates.asFloor().wall = this;
         }};
-
         balsitePlatesOxylite = new ShallowLiquid("balsite-plates-oxylite") {{ variants = 4;
             albedo = 0.9f;
             cacheLayer = oxylite.cacheLayer;
+            liquidDrop = AZLiquids.oxyliteLiq;
             supportsOverlay = true;
         }};
-
+        //TODO fix display
         balsiteHoles = new OverlayFloor("balsite-holes") {{ variants = 2;    }};
+        //TODO make indestructible and ddisable shadow
+        balsiteHolesSmall = new Prop("balsite-holes-small") {{ variants = 4; }};
+        //TODO player cannot build on this
+        balsiteRocks = new Prop("balsite-rocks") {{ variants = 2; }};
+        //TODO player cannot build on this
+        balsiteRocksLarge = new OverlayFloor("balsite-rocks-large") {{ variants = 3; }};
 
         // CRAB STONE
         crabStone = new Floor("crab-stone", 8);
