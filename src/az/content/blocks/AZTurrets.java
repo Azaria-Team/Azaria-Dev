@@ -287,42 +287,34 @@ public class AZTurrets {
         }};
 
         //todo change craft
-        tideTurret = new ItemTurret("tide") {{
-            requirements(Category.turret, with(AZItems.fors, 50, AZItems.ferbium, 35));
+        tideTurret = new PowerTurret("tide") {{
+            requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
+            researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
+            health = 700;
+            shootEffect = AZFx.shootForce;
+            smokeEffect = AZFx.shootSmokeForce;
+            reload = 50f;
+            inaccuracy = 25f;
+            shake = 2f;
+            shootY = -2;
+            outlineColor = AZPal.aureliaOutline;
+            size = 2;
+            recoil = 2f;
+            range = 24 * Vars.tilesize;
+            shootCone = 30f;
+            rotateSpeed = 4f;
+            shoot.shots = 3;
+            shoot.shotDelay = 7;
+            consumePower(1f);
 
-            ammo(
-                    AZItems.ferbium, new BasicBulletType(0f, 1) {{
-                        ammoMultiplier = 1f;
-                        reload = 90f;
+            shootSound = Sounds.laser;
+            squareSprite = false;
+            ammoPerShot = 1;
+            maxAmmo = 10;
+            itemCapacity = 10;
+            coolantMultiplier = 2f;
 
-                        spawnUnit = new MissileUnitType("tide-torpedo") {{
-                            speed = 3.5f;
-                            lifetime = 2f;
-                            maxRange = 4f;
-                            outlineColor = AZPal.aureliaOutline;
-                            engineColor = AZItems.zectral.color;
-                            engineLayer = Layer.effect;
-                            engineOffset = 6f;
-                            accel = -3f;
-                            lowAltitude = true;
-                            targetAir = false;
-                            health = 100;
-                            constructor = UnitEntity::create;
-
-                            weapons.add(new Weapon() {{
-                              shootCone = 45f;
-                              mirror = false;
-                              reload = 1f;
-                              shootOnDeath = true;
-                              hitEffect = AZFx.hitExplosion;
-
-                              bullet = new ExplosionBulletType(400f, 140) {{
-                                  lifetime = 3f;
-                              }};
-                            }});
-                        }};
-                    }}
-            );
+            shootType = AZBullets.laserTest;
         }};
 
                 //region h-tur
