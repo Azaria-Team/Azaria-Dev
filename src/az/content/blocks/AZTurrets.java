@@ -161,17 +161,19 @@ public class AZTurrets {
             health = 700;
             shootEffect = AZFx.shootForce;
             smokeEffect = AZFx.shootSmokeForce;
-            reload = 70f;
-            inaccuracy = 2f;
+            reload = 140f;
+            inaccuracy = 10f;
             shake = 2f;
             shootY = -2;
             outlineColor = AZPal.aureliaOutline;
             size = 2;
             recoil = 2f;
             range = 24 * Vars.tilesize;
-            shootCone = 10f;
-            rotateSpeed = 4f;
-            speedupPerShoot = 0.04f;
+            shootCone = 30f;
+            shoot.shots = 3;
+            shoot.shotDelay = 8;
+            rotateSpeed = 3f;
+            speedupPerShoot = 0.01f;
 
             shootSound = Sounds.cannon;
             squareSprite = false;
@@ -181,7 +183,7 @@ public class AZTurrets {
             coolantMultiplier = 2f;
 
             ammo(
-                    AZItems.fors, AZBullets.forceBullet
+                    AZItems.ferbium, AZBullets.ferbiumBullet
             );
 
 

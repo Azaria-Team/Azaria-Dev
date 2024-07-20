@@ -17,7 +17,7 @@ import mindustry.type.StatusEffect;
 
 public class AZBullets {
     public static BulletType
-            noneBullet, forceBullet, forceFerbiumBullet, hornBullet, antiMissileBullet, shrapnelBullet, razeBullet, laserTest;
+            noneBullet, forceBullet, forceFerbiumBullet, hornBullet, antiMissileBullet, shrapnelBullet, ferbiumBullet, razeBullet, laserTest;
 
     public static void load() {
 
@@ -132,6 +132,32 @@ public class AZBullets {
                 }};
             backColor = AZPal.craside;
             frontColor = AZPal.craside2;
+        }};
+
+        ferbiumBullet = new BasicBulletType(4f, 35f){{
+            splashDamage = 30f;
+            splashDamageRadius = 25f;
+            sprite = "az-dagger-missile";
+            //trailInterval = 0.5f;
+            //trailEffect = AZFx.forceBulletTrail;
+            hitEffect = AZFx.forceBulletHit;
+            despawnEffect = AZFx.forceBulletDespawn;
+            trailRotation = true;
+            shrinkX = shrinkY = 0f;
+            width = 10f;
+            height = 13f;
+            lifetime = 50;
+            collidesGround = true;
+            collidesAir = true;
+            hitSize = 3;
+            homingPower = 0.3f;
+
+            trailColor = AZPal.ferbiumBullet;
+            backColor = AZPal.ferbiumBulletBack;
+            frontColor = AZPal.ferbiumBullet;
+
+            trailLength = 8;
+            trailWidth = 2f;
         }};
 
 
