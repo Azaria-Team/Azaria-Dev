@@ -6,14 +6,11 @@ import az.content.AZUnits;
 import az.graphics.AZPal;
 import az.world.blocks.defense.ModRadar;
 import az.world.blocks.defense.NavalMine;
-import az.world.blocks.defense.turret.BlockRepairTurret;
-import mindustry.content.Items;
+import az.world.blocks.defense.turret.ModRepairTurret;
 import mindustry.type.Category;
 import mindustry.world.Block;
-import mindustry.world.blocks.defense.Radar;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.blocks.storage.StorageBlock;
-import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.type.ItemStack.with;
 
@@ -56,7 +53,7 @@ public class AZCoreRelatedBlocks {
             consumePower(0.3f);
         }};
 
-        repairTurret = new BlockRepairTurret("repair-turret"){{
+        repairTurret = new ModRepairTurret("repair-turret"){{
             requirements(Category.effect, with(AZItems.fors, 90, AZItems.lepera, 40));
             health = 320;
             repairSpeed = 0.75f;

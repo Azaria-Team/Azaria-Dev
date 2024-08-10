@@ -17,7 +17,7 @@ import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
 
-public class BlockRepairTurret extends Block {
+public class ModRepairTurret extends Block {
     static final Rect rect = new Rect();
 
     public final int timerTarget = timers++;
@@ -36,7 +36,7 @@ public class BlockRepairTurret extends Block {
     public Color laserColor = AZPal.lightningNodeColor, laserTopColor = Color.white.cpy();
     public Color phaseColor = laserColor;
 
-    public BlockRepairTurret(String name){
+    public ModRepairTurret(String name){
         super(name);
         update = true;
         solid = true;
