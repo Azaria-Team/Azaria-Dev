@@ -29,25 +29,23 @@ import static mindustry.Vars.tilesize;
 
 public class TowerTurret extends Block {
     public float damage = 10;
-    public float range = 20;
-    public float reload = 60f * 1.5f;
-    public float chargeTime = 60f * 1.5f;
-    public StatusEffect buffEffect = StatusEffects.none;
-    public float buffDuration = 60f;
-    public StatusEffect debufEffect = StatusEffects.none;
-    public float debuffDuration = 60f;
+    public float range = 8f * 8f;
+    public float reload = 7f * 60f;
+    public StatusEffect buffEffect = StatusEffects.fast;
+    public float buffDuration = 5f * 60f;
+    public StatusEffect debufEffect = StatusEffects.slow;
+    public float debuffDuration = 5f * 60f;
     public boolean targetAir = true;
     public boolean targetGround = true;
-    public Effect warmupEffect = Fx.none;
-    public Color hitColor = Pal.accent;
-    public Effect hitEffect = Fx.hitBulletColor;
-    public Color waveColor = Color.white;
-    public Effect waveEffect = Fx.dynamicWave;
+    public Color waveColor = newBuilding().team.color;
+    public Effect fxEffect = Fx.dynamicWave;
     public Sound shootSound = Sounds.shootSmite;
     public float shake = 1;
 
     public TowerTurret(String name) {
         super(name);
+        solid = true;
+        update = true;
     }
 
     @Override
@@ -67,24 +65,19 @@ public class TowerTurret extends Block {
         Drawf.dashCircle(x * tilesize + offset, y * tilesize + offset, range, Pal.techBlue);
     }
 
-    public class BlastTowerBuild extends Building implements Ranged {
+    public class BlastTowerBuild extends Building{
         public float smoothProgress = 0f;
-        public float lastShootTime = -reload;
+        public float shootLast = -reload;
         public float charge;
         public Seq<Teamc> targets = new Seq<>();
-        @Override
-        public float range() {
-            return 0;
-        }
-
         @Override
         public void updateTile() {
             super.updateTile();
 
             targets.clear();
-            Units.nearbyEnemies(team, x, y, range, u -> {
-                if(u.checkTarget(targetAir, targetGround)) {
-                    targets.add(u);
+            Units.nearbyEnemies(team, x, y, range, units -> {
+                if(units.checkTarget(targetAir, targetGround)) {
+                    targets.add(units);
                 }
             });
 
@@ -105,14 +98,13 @@ public class TowerTurret extends Block {
             });
 
             if (targets.size > 0 && canConsume()) {
-                smoothProgress = Mathf.approach(smoothProgress, 1f, Time.delta / chargeTime);
+                smoothProgress = Mathf.approach(smoothProgress, 1f, Time.delta / reload);
 
-                if (efficiency > 0 && (charge += Time.delta) >= reload && smoothProgress >= 0.99f) {
+                if (efficiency > 0 && smoothProgress >= 0.99f) {
                     shootWave();
-                    charge = 0f;
                 }
             } else {
-                smoothProgress = Mathf.approach(smoothProgress, 0f, Time.delta / chargeTime);
+                smoothProgress = Mathf.approach(smoothProgress, 0f, Time.delta / reload);
             }
         }
 
@@ -120,10 +112,15 @@ public class TowerTurret extends Block {
             if (!canConsume()) return;
 
             consume();
-            lastShootTime = Time.time;
-            Effect.shake(shake, shake, this);
-            shootSound.at(this);
-
+            shootLast = Time.time;
+            Effect.shake(shake, shake, x, y);
+            fxEffect.layer(Layer.blockUnder).at(x, y, range, waveColor);
+            shootSound.at(x, y);
+            tile.getLinkedTiles(t -> Fx.hitFuse.layer(Layer.blockUnder).at(
+                    t.worldx(), t.worldy(),
+                    angleTo(t.worldx(), t.worldy()) + Mathf.range(360f),
+                    Tmp.c1.set(t.floor().mapColor).mul(1.5f + Mathf.range(0.15f)))
+            );
             for (Teamc target : targets) {
                 if(target.team() != team) {
                     if(target instanceof Healthc){
@@ -134,25 +131,23 @@ public class TowerTurret extends Block {
                     }
                 } else {
                     if(target instanceof Statusc){
-                        ((Statusc)target).apply(buffEffect, debuffDuration);
+                        ((Statusc)target).apply(buffEffect, buffDuration);
                     }
 
                 }
             }
-
-
             smoothProgress = 0f;
         }
 
         @Override
         public void drawSelect(){
-            Drawf.dashCircle(x, y, range, Pal.accent);
+            Drawf.dashCircle(x, y, range, team.color);
         }
 
         @Override
         public void write(Writes write) {
             super.write(write);
-            write.f(lastShootTime);
+            write.f(shootLast);
             write.f(smoothProgress);
             write.f(charge);
         }
@@ -160,7 +155,7 @@ public class TowerTurret extends Block {
         @Override
         public void read(Reads read, byte revision) {
             super.read(read, revision);
-            lastShootTime = read.f();
+            shootLast = read.f();
             smoothProgress = read.f();
             charge = read.f();
         }

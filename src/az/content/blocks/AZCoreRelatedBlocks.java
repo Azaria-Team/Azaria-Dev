@@ -7,6 +7,7 @@ import az.graphics.AZPal;
 import az.world.blocks.defense.ModRadar;
 import az.world.blocks.defense.NavalMine;
 import az.world.blocks.defense.turret.ModRepairTurret;
+import az.world.blocks.defense.turret.TowerTurret;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.storage.CoreBlock;
@@ -16,7 +17,7 @@ import static mindustry.type.ItemStack.with;
 
 public class AZCoreRelatedBlocks {
     public static Block
-            coreLegion, caseI, lampRadar, repairTurret, navalMine;
+            coreLegion, caseI, lampRadar, repairTurret, navalMine, towerTurret;
     public static void load() {
         //region traps
         coreLegion = new CoreBlock("core-legion") {{
@@ -75,6 +76,12 @@ public class AZCoreRelatedBlocks {
             health = 1850;
             damage = 790;
             tileDamage = 1850;
+        }};
+
+        towerTurret = new TowerTurret("tower-turret") {{
+            requirements(Category.effect, with(AZItems.seonium, 50, AZItems.ferbium, 35));
+            consumePower(0.3f);
+            size = 2;
         }};
     }
 }
