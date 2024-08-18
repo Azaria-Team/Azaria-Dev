@@ -9,6 +9,7 @@ import arc.util.Time;
 import arc.util.Tmp;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
+import az.content.AZFx;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.entities.Effect;
@@ -30,7 +31,7 @@ import static mindustry.Vars.tilesize;
 public class TowerTurret extends Block {
     public float damage = 10;
     public float range = 8f * 8f;
-    public float reload = 7f * 60f;
+    public float reload = 3f * 60f;
     public StatusEffect buffEffect = StatusEffects.fast;
     public float buffDuration = 5f * 60f;
     public StatusEffect debufEffect = StatusEffects.slow;
@@ -38,7 +39,7 @@ public class TowerTurret extends Block {
     public boolean targetAir = true;
     public boolean targetGround = true;
     public Color waveColor = newBuilding().team.color;
-    public Effect fxEffect = Fx.dynamicWave;
+    public Effect fxEffect = AZFx.dynamicWave2;
     public Sound shootSound = Sounds.shootSmite;
     public float shake = 1;
 
@@ -87,16 +88,6 @@ public class TowerTurret extends Block {
                 }
             });
 
-            Units.nearby(team, x, y, range, u -> {
-                if(u.checkTarget(targetAir, targetGround)) {
-                    targets.add(u);
-                }
-            });
-
-            indexer.allBuildings(x, y, range, building -> {
-                    targets.add(building);
-            });
-
             if (targets.size > 0 && canConsume()) {
                 smoothProgress = Mathf.approach(smoothProgress, 1f, Time.delta / reload);
 
@@ -116,11 +107,6 @@ public class TowerTurret extends Block {
             Effect.shake(shake, shake, x, y);
             fxEffect.layer(Layer.blockUnder).at(x, y, range, waveColor);
             shootSound.at(x, y);
-            tile.getLinkedTiles(t -> Fx.hitFuse.layer(Layer.blockUnder).at(
-                    t.worldx(), t.worldy(),
-                    angleTo(t.worldx(), t.worldy()) + Mathf.range(360f),
-                    Tmp.c1.set(t.floor().mapColor).mul(1.5f + Mathf.range(0.15f)))
-            );
             for (Teamc target : targets) {
                 if(target.team() != team) {
                     if(target instanceof Healthc){

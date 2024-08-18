@@ -508,6 +508,12 @@ public class AZFx {
         });
     }),
 
+    dynamicWave2 = new Effect(30, e -> {
+        color(e.color, 0.8f);
+        stroke(e.fout() * 3f);
+        Lines.circle(e.x, e.y, 6f + e.finpow() * e.rotation);
+    }),
+
     lightning2 = new Effect(10f, 500f, e -> {
         if(!(e.data instanceof Seq)) return;
         Seq<Vec2> lines = e.data();
