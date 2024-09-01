@@ -678,7 +678,8 @@ public class AZUnits {
             accel = 0.1f;
             drag = 0.05f;
 
-            health = 150f;
+            health = 15000000000f; //150;
+            armor = 15000000;
             hitSize = 5f;
             itemCapacity = 5;
 
