@@ -25,7 +25,7 @@ public class Azaria extends Mod{
         if(!mobile) {
 
             BaseDialog dialog = new BaseDialog("Azaria") {
-                //for dev
+                //dev
                 private float leave = 3f * 60;
 
                 private boolean canClose = false;
