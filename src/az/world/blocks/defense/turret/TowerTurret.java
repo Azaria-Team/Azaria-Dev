@@ -29,7 +29,7 @@ import static mindustry.Vars.indexer;
 import static mindustry.Vars.tilesize;
 
 public class TowerTurret extends Block {
-    public float damage = 10;
+    public float damage = 20;
     public float range = 8f * 8f;
     public float reload = 3f * 60f;
     public StatusEffect buffEffect = StatusEffects.fast;
@@ -105,7 +105,7 @@ public class TowerTurret extends Block {
             consume();
             shootLast = Time.time;
             Effect.shake(shake, shake, x, y);
-            fxEffect.layer(Layer.blockUnder).at(x, y, range, waveColor);
+            fxEffect.at(x, y, range, waveColor);
             shootSound.at(x, y);
             for (Teamc target : targets) {
                 if(target.team() != team) {
