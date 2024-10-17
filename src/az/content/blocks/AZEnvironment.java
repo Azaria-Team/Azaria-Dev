@@ -133,6 +133,7 @@ public class AZEnvironment {
 
             albedo = oxylite.albedo;
             supportsOverlay = true;
+            mapColor = Color.valueOf("82827e");
         }};
 
         serridicStone = new Floor("serridic-stone", 4);
@@ -152,6 +153,7 @@ public class AZEnvironment {
             cacheLayer = oxylite.cacheLayer;
             liquidDrop = AZLiquids.oxyliteLiq;
             supportsOverlay = true;
+            mapColor = Color.valueOf("4d7578");
         }};
         //TODO fix display
         balsiteHoles = new ModBigOverlayFloor("balsite-holes") {{
@@ -345,6 +347,7 @@ public class AZEnvironment {
             liquidMultiplier = 1f;
             isLiquid = true;
             albedo = 0.7f;
+            mapColor = Color.valueOf("395f6a");
         }};
         //endregion forest-biome
 
