@@ -1,14 +1,22 @@
 package az.content.blocks;
 
 import arc.graphics.Color;
+import arc.graphics.g2d.Draw;
+import arc.math.Mathf;
+import arc.math.geom.Point2;
 import az.content.AZAttribute;
 import az.content.AZItems;
 import az.content.AZLiquids;
+import az.world.blocks.environment.ModBigOverlayFloor;
 import az.world.blocks.environment.ModOverlayFloor;
+import az.world.blocks.environment.ModTallBlock;
 import mindustry.content.Blocks;
 import mindustry.graphics.CacheLayer;
 import mindustry.world.Block;
+import mindustry.world.Tile;
 import mindustry.world.blocks.environment.*;
+
+import static mindustry.Vars.tilesize;
 
 public class AZEnvironment {
     public static Block
@@ -20,7 +28,7 @@ public class AZEnvironment {
 
     balsitePlates, balsiteWall, balsitePlatesOxylite, balsiteHoles, balsiteHolesSmall, balsiteRocks, balsiteRocksLarge,
     buliteWall, fortileUwite, fortileUwiteWall,
-    crabStone, crabStoneWall, crabStoneBoulder, crabStoneOvergrowth, crabStoneOvergrowthBoulder,
+    crabStone, crabStoneWall, crabStoneBoulder, crabStoneOvergrowth, crabStoneOvergrowthBoulder, overgrowthBlob, overgrowthFruit, overgrowthToot,
 
         // forest
 
@@ -95,6 +103,7 @@ public class AZEnvironment {
         abyssOxylite = new Floor("oxylite-abyss", oxylite.variants) {{
             isLiquid = true;
             cacheLayer = oxylite.cacheLayer;
+            liquidDrop = AZLiquids.oxyliteLiq;
             albedo = oxylite.albedo;
         }};
 
@@ -146,13 +155,27 @@ public class AZEnvironment {
             supportsOverlay = true;
         }};
         //TODO fix display
-        balsiteHoles = new OverlayFloor("balsite-holes") {{ variants = 2;    }};
+        balsiteHoles = new ModBigOverlayFloor("balsite-holes") {{
+            variants = 2;
+            parent = blendGroup = balsitePlates;
+            drownTime = 999999999f;
+        }};
         //TODO make indestructible and ddisable shadow
-        balsiteHolesSmall = new Prop("balsite-holes-small") {{ variants = 4; }};
+        balsiteHolesSmall = new OverlayFloor("balsite-holes-small") {{
+            variants = 4;
+            blendGroup = balsitePlates;
+        }};
         //TODO player cannot build on this
-        balsiteRocks = new Prop("balsite-rocks") {{ variants = 2; }};
+        balsiteRocks = new Prop("balsite-rocks") {{
+            variants = 2;
+            hasShadow = false;
+        }};
         //TODO player cannot build on this
-        balsiteRocksLarge = new OverlayFloor("balsite-rocks-large") {{ variants = 3; }};
+        balsiteRocksLarge = new ModTallBlock("balsite-rocks-large") {{
+            variants = 3;
+            clipSize = 96f;
+            rotationRand = 0f;
+        }};
 
         // CRAB STONE
         crabStone = new Floor("crab-stone", 8);
@@ -188,6 +211,20 @@ public class AZEnvironment {
         balsiteBoulder = new Prop("balsite-boulder") {{ variants = 3;
             balsitePlates.asFloor().decoration = this;
         }};
+        overgrowthBlob = new ModTallBlock("overgrowth-blob"){{
+            variants = 2;
+            clipSize = 96f;
+        }};
+        overgrowthFruit = new ModTallBlock("overgrowth-fruit"){{
+            variants = 1;
+            clipSize = 96f;
+        }};
+
+        overgrowthToot = new ModTallBlock("overgrowth-root"){{
+            variants = 2;
+            clipSize = 96f;
+        }};
+
 
 
         //endregion oxylite
@@ -238,9 +275,10 @@ public class AZEnvironment {
 
         //serridic rock
         //decorations
-        corals = new TallBlock("coral") {{
+        corals = new ModOverlayFloor("coral") {{
             variants = 3;
             cacheLayer = CacheLayer.water;
+            parent = blendGroup = oxylite;
         }};
         //endregion sea-biome
 
