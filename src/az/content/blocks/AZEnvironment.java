@@ -75,7 +75,6 @@ public class AZEnvironment {
 
 
 
-    //TODO ix all ShallowLiquid blocks (the sprite in editor is kinda fucked)
     public static void load() {
 
         //region oxylite
@@ -485,5 +484,9 @@ public class AZEnvironment {
         }};
         //endregion ores
         //endregion Auriona
+        ((ShallowLiquid)serridOxylite).set(oxylite, serridOrange);
+        ((ShallowLiquid)serridOxylite).set(oxylite, serridRed);
+        ((ShallowLiquid)balsitePlatesOxylite).set(oxylite, balsitePlates);
+        ((ShallowLiquid)darkSerridOxylite).set(oxylite, darkSerrid);
     }
 }
