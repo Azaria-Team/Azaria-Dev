@@ -21,7 +21,7 @@ public class AZCoreRelatedBlocks {
     public static void load() {
         //region traps
         coreLegion = new CoreBlock("core-legion") {{
-            requirements(Category.effect, with(AZItems.fors, 1200, AZItems.lepera, 800));
+            requirements(Category.effect, with(AZItems.fors, 1400, AZItems.lepera, 900));
 
             isFirstTier = true;
             unitType = AZUnits.gyurza;
@@ -49,6 +49,7 @@ public class AZCoreRelatedBlocks {
             outlineColor = Color.valueOf("4a4b53");
             fogRadius = 15;
             size = 2;
+            discoveryTime = 60f;
             researchCost = with(AZItems.fors, 40, AZItems.lepera, 20);
 
             consumePower(0.3f);
