@@ -195,10 +195,10 @@ public class AZEnvironment {
             serridOrange.asFloor().decoration = this;
         }};
         serridRedBoulder = new Prop("serrid-red-boulder") {{ variants = 3;
-            serridOrange.asFloor().decoration = this;
+            serridRed.asFloor().decoration = this;
         }};
         serridYellowBoulder = new Prop("serrid-yellow-boulder") {{ variants = 3;
-            serridOrange.asFloor().decoration = this;
+            serridYellow.asFloor().decoration = this;
         }};
         serridicBoulder = new Prop("serridic-boulder") {{ variants = 3;
             serridicStone.asFloor().decoration = this;
