@@ -78,7 +78,7 @@ public class AZUnits {
             accel = 0.1f;
             drag = 0.05f;
 
-            mineSpeed = 8f;
+            mineSpeed = 5.5f;
             mineTier = 1;
             buildSpeed = 0.6f;
 

@@ -56,7 +56,7 @@ public class AZDistribution {
             researchCost = with(AZItems.fors, 35);
             bridgeWidth = 8F;
             health = 200;
-            range = 5;
+            range = 4;
 
             buildCostMultiplier = 2f;
             squareSprite = false;
