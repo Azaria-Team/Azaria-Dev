@@ -212,7 +212,7 @@ public class AZEnvironment {
         balsiteBoulder = new Prop("balsite-boulder") {{ variants = 3;
             balsitePlates.asFloor().decoration = this;
         }};
-        overgrowthBlob = new ModTallBlock("overgrowth-blob"){{
+        overgrowthBlob = new TreeBlock("overgrowth-blob"){{
             variants = 2;
             clipSize = 96f;
         }};
