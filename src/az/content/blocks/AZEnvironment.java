@@ -277,7 +277,7 @@ public class AZEnvironment {
         //serridic rock
         //decorations
         corals = new ModOverlayFloor("coral") {{
-            variants = 3;
+            variants = 9;
             cacheLayer = CacheLayer.water;
             parent = blendGroup = oxylite;
         }};
