@@ -9,6 +9,7 @@ import az.content.AZItems;
 import az.content.AZLiquids;
 import az.world.blocks.environment.ModBigOverlayFloor;
 import az.world.blocks.environment.ModOverlayFloor;
+import az.world.blocks.environment.ModSmallOverlayFloor;
 import az.world.blocks.environment.ModTallBlock;
 import mindustry.content.Blocks;
 import mindustry.graphics.CacheLayer;
@@ -162,9 +163,9 @@ public class AZEnvironment {
             drownTime = 999999999f;
         }};
         //TODO make indestructible and ddisable shadow
-        balsiteHolesSmall = new OverlayFloor("balsite-holes-small") {{
+        balsiteHolesSmall = new ModSmallOverlayFloor("balsite-holes-small") {{
             variants = 4;
-            blendGroup = balsitePlates;
+            parent = blendGroup = balsitePlates;
         }};
         //TODO player cannot build on this
         balsiteRocks = new Prop("balsite-rocks") {{
