@@ -845,7 +845,7 @@ public class AZUnits {
                         hitSound = Sounds.explosion;
                         hitEffect = AZFx.blueHitExplosion1;
                         despawnEffect = AZFx.smallBlueExplosion;
-                        lifetime = 25; //10
+                        lifetime = 15; //10
                     }};
                 }};
             }});
