@@ -33,6 +33,9 @@ public static final Color
 
         droneBullet = Color.valueOf("d8f7f8"),
         droneBulletBack = Color.valueOf("8b9cee"),
+
+        droneEMIBullet = Color.valueOf("8b9cee"),
+        droneEMIBulletBack = Color.valueOf("302a6f"),
 //other
         forestLight = Color.valueOf("5eff8f"),
         aureliaOutline = Color.valueOf("2c2a36"),

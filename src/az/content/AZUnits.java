@@ -889,21 +889,19 @@ public class AZUnits {
 
                         bullet = new ModEmpBulletType(4f, 60) {{
                             velocityRnd = 0.25f;
-                            splashDamage = 100;
-                            splashDamageRadius = 5 * tilesize;
-                            sprite = "az-grenade";
-                            backColor = AZPal.droneBulletBack;
-                            frontColor = AZPal.droneBullet;
-                            width = 9f;
-                            height = 11f;
+                            sprite = "circle-bullet";
+                            backColor = AZPal.droneEMIBulletBack;
+                            frontColor = AZPal.droneEMIBullet;
+                            width = 15f;
+                            height = 15f;
                             hitSound = Sounds.explosion;
                             hitEffect = AZFx.blueHitExplosionNormal;
                             despawnEffect = AZFx.blueExplosionNormal;
-                            lifetime = 90;
+                            lifetime = 60;
                             shrinkX = 0;
                             shrinkY = 0;
-                            splashDamage = 10f;
-                            splashDamageRadius = 2f * Vars.tilesize;
+                            //splashDamage = 10f;
+                            //splashDamageRadius = 2f * Vars.tilesize;
                         }};
                     }},
                     new Weapon("az-vortex-gun") {{
@@ -911,8 +909,8 @@ public class AZUnits {
                         mirror = true;
                         alternate = true;
                         rotateSpeed = 10.0f;
-                        x = 8;
-                        y = 0;
+                        x = 10;
+                        y = -1;
 
                         reload = 10.0f;
                         inaccuracy = 5f;
@@ -925,7 +923,7 @@ public class AZUnits {
                             backColor = AZPal.droneBulletBack;
                             frontColor = AZPal.droneBullet;
                             width = 7f;
-                            height = 12f;
+                            height = 10f;
                             hitSound = Sounds.explosion;
                             hitEffect = AZFx.blueHitExplosionNormal;
                             despawnEffect = AZFx.blueExplosionNormal;
