@@ -94,7 +94,7 @@ public class AZPower {
             generateEffect = AZFx.smokeEvaporatorSmall;
             researchCostMultiplier = 0.5f;
             ambientSound = Sounds.smelter;
-            ambientSoundVolume = 0.06f;
+            ambientSoundVolume = 0.1f;
 
             consumeItems(with(AZItems.lepera, 2f));
 

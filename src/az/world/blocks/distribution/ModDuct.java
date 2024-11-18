@@ -10,6 +10,7 @@ import arc.struct.Seq;
 import arc.util.Nullable;
 import az.content.blocks.AZDistribution;
 import mindustry.entities.units.BuildPlan;
+import mindustry.gen.Sounds;
 import mindustry.input.Placement;
 import mindustry.world.Block;
 import mindustry.world.blocks.distribution.*;
@@ -21,6 +22,8 @@ public class ModDuct extends Duct {
 
     public ModDuct(String name) {
         super(name);
+        ambientSound = Sounds.conveyor;
+        ambientSoundVolume = 0.0022f;
     }
 
     @Override

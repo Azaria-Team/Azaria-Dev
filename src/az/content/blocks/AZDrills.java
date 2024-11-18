@@ -34,7 +34,7 @@ public class AZDrills {
 
             attribute = AZAttribute.forsattr;
             outputItem = new ItemStack(AZItems.fors, 4);
-            ambientSound = Sounds.hum;
+            ambientSound = Sounds.drill;
 
             health = 280;
             size = 2;
