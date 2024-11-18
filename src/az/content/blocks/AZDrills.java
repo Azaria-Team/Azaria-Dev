@@ -67,6 +67,7 @@ public class AZDrills {
             group = BlockGroup.liquids;
             outputItem = new ItemStack(AZItems.lepera, 4);
             ambientSound = Sounds.hum;
+            ambientSoundVolume = 0.06f;
 
             health = 280;
             size = 2;
@@ -75,7 +76,6 @@ public class AZDrills {
             minEfficiency = 4f - 0.0001f;
             baseEfficiency = 0f;
             boostScale = 1f / 4f;
-            ambientSoundVolume = 0.06f;
             drawer = new DrawMulti(
                     new DrawRegion(),
                     new DrawGlowRegion() {{
@@ -95,7 +95,8 @@ public class AZDrills {
 
             attribute = AZAttribute.serridAttr;
             outputItem = new ItemStack(AZItems.serrid, 4);
-            ambientSound = Sounds.hum;
+            ambientSound = Sounds.extractLoop;
+            ambientSoundVolume = 0.06f;
 
             health = 280;
             size = 2;
@@ -104,7 +105,6 @@ public class AZDrills {
             //minEfficiency = 4f - 0.0001f;
             //boostScale = 1f / 4f;
           //  baseEfficiency = 0f;
-            ambientSoundVolume = 0.06f;
             displayEfficiency = false;
             drawer = new DrawMulti(
                     new DrawDefault(),
