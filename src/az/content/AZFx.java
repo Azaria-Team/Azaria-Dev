@@ -22,6 +22,7 @@ import static arc.graphics.g2d.Draw.color;
 import static arc.graphics.g2d.Lines.lineAngle;
 import static arc.graphics.g2d.Lines.stroke;
 import static arc.math.Angles.randLenVectors;
+import static mindustry.graphics.Drawf.light;
 
 public class AZFx {
     public static final Rand rand = new Rand();
@@ -587,6 +588,17 @@ public class AZFx {
     });
 
 
+    public static Effect explosionEffect(float explosionSize, float lifetime, Color frontColor, Color backColor, Color bottomColor) {
+        return new Effect(lifetime, explosionSize, e -> {
+            Draw.color(frontColor, backColor, e.fin());
+            Lines.circle(e.x, e.y, explosionSize + e.fout());
+            Lines.stroke(e.fout() * 2f);
+            Draw.reset();
+            Fill.light(e.x, e.y, Lines.circleVertices(explosionSize / 2), explosionSize, Color.white.cpy().a(0f), Tmp.c4.set(bottomColor).a(e.fout()));
+            Draw.reset();
+            light(e.x, e.y, explosionSize * 2f, backColor, e.fout());
+        });
+    }
 
     public static void lightning(float x1, float y1, float x2, float y2, Color c, int iterations, float rndScale, Effect e) {
         Seq<Vec2> lines = new Seq<>();

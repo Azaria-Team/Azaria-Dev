@@ -1,5 +1,12 @@
 package az.entities.bullets;
 
+import arc.graphics.Color;
+import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.Fill;
+import arc.graphics.g2d.Lines;
+import arc.util.Time;
+import arc.util.Tmp;
+import az.graphics.AZPal;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.Damage;
@@ -9,15 +16,21 @@ import mindustry.entities.bullet.BasicBulletType;
 import mindustry.gen.Bullet;
 import mindustry.graphics.Layer;
 
+import static az.content.AZFx.explosionEffect;
 import static mindustry.Vars.tilesize;
+import static mindustry.graphics.Drawf.light;
 
 public class ModEmpBulletType extends BasicBulletType {
     public float radius = 5 * tilesize;
     public float timeDuration = 60f * 10f;
     public float powerDamageScl = 1.5f, powerSclDecrease = 0.3f;
-    public Effect hitPowerEffect = Fx.hitEmpSpark, chainEffect = Fx.none/*chainEmp*/, applyEffect = Fx.heal;
+    public Effect hitPowerEffect = Fx.none, chainEffect = Fx.none/*chainEmp*/, applyEffect = Fx.none;
     public boolean hitUnits = true;
     public float unitDamageScl = 1f;
+    public float effectLifetime = 4 * Time.toSeconds;
+
+    //effect
+    public Color explosionBottomColor = AZPal.droneEMIBulletBottom;
 
     public ModEmpBulletType(float speed, float damage, String bulletSprite){
         super(speed, damage);
@@ -35,6 +48,7 @@ public class ModEmpBulletType extends BasicBulletType {
         super.hit(b, x, y);
 
         if(!b.absorbed){
+            explosionEffect(radius, effectLifetime, frontColor, backColor, explosionBottomColor).at(b.x, b.y);
             Vars.indexer.allBuildings(x, y, radius, other -> {
                 /*if(other.team == b.team){
                     if(other.block.hasPower && other.block.canOverdrive && other.timeScale() < timeIncrease){
