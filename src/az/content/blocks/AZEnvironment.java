@@ -281,6 +281,7 @@ public class AZEnvironment {
             variants = 9;
             cacheLayer = CacheLayer.water;
             parent = blendGroup = oxylite;
+            isLiquid = true;
         }};
         //endregion sea-biome
 
@@ -485,6 +486,7 @@ public class AZEnvironment {
             variants = 2;
             cacheLayer = CacheLayer.water;
             attributes.set(AZAttribute.khylidattr, 1f);
+            isLiquid = true;
         }};
         //endregion ores
         //endregion Auriona
