@@ -72,7 +72,7 @@ public class AZEnvironment {
     //TODO
     //ores
     forsOre, ferbiumOre, forsRock,
-            khylidGrowth;
+            leperaGrowth;
 
 
 
@@ -481,11 +481,11 @@ public class AZEnvironment {
         }};
 
         //todo smth with that ore
-        khylidGrowth = new ModOverlayFloor("lepera-growth") {{
+        leperaGrowth = new ModOverlayFloor("lepera-growth") {{
             parent = blendGroup = oxylite;
             variants = 2;
             cacheLayer = CacheLayer.water;
-            attributes.set(AZAttribute.khylidattr, 1f);
+            attributes.set(AZAttribute.leperaattr, 1f);
             isLiquid = true;
         }};
         //endregion ores

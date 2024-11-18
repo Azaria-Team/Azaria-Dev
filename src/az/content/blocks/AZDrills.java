@@ -63,7 +63,7 @@ public class AZDrills {
             researchCost = with(AZItems.fors, 50);
             squareSprite = false;
 
-            attribute = AZAttribute.khylidattr;
+            attribute = AZAttribute.leperaattr;
             group = BlockGroup.liquids;
             outputItem = new ItemStack(AZItems.lepera, 4);
             ambientSound = Sounds.hum;
@@ -80,7 +80,7 @@ public class AZDrills {
                     new DrawRegion(),
                     new DrawGlowRegion() {{
                         alpha = 0.8f;
-                        color = AZPal.khylid;
+                        color = AZPal.lepera;
                         glowIntensity = 0.1f;
                         glowScale = 9f;
                     }}

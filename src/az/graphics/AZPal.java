@@ -22,7 +22,7 @@ public static final Color
         craside = Color.valueOf("d9fa96"),
         craside2 = Color.valueOf("d47f6a"),
         superdenseAlloy = Color.valueOf("313442"),
-        khylid = Color.valueOf("313442"),
+        lepera = Color.valueOf("313442"),
 
 //units
         unmakerColor = Color.valueOf("8deb87"),

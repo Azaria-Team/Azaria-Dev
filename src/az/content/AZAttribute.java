@@ -8,7 +8,7 @@ public class AZAttribute {
     public static Attribute
             none = add("none"),
             forsattr = add("fors-attr"),
-            khylidattr = add("khylid-attr"),
+            leperaattr = add("lepera-attr"),
             serridAttr = add("serrid-attr"),
             mainlheatattr = add("khylid-attr");
 }
