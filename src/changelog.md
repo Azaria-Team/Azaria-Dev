@@ -4,7 +4,7 @@
 - Turrets: template-name, Tide, Raze
 - Defense Blocks: Composit and Superdense walls
 - Distribution Blocks: Magnetic inverted sorter, underflow gate, unloader
-- Units: t2 refabricators
+- Units: Refabricators
 ### Units
 - T3 Units: Aurora, Vortex, Exterminator
 - T1 Units: Sentinel
@@ -13,7 +13,7 @@
 - Sectors: 3 new sectors and complete remake of 4 old sectors
 - Environment: many new environment blocks and remake old
 - A lighter version of Lepera mining
-- Many new Fx effects added
+- Many Fx effects
 
 ## What changed?
 ### Blocks
