@@ -7,14 +7,29 @@ import mindustry.entities.Effect;
 import mindustry.entities.Units;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.gen.Bullet;
+import mindustry.graphics.Layer;
+
+import static mindustry.Vars.tilesize;
 
 public class ModEmpBulletType extends BasicBulletType {
-    public float radius = 100f;
-    public float timeIncrease = 2.5f, timeDuration = 60f * 10f;
-    public float powerDamageScl = 2f, powerSclDecrease = 0.2f;
-    public Effect hitPowerEffect = Fx.hitEmpSpark, chainEffect = Fx.chainEmp, applyEffect = Fx.heal;
-    public boolean hitUnits = false;
-    public float unitDamageScl = 0.7f;
+    public float radius = 5 * tilesize;
+    public float timeDuration = 60f * 10f;
+    public float powerDamageScl = 1.5f, powerSclDecrease = 0.3f;
+    public Effect hitPowerEffect = Fx.hitEmpSpark, chainEffect = Fx.none/*chainEmp*/, applyEffect = Fx.heal;
+    public boolean hitUnits = true;
+    public float unitDamageScl = 1f;
+
+    public ModEmpBulletType(float speed, float damage, String bulletSprite){
+        super(speed, damage);
+        this.sprite = bulletSprite;
+        layer = Layer.bullet;
+    }
+
+    public ModEmpBulletType(float speed, float damage){
+        this(speed, damage, "bullet");
+    }
+
+
     @Override
     public void hit(Bullet b, float x, float y){
         super.hit(b, x, y);

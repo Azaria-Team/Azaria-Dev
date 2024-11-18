@@ -191,151 +191,151 @@ public class AZUnits {
             }});
         }};
         glaucus = new UnitType("glaucus") {{
-                speed = 0.72f;
-                hitSize = 20f;
-                health = 1600;
-                armor = 8;
-                accel = 0.3f;
-                drag = 0.04f;
+            speed = 0.72f;
+            hitSize = 20f;
+            health = 1600;
+            armor = 8;
+            accel = 0.3f;
+            drag = 0.04f;
 
-                faceTarget = true;
-                targetAir = true;
-                rotateSpeed = 3f;
-                trailLength = 20;
-                waveTrailX = 6f;
-                waveTrailY = -4f;
-                trailScl = 1.9f;
-                range = 30 * Vars.tilesize;
-                constructor = WaterMoveUnit::create;
-                outlineColor = AZPal.aureliaOutline;
+            faceTarget = true;
+            targetAir = true;
+            rotateSpeed = 3f;
+            trailLength = 20;
+            waveTrailX = 6f;
+            waveTrailY = -4f;
+            trailScl = 1.9f;
+            range = 30 * Vars.tilesize;
+            constructor = WaterMoveUnit::create;
+            outlineColor = AZPal.aureliaOutline;
 
-                parts.add(
-                        new RegionPart("-shaft") {{
-                            progress = PartProgress.recoil;
-                            mirror = false;
-                            under = true;
-                            moveX = 0f;
-                            moveY = -3f;
-                            moveRot = 0f;
-                            //x = 0;
-                            //y = -2f;
-                        }});
+            parts.add(
+                    new RegionPart("-shaft") {{
+                        progress = PartProgress.recoil;
+                        mirror = false;
+                        under = true;
+                        moveX = 0f;
+                        moveY = -3f;
+                        moveRot = 0f;
+                        //x = 0;
+                        //y = -2f;
+                    }});
 
-                weapons.add(
-                        new Weapon("az-plasma-pointer") {{
+            weapons.add(
+                    new Weapon("az-plasma-pointer") {{
+                        reload = 60f;
+                        shootY = 2f;
+                        rotate = false;
+                        x = 6;
+                        y = 1.3f;
+                        mirror = true;
+                        alternate = false;
+                        layerOffset = -0.0001f;
+                        baseRotation = -65f;
+                        shootCone = 360f;
+                        shootSound = Sounds.missileSmall;
+                        shoot = new ShootSpread(1, 10f);
+                        bullet = new AimBulletType(3f, 25) {{
+                            backColor = AZPal.vogPinkBack;
+                            frontColor = AZPal.vogPink;
+                            sprite = "az-dagger-missile";
+                            maxRange = 240;
+                            homingPower = 0.07f;
+                            homingRange = 0;
+                            shrinkY = 0f;
+                            shrinkX = 0f;
+                            drag = 0.01f;
+                            width = 9f;
+                            height = 15f;
+                            hitSound = Sounds.explosion;
+                            hitEffect = AZFx.hitExplosion;
+                            despawnEffect = AZFx.explosionSmall2;
+                            trailEffect = AZFx.aimMissileTrail;
+                            trailRotation = true;
+                            trailInterval = 0.5f;
+                            lifetime = 200f;
+
+                            splashDamage = 85;
+                            splashDamageRadius = 20;
+                        }};
+                    }},
+                    new Weapon("az-plasma-pointer") {
+                        {
                             reload = 60f;
                             shootY = 2f;
                             rotate = false;
                             x = 6;
-                            y = 1.3f;
+                            y = -2.3f;
                             mirror = true;
                             alternate = false;
                             layerOffset = -0.0001f;
-                            baseRotation = -65f;
+                            baseRotation = -115f;
                             shootCone = 360f;
                             shootSound = Sounds.missileSmall;
                             shoot = new ShootSpread(1, 10f);
-                            bullet = new AimBulletType(3f, 25) {{
-                                backColor = AZPal.vogPinkBack;
-                                frontColor = AZPal.vogPink;
-                                sprite = "az-dagger-missile";
-                                maxRange = 240;
-                                homingPower = 0.07f;
-                                homingRange = 0;
-                                shrinkY = 0f;
-                                shrinkX = 0f;
-                                drag = 0.01f;
-                                width = 9f;
-                                height = 15f;
-                                hitSound = Sounds.explosion;
-                                hitEffect = AZFx.hitExplosion;
-                                despawnEffect = AZFx.explosionSmall2;
-                                trailEffect = AZFx.aimMissileTrail;
-                                trailRotation = true;
-                                trailInterval = 0.5f;
-                                lifetime = 200f;
-
-                                splashDamage = 85;
-                                splashDamageRadius = 20;
-                            }};
-                        }},
-                        new Weapon("az-plasma-pointer") {
-                            {
-                                reload = 60f;
-                                shootY = 2f;
-                                rotate = false;
-                                x = 6;
-                                y = -2.3f;
-                                mirror = true;
-                                alternate = false;
-                                layerOffset = -0.0001f;
-                                baseRotation = -115f;
-                                shootCone = 360f;
-                                shootSound = Sounds.missileSmall;
-                                shoot = new ShootSpread(1, 10f);
-                                bullet = new AimBulletType(3f, 25) {
-                                    {
-                                        backColor = AZPal.vogPinkBack;
-                                        frontColor = AZPal.vogPink;
-                                        sprite = "az-dagger-missile";
-                                        maxRange = 240;
-                                        homingPower = 0.07f;
-                                        homingRange = 0;
-                                        shrinkY = 0f;
-                                        shrinkX = 0f;
-                                        drag = 0.01f;
-                                        width = 9f;
-                                        height = 15f;
-                                        hitSound = Sounds.explosion;
-                                        hitEffect = AZFx.hitExplosion;
-                                        despawnEffect = AZFx.explosionSmall2;
-                                        trailEffect = AZFx.aimMissileTrail;
-                                        trailRotation = true;
-                                        trailInterval = 0.5f;
-                                        lifetime = 200f;
-
-                                        splashDamage = 85;
-                                        splashDamageRadius = 20;
-                                    }
-                                };
-                            }}
-                );
-
-                //TODO nerfc
-                weapons.add(
-                        new Weapon("az-vog-automatic-launcher") {{
-                                reload = 100f;
-                                shootY = 3f;
-                                inaccuracy = 5.5f;
-                                rotate = true;
-                                x = 0;
-                                y = -2.5f;
-                                mirror = false;
-                                shootSound = Sounds.shootAlt;
-
-                                shoot = new AZBurstShoot(3, 6, 15f);
-                                bullet = new MissileBulletType(6f, 10, "az-vog") {{
-                                    velocityRnd =  0.175f;
-                                    homingPower = 0f;
-                                    homingRange = 0f;
-                                    splashDamage = 50   ;
-                                    splashDamageRadius = 20;
+                            bullet = new AimBulletType(3f, 25) {
+                                {
                                     backColor = AZPal.vogPinkBack;
                                     frontColor = AZPal.vogPink;
-                                    width = 13f;
+                                    sprite = "az-dagger-missile";
+                                    maxRange = 240;
+                                    homingPower = 0.07f;
+                                    homingRange = 0;
+                                    shrinkY = 0f;
+                                    shrinkX = 0f;
+                                    drag = 0.01f;
+                                    width = 9f;
                                     height = 15f;
-                                    shrinkX = 0;
-                                    shrinkY = 0;
                                     hitSound = Sounds.explosion;
                                     hitEffect = AZFx.hitExplosion;
                                     despawnEffect = AZFx.explosionSmall2;
-                                    trailEffect = AZFx.vogTrail;
+                                    trailEffect = AZFx.aimMissileTrail;
                                     trailRotation = true;
                                     trailInterval = 0.5f;
-                                    lifetime = 40f;
-                                }};
+                                    lifetime = 200f;
+
+                                    splashDamage = 85;
+                                    splashDamageRadius = 20;
+                                }
+                            };
                         }}
-                );
+            );
+
+            //TODO nerfc
+            weapons.add(
+                    new Weapon("az-vog-automatic-launcher") {{
+                        reload = 100f;
+                        shootY = 3f;
+                        inaccuracy = 5.5f;
+                        rotate = true;
+                        x = 0;
+                        y = -2.5f;
+                        mirror = false;
+                        shootSound = Sounds.shootAlt;
+
+                        shoot = new AZBurstShoot(3, 6, 15f);
+                        bullet = new MissileBulletType(6f, 10, "az-vog") {{
+                            velocityRnd =  0.175f;
+                            homingPower = 0f;
+                            homingRange = 0f;
+                            splashDamage = 50   ;
+                            splashDamageRadius = 20;
+                            backColor = AZPal.vogPinkBack;
+                            frontColor = AZPal.vogPink;
+                            width = 13f;
+                            height = 15f;
+                            shrinkX = 0;
+                            shrinkY = 0;
+                            hitSound = Sounds.explosion;
+                            hitEffect = AZFx.hitExplosion;
+                            despawnEffect = AZFx.explosionSmall2;
+                            trailEffect = AZFx.vogTrail;
+                            trailRotation = true;
+                            trailInterval = 0.5f;
+                            lifetime = 40f;
+                        }};
+                    }}
+            );
         }};
 
         //TODO nerf at all
@@ -463,7 +463,7 @@ public class AZUnits {
             for(int i = -1; i < 2; i+=2) {
                 int diffPos = i;
                 blade.add(
-                new Blade(name + "-blade") {{
+                        new Blade(name + "-blade") {{
                             y = 1f * diffPos;
                             x = 1.3f;
                             bladeMoveSpeed = 40 * diffPos;
@@ -841,7 +841,7 @@ public class AZUnits {
                         width = 5f;
                         height = 8f;
                         shrinkX = 0;
-                        shrinkY = 0;    
+                        shrinkY = 0;
                         hitSound = Sounds.explosion;
                         hitEffect = AZFx.blueHitExplosion1;
                         despawnEffect = AZFx.smallBlueExplosion;
@@ -854,10 +854,11 @@ public class AZUnits {
         vortex = new DroneUnitType("vortex") {{
             outlineColor = AZPal.aureliaOutline;
             flying = true;
+            lowAltitude = true;
 
-            speed = 1.0f;
+            speed = 1.4f;
             rotateSpeed = 3.0f;
-            drag = 0.03f;
+            drag = 0.04f;
             accel = 0.07f;
             hitSize = 31.0f;
             engineSize = 0;
@@ -868,7 +869,6 @@ public class AZUnits {
             crashDamageMultiplier = 50;
 
             targetPriority = 3.0f;
-//            isEnemy = true;
 
             itemCapacity = 45;
             constructor = DroneUnit::create;
@@ -880,20 +880,67 @@ public class AZUnits {
                         mirror = false;
                         rotateSpeed /= 2.0f;
                         x = 0;
-                        y = -15f;
+                        y = -10f;
 
-                        reload = 45.0f;
-                        inaccuracy = 22.5f;
-                        shake = 0.4f;
+                        reload = 145.0f;
+                        inaccuracy = 4.5f;
+                        shake = 1f;
+                        shootSound = Sounds.pulseBlast;
 
-                        bullet = new ModEmpBulletType() {{
-                            damage = 20.0f;
+                        bullet = new ModEmpBulletType(4f, 60) {{
+                            velocityRnd = 0.25f;
+                            splashDamage = 100;
+                            splashDamageRadius = 5 * tilesize;
+                            sprite = "az-grenade";
+                            backColor = AZPal.droneBulletBack;
+                            frontColor = AZPal.droneBullet;
+                            width = 9f;
+                            height = 11f;
+                            hitSound = Sounds.explosion;
+                            hitEffect = AZFx.blueHitExplosionNormal;
+                            despawnEffect = AZFx.blueExplosionNormal;
+                            lifetime = 90;
+                            shrinkX = 0;
+                            shrinkY = 0;
+                            splashDamage = 10f;
+                            splashDamageRadius = 2f * Vars.tilesize;
                         }};
-                    }});
-            }
+                    }},
+                    new Weapon("az-vortex-gun") {{
+                        rotate = true;
+                        mirror = true;
+                        alternate = true;
+                        rotateSpeed = 10.0f;
+                        x = 8;
+                        y = 0;
+
+                        reload = 10.0f;
+                        inaccuracy = 5f;
+                        shake = 0.4f;
+                        shootSound = Sounds.shootAlt;
+
+                        bullet = new BasicBulletType(5.7f, 10) {{
+                            velocityRnd = 0.25f;
+                            sprite = "az-grenade";
+                            backColor = AZPal.droneBulletBack;
+                            frontColor = AZPal.droneBullet;
+                            width = 7f;
+                            height = 12f;
+                            hitSound = Sounds.explosion;
+                            hitEffect = AZFx.blueHitExplosionNormal;
+                            despawnEffect = AZFx.blueExplosionNormal;
+                            lifetime = 30;
+                            shrinkX = 0;
+                            shrinkY = 0;
+                            splashDamage = 10f;
+                            splashDamageRadius = 2f * Vars.tilesize;
+                        }};
+                    }}
+            );
+        }};
 /*            weapons.add(new Weapon("") {{
             }});*/
-        };
+
         //endregion vectorTree
 
         //region sentinelTree
