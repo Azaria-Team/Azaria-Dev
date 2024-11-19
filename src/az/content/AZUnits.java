@@ -872,13 +872,18 @@ public class AZUnits {
 
             itemCapacity = 45;
             constructor = DroneUnit::create;
+            engineSize = 2;
 
+            setEnginesMirror(
+                    new UnitEngine(10 / 4f, -20 / 4f, 2f, 315f),
+                    new UnitEngine(10 / 4f, -20 / 4f, 2f, 315f)
+            );
 
             weapons.add(
                     new Weapon("az-vortex-emp") {{
                         rotate = true;
                         mirror = false;
-                        rotateSpeed /= 2.0f;
+                        rotateSpeed = 3.0f;
                         x = 0;
                         y = -10f;
 
@@ -886,17 +891,21 @@ public class AZUnits {
                         inaccuracy = 4.5f;
                         shake = 1f;
                         shootSound = Sounds.pulseBlast;
+                        shoot.firstShotDelay = 40;
+                        parentizeEffects = true;
+                        shootY = 4;
 
                         bullet = new ModEmpBulletType(4f, 60) {{
                             velocityRnd = 0.25f;
+                            chargeEffect = AZFx.blueEMICharge;
                             sprite = "circle-bullet";
                             backColor = AZPal.droneEMIBulletBack;
                             frontColor = AZPal.droneEMIBullet;
-                            width = 15f;
-                            height = 15f;
+                            width = 16f;
+                            height = 16f;
                             hitSound = Sounds.explosion;
-                            hitEffect = AZFx.blueHitExplosionNormal;
-                            despawnEffect = AZFx.blueExplosionNormal;
+                            hitEffect = AZFx.blueExplosionEMIHit;
+                            despawnEffect = AZFx.blueExplosionEMI;
                             lifetime = 60;
                             shrinkX = 0;
                             shrinkY = 0;
@@ -908,11 +917,11 @@ public class AZUnits {
                         rotate = true;
                         mirror = true;
                         alternate = true;
-                        rotateSpeed = 10.0f;
+                        rotateSpeed = 5.0f;
                         x = 10;
                         y = -1;
 
-                        reload = 10.0f;
+                        reload = 15.0f;
                         inaccuracy = 5f;
                         shake = 0.4f;
                         shootSound = Sounds.shootAlt;
@@ -927,7 +936,7 @@ public class AZUnits {
                             hitSound = Sounds.explosion;
                             hitEffect = AZFx.blueHitExplosionNormal;
                             despawnEffect = AZFx.blueExplosionNormal;
-                            lifetime = 30;
+                            lifetime = 25;
                             shrinkX = 0;
                             shrinkY = 0;
                             splashDamage = 10f;

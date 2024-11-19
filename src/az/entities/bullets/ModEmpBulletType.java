@@ -18,16 +18,15 @@ import mindustry.graphics.Layer;
 
 import static az.content.AZFx.explosionEffect;
 import static mindustry.Vars.tilesize;
-import static mindustry.graphics.Drawf.light;
 
 public class ModEmpBulletType extends BasicBulletType {
-    public float radius = 5 * tilesize;
-    public float timeDuration = 60f * 10f;
+    public float radius = 5f * tilesize;
+    public float timeDuration = 5f * 60f;
     public float powerDamageScl = 1.5f, powerSclDecrease = 0.3f;
-    public Effect hitPowerEffect = Fx.none, chainEffect = Fx.none/*chainEmp*/, applyEffect = Fx.none;
+    public Effect hitPowerEffect = Fx.none, chainEffect = Fx.none/*chainEmp*/;
     public boolean hitUnits = true;
     public float unitDamageScl = 1f;
-    public float effectLifetime = 4 * Time.toSeconds;
+    public float effectLifetime = 5f * 60f;
 
     //effect
     public Color explosionBottomColor = AZPal.droneEMIBulletBottom;
@@ -50,14 +49,6 @@ public class ModEmpBulletType extends BasicBulletType {
         if(!b.absorbed){
             explosionEffect(radius, effectLifetime, frontColor, backColor, explosionBottomColor).at(b.x, b.y);
             Vars.indexer.allBuildings(x, y, radius, other -> {
-                /*if(other.team == b.team){
-                    if(other.block.hasPower && other.block.canOverdrive && other.timeScale() < timeIncrease){
-                        other.applyBoost(timeIncrease, timeDuration);
-                        //chainEffect.at(x, y, 0, hitColor, other);
-                        //applyEffect.at(other, other.block.size * 7f);
-                    }
-
-                 */
                 if(other.power != null){
                     var absorber = Damage.findAbsorber(b.team, x, y, other.x, other.y);
                     if(absorber != null){
