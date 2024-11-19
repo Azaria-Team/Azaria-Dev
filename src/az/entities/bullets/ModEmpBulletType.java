@@ -27,7 +27,6 @@ public class ModEmpBulletType extends BasicBulletType {
     public boolean hitUnits = true;
     public float unitDamageScl = 1f;
     public float effectLifetime = 5f * 60f;
-    public boolean hitEMI = true;
 
     //effect
     public Color explosionBottomColor = AZPal.droneEMIBulletBottom;
@@ -35,6 +34,7 @@ public class ModEmpBulletType extends BasicBulletType {
     public ModEmpBulletType(float speed, float damage, String bulletSprite){
         super(speed, damage);
         this.sprite = bulletSprite;
+        despawnHit = true;
         layer = Layer.bullet;
     }
 
@@ -48,9 +48,6 @@ public class ModEmpBulletType extends BasicBulletType {
         super.hit(b, x, y);
 
         if(!b.absorbed){
-            if(!hitEMI) {
-                explosionEffect(radius, effectLifetime, frontColor, backColor, explosionBottomColor).at(b.x, b.y);
-            }
             Vars.indexer.allBuildings(x, y, radius, other -> {
                 if(other.power != null){
                     var absorber = Damage.findAbsorber(b.team, x, y, other.x, other.y);
@@ -83,18 +80,5 @@ public class ModEmpBulletType extends BasicBulletType {
                 });
             }
         }
-    }
-
-    @Override
-    public void update(Bullet b) {
-        super.update(b);
-        if(hitEMI) {
-            explosionEffect(radius, effectLifetime, frontColor, backColor, explosionBottomColor).at(b.x, b.y);
-        }
-        updateTrail(b);
-        updateHoming(b);
-        updateWeaving(b);
-        updateTrailEffects(b);
-        updateBulletInterval(b);
     }
 }
