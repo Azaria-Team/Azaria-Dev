@@ -882,12 +882,12 @@ public class AZUnits {
                     new Weapon("az-vortex-emp") {{
                         rotate = true;
                         mirror = false;
-                        rotateSpeed = 3.0f;
+                        rotateSpeed = 2.0f;
                         x = 0;
                         y = -10f;
 
                         reload = 145.0f;
-                        inaccuracy = 4.5f;
+                        inaccuracy = 1f;
                         shake = 1f;
                         shootSound = Sounds.pulseBlast;
                         shoot.firstShotDelay = 40;
@@ -916,7 +916,7 @@ public class AZUnits {
                         rotate = true;
                         mirror = true;
                         alternate = true;
-                        rotateSpeed = 5.0f;
+                        rotateSpeed = 3.0f;
                         x = 10;
                         y = -1;
 
