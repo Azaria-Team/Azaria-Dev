@@ -166,7 +166,6 @@ public class AZFx {
         });
     }),
 
-
     smallBlueExplosion = new Effect(20, e -> {
         color(AZPal.droneBullet);
         e.scaled(8, i -> {
@@ -179,6 +178,21 @@ public class AZFx {
 
         randLenVectors(e.id + 1, 4, 1f + 16 * e.finpow(), (x, y) -> {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 2f);
+        });
+    }),
+
+    smallBlueExplosion2 = new Effect(20, e -> {
+        color(AZPal.droneBullet);
+        e.scaled(8, i -> {
+            stroke(2f * i.fout());
+            Lines.square(e.x, e.y, 1f + i.fin() * 5f, e.rotation * Mathf.random(20) * Time.delta);
+        });
+
+        color(AZPal.droneBullet, AZPal.droneBulletBack, e.fin());
+        stroke(1.01f * e.fout());
+
+        randLenVectors(e.id + 1, 2, 1f + 5 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 1.5f);
         });
     }),
 
@@ -199,7 +213,7 @@ public class AZFx {
         });
     }),
 
-    blueHitExplosion1 = new Effect(30, e -> {
+    smallblueHitExplosion = new Effect(30, e -> {
         color(AZPal.droneBullet);
         e.scaled(7, i -> {
             stroke(3f * i.fout());
@@ -215,6 +229,25 @@ public class AZFx {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 3f);
         });
     }),
+
+    smallblueHitExplosion2 = new Effect(30, e -> {
+        color(AZPal.droneBullet);
+        e.scaled(7, i -> {
+            stroke(3f * i.fout());
+            Lines.square(e.x, e.y, 2f + i.fin() * 10f, e.rotation * Mathf.random(20) * Time.delta);
+        });
+
+        color(AZPal.droneBullet);
+
+        color(AZPal.droneBullet, AZPal.droneBulletBack, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 1, 3, 1f + 10f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 2f);
+        });
+    }),
+
+
 
     blueExplosionNormal = new Effect(20, e -> {
         color(AZPal.droneBullet);
@@ -244,16 +277,14 @@ public class AZFx {
         });
     }),
 
-    //TODO remove this
-    smallBlueExplosionEMIHit = new Effect(50, e -> {
+    smallBlueExplosionEMI = new Effect(50, e -> {
         color(AZPal.droneEMIBullet);
 
         color(AZPal.droneEMIBullet, AZPal.droneEMIBulletBack, e.fin());
         stroke(e.fout());
 
-        randLenVectors(e.id + 1, 6, 2f + 6
-                * e.finpow(), (x, y) -> {
-            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 2f);
+        randLenVectors(e.id + 1, 3, 2f + 3 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 2f);
         });
     }),
 

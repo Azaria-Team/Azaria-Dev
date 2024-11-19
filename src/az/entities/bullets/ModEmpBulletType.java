@@ -22,7 +22,7 @@ import static mindustry.Vars.tilesize;
 public class ModEmpBulletType extends BasicBulletType {
     public float radius = 5f * tilesize;
     public float timeDuration = 5f * 60f;
-    public float powerDamageScl = 1.5f, powerSclDecrease = 0.3f;
+    public float powerDamageScl = 1.3f, powerSclDecrease = 0.5f;
     public Effect hitPowerEffect = Fx.none, chainEffect = Fx.none/*chainEmp*/;
     public boolean hitUnits = true;
     public float unitDamageScl = 1f;
