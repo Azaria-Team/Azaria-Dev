@@ -48,6 +48,7 @@ public class ModEmpBulletType extends BasicBulletType {
         super.hit(b, x, y);
 
         if(!b.absorbed){
+            explosionEffect(radius, effectLifetime, frontColor, backColor, explosionBottomColor).at(b.x, b.y);
             Vars.indexer.allBuildings(x, y, radius, other -> {
                 if(other.power != null){
                     var absorber = Damage.findAbsorber(b.team, x, y, other.x, other.y);
