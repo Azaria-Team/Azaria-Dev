@@ -861,7 +861,6 @@ public class AZUnits {
             drag = 0.04f;
             accel = 0.07f;
             hitSize = 31.0f;
-            engineSize = 0;
 
             health = 4200.0f;
             armor = 9.0f;
@@ -872,11 +871,11 @@ public class AZUnits {
 
             itemCapacity = 45;
             constructor = DroneUnit::create;
-            engineSize = 2;
+            engineSize = 0;
 
             setEnginesMirror(
-                    new UnitEngine(10 / 4f, -20 / 4f, 2f, 315f),
-                    new UnitEngine(10 / 4f, -20 / 4f, 2f, 315f)
+                    new UnitEngine(23 / 4f, -65 / 4f, 3f, 290f),
+                    new UnitEngine(-23 / 4f, -65 / 4f, 3f, 290f)
             );
 
             weapons.add(
