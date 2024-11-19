@@ -895,7 +895,7 @@ public class AZUnits {
                         shootY = 4;
 
                         bullet = new ModEmpBulletType(4f, 60) {{
-                            velocityRnd = 0.25f;
+//                            velocityRnd = 0.25f;
                             chargeEffect = AZFx.blueEMICharge;
                             sprite = "circle-bullet";
                             backColor = AZPal.droneEMIBulletBack;
@@ -910,6 +910,33 @@ public class AZUnits {
                             shrinkY = 0;
                             //splashDamage = 10f;
                             //splashDamageRadius = 2f * Vars.tilesize;
+
+                            fragBullets = 6;
+                            fragBullet = new ModEmpBulletType(4f, 25) {{
+                                sprite = "circle-bullet";
+                                velocityRnd = 0.25f;
+                                backColor = AZPal.droneEMIBulletBack;
+                                frontColor = AZPal.droneEMIBullet;
+                                width = height = 6.5f;
+                                hitSound = Sounds.explosion;
+                                lifetime = 17;
+                                hitEffect = AZFx.blueExplosionEMIHit;
+                                despawnEffect = AZFx.blueExplosionEMI;
+                            }};
+
+//                            fragBullet = new BasicBulletType(4f, 20) {{
+//                                sprite = "az-grenade";
+//                                backColor = AZPal.droneBulletBack;
+//                                frontColor = AZPal.droneBullet;
+//                                width = 5f;
+//                                height = 8f;
+//                                shrinkX = 0;
+//                                shrinkY = 0;
+//                                hitSound = Sounds.explosion;
+//                                hitEffect = AZFx.blueHitExplosion1;
+                                despawnEffect = AZFx.smallBlueExplosion;
+//                                lifetime = 15; //10
+//                            }};
                         }};
                     }},
                     new Weapon("az-vortex-gun") {{

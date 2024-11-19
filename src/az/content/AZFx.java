@@ -244,6 +244,19 @@ public class AZFx {
         });
     }),
 
+    //TODO remove this
+    smallBlueExplosionEMIHit = new Effect(50, e -> {
+        color(AZPal.droneEMIBullet);
+
+        color(AZPal.droneEMIBullet, AZPal.droneEMIBulletBack, e.fin());
+        stroke(e.fout());
+
+        randLenVectors(e.id + 1, 6, 2f + 6
+                * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 2f);
+        });
+    }),
+
     blueExplosionEMI = new Effect(50, e -> {
         color(AZPal.droneEMIBullet);
 
@@ -260,6 +273,21 @@ public class AZFx {
         });
     }),
 
+    smallblueExplosionEMI = new Effect(50, e -> {
+        color(AZPal.droneEMIBullet);
+
+        randLenVectors(e.id, 10, 2f + 10f * e.fin(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fout() * 2f + 0.5f);
+        });
+
+        color(AZPal.droneEMIBullet, AZPal.droneEMIBulletBack, e.fin());
+        stroke(3f * e.fout());
+
+        randLenVectors(e.id + 1, 7, 2f + 6
+                * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 4f + e.fout() * 2f);
+        });
+    }),
 
     blueEMICharge = new Effect(40f, 40f, e -> {
         color(AZPal.droneEMIBullet, AZPal.droneEMIBulletBack, e.fin());
