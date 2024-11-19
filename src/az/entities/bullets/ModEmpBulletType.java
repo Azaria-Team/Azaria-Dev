@@ -91,5 +91,10 @@ public class ModEmpBulletType extends BasicBulletType {
         if(hitEMI) {
             explosionEffect(radius, effectLifetime, frontColor, backColor, explosionBottomColor).at(b.x, b.y);
         }
+        updateTrail(b);
+        updateHoming(b);
+        updateWeaving(b);
+        updateTrailEffects(b);
+        updateBulletInterval(b);
     }
 }
