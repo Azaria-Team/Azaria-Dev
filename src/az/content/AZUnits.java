@@ -968,7 +968,7 @@ public class AZUnits {
                             splashDamageRadius = 2.5f * 8;
                             fragBullets = 3;
                             fragRandomSpread = 90;
-                            fragLifeMax = 1.3f;
+                            fragLifeMax = 1.5f;
                             fragBullet = new BasicBulletType(5f, 5) {{
                                 velocityRnd = 0.25f;
                                 sprite = "az-grenade";

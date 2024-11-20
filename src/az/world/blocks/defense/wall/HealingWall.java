@@ -7,7 +7,7 @@ public class HealingWall extends Wall {
     public HealingWall(String name) {
         super(name);
         update = true;
-        hasLiquids = true;
+        hasLiquids = false;
     }
 
     public class AZHealWallBuild extends WallBuild {
