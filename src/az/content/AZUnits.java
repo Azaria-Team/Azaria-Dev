@@ -894,12 +894,13 @@ public class AZUnits {
                         parentizeEffects = true;
                         shootY = 4;
 
-                        bullet = new ModEmpBulletType(4f, 100) {{
+                        bullet = new ModEmpBulletType(4f, 10) {{
 //                            velocityRnd = 0.25f;
                             chargeEffect = AZFx.blueEMICharge;
                             sprite = "circle-bullet";
                             backColor = AZPal.droneEMIBulletBack;
                             frontColor = AZPal.droneEMIBullet;
+                            radius = 7 * tilesize;
                             width = 16f;
                             height = 16f;
                             hitSound = Sounds.explosion;
@@ -911,12 +912,12 @@ public class AZUnits {
                             //splashDamage = 10f;
                             //splashDamageRadius = 2f * Vars.tilesize;
 
-                            fragRandomSpread = 180f;
-                            fragBullets = 3;
+//                            fragRandomSpread = f;
+                            fragBullets = 9;
                             fragLifeMax = 1.5f;
-                            fragBullet = new ModEmpBulletType(4f, 40) {{
+                            fragBullet = new ArtilleryBulletType(4f, 40) {{
                                 sprite = "circle-bullet";
-                                velocityRnd = 0.25f;
+//                                velocityRnd = 0.01f;
                                 trailColor = AZPal.droneEMIBullet;
                                 trailLength = 7;
                                 trailWidth = 2;
@@ -927,11 +928,22 @@ public class AZUnits {
                                 width = height = 6.5f;
                                 hitSound = Sounds.explosion;
                                 lifetime = 20;
-                                radius = 2 * 8;
+//                                radius = 2 * 8;
                                 shrinkX = 0;
                                 shrinkY = 0;
                                 hitEffect = AZFx.smallBlueExplosionEMI;
                                 despawnEffect = AZFx.smallBlueExplosionEMI;
+
+                                fragBullets = 1;
+                                fragBullet = new ModEmpBulletType(0, 40) {{
+                                    lifetime = 0;
+                                    hitEffect = AZFx.smallBlueExplosionEMI;
+                                    despawnEffect = AZFx.smallBlueExplosionEMI;
+                                    backColor = AZPal.droneEMIBulletBack;
+                                    frontColor = AZPal.droneEMIBullet;
+                                    width = height = 6.5f;
+                                    radius = 2 * 8;
+                                }};
                             }};
                         }};
                     }},
