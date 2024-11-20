@@ -886,7 +886,7 @@ public class AZUnits {
                         x = 0;
                         y = -10f;
 
-                        reload = 320.0f;
+                        reload = 335.0f;
                         inaccuracy = 1f;
                         shake = 1f;
                         shootSound = Sounds.pulseBlast;
