@@ -247,8 +247,6 @@ public class AZFx {
         });
     }),
 
-
-
     blueExplosionNormal = new Effect(20, e -> {
         color(AZPal.droneBullet);
         e.scaled(10, i -> {
