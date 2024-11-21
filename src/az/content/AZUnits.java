@@ -354,7 +354,7 @@ public class AZUnits {
             trailLength = 30;
             waveTrailX = 9f;
             trailScl = 1.5f;
-            range = 50 * Vars.tilesize;
+            range = 45 * Vars.tilesize;
             constructor = WaterMoveUnit::create;
             outlineColor = AZPal.aureliaOutline;
 
@@ -362,7 +362,6 @@ public class AZUnits {
                     new Weapon("az-laser-launcher") {{
                         reload = 6f * Time.toSeconds;
 
-                        predictTarget = true;
                         x = 1f;
                         shootX = -6.7f;
                         shootY = -8f;
