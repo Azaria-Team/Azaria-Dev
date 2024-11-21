@@ -341,18 +341,20 @@ public class AZUnits {
         //TODO nerf at all
         aurora = new UnitType("aurora") {{
             speed = 0.67f;
-            drag = 0.9f;
             hitSize = 17f;
             armor = 14;
             health = 4050;
             accel = 0.35f;
-            faceTarget = false;
-            targetAir = true;
-            rotateSpeed = 4f;
+            drag = 0.04f;
+
+            faceTarget = true;
+            targetAir = false;
+            waveTrailY = -4f;
+            rotateSpeed = 2f;
             trailLength = 30;
-            waveTrailX = 6f;
+            waveTrailX = 9f;
             trailScl = 1.5f;
-            range = 30 * Vars.tilesize;
+            range = 50 * Vars.tilesize;
             constructor = WaterMoveUnit::create;
             outlineColor = AZPal.aureliaOutline;
 
@@ -360,6 +362,7 @@ public class AZUnits {
                     new Weapon("az-laser-launcher") {{
                         reload = 6f * Time.toSeconds;
 
+                        predictTarget = true;
                         x = 1f;
                         shootX = -6.7f;
                         shootY = -8f;
@@ -368,6 +371,7 @@ public class AZUnits {
                         rotateSpeed = 1f;
                         layerOffset = 0.01f;
                         showStatSprite = false;
+                        shootCone = 20f;
                         shootSound = Sounds.missileLaunch;
                         minWarmup = 0.9f;
                         smoothReloadSpeed = 0.15f;
@@ -380,14 +384,17 @@ public class AZUnits {
                                     x = -7f;
                                     moves.add(new PartMove(PartProgress.reload,7f, 0f, 0f));
                                 }},
-                                new RegionPart("-beam") {{
+                                /*new RegionPart("-beam") {{
                                     under = true;
-                                    colorTo = new Color(1f, 1f, 1f, 0f);
-                                    color = Color.red;
-                                    mixColorTo = new Color(1f, 1f, 1f, 1f);
+                                  // colorTo = new Color(1f, 1f, 1f, 0f);
+                                    //color = Color.red;
+                                    //mixColorTo = new Color(1f, 1f, 1f, 1f);
                                     outline = false;
-                                    moves.add(new PartMove(PartProgress.warmup, 0f, 0f, 0f));
+                                    x = -2;
+                                    moves.add(new PartMove(PartProgress.warmup, 0f, 4f, 0f));
                                 }},
+
+                                 */
                                 new RegionPart("-lens") {{
                                     under = true;
                                     moves.add(new PartMove(PartProgress.warmup, 0f, 4f, 0f));
