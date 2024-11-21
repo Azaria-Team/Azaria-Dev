@@ -24,7 +24,7 @@ public class AZEnvironment {
         // oxylite
             oxylite, deepOxylite, abyssOxylite,serridOxylite,
 
-    serridOrange, serridOrangeWall, serridRed, serridRedWall, serridYellow, serridYellowWall,
+    serridOrange, serridOrangeWall, serridRed, serridRedWall, serridYellow, serridYellowWall, oldShell,
     serridicStone, serridicStoneWall,
 
     balsitePlates, balsiteWall, balsitePlatesOxylite, balsiteHoles, balsiteHolesSmall, balsiteRocks, balsiteRocksLarge,
@@ -135,6 +135,11 @@ public class AZEnvironment {
             albedo = oxylite.albedo;
             supportsOverlay = true;
             mapColor = Color.valueOf("82827e");
+        }};
+
+        oldShell = new ModTallBlock("old-shell"){{
+            variants = 2;
+            clipSize = 112f;
         }};
 
         serridicStone = new Floor("serridic-stone", 4);
