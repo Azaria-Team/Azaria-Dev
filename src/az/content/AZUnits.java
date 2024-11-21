@@ -428,7 +428,7 @@ public class AZUnits {
                                     deathExplosionEffect = AZFx.massiveExplosionAurora2;
                                     shootOnDeath = true;
                                     shake = 5f;
-                                    bullet = new ExplosionBulletType(790, 4f * tilesize){{
+                                    bullet = new ExplosionBulletType(790, 6f * tilesize){{
                                         hitColor = AZPal.forceBullet;
                                         hitEffect = Fx.none;
                                         despawnEffect = Fx.none;
