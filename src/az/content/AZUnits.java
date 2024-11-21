@@ -158,6 +158,7 @@ public class AZUnits {
             trailLength = 20;
             waveTrailX = 5.5f;
             trailScl = 1.3f;
+            waveTrailY = -4f;
             range = 25 * Vars.tilesize;
             constructor = WaterMoveUnit::create;
             outlineColor = AZPal.aureliaOutline;
@@ -202,8 +203,8 @@ public class AZUnits {
             targetAir = true;
             rotateSpeed = 3f;
             trailLength = 20;
-            waveTrailX = 6f;
-            waveTrailY = -4f;
+            waveTrailX = 7f;
+            waveTrailY = -5f;
             trailScl = 1.9f;
             range = 30 * Vars.tilesize;
             constructor = WaterMoveUnit::create;
@@ -349,10 +350,10 @@ public class AZUnits {
 
             faceTarget = true;
             targetAir = false;
-            waveTrailY = -4f;
+            waveTrailY = -8f;
             rotateSpeed = 2f;
-            trailLength = 30;
-            waveTrailX = 9f;
+            trailLength = 40;
+            waveTrailX = 11f;
             trailScl = 1.5f;
             range = 45 * Vars.tilesize;
             constructor = WaterMoveUnit::create;
