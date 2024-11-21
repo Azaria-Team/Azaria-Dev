@@ -370,7 +370,7 @@ public class AZUnits {
                         rotateSpeed = 1f;
                         layerOffset = 0.01f;
                         showStatSprite = false;
-                        shootCone = 20f;
+                        shootCone = 10f;
                         shootSound = Sounds.missileLaunch;
                         minWarmup = 0.9f;
                         smoothReloadSpeed = 0.15f;
