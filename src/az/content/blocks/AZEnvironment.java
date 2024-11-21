@@ -137,10 +137,10 @@ public class AZEnvironment {
             mapColor = Color.valueOf("82827e");
         }};
 
-        serridStones = new ModTallBlock("serrid-stones") {{
-            variants = 3;
-            clipSize = 48f;
-            rotationRand = 0f;
+        serridStones = new Prop("serrid-stones") {{
+            variants = 2;
+            solid = true;
+            hasShadow = false;
         }};
 
         oldShell = new ModTallBlock("old-shell"){{
@@ -181,6 +181,7 @@ public class AZEnvironment {
         //TODO player cannot build on this
         balsiteRocks = new Prop("balsite-rocks") {{
             variants = 2;
+            solid = true;
             hasShadow = false;
         }};
         //TODO player cannot build on this
