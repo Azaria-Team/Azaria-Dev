@@ -351,7 +351,7 @@ public class AZUnits {
             faceTarget = true;
             targetAir = false;
             waveTrailY = -8f;
-            rotateSpeed = 2f;
+            rotateSpeed = 1.9f;
             trailLength = 40;
             waveTrailX = 11f;
             trailScl = 1.5f;
@@ -454,7 +454,7 @@ public class AZUnits {
             flying = true;
 
             speed = 3f;
-            rotateSpeed = 10f;
+            rotateSpeed = 9f;
             accel = 0.1f;
             drag = 0.05f;
             strafePenalty = 0.4f;
@@ -514,7 +514,7 @@ public class AZUnits {
             flying = true;
 
             speed = 2.5f;
-            rotateSpeed = 7f;
+            rotateSpeed = 6f;
             accel = 0.2f;
             drag = 0.05f;
             strafePenalty = 0.3f;
@@ -539,11 +539,10 @@ public class AZUnits {
                             shotDelay = 7f;
                         }};
 
-                        bullet = new BasicBulletType(4.f, 5) {{
-                            lifetime = 25f;
+                        bullet = new BasicBulletType(4.5f, 5) {{
+                            lifetime = 38f;
                             drag = 0.0012f;
                             shootEffect = Fx.shootLiquid;
-                            speed = 4.5f;
                             frontColor = Color.white;
                             backColor = AZPal.unmakerColor;
 
@@ -610,68 +609,36 @@ public class AZUnits {
 
             weapons.add(
                     new Weapon("ex-bomb-bay") {{
-                        reload = 25f;
-                        shootY = 2f;
-                        rotate = false;
-                        x = 8;
-                        y = 1f;
-                        mirror = true;
-                        layerOffset = -0.0001f;
-                        baseRotation = -135f;
-                        shootCone = 360f;
-                        shootSound = Sounds.missileSmall;
-                        shoot = new ShootSpread(1, 10f);
-                        bullet = new AimBulletType(4.5f, 25) {{
-                            backColor = AZPal.unmakerColor;
-                            frontColor = Color.valueOf("2af5a1");
-                            maxRange = 240;
-                            homingPower = 0.07f;
-                            homingRange = 0;
-                            shrinkY = 0f;
-                            shrinkX = 0f;
-                            drag = 0.005f;
-                            width = 9f;
-                            height = 15f;
-                            shootEffect = AZFx.opjozdyhFlame;
-                            hitSound = Sounds.explosion;
-                            hitEffect = AZFx.hitExplosion;
-                            despawnEffect = AZFx.explosionSmall2;
-                            lifetime = 200f;
-
-                            splashDamage = 85;
-                            splashDamageRadius = 20;
-                        }};
-                    }},
-                    new Weapon("ex-bomb-bay") {{
-                        reload = 35f;
-                        shootY = 2f;
+                        reload = 100f;
                         rotate = false;
                         x = 6;
-                        y = -1.5f;
+                        y = 7f;
                         mirror = true;
                         layerOffset = -0.0001f;
-                        baseRotation = 210f;
-                        shootCone = 360f;
+                        shootCone = 20f;
                         shootSound = Sounds.missileSmall;
-                        shoot = new ShootSpread(1, 10f);
-                        bullet = new AimBulletType(4.5f, 25) {{
+                        shoot.shots = 6;
+                        shoot.shotDelay = 6f;
+                        inaccuracy = 20;
+                        bullet = new BasicBulletType(4.5f, 15) {{
+                            lifetime = 55f;
+                            //drag = 0.03f;
+                            velocityRnd = 0.2f;
+                            shootEffect = Fx.shootLiquid;
+                            frontColor = Color.white;
                             backColor = AZPal.unmakerColor;
-                            frontColor = Color.valueOf("2af5a1");
-                            maxRange = 240;
-                            homingPower = 0.07f;
-                            homingRange = 0;
-                            shrinkY = 0f;
-                            shrinkX = 0f;
-                            drag = 0.005f;
-                            width = 9f;
-                            height = 15f;
-                            hitSound = Sounds.explosion;
-                            shootEffect = AZFx.opjozdyhFlame;
-                            despawnEffect = AZFx.explosionSmall2;
-                            lifetime = 200f;
 
-                            splashDamage = 85;
-                            splashDamageRadius = 20;
+                            width = 5;
+                            height = 8;
+                            trailRotation = true;
+                            trailWidth = 1;
+                            trailLength = 20;
+                            trailColor = AZPal.unmakerColor;
+
+                            splashDamage = 20;
+                            splashDamageRadius = 2 * 8f;
+
+                            range = 125.0f;
                         }};
                     }}
             );
@@ -681,7 +648,7 @@ public class AZUnits {
             flying = true;
 
             speed = 4.5f;
-            rotateSpeed = 10f;
+            rotateSpeed = 9f;
             accel = 0.1f;
             drag = 0.05f;
 
@@ -736,7 +703,7 @@ public class AZUnits {
             flying = false;
             drag = 0.07f;
             speed = 1.9f;
-            rotateSpeed = 16f;
+            rotateSpeed = 8f;
             accel = 0.1f;
             itemCapacity = 20;
             health = 500f;
@@ -794,7 +761,7 @@ public class AZUnits {
             flying = true;
             drag = 0.05f;
             speed = 1.6f;
-            rotateSpeed = 8f;
+            rotateSpeed = 6f;
             accel = 0.1f;
             itemCapacity = 30;
             health = 1090f;
@@ -912,7 +879,7 @@ public class AZUnits {
                             hitSound = Sounds.explosion;
                             hitEffect = AZFx.blueExplosionEMIHit;
                             despawnEffect = AZFx.blueExplosionEMI;
-                            lifetime = 60;
+                            lifetime = 70;
                             shrinkX = 0;
                             shrinkY = 0;
 
@@ -968,7 +935,7 @@ public class AZUnits {
                             hitSound = Sounds.explosion;
                             hitEffect = AZFx.blueHitExplosionNormal;
                             despawnEffect = AZFx.blueExplosionNormal;
-                            lifetime = 25;
+                            lifetime = 30;
                             shrinkX = 0;
                             shrinkY = 0;
                             splashDamage = 20f;
@@ -1008,7 +975,7 @@ public class AZUnits {
             hitSize = 8f;
             treadPullOffset = 3;
             speed = 1.3f;
-            rotateSpeed = 2.5f;
+            rotateSpeed = 4f;
             health = 350;
             armor = 2f;
             itemCapacity = 0;
