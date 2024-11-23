@@ -454,7 +454,7 @@ public class AZUnits {
             flying = true;
 
             speed = 3f;
-            rotateSpeed = 9f;
+            rotateSpeed = 6f;
             accel = 0.1f;
             drag = 0.05f;
             strafePenalty = 0.4f;
@@ -514,7 +514,7 @@ public class AZUnits {
             flying = true;
 
             speed = 2.5f;
-            rotateSpeed = 6f;
+            rotateSpeed = 4.5f;
             accel = 0.2f;
             drag = 0.05f;
             strafePenalty = 0.3f;
@@ -648,7 +648,7 @@ public class AZUnits {
             flying = true;
 
             speed = 4.5f;
-            rotateSpeed = 9f;
+            rotateSpeed = 7f;
             accel = 0.1f;
             drag = 0.05f;
 
@@ -703,7 +703,7 @@ public class AZUnits {
             flying = false;
             drag = 0.07f;
             speed = 1.9f;
-            rotateSpeed = 8f;
+            rotateSpeed = 5f;
             accel = 0.1f;
             itemCapacity = 20;
             health = 500f;
@@ -761,7 +761,7 @@ public class AZUnits {
             flying = true;
             drag = 0.05f;
             speed = 1.6f;
-            rotateSpeed = 6f;
+            rotateSpeed = 4f;
             accel = 0.1f;
             itemCapacity = 30;
             health = 1090f;
@@ -970,8 +970,8 @@ public class AZUnits {
 
         //region sentinelTree
         sentinel = new TankUnitType("sentinel"){{
-            drag = 0.06f;
-            accel = 0.1f;
+            drag = 0.3f;
+            accel = 0.4f;
             hitSize = 8f;
             treadPullOffset = 3;
             speed = 1.3f;
