@@ -1,6 +1,6 @@
 package az.world.meta;
 
-import acontent.world.meta.AStat;
+import az.world.meta.stat.AStat;
 import mindustry.world.meta.StatCat;
 
 public class AZStat {

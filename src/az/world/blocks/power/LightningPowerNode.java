@@ -1,6 +1,6 @@
 package az.world.blocks.power;
 
-import acontent.world.meta.*;
+import az.world.meta.stat.*;
 import arc.*;
 import arc.graphics.*;
 import arc.math.*;

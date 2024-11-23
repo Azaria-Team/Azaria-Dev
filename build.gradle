@@ -104,7 +104,6 @@ configure(rootProject){
 
 
         compileOnly 'org.jetbrains:annotations:23.0.0'
-        implementation "com.github.Zelaux:AdvancedContentInfo:$aciVersion"
 
     }
 
