@@ -224,10 +224,10 @@ public class AZTurrets {
             shoot = new ShootBarrel() {
                 {
                     barrels = new float[]{
-                            -4, -1f, 0,
-                            -9, -4f, 0,
-                            4, -1f, 0,
-                            9, -4f, 0
+                            -3, -1f, 0,
+                            -8, -4f, 0,
+                            3, -1f, 0,
+                            8, -4f, 0
                     };
                     shots = 1;
                     shotDelay = 1f;
