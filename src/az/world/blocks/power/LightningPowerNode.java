@@ -1,5 +1,6 @@
 package az.world.blocks.power;
 
+import az.ui.dialogs.AzSettings;
 import az.world.meta.stat.*;
 import arc.*;
 import arc.graphics.*;
@@ -192,7 +193,10 @@ public class LightningPowerNode extends PowerNode {
                     node.power.status += toGive / capacity;
                     power.status -= toGive / thisCap;
 
-                    AZFx.lightning(x, y, node.x, node.y, lightningColor, 3, 12f, lightningFx);
+                    if (AzSettings.showLightning){
+                        AZFx.lightning(x, y, node.x, node.y, lightningColor, 3, 12f, lightningFx);
+                    }
+
                 }
                 nodes.clear();
             }
