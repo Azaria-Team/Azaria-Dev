@@ -193,7 +193,7 @@ public class AZUnits {
         }};
         glaucus = new UnitType("glaucus") {{
             speed = 0.72f;
-            hitSize = 20f;
+            hitSize = 25f;
             health = 1600;
             armor = 8;
             accel = 0.3f;
@@ -342,13 +342,13 @@ public class AZUnits {
         //TODO nerf at all
         aurora = new UnitType("aurora") {{
             speed = 0.67f;
-            hitSize = 17f;
+            hitSize = 30f;
             armor = 14;
             health = 4050;
             accel = 0.35f;
             drag = 0.04f;
 
-            faceTarget = true;
+            faceTarget = false;
             targetAir = false;
             waveTrailY = -8f;
             rotateSpeed = 1.9f;
@@ -406,6 +406,7 @@ public class AZUnits {
                             lifetime = 0f;
                             hitEffect = Fx.none;
                             despawnEffect = Fx.none;
+                            keepVelocity = false;
 
                             spawnUnit = new MissileUnitType("aurora-missile") {{
                                 speed = 5f;
@@ -419,13 +420,13 @@ public class AZUnits {
                                 trailLength = 9;
                                 trailColor = AZPal.vogPink;
                                 health = 500;
+                                hitSize = 10;
                                 lowAltitude = true;
                                 loopSound = Sounds.missileTrail;
                                 loopSoundVolume = 0.6f;
                                 deathSound = Sounds.largeExplosion;
                                 hitEffect = Fx.none;
                                 despawnEffect = Fx.none;
-                                collidesAir = false;
                                 targetAir = false;
 
                                 weapons.add(new Weapon(){{
@@ -438,6 +439,7 @@ public class AZUnits {
                                     bullet = new ExplosionBulletType(790, 6f * tilesize){{
                                         hitColor = AZPal.forceBullet;
                                         hitEffect = Fx.none;
+                                        collidesAir = false;
                                         despawnEffect = Fx.none;
                                         shootEffect = new MultiEffect(AZFx.massiveExplosionAurora, AZFx.scatheExplosionAurora, AZFx.scatheLightAurora);
                                         collidesAir = false;
@@ -610,12 +612,14 @@ public class AZUnits {
             weapons.add(
                     new Weapon("ex-bomb-bay") {{
                         reload = 100f;
-                        rotate = false;
+                        rotate = true;
                         x = 6;
                         y = 7f;
                         mirror = true;
+                        baseRotation = -50f;
+                        rotationLimit = 20f;
                         layerOffset = -0.0001f;
-                        shootCone = 20f;
+                        shootCone = 180f;
                         shootSound = Sounds.missileSmall;
                         shoot.shots = 6;
                         shoot.shotDelay = 6f;
@@ -623,6 +627,9 @@ public class AZUnits {
                         bullet = new BasicBulletType(4.5f, 15) {{
                             lifetime = 55f;
                             //drag = 0.03f;
+                            homingPower = 0.15f;
+                            homingDelay = 3f;
+                            homingRange = 60;
                             velocityRnd = 0.2f;
                             shootEffect = Fx.shootLiquid;
                             frontColor = Color.white;
