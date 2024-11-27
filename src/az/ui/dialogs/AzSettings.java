@@ -10,9 +10,9 @@ public class AzSettings {
     public static boolean showLightning = true;
 
     public static void load(){
-        ui.settings.addCategory("@settings.azaria", table -> {
-            table.checkPref("@setting.azaria-show-disclaimer", true);
-            table.checkPref("@setting.azaria-show-plasma-lightning", true, value -> {
+        ui.settings.addCategory("@settings.azaria","azaria-settings-icon", t -> {
+            t.checkPref("@setting.azaria-show-disclaimer", true);
+            t.checkPref("@setting.azaria-show-plasma-lightning", true, value -> {
                 showLightning = value;
             });
         });
