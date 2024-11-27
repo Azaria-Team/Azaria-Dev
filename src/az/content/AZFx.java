@@ -649,13 +649,14 @@ public class AZFx {
             Fill.circle(e.x + x, e.y + y, 1.4f + e.fout() * 1.1f);
         });
     }),
-            cursedFireHit = new Effect(30, e -> {
-                color(Color.valueOf("96d66a"));
-                e.scaled(8, i -> {
-                    stroke(5.0f * i.fout());
-                    Lines.circle(e.x, e.y, 5.0f + i.fin() * 10.0f);
-                });
-            }),
+
+    cursedFireHit = new Effect(30, e -> {
+        color(Color.valueOf("96d66a"));
+        e.scaled(8, i -> {
+            stroke(5.0f * i.fout());
+            Lines.circle(e.x, e.y, 5.0f + i.fin() * 10.0f);
+        });
+    }),
 
     cursedFire = new Effect(35.0f, e -> {
         color(Color.valueOf("53dc54"), Color.valueOf("00401c"), e.fin());

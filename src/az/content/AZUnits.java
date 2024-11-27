@@ -170,6 +170,7 @@ public class AZUnits {
                 x = 0;
                 y = -6;
                 mirror = false;
+                rotateSpeed = 6;
                 shootSound = Sounds.shootAlt;
                 bullet = new MissileBulletType(5f, 10, "az-vog") {{
                     backColor = AZPal.vogPinkBack;
@@ -312,6 +313,7 @@ public class AZUnits {
                         x = 0;
                         y = -2.5f;
                         mirror = false;
+                        rotateSpeed = 5;
                         shootSound = Sounds.shootAlt;
 
                         shoot = new AZBurstShoot(3, 6, 15f);
@@ -466,7 +468,6 @@ public class AZUnits {
             itemCapacity = 5;
 
             engineSize = 0f;
-            alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
 
             for(int i = -1; i < 2; i+=2) {
@@ -492,6 +493,7 @@ public class AZUnits {
                         shoot = new ShootSpread(3, 5f);
                         bullet = new BasicBulletType(5.5f, 7) {{
                             lifetime = 25f;
+                            
                             sprite = "az-dagbul";
                             statusDuration = 60 * 8f;
                             status = AZStatusEffects.weakness;
@@ -527,10 +529,11 @@ public class AZUnits {
             range = 15 * tilesize;
 
             engineSize = 0f;
-            alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
             weapons.add(
                     new Weapon("eliminator-gun") {{
+                        x = 3;
+                        y = 5;
                         reload = 50;
                         layerOffset = -0.002f;
                         recoil = 3.5f;
@@ -544,6 +547,7 @@ public class AZUnits {
                         bullet = new BasicBulletType(4.5f, 5) {{
                             lifetime = 38f;
                             drag = 0.0012f;
+                            
                             shootEffect = Fx.shootLiquid;
                             frontColor = Color.white;
                             backColor = AZPal.unmakerColor;
@@ -593,7 +597,6 @@ public class AZUnits {
             hitSize = 20f;
             itemCapacity = 5;
 
-            alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
             blade.add(
                     new Blade(name + "-blade-big"){{
@@ -627,6 +630,7 @@ public class AZUnits {
                         bullet = new BasicBulletType(4.5f, 15) {{
                             lifetime = 55f;
                             //drag = 0.03f;
+                            
                             homingPower = 0.15f;
                             homingDelay = 3f;
                             homingRange = 60;
@@ -665,7 +669,6 @@ public class AZUnits {
             itemCapacity = 5;
 
             engineSize = 0f;
-            alwaysUnlocked = true;
             outlineColor = AZPal.aureliaOutline;
             blade.add(
 
