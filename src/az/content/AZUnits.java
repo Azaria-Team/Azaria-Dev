@@ -622,7 +622,7 @@ public class AZUnits {
                         baseRotation = -50f;
                         rotationLimit = 20f;
                         layerOffset = -0.0001f;
-                        shootCone = 40f;
+                        shootCone = 90f;
                         shootSound = Sounds.missileSmall;
                         shoot.shots = 6;
                         shoot.shotDelay = 6f;
