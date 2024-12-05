@@ -614,15 +614,15 @@ public class AZUnits {
 
             weapons.add(
                     new Weapon("ex-bomb-bay") {{
-                        reload = 100f;
-                        rotate = true;
+                        reload = 150f;
+                        rotate = false;
                         x = 6;
                         y = 7f;
                         mirror = true;
                         baseRotation = -50f;
                         rotationLimit = 20f;
                         layerOffset = -0.0001f;
-                        shootCone = 180f;
+                        shootCone = 40f;
                         shootSound = Sounds.missileSmall;
                         shoot.shots = 6;
                         shoot.shotDelay = 6f;
@@ -650,6 +650,40 @@ public class AZUnits {
                             splashDamageRadius = 2 * 8f;
 
                             range = 125.0f;
+                        }};
+                    }},
+
+                    new Weapon("ex-missile") {{
+                        reload = 50f;
+                        rotate = false;
+                        x = 4;
+                        y = 10f;
+                        mirror = true;
+                        layerOffset = -0.0001f;
+                        shootCone = 30f;
+                        shootSound = Sounds.shootAltLong;
+                        shoot.shots = 2;
+                        inaccuracy = 7;
+                        bullet = new BasicBulletType(4f, 30) {{
+                            lifetime = 40f;
+                            //drag = 0.03f;
+
+                            velocityRnd = 0.1f;
+                            shootEffect = Fx.shootLiquid;
+                            frontColor = Color.white;
+                            backColor = AZPal.unmakerColor;
+
+                            width = 10;
+                            height = 14;
+
+                            weaveScale = 5f;
+                            weaveMag = 3f;
+
+                            trailRotation = true;
+                            trailWidth = 2;
+                            trailLength = 10;
+                            trailColor = AZPal.unmakerColor;
+
                         }};
                     }}
             );
