@@ -1,6 +1,7 @@
 package az.content;
 
 import arc.graphics.Color;
+import mindustry.Vars;
 import mindustry.type.Liquid;
 
 public class AZLiquids {
@@ -15,6 +16,7 @@ public class AZLiquids {
             viscosity = 0.65f;
             heatCapacity = 0.3f;
         }};
+
 
         spectralia = new Liquid("spectralia", Color.valueOf("f4c0f4")) {{
             viscosity = 0.65f;

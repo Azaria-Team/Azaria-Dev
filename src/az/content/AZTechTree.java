@@ -32,41 +32,42 @@ public class AZTechTree {
                 });
                 node(magneticBridgeConveyor, () -> {
                 });
-                node(magneticSorter, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
-                    node(magneticOverflorGate, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
+                node(magneticSorter, Seq.with(new Objectives.OnSector(testSector2)), () -> {
+                    node(magneticOverflorGate, Seq.with(new Objectives.OnSector(testSector2)), () -> {
 
                     });
                 });
-                node(caseI, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
+                node(caseI, Seq.with(new Objectives.SectorComplete(testSector3)), () -> {
 
                 });
             });
             //endregion distribution
             //region crafting
             node(forsDrill, () -> {
-                node(waveDrill, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
+                node(waveDrill, Seq.with(new Objectives.OnSector(testSector2)), () -> {
                 });
                 node(aquaticDrill, () -> {
-
+                });
+                node(dustCollector, () -> {
                 });
             });
-            node(crasideBrewer, Seq.with(new Objectives.OnSector(caveEntrance)), () -> {
+            node(crasideBrewer, Seq.with(new Objectives.OnSector(testSector2)), () -> {
                 node(heavyDutyCrucible, () -> {
 
                 });
             });
             //endregion crafting
             //region liquid
-            node(liquidPipe, Seq.with(new Objectives.OnSector(theOutskirts)), () -> {
-                node(impulsePump, Seq.with(new Objectives.OnSector(theOutskirts)), () -> {
+            node(liquidPipe, Seq.with(new Objectives.OnSector(testSector4)), () -> {
+                node(impulsePump, Seq.with(new Objectives.OnSector(testSector4)), () -> {
 
                 });
-                node(liquidPipeJunction, Seq.with(new Objectives.OnSector(theOutskirts)), () -> {
-                    node(liquidPipeRouter, Seq.with(new Objectives.OnSector(theOutskirts)), () -> {
+                node(liquidPipeJunction, Seq.with(new Objectives.OnSector(testSector4)), () -> {
+                    node(liquidPipeRouter, Seq.with(new Objectives.OnSector(testSector4)), () -> {
 
                     });
                 });
-                node(pipeBridgeConduit, Seq.with(new Objectives.OnSector(theOutskirts)), () -> {
+                node(pipeBridgeConduit, Seq.with(new Objectives.OnSector(testSector4)), () -> {
 
                 });
             });
@@ -75,7 +76,7 @@ public class AZTechTree {
             //region power
             node(plasmaNode, () -> {
                 node(thermalEvaporator, () -> {
-                    node(oxyliteTurbine, Seq.with(new Objectives.OnSector(theOutskirts), new Objectives.Research(impulsePump)), () -> {
+                    node(oxyliteTurbine, Seq.with(new Objectives.OnSector(testSector4), new Objectives.Research(impulsePump)), () -> {
 
                     });
                 });
@@ -97,18 +98,23 @@ public class AZTechTree {
                         });
                     });
                 });
-                node(hornTurret, Seq.with(new Objectives.SectorComplete(seaOutpost)), () -> {
+                node(testTurret, Seq.with(new Objectives.SectorComplete(testSector3)), () -> {
+                    node(razeTurret, () -> {
+
+                    });
+                });
+                node(hornTurret, Seq.with(new Objectives.SectorComplete(testSector3)), () -> {
 
                 });
-                node(repairTurret, Seq.with(new Objectives.SectorComplete(caveEntrance)), () -> {
+                node(repairTurret, Seq.with(new Objectives.SectorComplete(testSector2)), () -> {
                 });
             });
             //endregion defense
             //endregion blocks
             //region units
-            node(vectorFabricator, Seq.with(new Objectives.OnSector(seaOutpost)), () -> {
+            node(vectorFabricator, Seq.with(new Objectives.OnSector(testSector3)), () -> {
                 node(vector);
-                node(angelsharkFabricator, Seq.with(new Objectives.OnSector(seaOutpost)), () -> {
+                node(angelsharkFabricator, Seq.with(new Objectives.OnSector(testSector3)), () -> {
                     node(angelshark);
                 });
             });
@@ -129,14 +135,20 @@ public class AZTechTree {
             });
             nodeProduce(oxyliteLiq, () -> {
             });
-            // node(HPLSectorPreset.abandonedShoreline, () -> {
+            // node(HPLSectorPreset.testSector1, () -> {
             // });
             //endregion items and liquids
             //region sectors
-            node(abandonedShoreline, () -> {
-                node(caveEntrance, Seq.with(new Objectives.SectorComplete(abandonedShoreline)), () -> {
-                    node(seaOutpost, Seq.with(new Objectives.SectorComplete(caveEntrance), new Objectives.Research(waveDrill), new Objectives.Research(crasideBrewer), new Objectives.Research(repairTurret)), () -> {
-                        node(theOutskirts, Seq.with(new Objectives.SectorComplete(seaOutpost), new Objectives.Research(vectorFabricator), new Objectives.Research(caseI)), () -> {
+            node(testSector1, () -> {
+                node(testSector2, Seq.with(new Objectives.SectorComplete(testSector1)), () -> {
+                    node(testSector3, Seq.with(new Objectives.SectorComplete(testSector2), new Objectives.Research(waveDrill), new Objectives.Research(crasideBrewer), new Objectives.Research(repairTurret)), () -> {
+                        node(testSector4, Seq.with(new Objectives.SectorComplete(testSector3), new Objectives.Research(vectorFabricator), new Objectives.Research(caseI)), () -> {
+                            node(testSector6, () -> {
+                                node(testSector7, () -> {
+                                });
+                            });
+                            node(testSector5, () -> {
+                            });
                         });
                     });
                 });
