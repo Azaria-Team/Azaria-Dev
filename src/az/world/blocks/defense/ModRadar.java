@@ -21,8 +21,6 @@ import mindustry.graphics.Pal;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.Radar;
 import mindustry.world.meta.BlockFlag;
-import org.jetbrains.annotations.Nullable;
-
 import static mindustry.Vars.tilesize;
 
 public class ModRadar extends Block {
