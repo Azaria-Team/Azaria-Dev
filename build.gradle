@@ -60,7 +60,6 @@ configure(allprojects){
         mavenCentral()
         maven{url 'https://oss.sonatype.org/content/repositories/snapshots/'}
         maven{url 'https://oss.sonatype.org/content/repositories/releases/'}
-        maven{url 'https://raw.githubusercontent.com/GlennFolker/EntityAnnoMaven/main'}
 
         // Use Zelaux's non-buggy repository for release Mindustry and Arc builds.
         if(!useJitpack) maven{url 'https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository'}
