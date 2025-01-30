@@ -1,7 +1,9 @@
 package az.world.blocks.defense;
 
+import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.math.Mathf;
+import arc.util.Time;
 import arc.util.Timer;
 import az.content.AZStatusEffects;
 import mindustry.content.Fx;
@@ -35,11 +37,12 @@ public class NavalMine extends Block{
 
     public float damage = 130;
     public float teamAlpha = 0.3f;
-    public int explosionTime = 2 * 400;
+    public int explosionTime = 5 * 60;
 
     public final int timerToggle = timers++;
 
-    public float explosionDelay = 45;
+    public float explosionDelay = 60;
+    public float triggerDelay = 1f * 60;
 
     public NavalMine(String name){
         super(name);
@@ -76,13 +79,17 @@ public class NavalMine extends Block{
     public class NavalMineBuild extends Building implements Ranged {
 
         public Posc target;
+        protected boolean triggered = false; // Флаг активации мины
+        protected float delayTimer = 0f;     // Таймер задержки перед взрывом
+        protected float blinkTimer = 0f;     // Таймер для мерцания
+
         @Override
         public void drawTeam() {
-            //no
+            // no
         }
 
-        public NavalMineBuild(){
-            //make sure it is staggered
+        public NavalMineBuild() {
+            // make sure it is staggered
             timer.reset(timerToggle, Mathf.random(explosionTime));
         }
 
@@ -103,22 +110,33 @@ public class NavalMine extends Block{
         public void updateTile() {
             if (!validateTarget()) target = null;
 
+            // Если мина активирована, но еще не взорвалась
+            if (triggered) {
+                delayTimer -= Time.delta;
+                blinkTimer += Time.delta;
 
-            if(validateTarget()){
-                if(timer(timerToggle, explosionTime) && !net.client()) {
-                        explosion();
+                // Взрыв при завершении таймера
+                if (delayTimer <= 0f) {
+                    explosion();
+                    triggered = false; // Сбрасываем флаг
                 }
             }
 
-            if(timer(0, explosionDelay)) {
+            // Активация мины при обнаружении цели
+            if (validateTarget() && !triggered) {
+                triggered = true;
+                delayTimer = triggerDelay; // Устанавливаем таймер задержки
+            }
+
+            // Поиск цели
+            if (timer(0, explosionDelay)) {
                 findTarget();
             }
         }
 
         protected void explosion() {
             Units.nearbyEnemies(team, x, y, range, unit -> {
-                if(!unit.isFlying() && !unit.hovering) {
-//                    unit.apply(status, statusDuration);
+                if (!unit.isFlying() && !unit.hovering) {
                     acceptEffect.at(unit);
                     unit.damage(damage);
                     damage(tileDamage);
@@ -136,18 +154,7 @@ public class NavalMine extends Block{
 
         @Override
         public void drawCracks() {
-            //no
+            // no
         }
-
-
-        /*
-        @Override
-        public void unitOn(Unit unit){
-            if(enabled && unit.team != team && timer(timerDamage, cool down)){
-                damage(tileDamage);
-            }
-        }
-
-         */
     }
 }
