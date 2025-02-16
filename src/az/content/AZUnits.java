@@ -493,7 +493,7 @@ public class AZUnits {
                         shoot = new ShootSpread(3, 5f);
                         bullet = new BasicBulletType(5.5f, 7) {{
                             lifetime = 25f;
-                            
+
                             sprite = "az-dagbul";
                             statusDuration = 60 * 8f;
                             status = AZStatusEffects.weakness;
@@ -547,7 +547,7 @@ public class AZUnits {
                         bullet = new BasicBulletType(4.5f, 5) {{
                             lifetime = 38f;
                             drag = 0.0012f;
-                            
+
                             shootEffect = Fx.shootLiquid;
                             frontColor = Color.white;
                             backColor = AZPal.unmakerColor;
@@ -630,7 +630,7 @@ public class AZUnits {
                         bullet = new BasicBulletType(4.5f, 15) {{
                             lifetime = 55f;
                             //drag = 0.03f;
-                            
+
                             homingPower = 0.15f;
                             homingDelay = 3f;
                             homingRange = 60;
@@ -1057,6 +1057,47 @@ public class AZUnits {
                 targetGround = true;
             }});
         }};
+
+        custodian = new TankUnitType("custodian"){
+            {
+                drag = 0.3f;
+                accel = 0.4f;
+                hitSize = 12f;
+                treadPullOffset = 3;
+                speed = 1f;
+                rotateSpeed = 3f;
+                health = 1000;
+                armor = 2f;
+                itemCapacity = 0;
+                researchCostMultiplier = 0f;
+                constructor = TankUnit::create;
+                range = 17f * 8;
+                targetAir = true;
+                targetGround = true;
+                weapons.add(new Weapon("az-a") {{
+                }});
+            }};
+
+        bulwark = new TankUnitType("bulwark"){
+            {
+                drag = 0.3f;
+                accel = 0.4f;
+                hitSize = 18f;
+                treadPullOffset = 3;
+                speed = 0.9f;
+                rotateSpeed = 3f;
+                health = 3000;
+                armor = 4f;
+                itemCapacity = 0;
+                researchCostMultiplier = 0f;
+                constructor = TankUnit::create;
+                range = 17f * 8;
+                targetAir = true;
+                targetGround = true;
+                weapons.add(new Weapon("az-aa") {{
+                }});
+            }};
+
         //endregion sentinelTree
         //region source
         //endregion source
