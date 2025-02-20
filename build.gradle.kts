@@ -56,7 +56,8 @@ fun entity(module: String): String{
 
 allprojects{
     apply(plugin = "java")
-    sourceSets["main"].java.setSrcDirs(listOf(layout.projectDirectory.dir("src")))
+    apply(plugin = "kotlin")
+    sourceSets["main"].java.setSrcDirs(listOf(layout.projectDirectory.dir("src/main/java")))
 
     configurations.configureEach{
         // Resolve the correct Mindustry dependency, and force Arc version.
@@ -121,6 +122,7 @@ project(":"){
     }
 
     val jar = tasks.named<Jar>("jar"){
+
         archiveFileName = "${modArtifact}Desktop.jar"
 
         val meta = layout.projectDirectory.file("$temporaryDir/mod.json")
