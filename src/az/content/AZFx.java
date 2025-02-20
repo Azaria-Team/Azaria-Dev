@@ -263,18 +263,6 @@ public class AZFx {
         });
     }),
 
-    blueExplosionEMIHit = new Effect(50, e -> {
-        color(AZPal.droneEMIBullet);
-
-        color(AZPal.droneEMIBullet, AZPal.droneEMIBulletBack, e.fin());
-        stroke(3f * e.fout());
-
-        randLenVectors(e.id + 1, 6, 2f + 19
-                * e.finpow(), (x, y) -> {
-            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 2f);
-        });
-    }),
-
     smallBlueExplosionEMI = new Effect(50, e -> {
         color(AZPal.droneEMIBullet);
 
@@ -318,26 +306,6 @@ public class AZFx {
         });
     }),
 
-    blueEMICharge = new Effect(40f, 40f, e -> {
-        color(AZPal.droneEMIBullet, AZPal.droneEMIBulletBack, e.fin());
-        stroke(e.fin() * 3f);
-
-        randLenVectors(e.id, 5, 15f * e.fout(), (x, y) -> {
-            Fill.circle(e.x + x, e.y + y, e.fin() * 2f);
-            Drawf.light(e.x + x, e.y + y, e.fin() * 4f, AZPal.droneEMIBulletBottom, 0.7f);
-        });
-    }).followParent(true).rotWithParent(true),
-
-    custodianCharge = new Effect(20f, 20f, e -> {
-        color(AZPal.craside, AZPal.craside2, e.fin());
-        stroke(e.fin() * 1.1f);
-
-        randLenVectors(e.id, 3, 25f * e.fout(), (x, y) -> {
-            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fin() * 0.5f);
-            Drawf.light(e.x + x, e.y + y, e.fin() * 4f, AZPal.craside2, 0.7f);
-        });
-    }).followParent(true).rotWithParent(true),
-
     smallGreenExplosion = new Effect(20, e -> {
         color(AZPal.unmakerColor);
         e.scaled(10, i -> {
@@ -351,6 +319,40 @@ public class AZFx {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 0.5f + e.fout() * 1.5f);
         });
     }),
+
+    smallOrangeBulletExplosion = new Effect(20, e -> {
+        color(AZPal.craside);
+        e.scaled(8, i -> {
+            stroke(2f * i.fout());
+        });
+
+        color(AZPal.craside, AZPal.craside2, e.fin());
+        stroke(1.01f * e.fout());
+
+        randLenVectors(e.id + 1, 6, 1f + 20 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 1.5f);
+        });
+    }),
+
+    blueEMICharge = new Effect(40f, 40f, e -> {
+        color(AZPal.droneEMIBullet, AZPal.droneEMIBulletBack, e.fin());
+        stroke(e.fin() * 3f);
+
+        randLenVectors(e.id, 5, 15f * e.fout(), (x, y) -> {
+            Fill.circle(e.x + x, e.y + y, e.fin() * 2f);
+            Drawf.light(e.x + x, e.y + y, e.fin() * 4f, AZPal.droneEMIBulletBottom, 0.7f);
+        });
+    }).followParent(true).rotWithParent(true),
+
+    custodianCharge = new Effect(20f, 20f, e -> {
+        color(AZPal.craside2, AZPal.craside3, e.fin());
+        stroke(e.fin() * 1.1f);
+
+        randLenVectors(e.id, 8, 25f * e.fout(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fin() * 0.5f);
+            Drawf.light(e.x + x, e.y + y, e.fin() * 4f, AZPal.craside3, 0.7f);
+        });
+    }).followParent(true).rotWithParent(true),
 
     vogTrail = new Effect(15, e -> {
         color(AZPal.vogPink, AZPal.vogPinkBack, e.fin());
@@ -515,6 +517,33 @@ public class AZFx {
         color(AZPal.superdenseBullet, AZPal.superdenseBulletBack, Color.gray, e.fin());
         randLenVectors(e.id + 1, 10, 1f + 25f * e.finpow(), (x, y) -> {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 3f + e.fout() * 3f);
+        });
+    }),
+
+    blueExplosionEMIHit = new Effect(50, e -> {
+        color(AZPal.droneEMIBullet);
+
+        color(AZPal.droneEMIBullet, AZPal.droneEMIBulletBack, e.fin());
+        stroke(3f * e.fout());
+
+        randLenVectors(e.id + 1, 6, 2f + 19
+                * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 2f);
+        });
+    }),
+
+    smallOrangeBulletHit = new Effect(20, e -> {
+        color(AZPal.craside);
+        e.scaled(8, i -> {
+            stroke(2f * i.fout());
+            Lines.circle(e.x, e.y, 3f + i.fin() * 5f);
+        });
+
+        color(AZPal.craside, AZPal.craside2, e.fin());
+        stroke(1.01f * e.fout());
+
+        randLenVectors(e.id + 1, 7, 1f + 23 * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + e.fout() * 1.5f);
         });
     }),
 

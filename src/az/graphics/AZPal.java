@@ -21,6 +21,7 @@ public static final Color
         forsBack = Color.valueOf("c28392"),
         craside = Color.valueOf("d9fa96"),
         craside2 = Color.valueOf("d47f6a"),
+        craside3 = Color.valueOf("ae8b69"),
         superdenseAlloy = Color.valueOf("313442"),
         lepera = Color.valueOf("313442"),
 

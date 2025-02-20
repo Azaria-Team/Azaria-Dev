@@ -1096,6 +1096,8 @@ public class AZUnits {
                         chargeEffect = AZFx.custodianCharge;
                         backColor = AZPal.craside2;
                         frontColor = AZPal.craside;
+                        hitEffect = AZFx.smallOrangeBulletHit;
+                        despawnEffect = AZFx.smallOrangeBulletExplosion;
                         width = 8f;
                         height = 11f;
                         shrinkX = 0;
