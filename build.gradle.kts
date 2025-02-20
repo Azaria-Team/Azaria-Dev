@@ -6,12 +6,10 @@ import java.io.*
 
 buildscript{
     val arcVersion: String by project
-    val kotlinVersion: String by project
     val useJitpack = property("mindustryBE").toString().toBooleanStrict()
 
     dependencies{
         classpath("com.github.Anuken.Arc:arc-core:$arcVersion")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 
     repositories{
@@ -56,8 +54,7 @@ fun entity(module: String): String{
 
 allprojects{
     apply(plugin = "java")
-    apply(plugin = "kotlin")
-    sourceSets["main"].java.setSrcDirs(listOf(layout.projectDirectory.dir("src/main/java")))
+    sourceSets["main"].java.setSrcDirs(listOf(layout.projectDirectory.dir("src")))
 
     configurations.configureEach{
         // Resolve the correct Mindustry dependency, and force Arc version.
@@ -122,7 +119,6 @@ project(":"){
     }
 
     val jar = tasks.named<Jar>("jar"){
-
         archiveFileName = "${modArtifact}Desktop.jar"
 
         val meta = layout.projectDirectory.file("$temporaryDir/mod.json")
