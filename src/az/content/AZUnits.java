@@ -1074,7 +1074,40 @@ public class AZUnits {
                 range = 17f * 8;
                 targetAir = true;
                 targetGround = true;
-                weapons.add(new Weapon("az-a") {{
+
+                weapons.add(new Weapon("az-gun")
+                {{
+                    reload = 60f;
+                    rotate = true;
+                    x = 0;
+                    y = 0;
+                    mirror = true;
+                    shootY = 1f;
+                    rotateSpeed = 3.0f;
+                    shootSound = Sounds.lasershoot;
+                    shoot.shotDelay = 14;
+                    shoot.firstShotDelay = 16;
+                    parentizeEffects = true;
+                    shoot.shots = 2;
+
+                    inaccuracy = 6f;
+                    bullet = new BasicBulletType(5.5f, 50) {{
+                        sprite = "az-grenade";
+                        chargeEffect = AZFx.custodianCharge;
+                        backColor = AZPal.craside2;
+                        frontColor = AZPal.craside;
+                        width = 8f;
+                        height = 11f;
+                        shrinkX = 0;
+                        shrinkY = 0;
+                        hitSound = Sounds.explosion;
+                     //   hitEffect = AZFx.smallblueHitExplosion;
+                   //     despawnEffect = AZFx.smallBlueExplosion;
+                        lifetime = 40;
+                        velocityRnd =  0.2f;
+                        healPercent = 3;
+                        collidesTeam = true;
+                    }};
                 }});
             }};
 
