@@ -1,31 +1,24 @@
 package az.pattern;
 
 import mindustry.entities.pattern.ShootPattern;
-import java.util.Random;
+import arc.math.Rand;
 
 public class AZBurstShoot extends ShootPattern {
-    protected int burstRange = 1;
-    int a;
-    protected int burstOffset = 1;
+    public int min;
+    public int max;
 
-    /** burst fire random interval setter. only unsigned values! */
-    public void burstFireInterval(int from, int to) {
-        burstRange = 1 + to - from;
-        burstOffset = from;
-        //(from - to) -> (range, offset)
-    }
-
-    public AZBurstShoot(int minValue, int maxValue, float shotDelay) {
-        burstFireInterval(minValue, maxValue);
+    public AZBurstShoot(int min, int max, float shotDelay) {
+        this.min = min;
+        this.max = max;
         this.shotDelay = shotDelay;
     }
 
     @Override
     public void shoot(int totalShots, ShootPattern.BulletHandler handler) {
-        Random randNum = new Random();
+        int randNum = new Rand().random(min, max);
 
-        for (int i = 1; i <= randNum.nextInt(burstRange) + burstOffset; i++) {
-            //TODO fix the delay
+        for(int i = 0; i <= randNum; ++i) {
+            //TODO fix the delay (MAYBE)
             handler.shoot(0, 0, 0, firstShotDelay + shotDelay * i);
         }
     }
