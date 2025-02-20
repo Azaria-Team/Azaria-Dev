@@ -23,6 +23,7 @@ import mindustry.Vars;
 import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
+import mindustry.entities.abilities.StatusFieldAbility;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.part.RegionPart;
@@ -1072,6 +1073,7 @@ public class AZUnits {
                 range = 17f * 8;
                 targetAir = true;
                 targetGround = true;
+                abilities.add(new StatusFieldAbility(AZStatusEffects.boost, 5 * 60, 10 * 60, 10f * 8));
 
                 weapons.add(new Weapon("az-gun")
                 {{

@@ -3,11 +3,13 @@ package az.content;
 import arc.graphics.Color;
 import arc.math.Mathf;
 import az.graphics.AZPal;
+import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
+import mindustry.graphics.Pal;
 import mindustry.type.StatusEffect;
 
 public class AZStatusEffects {
-    public static StatusEffect weakness, decomposition, ultraSuperDuperMegaDohuaMoschniyBuff;
+    public static StatusEffect weakness, decomposition, ultraSuperDuperMegaDohuaMoschniyBuff, boost;
 
     public static void load() {
         weakness = new StatusEffect ("weakness") {{
@@ -44,6 +46,11 @@ public class AZStatusEffects {
            buildSpeedMultiplier = 1.3f;
         }};
 
+        boost = new StatusEffect("boost"){{
+            color = Pal.accent;
+            speedMultiplier = 1.05f;
+            reloadMultiplier = 1.1f;
+        }};
     }
 }
     
