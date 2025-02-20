@@ -1086,7 +1086,7 @@ public class AZUnits {
                     rotateSpeed = 3.0f;
                     shootSound = Sounds.lasershoot;
                     shoot.shotDelay = 14;
-                    shoot.firstShotDelay = 16;
+                    shoot.firstShotDelay = 15;
                     parentizeEffects = true;
                     shoot.shots = 2;
 
