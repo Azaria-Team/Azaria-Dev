@@ -332,8 +332,8 @@ public class AZFx {
         color(AZPal.craside, AZPal.craside2, e.fin());
         stroke(e.fin() * 1.1f);
 
-        randLenVectors(e.id, 2, 10f * e.fout(), (x, y) -> {
-            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 3f + e.fin() * 0.5f);
+        randLenVectors(e.id, 3, 25f * e.fout(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fin() * 0.5f);
             Drawf.light(e.x + x, e.y + y, e.fin() * 4f, AZPal.craside2, 0.7f);
         });
     }).followParent(true).rotWithParent(true),
