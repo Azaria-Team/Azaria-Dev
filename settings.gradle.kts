@@ -5,8 +5,11 @@ pluginManagement{
  }
 
  plugins{
+  val kotlinVersion: String by settings
   val entVersion: String by settings
   id("com.github.GlennFolker.EntityAnno") version(entVersion)
+  id("org.jetbrains.kotlin.jvm") version(kotlinVersion)
+  id("org.jetbrains.kotlin.kapt") version(kotlinVersion)
  }
 }
 

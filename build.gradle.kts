@@ -6,10 +6,12 @@ import java.io.*
 
 buildscript{
     val arcVersion: String by project
+    val kotlinVersion: String by project
     val useJitpack = property("mindustryBE").toString().toBooleanStrict()
 
     dependencies{
         classpath("com.github.Anuken.Arc:arc-core:$arcVersion")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 
     repositories{
