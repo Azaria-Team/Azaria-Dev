@@ -502,8 +502,6 @@ public class AZEnvironment {
         }};
         //endregion ores
         //endregion Auriona
-        ((ShallowLiquid)serridOxylite).set(oxylite, serridOrange);
-        ((ShallowLiquid)serridOxylite).set(oxylite, serridRed);
         ((ShallowLiquid)balsitePlatesOxylite).set(oxylite, balsitePlates);
         ((ShallowLiquid)darkSerridOxylite).set(oxylite, darkSerrid);
     }
