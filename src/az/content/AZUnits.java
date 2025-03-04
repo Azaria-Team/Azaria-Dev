@@ -7,6 +7,7 @@ import arc.math.geom.Rect;
 import arc.util.Time;
 import az.entities.ability.ModShieldArcAbility;
 import az.entities.bullets.AimBulletType;
+import az.entities.bullets.ArtLightningBulletType;
 import az.entities.bullets.ModEmpBulletType;
 import az.entities.units.DroneUnitType;
 import az.entities.units.StriCopterUnitType;
@@ -35,6 +36,7 @@ import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
 import mindustry.type.unit.TankUnitType;
+import mindustry.type.weapons.RepairBeamWeapon;
 import mindustry.world.meta.BlockFlag;
 
 import static mindustry.Vars.tilesize;
@@ -1106,8 +1108,7 @@ public class AZUnits {
                         trailLength = 6;
                         trailWidth = 2;
                         hitSound = Sounds.explosion;
-                     //   hitEffect = AZFx.smallblueHitExplosion;
-                   //     despawnEffect = AZFx.smallBlueExplosion;
+
                         lifetime = 40;
                         velocityRnd =  0.2f;
                         healPercent = 1;
@@ -1132,7 +1133,44 @@ public class AZUnits {
                 range = 17f * 8;
                 targetAir = true;
                 targetGround = true;
-                weapons.add(new Weapon("az-aa") {{
+                weapons.add(new Weapon("az-lightning-weapon") {{
+                    reload = 100f;
+                    rotate = true;
+                    x = 0;
+                    y = 0;
+                    mirror = false;
+                    shootY = 1f;
+                    rotateSpeed = 2.0f;
+                    shootSound = Sounds.spark;
+                    parentizeEffects = true;
+                    shoot.shotDelay = 6;
+                    shoot.firstShotDelay = 15;
+                    shoot.shots = 1;
+                    bullet = new ArtLightningBulletType(100) {{
+                        chargeEffect = AZFx.custodianCharge;
+                        hitEffect = AZFx.smallOrangeBulletHit;
+                        despawnEffect = AZFx.smallOrangeBulletExplosion;
+                        lightnings = 2;
+                        hitSound = Sounds.explosion;
+                        lifetime = 48f;
+                        maxRange = 34f * 8f;
+                        lightColor = AZPal.craside3;
+                    }};
+                }});
+                weapons.add(new RepairBeamWeapon("bulwark-repair-weapon"){{
+                    x = 5f;
+                    y = -5f;
+                    shootY = 5f;
+                    beamWidth = 0.5f;
+                    repairSpeed = 0.3f;
+                    laserColor = AZPal.craside;
+                    mirror = true;
+                    rotate = true;
+                    rotateSpeed = 3f;
+
+                    bullet = new BulletType(){{
+                        maxRange = 15f * 8f;
+                    }};
                 }});
             }};
 
