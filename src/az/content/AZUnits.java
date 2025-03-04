@@ -490,7 +490,7 @@ public class AZUnits {
                         reload = 27.5f;
                         layerOffset = -0.002f;
                         inaccuracy = 0.4f;
-
+                        shootSound = Sounds.shootAltLong;
                         recoil = 3.5f;
                         shoot = new ShootSpread(3, 5f);
                         bullet = new BasicBulletType(5.5f, 7) {{
@@ -540,6 +540,7 @@ public class AZUnits {
                         layerOffset = -0.002f;
                         recoil = 3.5f;
                         inaccuracy = 6.35f;
+                        shootSound = Sounds.missile;
 
                         shoot = new ShootAlternate() {{
                             shots = 2;
@@ -1135,7 +1136,7 @@ public class AZUnits {
                 targetAir = true;
                 targetGround = true;
                 weapons.add(new Weapon("az-lightning-weapon") {{
-                    reload = 100f;
+                    reload = 120f;
                     rotate = true;
                     x = 0;
                     y = 0;
@@ -1143,18 +1144,17 @@ public class AZUnits {
                     shootY = 1f;
                     rotateSpeed = 2.0f;
                     shootSound = Sounds.spark;
-                    parentizeEffects = true;
                     shoot.shotDelay = 6;
                     shoot.firstShotDelay = 15;
                     shoot.shots = 1;
                     bullet = new ArtLightningBulletType(100) {{
-                        chargeEffect = AZFx.custodianCharge;
-                        hitEffect = AZFx.smallOrangeBulletHit;
-                        despawnEffect = AZFx.smallOrangeBulletExplosion;
+                        chargeEffect = AZFx.bulwarkCharge;
+                        hitEffect = AZFx.orangeLightningHit;
                         lightnings = 2;
                         hitSound = Sounds.explosion;
                         lifetime = 48f;
                         maxRange = 36f * 8f;
+                        lightningColor = AZPal.craside3;
                         lightColor = AZPal.craside3;
                     }};
                 }});

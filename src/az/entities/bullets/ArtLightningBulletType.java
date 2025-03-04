@@ -1,6 +1,7 @@
 package az.entities.bullets;
 
 import arc.graphics.Color;
+import az.content.AZFx;
 import az.graphics.AZPal;
 import mindustry.content.Fx;
 import mindustry.entities.Damage;
@@ -29,6 +30,17 @@ public class ArtLightningBulletType extends BulletType {
          collidesAir = collidesGround = true;
          lightningDamage = damage;
          lightningLength = lightningLengthRand = 6;
+         hitEffect = shootEffect = smokeEffect = Fx.none;
+         despawnEffect = Fx.none;
+     }
+
+     @Override
+     public void init(){
+         super.init();
+         drawSize = Math.max(drawSize, maxRange * 2);
+         if(hitEffect == Fx.none)hitEffect = AZFx.orangeLightningHit;
+         if(smokeEffect ==  Fx.none)smokeEffect = Fx.shootBigSmoke;
+         if(shootEffect ==  Fx.none)shootEffect = Fx.shootSmall;
      }
 
      public float range(){
