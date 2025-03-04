@@ -3,6 +3,7 @@ package az.type.weapons;
 import arc.graphics.Color;
 import arc.math.Angles;
 import arc.math.Mathf;
+import arc.scene.ui.layout.Table;
 import arc.util.Time;
 import mindustry.Vars;
 import mindustry.content.Fx;
@@ -14,7 +15,10 @@ import mindustry.gen.Building;
 import mindustry.gen.Healthc;
 import mindustry.gen.Teamc;
 import mindustry.gen.Unit;
+import mindustry.type.UnitType;
 import mindustry.type.weapons.RepairBeamWeapon;
+import mindustry.world.meta.Stat;
+import mindustry.world.meta.StatUnit;
 
 import static mindustry.Vars.tilesize;
 
@@ -28,6 +32,14 @@ public class BeamWeapon extends RepairBeamWeapon {
         super(name);
         targetBuildings = true;
     }
+
+    @Override
+    public void addStats(UnitType u, Table w){
+        w.row();
+        w.add("[lightgray]" + Stat.repairSpeed.localized() + ": " + (mirror ? "2x " : "") + "[white]" + (int)(repairSpeed * 60) + " " + StatUnit.perSecond.localized());
+        w.add("[lightgray]" + Stat.damage.localized() + ": " + (mirror ? "2x " : "") + "[white]" + (int)(damagePerSecond * 60) + " " + StatUnit.perSecond.localized());
+    }
+
 
     public BeamWeapon(){
     }

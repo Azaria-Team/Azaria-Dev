@@ -1154,7 +1154,7 @@ public class AZUnits {
                         lightnings = 2;
                         hitSound = Sounds.explosion;
                         lifetime = 48f;
-                        maxRange = 34f * 8f;
+                        maxRange = 36f * 8f;
                         lightColor = AZPal.craside3;
                     }};
                 }});
@@ -1170,7 +1170,7 @@ public class AZUnits {
                     rotateSpeed = 3f;
 
                     bullet = new BulletType(){{
-                        maxRange = 15f * 8f;
+                        maxRange = 19f * 8f;
                     }};
                 }});
             }};
