@@ -20,7 +20,7 @@ import static mindustry.Vars.tilesize;
 
 public class BeamWeapon extends RepairBeamWeapon {
     public boolean damageEnemies = true;
-    public float damagePerSecond = 5f;
+    public float damagePerSecond = 0.1f;
     public Color enemyLaserColor = Color.valueOf("ff0000");
     public Effect damageEffect = Fx.hitLaser;
 
@@ -106,7 +106,7 @@ public class BeamWeapon extends RepairBeamWeapon {
 
             if(u instanceof Teamc t && t.team() != unit.team()){
 
-                float damage = damagePerSecond * Time.delta * heal.strength;
+                float damage = damagePerSecond * Time.delta;
                 u.damage(damage);
 
                 if(heal.effectTimer >= reload/2f){
