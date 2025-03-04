@@ -41,6 +41,9 @@ public class HealingWall extends Wall {
                 float consume = liquidConsume * (maxHeal / healAmounts) * Time.delta;
                 liquids.remove(healLiquid, consume);
             }
+            if(liquids.currentAmount() > 0.01f){
+                dumpLiquid(liquids.current());
+            }
         }
     }
 }
