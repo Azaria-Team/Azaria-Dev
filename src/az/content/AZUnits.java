@@ -13,6 +13,7 @@ import az.entities.units.DroneUnitType;
 import az.entities.units.StriCopterUnitType;
 import az.graphics.AZPal;
 import az.pattern.AZBurstShoot;
+import az.type.weapons.BeamWeapon;
 import az.world.draw.Blade;
 import az.world.draw.Rotor;
 
@@ -1157,7 +1158,7 @@ public class AZUnits {
                         lightColor = AZPal.craside3;
                     }};
                 }});
-                weapons.add(new RepairBeamWeapon("bulwark-repair-weapon"){{
+                weapons.add(new BeamWeapon("bulwark-repair-weapon"){{
                     x = 5f;
                     y = -5f;
                     shootY = 5f;
