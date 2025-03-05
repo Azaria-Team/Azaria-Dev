@@ -3,6 +3,7 @@ package az.type.weapons;
 import arc.graphics.Color;
 import arc.math.Angles;
 import arc.math.Mathf;
+import arc.scene.ui.layout.Table;
 import arc.util.Time;
 import mindustry.Vars;
 import mindustry.content.Fx;
@@ -14,7 +15,10 @@ import mindustry.gen.Building;
 import mindustry.gen.Healthc;
 import mindustry.gen.Teamc;
 import mindustry.gen.Unit;
+import mindustry.type.UnitType;
 import mindustry.type.weapons.RepairBeamWeapon;
+import mindustry.world.meta.Stat;
+import mindustry.world.meta.StatUnit;
 
 import static mindustry.Vars.tilesize;
 
@@ -26,25 +30,32 @@ public class BeamWeapon extends RepairBeamWeapon {
 
     public BeamWeapon(String name){
         super(name);
+        targetBuildings = true;
     }
+
+    @Override
+    public void addStats(UnitType u, Table w){
+        w.row();
+        w.add("[lightgray]" + Stat.repairSpeed.localized() + ": " + (mirror ? "2x " : "") + "[white]" + (int)(repairSpeed * 60) + " " + StatUnit.perSecond.localized());
+        w.add("[lightgray]" + Stat.damage.localized() + ": " + (mirror ? "2x " : "") + "[white]" + (int)(damagePerSecond * 60) + " " + StatUnit.perSecond.localized());
+    }
+
 
     public BeamWeapon(){
     }
     @Override
     protected Teamc findTarget(Unit unit, float x, float y, float range, boolean air, boolean ground){
-        // 1. Поиск вражеских целей
+
         if(damageEnemies){
             Teamc enemy = Units.closestEnemy(unit.team, x, y, range, u -> true);
             if(enemy != null) return enemy;
         }
 
-        // 2. Поиск союзных юнитов
         Teamc ally = targetUnits ?
                 Units.closest(unit.team, x, y, range, u -> u != unit && u.damaged()) :
                 null;
         if(ally != null) return ally;
 
-        // 3. Поиск союзных построек
         return targetBuildings ?
                 Units.findAllyTile(unit.team, x, y, range, Building::damaged) :
                 null;
@@ -66,30 +77,30 @@ public class BeamWeapon extends RepairBeamWeapon {
                 wx = unit.x + Angles.trnsx(weaponRotation, x, y),
                 wy = unit.y + Angles.trnsy(weaponRotation, x, y);
 
-        HealBeamMount heal = (HealBeamMount)mount;
+        HealBeamMount beamMount = (HealBeamMount)mount;
         boolean canShoot = mount.shoot;
 
         if(!autoTarget){
-            heal.target = null;
+            beamMount.target = null;
             if(canShoot){
-                heal.lastEnd.set(heal.aimX, heal.aimY);
+                beamMount.lastEnd.set(beamMount.aimX, beamMount.aimY);
 
-                if(!rotate && !Angles.within(Angles.angle(wx, wy, heal.aimX, heal.aimY), unit.rotation, shootCone)){
+                if(!rotate && !Angles.within(Angles.angle(wx, wy, beamMount.aimX, beamMount.aimY), unit.rotation, shootCone)){
                     canShoot = false;
                 }
             }
 
 
             //limit range
-            heal.lastEnd.sub(wx, wy).limit(range()).add(wx, wy);
+            beamMount.lastEnd.sub(wx, wy).limit(range()).add(wx, wy);
 
             if(targetBuildings){
                 //snap to closest building
-                World.raycastEachWorld(wx, wy, heal.lastEnd.x, heal.lastEnd.y, (x, y) -> {
+                World.raycastEachWorld(wx, wy, beamMount.lastEnd.x, beamMount.lastEnd.y, (x, y) -> {
                     var build = Vars.world.build(x, y);
                     if(build != null && build.team == unit.team && build.damaged()){
-                        heal.target = build;
-                        heal.lastEnd.set(x * tilesize, y * tilesize);
+                        beamMount.target = build;
+                        beamMount.lastEnd.set(x * tilesize, y * tilesize);
                         return true;
                     }
                     return false;
@@ -99,7 +110,7 @@ public class BeamWeapon extends RepairBeamWeapon {
                 //TODO does not support healing units manually yet
             }
         }
-        heal.strength = Mathf.lerpDelta(heal.strength,
+        beamMount.strength = Mathf.lerpDelta(beamMount.strength,
                 Mathf.num(autoTarget ? mount.target != null : canShoot), 0.2f);
 
         if(canShoot && mount.target instanceof Healthc u && u.isValid()){
@@ -109,26 +120,22 @@ public class BeamWeapon extends RepairBeamWeapon {
                 float damage = damagePerSecond * Time.delta;
                 u.damage(damage);
 
-                if(heal.effectTimer >= reload/2f){
-                    damageEffect.at(u.getX(), u.getY(), 0, enemyLaserColor);
-                    heal.effectTimer = 0f;
-                }
             }else if(u instanceof Teamc t && t.team() == unit.team()){
 
-                float baseAmount = repairSpeed * heal.strength * Time.delta
-                        + fractionRepairSpeed * heal.strength * Time.delta * u.maxHealth()/100f;
+                float baseAmount = repairSpeed * beamMount.strength * Time.delta
+                        + fractionRepairSpeed * beamMount.strength * Time.delta * u.maxHealth()/100f;
 
                 if(u instanceof Building b){
                     baseAmount *= b.wasRecentlyDamaged() ? recentDamageMultiplier : 1f;
-                    if(heal.effectTimer >= reload){
+                    if(beamMount.effectTimer >= reload){
                         healEffect.at(b.x, b.y, 0f, healColor, b.block);
-                        heal.effectTimer = 0f;
+                        beamMount.effectTimer = 0f;
                     }
                 }
 
                 u.heal(baseAmount);
             }
-            heal.effectTimer += Time.delta;
+            beamMount.effectTimer += Time.delta;
         }
     }
 }
