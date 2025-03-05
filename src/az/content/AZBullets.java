@@ -49,7 +49,7 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 8f;
             height = 12f;
-            lifetime = 34;
+            lifetime = 34 * 0.7f;
             collidesGround = true;
             collidesAir = true;
             hitSize = 3;
@@ -73,7 +73,7 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 8f;
             height = 14f;
-            lifetime = 28;
+            lifetime = 34 * 0.7f;
             collidesGround = true;
             collidesAir = true;
             hitSize = 3;
@@ -135,7 +135,7 @@ public class AZBullets {
             frontColor = AZPal.craside2;
         }};
 
-        ferbiumBullet = new ArtilleryBulletType(8f, 10f){{
+        ferbiumBullet = new ArtilleryBulletType(8f, 26f){{
             splashDamage = 10f;
             splashDamageRadius = 2f * 8;
             sprite = "az-vog";
@@ -157,8 +157,6 @@ public class AZBullets {
 
             weaveScale = 8f;
             weaveMag = 0.8f;
-//            weaveScale = 10f;
-//            weaveMag = 0.6f;
 
             trailColor = AZPal.ferbiumBullet;
             backColor = AZPal.ferbiumBulletBack;
