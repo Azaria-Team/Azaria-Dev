@@ -24,7 +24,7 @@ public class SpeedUpItemTurret extends ItemTurret{
     public float overheatCoolAmount = 1.25f;
     public boolean isOverheat = false;
 
-    public float maxSpeedupScl = 0.4f;
+    public float maxSpeedupScl = 0.3f;
     public float speedupPerShoot = 0.03f;
 
     public float slowDownReloadTime = 150f;

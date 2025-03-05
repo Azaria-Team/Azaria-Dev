@@ -25,8 +25,6 @@ import static mindustry.Vars.tilesize;
 public class BeamWeapon extends RepairBeamWeapon {
     public boolean damageEnemies = true;
     public float damagePerSecond = 0.1f;
-    public Color enemyLaserColor = Color.valueOf("ff0000");
-    public Effect damageEffect = Fx.hitLaser;
 
     public BeamWeapon(String name){
         super(name);

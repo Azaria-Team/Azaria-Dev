@@ -159,8 +159,6 @@ public class AZTurrets {
             requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
             researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
             health = 700;
-            shootEffect = AZFx.shootForce;
-            smokeEffect = AZFx.shootSmokeForce;
             reload = 200f;
             inaccuracy = 5f;
             shake = 2f;
