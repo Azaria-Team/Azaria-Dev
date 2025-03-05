@@ -15,7 +15,9 @@ import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
-
+ /*
+ * author Yuria
+ */
 public class SpeedUpItemTurret extends ItemTurret{
 
     public float overheatTime = -1f;
@@ -23,7 +25,7 @@ public class SpeedUpItemTurret extends ItemTurret{
     public boolean isOverheat = false;
 
     public float maxSpeedupScl = 0.5f;
-    public float speedupPerShoot = 0.075f;
+    public float speedupPerShoot = 0.05f;
 
     public float slowDownReloadTime = 150f;
     public float inaccuracyUp = 0f;

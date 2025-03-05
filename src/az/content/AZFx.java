@@ -213,6 +213,23 @@ public class AZFx {
         });
     }),
 
+    ferbiumBulletHit = new Effect(30, e -> {
+        color(AZPal.droneBullet);
+        e.scaled(10, i -> {
+            stroke(3f * i.fout());
+        });
+
+        color(AZPal.droneBullet);
+
+        color(AZPal.droneBullet, AZPal.droneBulletBack, e.fin());
+        stroke(1.5f * e.fout());
+
+        randLenVectors(e.id + 3, 8, 3f + 25f * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 4f);
+        });
+    }),
+
+
     smallblueHitExplosion = new Effect(30, e -> {
         color(AZPal.droneBullet);
         e.scaled(7, i -> {
@@ -262,6 +279,22 @@ public class AZFx {
             lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 2f);
         });
     }),
+
+    ferbiumBulletExplosion = new Effect(20, e -> {
+        color(AZPal.droneBullet);
+        e.scaled(10, i -> {
+            stroke(2f * i.fout());
+        });
+
+        color(AZPal.droneBullet, AZPal.droneBulletBack, e.fin());
+        stroke(2f * e.fout());
+
+        randLenVectors(e.id + 1, 6, 2f + 19
+                * e.finpow(), (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 2f + e.fout() * 2f);
+        });
+    }),
+
 
     smallBlueExplosionEMI = new Effect(50, e -> {
         color(AZPal.droneEMIBullet);
@@ -459,6 +492,21 @@ public class AZFx {
         }
 
     }),
+
+    ferbiumBulletTrail = new Effect(25, e -> {
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, e.fin());
+
+        stroke(0.6f + e.fout() * 0.9f);
+        rand.setSeed(e.id);
+
+        color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, e.fin());
+        for(int i = 0; i < 1; i++){
+            float rot = e.rotation + rand.range(5f) + 180f;
+            v.trns(rot, rand.random(e.fin() * 10f));
+            lineAngle(e.x + v.x, e.y + v.y, rot, e.fout() * rand.random(1f, 2f) + 1f);
+        }
+    }),
+
 
     forceFerbiumBulletTrail = new Effect(25, e -> {
         color(AZPal.ferbiumBullet, AZPal.ferbiumBulletBack, e.fin());

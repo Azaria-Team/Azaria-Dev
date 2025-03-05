@@ -8,6 +8,7 @@ import az.graphics.AZPal;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
+import mindustry.entities.bullet.ArtilleryBulletType;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.ShrapnelBulletType;
@@ -134,30 +135,28 @@ public class AZBullets {
             frontColor = AZPal.craside2;
         }};
 
-        ferbiumBullet = new BasicBulletType(4f, 35f){{
-            splashDamage = 30f;
-            splashDamageRadius = 25f;
-            sprite = "az-dagger-missile";
-            //trailInterval = 0.5f;
-            //trailEffect = AZFx.forceBulletTrail;
-            hitEffect = AZFx.forceBulletHit;
-            despawnEffect = AZFx.forceBulletDespawn;
+        ferbiumBullet = new ArtilleryBulletType(8f, 10f){{
+            splashDamage = 10f;
+            splashDamageRadius = 2f * 8;
+            sprite = "az-vog";
+            trailInterval = 0.2f;
+            drag = 0.015f;
+            trailEffect = AZFx.ferbiumBulletTrail;
+            hitEffect = AZFx.ferbiumBulletHit;
+            despawnEffect = AZFx.ferbiumBulletExplosion;
             trailRotation = true;
             shrinkX = shrinkY = 0f;
             width = 10f;
             height = 13f;
-            lifetime = 50;
+            lifetime = 80;
             collidesGround = true;
             collidesAir = true;
             hitSize = 3;
-            homingPower = 0.3f;
 
             trailColor = AZPal.ferbiumBullet;
             backColor = AZPal.ferbiumBulletBack;
             frontColor = AZPal.ferbiumBullet;
 
-            trailLength = 8;
-            trailWidth = 2f;
         }};
 
 

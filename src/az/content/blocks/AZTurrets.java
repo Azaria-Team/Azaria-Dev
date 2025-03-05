@@ -155,32 +155,33 @@ public class AZTurrets {
             }};
         }};
 
-        testTurret = new SpeedUpItemTurret("test-turret") {{
+        testTurret = new SpeedUpItemTurret("zxc") {{
             requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
             researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
             health = 700;
             shootEffect = AZFx.shootForce;
             smokeEffect = AZFx.shootSmokeForce;
-            reload = 140f;
-            inaccuracy = 10f;
+            reload = 200f;
+            inaccuracy = 5f;
             shake = 2f;
             shootY = -2;
             outlineColor = AZPal.aureliaOutline;
             size = 2;
             recoil = 2f;
-            range = 24 * Vars.tilesize;
+            range = 27 * Vars.tilesize;
             shootCone = 30f;
-            shoot.shots = 3;
-            shoot.shotDelay = 8;
             rotateSpeed = 3f;
-            speedupPerShoot = 0.01f;
 
-            shootSound = Sounds.cannon;
+            shootSound = Sounds.shootAltLong;
             squareSprite = false;
             ammoPerShot = 1;
             maxAmmo = 10;
             itemCapacity = 10;
             coolantMultiplier = 2f;
+            shoot.shots = 12;
+            shoot.shotDelay = 3;
+            velocityRnd = 0.2f;
+            minRange = 4 * 8f;
 
             ammo(
                     AZItems.ferbium, AZBullets.ferbiumBullet

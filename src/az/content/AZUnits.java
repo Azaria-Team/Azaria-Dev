@@ -531,6 +531,7 @@ public class AZUnits {
             range = 15 * tilesize;
 
             engineSize = 0f;
+
             outlineColor = AZPal.aureliaOutline;
             weapons.add(
                     new Weapon("eliminator-gun") {{
