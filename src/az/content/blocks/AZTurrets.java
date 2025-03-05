@@ -161,7 +161,7 @@ public class AZTurrets {
             health = 700;
             reload = 200f;
             inaccuracy = 5f;
-            shake = 2f;
+            shake = 1f;
             shootY = -2;
             outlineColor = AZPal.aureliaOutline;
             size = 2;
@@ -215,6 +215,7 @@ public class AZTurrets {
             recoil = 2;
             inaccuracy = 2f;
             rotateSpeed = 3f;
+            shake = 3f;
             shootCone = 2f;
             //ammoPerShot = 1;
             shootSound = Sounds.shootBig;
