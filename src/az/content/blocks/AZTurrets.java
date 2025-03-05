@@ -159,7 +159,6 @@ public class AZTurrets {
             requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
             researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
             health = 700;
-            reload = 200f;
             inaccuracy = 5f;
             shake = 1f;
             shootY = -2;
@@ -169,6 +168,9 @@ public class AZTurrets {
             range = 28 * Vars.tilesize;
             shootCone = 30f;
             rotateSpeed = 3f;
+
+            maxSpeedupScl = 0.5f;
+            reload = 300f;
 
             shootSound = Sounds.shootAltLong;
             squareSprite = false;
