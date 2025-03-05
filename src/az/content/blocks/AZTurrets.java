@@ -168,7 +168,7 @@ public class AZTurrets {
             outlineColor = AZPal.aureliaOutline;
             size = 2;
             recoil = 2f;
-            range = 27 * Vars.tilesize;
+            range = 28 * Vars.tilesize;
             shootCone = 30f;
             rotateSpeed = 3f;
 
@@ -177,7 +177,6 @@ public class AZTurrets {
             ammoPerShot = 1;
             maxAmmo = 10;
             itemCapacity = 10;
-            coolantMultiplier = 2f;
             shoot.shots = 12;
             shoot.shotDelay = 3;
             velocityRnd = 0.2f;
@@ -189,29 +188,6 @@ public class AZTurrets {
 
 
             drawer = new DrawTurret("fortified-") {{
-                parts.add(
-                        new RegionPart("-edge-r") {{
-                            progress = PartProgress.warmup;
-                            mirror = false;
-                            under = false;
-                            moveRot = -8f;
-                        }},
-                        new RegionPart("-edge-l") {{
-                            progress = PartProgress.warmup;
-                            mirror = false;
-                            under = false;
-                            moveRot = 8f;
-                        }},
-                        new RegionPart("-barrel") {{
-                            progress = PartProgress.recoil;
-                            mirror = false;
-                            under = false;
-                            moveX = 0f;
-                            moveY = -1f;
-                            moveRot = 0f;
-                            x = 0;
-                            y = 0;
-                        }});
             }};
         }};
 

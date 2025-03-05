@@ -139,8 +139,8 @@ public class AZBullets {
             splashDamage = 10f;
             splashDamageRadius = 2f * 8;
             sprite = "az-vog";
+            drag = 0.005f;
             trailInterval = 0.2f;
-            drag = 0.015f;
             trailEffect = AZFx.ferbiumBulletTrail;
             hitEffect = AZFx.ferbiumBulletHit;
             despawnEffect = AZFx.ferbiumBulletExplosion;
@@ -148,10 +148,12 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 10f;
             height = 13f;
-            lifetime = 80;
+            lifetime = 76;
             collidesGround = true;
             collidesAir = true;
-            hitSize = 3;
+            hitSize = 2;
+            hitSound = Sounds.none;
+            despawnSound = Sounds.none;
 
             trailColor = AZPal.ferbiumBullet;
             backColor = AZPal.ferbiumBulletBack;
