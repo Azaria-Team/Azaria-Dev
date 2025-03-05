@@ -135,7 +135,7 @@ public class AZBullets {
             frontColor = AZPal.craside2;
         }};
 
-        ferbiumBullet = new ArtilleryBulletType(8f, 10f){{
+        ferbiumBullet = new ArtilleryBulletType(8f, 26f){{
             splashDamage = 10f;
             splashDamageRadius = 2f * 8;
             sprite = "az-vog";
@@ -157,8 +157,6 @@ public class AZBullets {
 
             weaveScale = 8f;
             weaveMag = 0.8f;
-//            weaveScale = 10f;
-//            weaveMag = 0.6f;
 
             trailColor = AZPal.ferbiumBullet;
             backColor = AZPal.ferbiumBulletBack;

@@ -169,7 +169,8 @@ public class AZTurrets {
             shootCone = 30f;
             rotateSpeed = 3f;
 
-            maxSpeedupScl = 0.5f;
+            maxSpeedupScl = 1f;
+            speedupPerShoot = 0.09f;
             reload = 300f;
 
             shootSound = Sounds.shootAltLong;
@@ -180,7 +181,7 @@ public class AZTurrets {
             shoot.shots = 12;
             shoot.shotDelay = 3;
             velocityRnd = 0.2f;
-            minRange = 4 * 8f;
+            minRange = 6 * 8f;
 
             ammo(
                     AZItems.ferbium, AZBullets.ferbiumBullet
