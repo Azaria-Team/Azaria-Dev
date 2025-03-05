@@ -51,7 +51,7 @@ public class AZTurrets {
             outlineColor = AZPal.aureliaOutline;
             size = 2;
             recoil = 2f;
-            range = 24 * Vars.tilesize;
+            range = 24 * Vars.tilesize /*nerf*/ * 0.70f;
             shootCone = 10f;
             rotateSpeed = 4f;
 

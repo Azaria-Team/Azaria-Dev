@@ -49,7 +49,7 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 8f;
             height = 12f;
-            lifetime = 34;
+            lifetime = 34 * 0.7f;
             collidesGround = true;
             collidesAir = true;
             hitSize = 3;
@@ -73,7 +73,7 @@ public class AZBullets {
             shrinkX = shrinkY = 0f;
             width = 8f;
             height = 14f;
-            lifetime = 28;
+            lifetime = 34 * 0.7f;
             collidesGround = true;
             collidesAir = true;
             hitSize = 3;
