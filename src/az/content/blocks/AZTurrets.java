@@ -159,16 +159,14 @@ public class AZTurrets {
             requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
             researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
             health = 700;
-            shootEffect = AZFx.shootForce;
-            smokeEffect = AZFx.shootSmokeForce;
             reload = 200f;
             inaccuracy = 5f;
-            shake = 2f;
+            shake = 1f;
             shootY = -2;
             outlineColor = AZPal.aureliaOutline;
             size = 2;
             recoil = 2f;
-            range = 27 * Vars.tilesize;
+            range = 28 * Vars.tilesize;
             shootCone = 30f;
             rotateSpeed = 3f;
 
@@ -177,7 +175,6 @@ public class AZTurrets {
             ammoPerShot = 1;
             maxAmmo = 10;
             itemCapacity = 10;
-            coolantMultiplier = 2f;
             shoot.shots = 12;
             shoot.shotDelay = 3;
             velocityRnd = 0.2f;
@@ -189,29 +186,6 @@ public class AZTurrets {
 
 
             drawer = new DrawTurret("fortified-") {{
-                parts.add(
-                        new RegionPart("-edge-r") {{
-                            progress = PartProgress.warmup;
-                            mirror = false;
-                            under = false;
-                            moveRot = -8f;
-                        }},
-                        new RegionPart("-edge-l") {{
-                            progress = PartProgress.warmup;
-                            mirror = false;
-                            under = false;
-                            moveRot = 8f;
-                        }},
-                        new RegionPart("-barrel") {{
-                            progress = PartProgress.recoil;
-                            mirror = false;
-                            under = false;
-                            moveX = 0f;
-                            moveY = -1f;
-                            moveRot = 0f;
-                            x = 0;
-                            y = 0;
-                        }});
             }};
         }};
 
@@ -241,6 +215,7 @@ public class AZTurrets {
             recoil = 2;
             inaccuracy = 2f;
             rotateSpeed = 3f;
+            shake = 3f;
             shootCone = 2f;
             //ammoPerShot = 1;
             shootSound = Sounds.shootBig;
