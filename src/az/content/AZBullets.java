@@ -153,6 +153,11 @@ public class AZBullets {
             collidesAir = true;
             hitSize = 3;
 
+            weaveScale = 8f;
+            weaveMag = 0.8f;
+//            weaveScale = 10f;
+//            weaveMag = 0.6f;
+
             trailColor = AZPal.ferbiumBullet;
             backColor = AZPal.ferbiumBulletBack;
             frontColor = AZPal.ferbiumBullet;
