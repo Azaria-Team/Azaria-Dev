@@ -157,6 +157,7 @@ public class AZBullets {
             collidesGround = true;
             collidesAir = true;
             hitSize = 2;
+            shootEffect = Fx.shootSmall;
             hitSound = Sounds.none;
             despawnSound = Sounds.none;
 
