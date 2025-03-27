@@ -1,24 +1,29 @@
 package az.content;
 
 import arc.graphics.Color;
+import arc.graphics.g2d.Lines;
 import arc.math.Interp;
+import arc.math.Mathf;
+import arc.math.geom.Vec2;
 import az.entities.bullets.AcceleratingLaserBulletType;
 import az.entities.bullets.AntiMissileBulletType;
 import az.graphics.AZPal;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
-import mindustry.entities.bullet.ArtilleryBulletType;
-import mindustry.entities.bullet.BasicBulletType;
-import mindustry.entities.bullet.BulletType;
-import mindustry.entities.bullet.ShrapnelBulletType;
+import mindustry.entities.Effect;
+import mindustry.entities.bullet.*;
 import mindustry.gen.Sounds;
+import mindustry.graphics.Drawf;
 import mindustry.graphics.Pal;
 import mindustry.type.StatusEffect;
 
+import static arc.graphics.g2d.Draw.color;
+import static arc.graphics.g2d.Lines.stroke;
+
 public class AZBullets {
     public static BulletType
-            noneBullet, forceBullet, forceFerbiumBullet, hornBullet, antiMissileBullet, shrapnelBullet, ferbiumBullet, razeBullet, laserTest;
+            noneBullet, forceBullet, forceFerbiumBullet, hornBullet, antiMissileBullet, shrapnelBullet, ferbiumBullet, razeBullet, tideLaser;
 
     public static void load() {
 
@@ -91,7 +96,7 @@ public class AZBullets {
             fragBullets = 5;
             ammoMultiplier = 3f;
             fragBullet = new BasicBulletType(2f, 10) {{
-               // sprite = "bullet";
+                // sprite = "bullet";
                 backColor = AZPal.ferbiumBulletBack;
                 frontColor = AZPal.ferbiumBullet;
                 width = 3f;
@@ -127,10 +132,10 @@ public class AZBullets {
             trailWidth = 2;
             trailColor = AZPal.craside2;
             status = new StatusEffect("") {{
-                    disarm = true;
-                    speedMultiplier = 0.0f;
-                    statusDuration = 55f;
-                }};
+                disarm = true;
+                speedMultiplier = 0.0f;
+                statusDuration = 55f;
+            }};
             backColor = AZPal.craside;
             frontColor = AZPal.craside2;
         }};
@@ -216,15 +221,52 @@ public class AZBullets {
             splashDamageRadius = 25f;
         }};
 
-        laserTest = new AcceleratingLaserBulletType(20f){{
-            lifetime = 40f;
-            maxLength = 170f;
-            maxRange = 180f;
-            oscOffset = 0.3f;
-            width = 7f;
-            collisionWidth = 9f;
-            colors = new Color[]{Pal.heal.cpy().a(0.4f), AZPal.aurionaCloud, Color.white};
-            pierceCap = 3;
+        tideLaser = new RailBulletType(){{
+            length = 200f;
+            damage = 100f;
+            hitColor = Color.valueOf("aaffe6");
+            hitEffect = endEffect = Fx.hitBulletColor;
+            pierceDamageFactor = 0.9f;
+
+            smokeEffect = Fx.colorSpark;
+
+            endEffect = new Effect(14f, e -> {
+                color(e.color);
+                Drawf.tri(e.x, e.y, e.fout() * 2.5f, 7f, e.rotation);
+            });
+
+            shootEffect = new Effect(20, e -> {
+                color(e.color);
+                float w = 1.2f + 7 * e.fout();
+
+                Drawf.tri(e.x, e.y, w, 30f * e.fout(), e.rotation);
+                color(e.color);
+
+                for (int i : Mathf.signs) {
+                    Drawf.tri(e.x, e.y, w * 2f, 10f * e.fout(), e.rotation + i * 90f);
+                }
+
+                Drawf.tri(e.x, e.y, w, 6f * e.fout(), e.rotation + 180f);
+            });
+
+            lineEffect = new Effect(30f, e -> {
+                if (!(e.data instanceof Vec2 v)) return;
+
+                color(e.color);
+                stroke(e.fout() * 0.9f + 1.1f);
+
+                Fx.rand.setSeed(e.id);
+                for (int i = 0; i < 7; i++) {
+                    Fx.v.trns(e.rotation, Fx.rand.random(8f, v.dst(e.x, e.y) - 8f));
+                    Lines.lineAngleCenter(e.x + Fx.v.x, e.y + Fx.v.y, e.rotation + e.finpow(), e.foutpowdown() * 20f * Fx.rand.random(0.5f, 1f) + 0.3f);
+                }
+
+                e.scaled(24f, b -> {
+                    stroke(b.fout() * 2.5f);
+                    color(e.color);
+                    Lines.line(e.x, e.y, v.x, v.y);
+                });
+            });
         }};
         shrapnelBullet = new ShrapnelBulletType(){{
             damage = 1f;

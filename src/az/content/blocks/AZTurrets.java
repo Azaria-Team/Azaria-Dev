@@ -31,7 +31,7 @@ import mindustry.world.draw.DrawTurret;
 import static mindustry.type.ItemStack.with;
 
 public class AZTurrets {
-    
+
     public static Block
             forceTurret, hornTurret, testTurret, tideTurret,
             razeTurret,
@@ -236,7 +236,7 @@ public class AZTurrets {
                     progress = PartProgress.warmup;
                     moveX = -0.6f;
                     moveRot = 15f;
-                        }});
+                }});
             /*    parts.add(new RegionPart("-radar") {{
                     layerOffset = 0.001f;
                     moveRot = 360;
@@ -272,58 +272,51 @@ public class AZTurrets {
         //todo change craft
         tideTurret = new PowerTurret("tide") {{
             requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
-            researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
-            health = 700;
-            shootEffect = AZFx.shootForce;
-            smokeEffect = AZFx.shootSmokeForce;
             reload = 50f;
-            inaccuracy = 25f;
+            inaccuracy = 4f;
             shake = 2f;
             shootY = -2;
             outlineColor = AZPal.aureliaOutline;
             size = 2;
-            recoil = 2f;
-            range = 24 * Vars.tilesize;
-            shootCone = 30f;
-            rotateSpeed = 4f;
-            shoot.shots = 3;
-            shoot.shotDelay = 7;
+            recoil = 2.5f;
+            range = 28 * Vars.tilesize;
+            shootCone = 10f;
+            rotateSpeed = 3f;
+            shoot.shots = 2;
+            shoot.shotDelay = 10;
             consumePower(1f);
 
-            shootSound = Sounds.laser;
+            shootSound = Sounds.bolt;
             squareSprite = false;
-            ammoPerShot = 1;
-            maxAmmo = 10;
-            itemCapacity = 10;
             coolantMultiplier = 2f;
 
-            shootType = AZBullets.laserTest;
+            shootType = AZBullets.tideLaser;
         }};
 
-                //region h-tur
-                complexShell = new AirDefenceTurret("complex-shell") {{
-                    size = 3;
-                    requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
-                    health = 700;
-                    shootEffect = AZFx.shootForce;
-                    smokeEffect = AZFx.shootSmokeForce;
-                    reload = 70f;
-                    inaccuracy = 2f;
-                    shake = 2f;
-                    shootY = -2;
-                    outlineColor = AZPal.aureliaOutline;
-                    recoil = 2f;
-                    range = 24 * Vars.tilesize;
-                    shootCone = 10f;
-                    rotateSpeed = 3f;
+        //region h-tur
+        complexShell = new AirDefenceTurret("complex-shell") {{
+            size = 3;
+            requirements(Category.turret, with(AZItems.superdenseAlloy, 300));
+            health = 700;
+            shootEffect = AZFx.shootForce;
+            smokeEffect = AZFx.shootSmokeForce;
+            reload = 70f;
+            inaccuracy = 2f;
+            shake = 2f;
+            shootY = -2;
+            outlineColor = AZPal.aureliaOutline;
+            recoil = 2f;
+            range = 24 * Vars.tilesize;
+            shootCone = 10f;
+            rotateSpeed = 3f;
 
-                    shootSound = Sounds.cannon;
-                    squareSprite = false;
-                    itemCapacity = 20;
-                    coolantMultiplier = 2f;
-                    consumePower(1f);
-                    ammo(AZItems.superdenseAlloy, AZBullets.antiMissileBullet);
-                }};
+            shootSound = Sounds.cannon;
+            squareSprite = false;
+            itemCapacity = 20;
+            coolantMultiplier = 2f;
+            consumePower(1f);
+            ammo(AZItems.superdenseAlloy, AZBullets.antiMissileBullet);
+        }};
 /*
                 complexAvalon = new PowerTurret("complex-avalon") {{
                     size = 3;
@@ -331,7 +324,7 @@ public class AZTurrets {
                 }};
 
  */
-                //endregion h-tur
+        //endregion h-tur
 
-        }
     }
+}
