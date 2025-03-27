@@ -222,7 +222,7 @@ public class AZBullets {
         }};
 
         tideLaser = new RailBulletType(){{
-            length = 230f;
+            length = 210f;
             damage = 100f;
             hitColor = Color.valueOf("aaffe6");
             hitEffect = endEffect = Fx.hitBulletColor;

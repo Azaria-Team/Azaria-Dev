@@ -190,6 +190,41 @@ public class AZTurrets {
             drawer = new DrawTurret("fortified-") {{
             }};
         }};
+        //todo change craft
+        tideTurret = new PowerTurret("tide") {{
+            requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
+            reload = 50f;
+            inaccuracy = 4f;
+            shake = 1f;
+            shootY = 1;
+            outlineColor = AZPal.aureliaOutline;
+            size = 2;
+            recoil = 2f;
+            range = 23 * Vars.tilesize;
+            shootCone = 10f;
+            rotateSpeed = 3f;
+            shoot.shots = 2;
+            shoot.shotDelay = 10;
+            consumePower(1f);
+
+            shootSound = Sounds.bolt;
+            squareSprite = false;
+            coolantMultiplier = 2f;
+
+            shootType = AZBullets.tideLaser;
+            drawer = new DrawTurret("fortified-"){{
+                parts.add(
+                        new RegionPart("-spike") {{
+                            progress = PartProgress.warmup;
+                            mirror = false;
+                            under = true;
+                            moveX = 0f;
+                            moveY = 1f;
+                            recoil = 2;
+                            moveRot = 0f;
+                        }});
+            }};
+        }};
 
         razeTurret = new ItemTurret("raze") {{
             requirements(Category.turret, with(AZItems.fors, 230, AZItems.arside, 130, AZItems.superdenseAlloy, 70, AZItems.ferbium, 20));
@@ -265,42 +300,6 @@ public class AZTurrets {
 //                        layerOffset = 0.001f;
 //                    }};
                 //
-            }};
-        }};
-
-        //todo change craft
-        tideTurret = new PowerTurret("tide") {{
-            requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
-            reload = 50f;
-            inaccuracy = 4f;
-            shake = 1f;
-            shootY = 1;
-            outlineColor = AZPal.aureliaOutline;
-            size = 2;
-            recoil = 2f;
-            range = 26 * Vars.tilesize;
-            shootCone = 10f;
-            rotateSpeed = 3f;
-            shoot.shots = 2;
-            shoot.shotDelay = 10;
-            consumePower(1f);
-
-            shootSound = Sounds.bolt;
-            squareSprite = false;
-            coolantMultiplier = 2f;
-
-            shootType = AZBullets.tideLaser;
-            drawer = new DrawTurret("fortified-"){{
-                parts.add(
-                        new RegionPart("-spike") {{
-                            progress = PartProgress.warmup;
-                            mirror = false;
-                            under = true;
-                            moveX = 0f;
-                            moveY = 1f;
-                            recoil = 2;
-                            moveRot = 0f;
-                        }});
             }};
         }};
 
