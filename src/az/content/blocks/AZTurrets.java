@@ -271,7 +271,7 @@ public class AZTurrets {
         //todo change craft
         tideTurret = new PowerTurret("tide") {{
             requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
-            reload = 200f;
+            reload = 50f;
             inaccuracy = 4f;
             shake = 1f;
             shootY = 1;
