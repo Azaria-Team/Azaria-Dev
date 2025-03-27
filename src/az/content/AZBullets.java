@@ -166,7 +166,6 @@ public class AZBullets {
             trailColor = AZPal.ferbiumBullet;
             backColor = AZPal.ferbiumBulletBack;
             frontColor = AZPal.ferbiumBullet;
-
         }};
 
 

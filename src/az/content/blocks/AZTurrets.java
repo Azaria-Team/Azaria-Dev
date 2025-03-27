@@ -157,8 +157,6 @@ public class AZTurrets {
 
         testTurret = new SpeedUpItemTurret("zxc") {{
             requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
-            researchCost = with(AZItems.fors, 150, AZItems.lepera, 70);
-            health = 700;
             inaccuracy = 5f;
             shake = 1f;
             shootY = -2;
@@ -168,6 +166,7 @@ public class AZTurrets {
             range = 28 * Vars.tilesize;
             shootCone = 30f;
             rotateSpeed = 3f;
+
 
             maxSpeedupScl = 1f;
             speedupPerShoot = 0.09f;
@@ -272,13 +271,13 @@ public class AZTurrets {
         //todo change craft
         tideTurret = new PowerTurret("tide") {{
             requirements(Category.turret, with(AZItems.fors, 70, AZItems.lepera, 25));
-            reload = 50f;
+            reload = 200f;
             inaccuracy = 4f;
-            shake = 2f;
-            shootY = -2;
+            shake = 1f;
+            shootY = 1;
             outlineColor = AZPal.aureliaOutline;
             size = 2;
-            recoil = 2.5f;
+            recoil = 2f;
             range = 26 * Vars.tilesize;
             shootCone = 10f;
             rotateSpeed = 3f;
@@ -291,6 +290,18 @@ public class AZTurrets {
             coolantMultiplier = 2f;
 
             shootType = AZBullets.tideLaser;
+            drawer = new DrawTurret("fortified-"){{
+                parts.add(
+                        new RegionPart("-spike") {{
+                            progress = PartProgress.warmup;
+                            mirror = false;
+                            under = true;
+                            moveX = 0f;
+                            moveY = 1f;
+                            recoil = 2;
+                            moveRot = 0f;
+                        }});
+            }};
         }};
 
         //region h-tur
